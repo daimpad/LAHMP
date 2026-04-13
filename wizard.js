@@ -51,16 +51,17 @@ const PRESCREEN_ANSWERS = [
 ];
 
 const THEME_TO_CHAIN = {
-  'Soil Management':                             'Soil recovery and biological function chain',
-  'Crop Diversity and Rotation':                 'Crop system diversity and soil health chain',
-  'Pest, Disease, and Weed Management':          'Natural regulation and IPM chain',
-  'Water Management':                            'Water quality and hydrology chain',
-  'Livestock Management':                        'Grazing management and pasture recovery chain',
-  'Trees, Agroforestry, and Landscape Structure':'Woody cover and landscape connectivity chain',
-  'Habitat and Biodiversity Management':         'Above-ground habitat recovery chain',
-  'Nutrient and Waste Management':               'Nutrient cycling and soil chemistry chain',
-  'Restoration and Rehabilitation':              'Land restoration chain',
-  'Holistic and Systems Approaches':             null,
+  'Soil Management':                        'Soil recovery and biological function chain',
+  'Crop System Diversification':            'Crop system diversity and soil health chain',
+  'Integrated Pest and Disease Management': 'Natural regulation and IPM chain',
+  'Water Management':                       'Water quality and hydrology chain',
+  'Livestock and Pasture Management':       'Grazing management and pasture recovery chain',
+  'Agroforestry and Tree Integration':      'Woody cover and landscape connectivity chain',
+  'Habitat and Landscape Management':       'Above-ground habitat recovery chain',
+  'Nutrient Cycling and Resource Efficiency':'Nutrient cycling and soil chemistry chain',
+  'Carbon and Land Restoration':            'Land restoration chain',
+  'Agrobiodiversity':                       'Agrobiodiversity and genetic resource chain',
+  'System-Level':                           null,
 };
 
 const MONTHS = ['January','February','March','April','May','June',
