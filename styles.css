@@ -433,6 +433,7 @@ textarea { resize: vertical; min-height: 80px; }
 
 .text-muted { color: var(--grey-500); font-size: .78rem; }
 .trim-reason { font-size: .8rem; color: var(--grey-600); max-width: 340px; }
+.stage-cell  { font-size: .78rem; color: var(--grey-600); white-space: nowrap; }
 
 /* ── Pre-screen ──────────────────────────────────────────────────────── */
 .prescreen-question { margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--grey-200); }

@@ -336,6 +336,94 @@ function assignProtocol(group, cap) {
   };
 }
 
+// ── Operation 5 — Monitoring calendar ─────────────────────────────────────
+
+// Seasonal preference windows (month indices, 0-based)
+const SPRING_IDX  = [2,3,4,5];   // March–June
+const AUTUMN_IDX  = [7,8,9,10];  // August–November
+const WINTER_IDX  = [11,0,1];    // December–February
+const ALL_IDX     = Array.from({length:12},(_,i)=>i);
+
+function stageSpeed(monitoringStage) {
+  const s = (monitoringStage || '').toLowerCase();
+  if (s.startsWith('fast')) return 'fast';
+  if (s.startsWith('medium')) return 'medium';
+  if (s.startsWith('slow')) return 'slow';
+  return 'medium';
+}
+
+function buildMonitoringCalendar(groups, accessCalendar) {
+  // Build accessible month index set
+  const accessByIdx = {};
+  MONTHS.forEach((m, i) => {
+    const entry = accessCalendar.find(e => e.month === m);
+    accessByIdx[i] = entry ? entry.access : 'accessible';
+  });
+
+  const accessibleIdx = Object.entries(accessByIdx).filter(([,v]) => v === 'accessible').map(([k]) => parseInt(k));
+  const constrainedIdx = Object.entries(accessByIdx).filter(([,v]) => v === 'constrained').map(([k]) => parseInt(k));
+
+  function pickWindow(preferredIdx, fallbackIdx) {
+    const hits = preferredIdx.filter(i => accessibleIdx.includes(i));
+    if (hits.length) return hits;
+    return fallbackIdx.filter(i => accessibleIdx.includes(i));
+  }
+
+  function idxToRange(indices) {
+    if (!indices.length) return null;
+    // Compact consecutive months into ranges
+    const names = indices.sort((a,b)=>a-b).map(i => MONTHS[i].slice(0,3));
+    if (names.length === 1) return names[0];
+    // Try to express as a range if consecutive
+    const sorted = indices.sort((a,b)=>a-b);
+    if (sorted[sorted.length-1] - sorted[0] === sorted.length - 1) {
+      return `${MONTHS[sorted[0]].slice(0,3)}–${MONTHS[sorted[sorted.length-1]].slice(0,3)}`;
+    }
+    return names.join(', ');
+  }
+
+  return groups.map(g => {
+    const speed = stageSpeed(g.monitoring_stage);
+    let windows = [];
+
+    if (accessibleIdx.length === 0) {
+      // No accessible months at all
+      windows = ['No accessible months specified — define in Step 3'];
+    } else if (speed === 'fast') {
+      // Two windows per year: spring + autumn
+      const sp = pickWindow(SPRING_IDX, WINTER_IDX);
+      const au = pickWindow(AUTUMN_IDX, SPRING_IDX);
+      const spRange = idxToRange(sp);
+      const auRange = idxToRange(au);
+      if (spRange && auRange && spRange !== auRange) windows = [spRange, auRange];
+      else if (spRange) windows = [spRange];
+      else windows = [auRange || 'Any accessible month'];
+    } else if (speed === 'medium') {
+      // One window per year, prefer spring
+      const sp = pickWindow(SPRING_IDX, [...AUTUMN_IDX, ...WINTER_IDX]);
+      windows = [idxToRange(sp) || 'Any accessible month'];
+    } else {
+      // Slow — once every few years, best accessible window
+      const best = pickWindow([...SPRING_IDX, ...AUTUMN_IDX], ALL_IDX);
+      windows = [idxToRange(best) || 'Any accessible month'];
+    }
+
+    const constrainedNames = constrainedIdx.map(i => MONTHS[i].slice(0,3));
+    const caveat = constrainedNames.length
+      ? ` (avoid: ${constrainedNames.join(', ')})`
+      : '';
+
+    return {
+      profile_name: g.profile_name,
+      category: g.category,
+      monitoring_stage: g.monitoring_stage || '—',
+      response_timescale: g.response_timescale || '—',
+      suggested_window: windows.join(' and ') + caveat,
+      frequency: speed === 'fast' ? 'Annual (×2)' : speed === 'medium' ? 'Annual' : 'Every 2–5 years',
+    };
+  });
+}
+
 // ── Operation 4 — Capacity fitting ─────────────────────────────────────────
 
 // Estimated field days per indicator per site at each protocol level
@@ -419,10 +507,8 @@ function runStep4Algorithm() {
   // Op 4 – Capacity fitting
   const { kept: protocol_assignments, trimmed: trimmed_groups } = capacityFit(withProtocols, cap, step2, step1);
 
-  // Op 5 – Calendar (simplified — seasonal window data not yet in indicators.json)
-  const calendar = protocol_assignments.map(g => ({
-    profile_name: g.profile_name, season: 'Specify based on local conditions',
-  }));
+  // Op 5 – Calendar (uses Step 3 access calendar to suggest monitoring windows)
+  const calendar = buildMonitoringCalendar(protocol_assignments, step3.access_calendar || []);
 
   // Narrative
   const ongoingPressures = (step1.pressures || [])
@@ -1433,12 +1519,13 @@ function buildStep4HTML() {
     ${out.protocol_assignments.length ? `
     <table class="output-table">
       <thead><tr>
-        <th>Indicator Group</th><th>Category</th><th>Level</th><th>Protocol</th><th>Output Metric</th><th>Rationale</th>
+        <th>Indicator Group</th><th>Category</th><th>Stage</th><th>Level</th><th>Protocol</th><th>Output Metric</th><th>Rationale</th>
       </tr></thead>
       <tbody>
         ${out.protocol_assignments.map(g => `<tr>
           <td><strong>${esc(g.profile_name)}</strong></td>
           <td>${esc(g.category)}</td>
+          <td class="stage-cell">${esc((g.monitoring_stage||'').split(' ')[0])}</td>
           <td><span class="level-badge level-${g.assigned_level}">L${g.assigned_level}</span></td>
           <td>${esc(g.assigned_protocol || 'TBC')}</td>
           <td class="metric-cell">${esc(g.assigned_metric || '—')}</td>
@@ -1472,11 +1559,17 @@ function buildStep4HTML() {
   // Calendar
   const calHtml = `<div class="output-section">
     <h2 class="section-title">Monitoring Calendar</h2>
-    <p class="block-desc">Seasonal timing for each indicator group. Specify exact dates based on local phenology and field access conditions.</p>
+    <p class="block-desc">Suggested monitoring windows derived from your Step 3 seasonal access calendar. Adjust timing to match local phenology (e.g. crop growth stages, breeding seasons).</p>
     <table class="output-table">
-      <thead><tr><th>Indicator Group</th><th>Recommended Season</th></tr></thead>
+      <thead><tr><th>Indicator Group</th><th>Category</th><th>Stage</th><th>Frequency</th><th>Suggested Window</th></tr></thead>
       <tbody>
-        ${out.calendar.map(c => `<tr><td>${esc(c.profile_name)}</td><td>${esc(c.season)}</td></tr>`).join('') || '<tr><td colspan="2" class="empty-row">—</td></tr>'}
+        ${out.calendar.map(c => `<tr>
+          <td><strong>${esc(c.profile_name)}</strong></td>
+          <td>${esc(c.category || '—')}</td>
+          <td class="stage-cell">${esc((c.monitoring_stage||'—').split(' ')[0])}</td>
+          <td>${esc(c.frequency || '—')}</td>
+          <td>${esc(c.suggested_window || '—')}</td>
+        </tr>`).join('') || '<tr><td colspan="5" class="empty-row">—</td></tr>'}
       </tbody>
     </table>
   </div>`;
