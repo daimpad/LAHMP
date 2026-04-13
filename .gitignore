@@ -1,6 +1,5 @@
-# Excel source files (large binaries — kept locally, not in repo)
-*.xlsx
-*.xls
+# DOCX download cache (extract_indicators.py uses indicators/ source dir first)
+indicators_dl/
 
 # Export inspection scratch files
 export/inspect_*.txt

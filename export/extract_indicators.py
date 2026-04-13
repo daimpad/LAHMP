@@ -1,19 +1,26 @@
 #!/usr/bin/env python3
 """
 Extract indicator profile data from LAHMP DOCX files and write to data/indicators.json.
-Downloads all 41 profile DOCX files from GitHub if not already present locally.
+
+File resolution order for each profile DOCX:
+  1. indicators/  — tracked source files in the repository (normal case)
+  2. indicators_dl/ — local download cache (gitignored)
+  3. GitHub raw URL — downloaded on demand, cached to indicators_dl/
 """
 
 import sys, io, os, json, re, urllib.request, time
+from pathlib import Path
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
 
 import docx as python_docx
 
 # --- Configuration ---
+_REPO = Path(__file__).resolve().parent.parent
 GITHUB_RAW_BASE = "https://raw.githubusercontent.com/daimpad/LAHMP/main/indicators/"
-DOWNLOAD_DIR = "C:/Users/Damisn Paderta/lahmp/indicators_dl"
-OUTPUT_PATH = "C:/Users/Damisn Paderta/lahmp/data/indicators.json"
+SOURCE_DIR   = _REPO / "indicators"       # tracked DOCX source files (checked first)
+DOWNLOAD_DIR = str(_REPO / "indicators_dl")  # local download cache (fallback)
+OUTPUT_PATH  = str(_REPO / "data" / "indicators.json")
 
 # All 41 profile filenames
 PROFILE_FILES = [
@@ -63,24 +70,38 @@ PROFILE_FILES = [
 os.makedirs(DOWNLOAD_DIR, exist_ok=True)
 
 
-def download_file(num, name):
+def resolve_file(num, name):
+    """Return a local path to the DOCX file.
+
+    Resolution order:
+    1. indicators/  — tracked source files committed to the repository
+    2. indicators_dl/ — local download cache
+    3. GitHub raw URL — downloaded on demand, cached to indicators_dl/
+    """
     filename = f"LAHMP_Profile_{num}_{name}.docx"
-    local_path = os.path.join(DOWNLOAD_DIR, filename)
-    if os.path.exists(local_path):
+    # 1. Local tracked source directory
+    source_path = SOURCE_DIR / filename
+    if source_path.exists():
+        print(f"  [local] {filename}")
+        return str(source_path)
+    # 2. Download cache
+    cached_path = os.path.join(DOWNLOAD_DIR, filename)
+    if os.path.exists(cached_path):
         print(f"  [cached] {filename}")
-        return local_path
+        return cached_path
+    # 3. Download from GitHub
     url = GITHUB_RAW_BASE + filename
     print(f"  [download] {filename}")
     req = urllib.request.Request(url, headers={"User-Agent": "Python-LAHMP-Extractor"})
     try:
         with urllib.request.urlopen(req, timeout=30) as r:
-            with open(local_path, "wb") as f:
+            with open(cached_path, "wb") as f:
                 f.write(r.read())
         time.sleep(0.3)  # polite rate limit
     except Exception as e:
         print(f"  [ERROR] Could not download {filename}: {e}")
         return None
-    return local_path
+    return cached_path
 
 
 def cell_text(cell):
@@ -401,7 +422,7 @@ def run():
     print("Step 1: Downloading DOCX files...")
     paths = {}
     for num, name in PROFILE_FILES:
-        path = download_file(num, name)
+        path = resolve_file(num, name)
         if path:
             paths[int(num)] = path
 
