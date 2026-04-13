@@ -823,10 +823,10 @@ textarea { resize: vertical; min-height: 80px; }
   flex-wrap: wrap;
   gap: 5px;
   padding: 6px 8px;
-  border: 1.5px solid var(--border);
+  border: 1.5px solid var(--grey-300);
   border-bottom: none;
   border-radius: 6px 6px 0 0;
-  background: var(--surface);
+  background: var(--grey-100);
   min-height: 38px;
 }
 /* Hidden when no tags selected — toggled via JS .has-tags class */
@@ -843,7 +843,7 @@ textarea { resize: vertical; min-height: 80px; }
   align-items: center;
   gap: 5px;
   padding: 3px 10px 3px 12px;
-  background: var(--iucn-navy);
+  background: var(--navy);
   color: #fff;
   border-radius: 99px;
   font-size: .78rem;
@@ -866,17 +866,17 @@ textarea { resize: vertical; min-height: 80px; }
 .tp-input {
   width: 100%;
   padding: 9px 12px;
-  border: 1.5px solid var(--border);
+  border: 1.5px solid var(--grey-300);
   border-radius: 0 0 6px 6px;
   font: inherit;
   font-size: .88rem;
-  background: var(--surface);
-  color: var(--text);
+  background: #fff;
+  color: var(--grey-900);
   outline: none;
   box-sizing: border-box;
   transition: border-color .15s;
 }
-.tp-input:focus { border-color: var(--iucn-navy); background: #fff; }
+.tp-input:focus { border-color: var(--navy); background: #fff; }
 
 .tp-dropdown {
   position: fixed;
@@ -904,11 +904,11 @@ textarea { resize: vertical; min-height: 80px; }
 .tp-item:hover,
 .tp-item:focus { background: #eef3fb; }
 
-.tp-label { font-size: .86rem; font-weight: 500; color: var(--text); }
-.tp-label strong { color: var(--iucn-navy); font-weight: 700; background: none; }
-.tp-sublabel { font-size: .73rem; color: var(--text-muted); font-style: italic; }
+.tp-label { font-size: .86rem; font-weight: 500; color: var(--grey-900); }
+.tp-label strong { color: var(--navy); font-weight: 700; background: none; }
+.tp-sublabel { font-size: .73rem; color: var(--grey-500); font-style: italic; }
 .tp-empty,
-.tp-hint { padding: 10px 14px; font-size: .82rem; color: var(--text-muted); font-style: italic; list-style: none; }
+.tp-hint { padding: 10px 14px; font-size: .82rem; color: var(--grey-500); font-style: italic; list-style: none; }
 
 /* ── Livestock checkbox grid ─────────────────────────────────────────── */
 .mt-8 { margin-top: 8px; }
