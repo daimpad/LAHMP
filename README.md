@@ -231,22 +231,30 @@ See `CLAUDE.md` for the complete field-level schema.
 
 ```
 lahmp/
-├── index.html                    ← Presentation shell — structural HTML only
-├── wizard.js                     ← All state management and algorithm logic (~2 200 lines)
-├── styles.css                    ← IUCN brand styling (~1 000 lines)
+├── index.html                      ← Presentation shell — structural HTML only
+├── wizard.js                       ← All state management and algorithm logic (~2 200 lines)
+├── styles.css                      ← IUCN brand styling (~1 000 lines)
 ├── data/
-│   ├── reference.json
-│   ├── practices.json
-│   ├── indicators.json
-│   ├── abiotic.json
+│   ├── reference.json              ← Pressures, challenges, services, mapping tables
+│   ├── practices.json              ← 43 practice profiles
+│   ├── indicators.json             ← 41 biological indicator profiles
+│   ├── abiotic.json                ← 16 abiotic baseline indicators
 │   └── test_fixtures/
-│       ├── TEST-01.json          ← Skoura M'Daz, Morocco
-│       ├── TEST-02.json          ← PK-17, Mauritania
-│       └── TEST-03.json          ← Vietnam VSA
+│       ├── TEST-01.json            ← Skoura M'Daz, Morocco (T7.2)
+│       ├── TEST-02.json            ← PK-17, Mauritania (T7.5)
+│       └── TEST-03.json            ← Vietnam VSA (T7.1 + F3.3)
+├── indicators/                     ← DOCX source files for all 41 indicator profiles
+│   ├── LAHMP_Indicator_Profile_Template.docx
+│   └── LAHMP_Profile_01_Soil_Bacteria.docx  … (41 files)
+├── raw/                            ← Canonical Excel and CSV source data
+│   ├── LAHMP_Practice_Matrix.xlsx
+│   ├── LAHMP_Indicator_Linkage_Matrix_Populated.xlsx
+│   ├── LAHMP_Abiotic_Reference_Table.xlsx
+│   └── IUCN - LHMT - *.csv        … (7 files)
 ├── export/
-│   ├── convert.py                ← Excel → JSON export script
-│   └── extract_indicators.py     ← DOCX → indicators.json extraction script
-├── CLAUDE.md                     ← Canonical developer specification
+│   ├── convert.py                  ← raw/*.xlsx → data/*.json
+│   └── extract_indicators.py       ← indicators/*.docx → data/indicators.json
+├── CLAUDE.md                       ← Canonical developer specification
 └── LICENSE
 ```
 
@@ -296,17 +304,18 @@ Event wiring, navigation, localStorage persistence
 
 ### Updating the knowledge bases
 
-The Excel workbooks are the canonical source of truth. Always edit the Excel file, then re-export to JSON. Never edit the JSON files directly.
+The files in `raw/` are the canonical source of truth. Always edit the source file first, then re-export to JSON. Never edit the JSON files in `data/` directly.
 
 ```bash
-# Re-export practices.json, abiotic.json, reference.json from Excel
+# Re-export practices.json, abiotic.json, reference.json from raw/*.xlsx
 cd export/
-pip install pandas openpyxl
+pip install pandas openpyxl python-docx
 python3 convert.py
 
-# Re-extract all 41 indicator profiles from DOCX source files
+# Re-extract all 41 indicator profiles from indicators/*.docx
 python3 extract_indicators.py
-# Downloads DOCX files from GitHub, caches to indicators_dl/, writes data/indicators.json
+# Reads from indicators/ (tracked), falls back to indicators_dl/ cache,
+# downloads from GitHub only if neither exists. Writes data/indicators.json
 ```
 
 ---

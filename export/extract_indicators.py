@@ -67,9 +67,6 @@ PROFILE_FILES = [
     ("41", "Crop_Pest_Invertebrates"),
 ]
 
-os.makedirs(DOWNLOAD_DIR, exist_ok=True)
-
-
 def resolve_file(num, name):
     """Return a local path to the DOCX file.
 
@@ -89,7 +86,8 @@ def resolve_file(num, name):
     if os.path.exists(cached_path):
         print(f"  [cached] {filename}")
         return cached_path
-    # 3. Download from GitHub
+    # 3. Download from GitHub — create cache dir on first use
+    os.makedirs(DOWNLOAD_DIR, exist_ok=True)
     url = GITHUB_RAW_BASE + filename
     print(f"  [download] {filename}")
     req = urllib.request.Request(url, headers={"User-Agent": "Python-LAHMP-Extractor"})
