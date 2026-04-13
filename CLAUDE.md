@@ -16,7 +16,13 @@ The full production platform (LAHMP v1) is specified in a separate document set 
 2. A **demonstration tool** — shareable with Simon (IUCN project lead), Mercedes (biodiversity expert), and funders via a simple URL
 3. A **development testbed** — contributors can verify JSON data structure correctness against algorithm output
 
-Live URL: `https://DaimPad.github.io/lahmp`
+Live URL: `https://daimpad.github.io/LAHMP`
+
+Test fixtures (load pre-filled assessment):
+- `?fixture=TEST-01` — Skoura M'Daz, Morocco (T7.2)
+- `?fixture=TEST-02` — PK-17, Mauritania (T7.5)
+- `?fixture=TEST-03` — Vietnam VSA (T7.1 + F3.3)
+- Add `&step=4` to jump directly to monitoring plan output
 
 ---
 
@@ -893,10 +899,12 @@ All three Excel workbooks are the canonical source of truth. Always edit the Exc
 | IPCC land use in prototype | Manual multi-select — no ABC Map API | Confirmed for prototype |
 | PDF output | `window.print()` with print CSS — no Puppeteer | Confirmed for prototype |
 | Session persistence | `localStorage` for UX convenience (resume wizard after page reload) | Acceptable — not a data store |
-| Indicator profiles populated | Earthworms (Profile 06) and Grassland (Profile F03 / Profile 28) are fully populated. 39 profiles pending. | Ongoing — profiles added as IUCN team authors them |
+| Indicator profiles populated | All 41 profiles in `indicators.json` are populated (exported from `_Populated.xlsx`). | Complete |
 | Scoring algorithm tie-breaking | Alphabetical by group name | Confirmed (per Step 4 spec) |
 | Equipment cross-reference | Equipment requirements per group/level are in indicator profiles — not yet extracted to `indicators.json`. Prototype skips equipment override. | Open — add when profile data available |
-| Seasonal windows | Not yet in `indicators.json`. Prototype shows "Specify based on local conditions." | Open — add when profile data available |
+| Seasonal windows | Monitoring calendar uses Step 3 access calendar to suggest windows based on indicator monitoring_stage (Fast/Medium/Slow). Exact phenological windows not yet in `indicators.json`. | Partially implemented |
+| Test fixtures | TEST-01 Skoura M'Daz (Morocco, T7.2), TEST-02 PK-17 (Mauritania, T7.5), TEST-03 Vietnam VSA (T7.1+F3.3) in `data/test_fixtures/`. Load via `?fixture=TEST-01` or `?fixture=TEST-01&step=4` | Complete |
+| Op 4 capacity fitting | Implemented: `priorityScore()` ranks by B2 linkage (3pts), challenge (2pts), service (1pt), Universal tier (+2), Fast stage (+1). Trims lowest-priority groups when days required exceed capacity. | Complete |
 
 
 
