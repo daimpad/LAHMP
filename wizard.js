@@ -564,6 +564,114 @@ function runStep4Algorithm() {
   };
 }
 
+// ── Tag picker (reusable autocomplete multi-select) ───────────────────
+
+function renderTagPickerHtml(id, selectedArr, placeholder) {
+  const tags = (selectedArr || []).map(v =>
+    `<span class="tp-tag">${esc(v)}<button type="button" class="tp-remove" data-value="${esc(v)}" aria-label="Remove ${esc(v)}">×</button></span>`
+  ).join('');
+  return `<div class="tag-picker" id="${esc(id)}-picker">
+    <div class="tp-tags" id="${esc(id)}-tp-tags">${tags}</div>
+    <div class="tp-control">
+      <input type="text" class="tp-input" id="${esc(id)}-tp-input"
+        placeholder="${esc(placeholder)}" autocomplete="off" spellcheck="false">
+      <ul class="tp-dropdown is-hidden" id="${esc(id)}-tp-dropdown" role="listbox"></ul>
+    </div>
+  </div>`;
+}
+
+function initTagPicker({ id, items, getSelected, onAdd, onRemove, showAllIfEmpty = true, limit = 30 }) {
+  const input    = document.getElementById(id + '-tp-input');
+  const dropdown = document.getElementById(id + '-tp-dropdown');
+  const tagsEl   = document.getElementById(id + '-tp-tags');
+  if (!input || !dropdown || !tagsEl) return;
+
+  function hl(text, q) {
+    if (!q) return esc(text);
+    const lo = text.toLowerCase(), qi = lo.indexOf(q.toLowerCase());
+    if (qi < 0) return esc(text);
+    return esc(text.slice(0, qi))
+         + '<strong>' + esc(text.slice(qi, qi + q.length)) + '</strong>'
+         + esc(text.slice(qi + q.length));
+  }
+
+  function open(query) {
+    const q   = (query || '').trim();
+    const sel = getSelected();
+    let pool  = items.filter(item => !sel.includes(item.value));
+
+    if (q) {
+      const ql = q.toLowerCase();
+      pool = pool.filter(item =>
+        item.label.toLowerCase().includes(ql) || (item.sublabel || '').toLowerCase().includes(ql)
+      );
+    } else if (!showAllIfEmpty) {
+      dropdown.innerHTML = `<li class="tp-hint">Type to search…</li>`;
+      dropdown.classList.remove('is-hidden');
+      return;
+    }
+
+    pool = pool.slice(0, limit);
+
+    if (!pool.length) {
+      dropdown.innerHTML = `<li class="tp-empty">${q ? 'No matches' : 'All options selected'}</li>`;
+    } else {
+      dropdown.innerHTML = pool.map(item =>
+        `<li class="tp-item" data-value="${esc(item.value)}" tabindex="-1" role="option">
+          <span class="tp-label">${hl(item.label, q)}</span>
+          ${item.sublabel ? `<span class="tp-sublabel">${hl(item.sublabel, q)}</span>` : ''}
+        </li>`
+      ).join('');
+      dropdown.querySelectorAll('.tp-item').forEach(li => {
+        li.addEventListener('mousedown', e => { e.preventDefault(); select(li.dataset.value); });
+      });
+    }
+    dropdown.classList.remove('is-hidden');
+  }
+
+  function close() { dropdown.classList.add('is-hidden'); }
+
+  function select(value) {
+    if (getSelected().includes(value)) return;
+    onAdd(value);
+    const span = document.createElement('span');
+    span.className = 'tp-tag';
+    span.innerHTML = `${esc(value)}<button type="button" class="tp-remove" data-value="${esc(value)}" aria-label="Remove ${esc(value)}">×</button>`;
+    tagsEl.appendChild(span);
+    input.value = '';
+    close();
+    input.focus();
+  }
+
+  input.addEventListener('focus',   () => open(input.value));
+  input.addEventListener('input',   () => open(input.value));
+  input.addEventListener('blur',    () => setTimeout(close, 200));
+  input.addEventListener('keydown', e => {
+    if (e.key === 'Escape')    { close(); input.blur(); }
+    if (e.key === 'Enter')     { e.preventDefault(); }
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      dropdown.querySelector('.tp-item')?.focus();
+    }
+  });
+
+  dropdown.addEventListener('keydown', e => {
+    const els = [...dropdown.querySelectorAll('.tp-item')];
+    const idx = els.indexOf(document.activeElement);
+    if (e.key === 'ArrowDown') { e.preventDefault(); els[Math.min(idx + 1, els.length - 1)]?.focus(); }
+    if (e.key === 'ArrowUp')   { e.preventDefault(); idx <= 0 ? input.focus() : els[idx - 1].focus(); }
+    if (e.key === 'Enter')     { e.preventDefault(); if (idx >= 0) select(els[idx].dataset.value); }
+    if (e.key === 'Escape')    { close(); input.focus(); }
+  });
+
+  tagsEl.addEventListener('click', e => {
+    const btn = e.target.closest('.tp-remove');
+    if (!btn) return;
+    onRemove(btn.dataset.value);
+    btn.closest('.tp-tag').remove();
+  });
+}
+
 // ── Render helpers ────────────────────────────────────────────────────────
 
 const esc = s => String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
@@ -707,68 +815,17 @@ function renderBlock13() {
 }
 
 function renderBlock2() {
-  const s      = window.assessment.step1;
-  const luList = referenceData.block2_land_uses || [];
-
-  // Group by category, preserving order of first appearance
-  const catOrder = [], catMap = {};
-  for (const lu of luList) {
-    const cat = lu.category || 'Other';
-    if (!catMap[cat]) { catMap[cat] = []; catOrder.push(cat); }
-    catMap[cat].push(lu);
-  }
-
-  const grouped = catOrder.map(cat => {
-    const items = catMap[cat].map(lu => {
-      const checked = s.land_uses.includes(lu.subcategory);
-      return `<label class="lu-check-item check-item${checked ? ' is-checked' : ''}">
-        <input type="checkbox" name="land_use" value="${esc(lu.subcategory)}" ${checked ? 'checked' : ''}>
-        <span class="lu-text">
-          <span class="lu-name">${esc(lu.subcategory)}</span>
-          ${lu.description ? `<span class="lu-desc">${esc(lu.description)}</span>` : ''}
-        </span>
-      </label>`;
-    }).join('');
-    return `<div class="lu-cat-group">
-      <div class="list-group-header">${esc(cat)}</div>
-      <div class="lu-cat-items">${items}</div>
-    </div>`;
-  }).join('');
-
+  const s = window.assessment.step1;
   return block('b2', 'Block 2 — Land Uses Present', `
     <p class="block-desc">Which land uses are present in your landscape? This determines which practices are eligible for recommendation.</p>
-    <div class="lu-grouped-list" id="lu-list">${grouped}</div>`,
+    ${renderTagPickerHtml('land-uses', s.land_uses, 'Search and select land uses…')}`,
     { subtitle: 'Select all land uses currently present' });
 }
 
 function renderBlock3() {
   const s = window.assessment.step1;
 
-  // 3.1 Crops — tag input with datalist autocomplete
-  const cropTags = (s.crops || []).map(c =>
-    `<span class="tag" data-type="crop" data-val="${esc(c)}">${esc(c)}<button type="button" class="tag-remove" aria-label="Remove ${esc(c)}">×</button></span>`
-  ).join('');
-  const cropDatalistOptions = (referenceData.block31_crops || [])
-    .map(c => `<option value="${esc(c.name)}">${esc(c.botanical_name ? c.name + ' (' + c.botanical_name + ')' : c.name)}</option>`)
-    .join('');
-
-  // 3.2 Livestock — checkboxes from block32_livestock
-  const lvkCategories = referenceData.block32_livestock || [];
-  const lvkCheckboxes = lvkCategories.map(cat => {
-    const checked = (s.livestock || []).includes(cat.name);
-    return `<label class="check-item${checked ? ' is-checked' : ''}">
-      <input type="checkbox" name="livestock_cat" value="${esc(cat.name)}" ${checked ? 'checked' : ''}>
-      <span>${esc(cat.name)}</span>
-    </label>`;
-  }).join('');
-  // Additional free-text tags for any livestock not in the standard list
-  const stdLvkNames = lvkCategories.map(c => c.name);
-  const customLvkTags = (s.livestock || [])
-    .filter(l => !stdLvkNames.includes(l))
-    .map(l => `<span class="tag" data-type="livestock" data-val="${esc(l)}">${esc(l)}<button type="button" class="tag-remove" aria-label="Remove ${esc(l)}">×</button></span>`)
-    .join('');
-
-  const usedLUs  = s.land_uses.length ? s.land_uses : (referenceData.ipcc_land_use_categories || []).slice(0, 3);
+  const usedLUs  = s.land_uses.length ? s.land_uses : [];
   const compRows = usedLUs.map(lu => {
     const existing = (s.land_use_composition || []).find(c => c.category === lu);
     return `<tr>
@@ -778,35 +835,24 @@ function renderBlock3() {
   }).join('');
 
   return block('b3', 'Block 3 — Agricultural Context', `
-    <datalist id="crop-suggestions">${cropDatalistOptions}</datalist>
     <div class="form-subsection">
       <h3 class="subsection-title">3.1 — Crops grown</h3>
-      <p class="field-hint">Type to search ${(referenceData.block31_crops || []).length} listed crops, or enter any crop name.</p>
-      <div class="tag-input-wrap">
-        <div class="tag-list" id="crop-tags">${cropTags}</div>
-        <div class="tag-add-row">
-          <input type="text" id="crop-input" list="crop-suggestions" placeholder="Search or type a crop name, then press Enter" class="tag-input" autocomplete="off">
-          <button type="button" class="btn btn-sm btn-secondary" id="crop-add">Add</button>
-        </div>
-      </div>
+      <p class="field-hint">Search and select from ${(referenceData.block31_crops || []).length} listed crops. Type part of the name or botanical name.</p>
+      ${renderTagPickerHtml('crops', s.crops, 'Search crops…')}
     </div>
     <div class="form-subsection">
       <h3 class="subsection-title">3.2 — Livestock present</h3>
-      <div class="check-grid">${lvkCheckboxes}</div>
-      <div class="tag-list mt-8" id="livestock-tags">${customLvkTags}</div>
-      <div class="tag-add-row mt-8">
-        <input type="text" id="livestock-input" placeholder="Add other livestock not listed above" class="tag-input">
-        <button type="button" class="btn btn-sm btn-secondary" id="livestock-add">Add</button>
-      </div>
+      ${renderTagPickerHtml('livestock', s.livestock, 'Search livestock categories…')}
     </div>
     <div class="form-subsection">
       <h3 class="subsection-title">3.3 — Land use composition (%)</h3>
-      <p class="field-hint">Approximate percentage of total area for each land use. Percentages should sum to 100%.</p>
+      <p class="field-hint">Approximate percentage of total area for each land use (from Block 2). Percentages should sum to 100%.</p>
+      ${usedLUs.length ? `
       <table class="comp-table">
-        <thead><tr><th>Land Use Category</th><th>% of Total Area</th></tr></thead>
+        <thead><tr><th>Land Use</th><th>% of Total Area</th></tr></thead>
         <tbody id="comp-tbody">${compRows}</tbody>
       </table>
-      <p class="comp-total">Total: <span id="comp-total-val">0</span>%</p>
+      <p class="comp-total">Total: <span id="comp-total-val">0</span>%</p>` : `<p class="field-hint">Select land uses in Block 2 first.</p>`}
     </div>`,
     { subtitle: 'Crops, livestock, and land use composition', collapsed: true });
 }
@@ -1034,86 +1080,51 @@ function initBlock13Events() {
 }
 
 function initBlock2Events() {
-  document.querySelectorAll('input[name="land_use"]').forEach(cb => {
-    cb.addEventListener('change', () => {
-      const s = window.assessment.step1;
-      if (cb.checked) { if (!s.land_uses.includes(cb.value)) s.land_uses.push(cb.value); }
-      else { s.land_uses = s.land_uses.filter(v => v !== cb.value); }
-      cb.closest('label').classList.toggle('is-checked', cb.checked);
-      saveState();
-    });
+  const luList = referenceData.block2_land_uses || [];
+  initTagPicker({
+    id:             'land-uses',
+    items:          luList.map(lu => ({
+      value:    lu.subcategory,
+      label:    lu.subcategory,
+      sublabel: lu.category + (lu.description ? ' — ' + lu.description : ''),
+    })),
+    showAllIfEmpty: true,
+    getSelected:    () => window.assessment.step1.land_uses,
+    onAdd:  v => { window.assessment.step1.land_uses.push(v); saveState(); },
+    onRemove: v => { window.assessment.step1.land_uses = window.assessment.step1.land_uses.filter(x => x !== v); saveState(); },
   });
-}
-
-function addTag(type, value) {
-  const s = window.assessment.step1;
-  const arr = type === 'crop' ? s.crops : s.livestock;
-  const containerId = type === 'crop' ? 'crop-tags' : 'livestock-tags';
-  if (!value.trim() || arr.includes(value.trim())) return;
-  arr.push(value.trim());
-  const container = document.getElementById(containerId);
-  if (container) {
-    const span = document.createElement('span');
-    span.className = 'tag';
-    span.dataset.type = type;
-    span.dataset.val = value.trim();
-    span.innerHTML = `${esc(value.trim())}<button type="button" class="tag-remove" aria-label="Remove ${esc(value.trim())}">×</button>`;
-    span.querySelector('.tag-remove').addEventListener('click', () => {
-      const idx = arr.indexOf(value.trim());
-      if (idx > -1) arr.splice(idx, 1);
-      span.remove();
-      saveState();
-    });
-    container.appendChild(span);
-  }
-  saveState();
 }
 
 function initBlock3Events() {
-  const cropInput = document.getElementById('crop-input');
-  const cropAdd   = document.getElementById('crop-add');
-  if (cropInput) {
-    cropInput.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); addTag('crop', cropInput.value); cropInput.value = ''; } });
-    cropAdd?.addEventListener('click', () => { addTag('crop', cropInput.value); cropInput.value = ''; });
-  }
-
-  // Livestock checkboxes (standard categories)
-  document.querySelectorAll('input[name="livestock_cat"]').forEach(cb => {
-    cb.addEventListener('change', () => {
-      const s    = window.assessment.step1;
-      const name = cb.value;
-      if (cb.checked) {
-        cb.closest('label').classList.add('is-checked');
-        if (!s.livestock.includes(name)) s.livestock.push(name);
-      } else {
-        cb.closest('label').classList.remove('is-checked');
-        s.livestock = s.livestock.filter(v => v !== name);
-      }
-      saveState();
-    });
+  // 3.1 Crops
+  initTagPicker({
+    id:             'crops',
+    items:          (referenceData.block31_crops || []).map(c => ({
+      value:    c.name,
+      label:    c.name,
+      sublabel: c.botanical_name || '',
+    })),
+    showAllIfEmpty: false,
+    limit:          30,
+    getSelected:    () => window.assessment.step1.crops,
+    onAdd:  v => { window.assessment.step1.crops.push(v); saveState(); },
+    onRemove: v => { window.assessment.step1.crops = window.assessment.step1.crops.filter(x => x !== v); saveState(); },
   });
 
-  // Free-text livestock (custom entries beyond the standard list)
-  const lvkInput = document.getElementById('livestock-input');
-  const lvkAdd   = document.getElementById('livestock-add');
-  if (lvkInput) {
-    lvkInput.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); addTag('livestock', lvkInput.value); lvkInput.value = ''; } });
-    lvkAdd?.addEventListener('click', () => { addTag('livestock', lvkInput.value); lvkInput.value = ''; });
-  }
-
-  // Existing tag removes (from restored state)
-  document.querySelectorAll('.tag-remove').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const tag = btn.closest('.tag');
-      const type = tag.dataset.type;
-      const val  = tag.dataset.val;
-      const arr  = type === 'crop' ? window.assessment.step1.crops : window.assessment.step1.livestock;
-      const idx  = arr.indexOf(val);
-      if (idx > -1) arr.splice(idx, 1);
-      tag.remove();
-      saveState();
-    });
+  // 3.2 Livestock
+  initTagPicker({
+    id:             'livestock',
+    items:          (referenceData.block32_livestock || []).map(lv => ({
+      value: lv.name,
+      label: lv.name,
+    })),
+    showAllIfEmpty: true,
+    getSelected:    () => window.assessment.step1.livestock,
+    onAdd:  v => { window.assessment.step1.livestock.push(v); saveState(); },
+    onRemove: v => { window.assessment.step1.livestock = window.assessment.step1.livestock.filter(x => x !== v); saveState(); },
   });
+
+  // 3.3 Land use composition
   document.querySelectorAll('.comp-input').forEach(inp => {
     inp.addEventListener('input', () => {
       const cat  = inp.dataset.category;
