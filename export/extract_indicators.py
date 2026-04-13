@@ -356,6 +356,12 @@ def parse_profile(path):
             profile["level3b_protocol_name"] = kv.get("Protocol B name", "")
             continue
 
+    # -- Normalise "Not available" protocols to null so assignProtocol can skip them --
+    for lk in ["level1_protocol_name", "level2_protocol_name", "level3_protocol_name"]:
+        v = profile.get(lk, "")
+        if v and v.lower().startswith("not available"):
+            profile[lk] = None
+
     # -- Derive primary_reference from level2 or level3 --
     profile["primary_reference"] = (
         profile.get("level2_reference") or

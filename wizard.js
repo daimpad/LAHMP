@@ -336,15 +336,19 @@ function selectIndicatorGroups(step1, step2) {
 }
 
 function assignProtocol(group, cap) {
-  const maxAvail = group.level3_protocol_name ? 3 : group.level2_protocol_name ? 2 : 1;
+  const hasL1 = !!group.level1_protocol_name;
+  const hasL2 = !!group.level2_protocol_name;
+  const hasL3 = !!group.level3_protocol_name;
+  const maxAvail = hasL3 ? 3 : hasL2 ? 2 : hasL1 ? 1 : 0;
+  const minAvail = hasL1 ? 1 : hasL2 ? 2 : hasL3 ? 3 : 0;
+  if (maxAvail === 0) return null;  // no protocols at any level
   let level = Math.min(cap.max_protocol_level, maxAvail);
-  if (level === 3 && cap.budget_tier === 0) level = 2;
-  return {
-    ...group,
-    assigned_level:    level,
-    assigned_protocol: level === 3 ? group.level3_protocol_name : level === 2 ? group.level2_protocol_name : group.level1_protocol_name,
-    assigned_metric:   level === 3 ? group.level3_output_metric  : level === 2 ? group.level2_output_metric  : group.level1_output_metric,
-  };
+  if (level < minAvail) level = minAvail;  // upgrade to lowest available level
+  if (level === 3 && cap.budget_tier === 0) level = Math.max(minAvail, 2);
+  const proto = level === 3 ? group.level3_protocol_name : level === 2 ? group.level2_protocol_name : group.level1_protocol_name;
+  const metric = level === 3 ? group.level3_output_metric : level === 2 ? group.level2_output_metric : group.level1_output_metric;
+  const requires_upgrade = level > cap.max_protocol_level;
+  return { ...group, assigned_level: level, assigned_protocol: proto, assigned_metric: metric, requires_upgrade };
 }
 
 // ── Operation 5 — Monitoring calendar ─────────────────────────────────────
@@ -522,7 +526,7 @@ function runStep4Algorithm() {
   );
 
   // Op 3 – Protocol assignment
-  const withProtocols = rawGroups.map(g => assignProtocol(g, cap));
+  const withProtocols = rawGroups.map(g => assignProtocol(g, cap)).filter(Boolean);
 
   // Op 4 – Capacity fitting
   const { kept: protocol_assignments, trimmed: trimmed_groups } = capacityFit(withProtocols, cap, step2, step1);
@@ -1765,7 +1769,7 @@ function buildStep4HTML() {
           <td><strong>${esc(g.profile_name)}</strong></td>
           <td>${esc(g.category)}</td>
           <td class="stage-cell">${esc((g.monitoring_stage||'').split(' ')[0])}</td>
-          <td><span class="level-badge level-${g.assigned_level}">L${g.assigned_level}</span></td>
+          <td><span class="level-badge level-${g.assigned_level}">L${g.assigned_level}</span>${g.requires_upgrade ? ' <span class="badge badge-warn" title="Requires higher team capacity than currently available">↑ Upgrade</span>' : ''}</td>
           <td>${esc(g.assigned_protocol || 'TBC')}</td>
           <td class="metric-cell">${esc(g.assigned_metric || '—')}</td>
           <td><span class="badge badge-inclusion">${esc(g.inclusion_reason)}</span></td>

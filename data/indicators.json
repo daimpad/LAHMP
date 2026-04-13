@@ -270,7 +270,7 @@
       6,
       5
     ],
-    "level1_protocol_name": "Not available",
+    "level1_protocol_name": null,
     "level1_output_metric": "",
     "level1_seasonal_primary": "",
     "level1_seasonal_secondary": "",

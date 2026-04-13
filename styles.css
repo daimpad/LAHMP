@@ -422,6 +422,7 @@ textarea { resize: vertical; min-height: 80px; }
 .badge-transformative { background: var(--green-light); color: var(--green); }
 .badge-inclusion    { background: var(--grey-200);     color: var(--grey-700); }
 .badge-baseline     { background: var(--yellow);       color: var(--navy-dark); }
+.badge-warn         { background: #fff3cd;             color: #856404; font-size: 0.7rem; }
 .level-badge {
   display: inline-flex; align-items: center; justify-content: center;
   width: 24px; height: 24px; border-radius: 50%;
