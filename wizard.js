@@ -50,6 +50,39 @@ const PRESCREEN_ANSWERS = [
   { value: 'not_currently',      label: 'Not currently possible' },
 ];
 
+// Area weighting: keywords that must appear in a land_use_composition category name
+// for that pressure to be relevant to that land parcel. null = landscape-wide (no weighting).
+const PRESSURE_LAND_USE_KEYWORDS = {
+  1:  ['cropland','agroforestry','plantation'],   // Intensive tillage
+  2:  ['cropland','agroforestry','plantation'],   // Soil compaction
+  3:  ['cropland','agroforestry'],                // Excessive synthetic fertilizer
+  4:  ['cropland','agroforestry'],                // Excessive insecticides
+  5:  ['cropland','agroforestry'],                // Excessive herbicide
+  6:  ['cropland','agroforestry'],                // Excessive fungicide
+  7:  ['cropland','agroforestry'],                // Excessive nematicide
+  8:  ['cropland','agroforestry'],                // Excessive rodenticide
+  9:  ['cropland','agroforestry'],                // Excessive molluscicide
+  10: ['cropland','agroforestry'],                // Soil fumigation
+  11: ['cropland','agroforestry'],                // Excessive manure
+  12: ['irrigated','wetland','paddy','flooded'],  // Excessive irrigation
+  13: ['cropland','agroforestry'],                // Monoculture
+  14: ['cropland','agroforestry'],                // Removal of crop residues
+  15: null,                                       // Unsustainable water abstraction — landscape-wide
+  16: ['irrigated','wetland','paddy','flooded'],  // Drainage/irrigation modification
+  17: null,                                       // Water pollution — landscape-wide
+  18: ['grassland','pasture','rangeland','mixed crop-livestock'], // Overgrazing
+  19: ['grassland','shrubland','forest','natural','semi-natural'],// Removal of non-crop vegetation
+  20: ['forest','shrubland','plantation','woodland','grassland'], // Overextraction of wood
+  21: null,                                       // Invasive species — landscape-wide
+  22: null,                                       // Land-use change — landscape-wide
+  23: null,                                       // Landscape fragmentation — landscape-wide
+  24: null,                                       // Fire — landscape-wide
+  25: null,                                       // Soil pollution — landscape-wide
+  26: null,                                       // External pollution — landscape-wide
+  27: null,                                       // Abandonment — landscape-wide
+  28: null,                                       // Other — landscape-wide
+};
+
 const THEME_TO_CHAIN = {
   'Soil Management':                        'Soil recovery and biological function chain',
   'Crop System Diversification':            'Crop system diversity and soil health chain',
@@ -191,7 +224,18 @@ function confidenceRank(c) {
   return { high: 3, medium: 2, low: 1 }[c] ?? 0;
 }
 
-function prepopulateChallenges(pressures) {
+function pressureAreaFraction(pressureId, landUseComposition) {
+  const keywords = PRESSURE_LAND_USE_KEYWORDS[pressureId];
+  if (!keywords || !landUseComposition || !landUseComposition.length) return 1; // no weighting
+  const total = landUseComposition.reduce((s, e) => s + (e.area_pct || 0), 0);
+  if (!total) return 1;
+  const relevant = landUseComposition
+    .filter(e => keywords.some(kw => (e.category || '').toLowerCase().includes(kw)))
+    .reduce((s, e) => s + (e.area_pct || 0), 0);
+  return relevant / total;
+}
+
+function prepopulateChallenges(pressures, landUseComposition) {
   const mapping = referenceData.pressure_to_challenge_mapping || {};
   const challengeMap = {};
   for (const pressure of pressures) {
@@ -199,6 +243,10 @@ function prepopulateChallenges(pressures) {
     for (const m of (mapping[pressure.id] || [])) {
       let conf = m.confidence;
       if (pressure.status === 'past' || pressure.status === 'not_sure') conf = reduceConfidence(conf);
+      if (!conf) continue;
+      // Area weighting: if this pressure's relevant land use covers < 10% of landscape, reduce confidence
+      const fraction = pressureAreaFraction(pressure.id, landUseComposition);
+      if (fraction < 0.10) conf = reduceConfidence(conf);
       if (!conf) continue;
       if (!challengeMap[m.challenge_id] || confidenceRank(conf) > confidenceRank(challengeMap[m.challenge_id])) {
         challengeMap[m.challenge_id] = conf;
@@ -1207,7 +1255,7 @@ function initBlock4Events() {
         });
       }
       // Re-compute Block 5
-      const newChallenges = prepopulateChallenges(window.assessment.step1.pressures);
+      const newChallenges = prepopulateChallenges(window.assessment.step1.pressures, window.assessment.step1.land_use_composition);
       // Merge: keep manually confirmed, update pre-populated
       const manual = window.assessment.step1.challenges.filter(c => !c.pre_populated && c.confirmed);
       const merged = [...newChallenges];
@@ -1946,6 +1994,20 @@ function handleNext() {
   if (!validateStep(currentStep)) return;
   const next = currentStep + 1;
   if (next > 4) return;
+  // Budget mismatch warning: budget tier 0 + specialist team types E/F imply lab costs
+  if (currentStep === 3) {
+    const s3 = window.assessment.step3;
+    const hasSpecialist = (s3.team_types || []).some(t => t.type === 'E' || t.type === 'F');
+    if (hasSpecialist && s3.budget_tier === 0) {
+      const ok = window.confirm(
+        'Your team includes research scientists or external specialists (Type E/F), ' +
+        'but your budget is set to zero. These team types typically require external ' +
+        'laboratory or analytical services. Consider increasing your budget tier, or ' +
+        'the algorithm will downgrade Level 3 protocols to Level 2.\n\nProceed anyway?'
+      );
+      if (!ok) return;
+    }
+  }
   if (next === 2) renderStep2();
   if (next === 3) renderStep3();
   if (next === 4) renderStep4();
