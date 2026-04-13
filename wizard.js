@@ -408,6 +408,98 @@ const AUTUMN_IDX  = [7,8,9,10];  // August–November
 const WINTER_IDX  = [11,0,1];    // December–February
 const ALL_IDX     = Array.from({length:12},(_,i)=>i);
 
+const MONTH_NAMES_LC = ['january','february','march','april','may','june',
+                        'july','august','september','october','november','december'];
+
+// Split a sorted array of month indices into non-adjacent groups.
+// Groups separated by a gap > 1 become separate windows.
+function splitIntoWindows(indices) {
+  if (!indices.length) return [];
+  const groups = [];
+  let cur = [indices[0]];
+  for (let i = 1; i < indices.length; i++) {
+    if (indices[i] - indices[i-1] <= 1) { cur.push(indices[i]); }
+    else { groups.push(cur); cur = [indices[i]]; }
+  }
+  groups.push(cur);
+  return groups;
+}
+
+// Parse seasonal guidance text into one or two arrays of month indices.
+// Returns an array of window arrays (e.g. [[2,3,4],[8,9,10]] for spring + autumn),
+// or null if the text contains no usable season information.
+function parseSeasonalWindow(text) {
+  if (!text || !text.trim()) return null;
+  const t = text.toLowerCase();
+
+  // Year-round
+  if (/\byear.round\b/.test(t) || t.includes('any season')) return [ALL_IDX];
+
+  const found = new Set();
+
+  // 1. "Month1–Month2" (en-dash, em-dash, or hyphen) — highest priority
+  const dashRe = new RegExp(
+    `\\b(${MONTH_NAMES_LC.join('|')})[\u2013\u2014\\-](${MONTH_NAMES_LC.join('|')})\\b`, 'g'
+  );
+  let m;
+  while ((m = dashRe.exec(t)) !== null) {
+    const s = MONTH_NAMES_LC.indexOf(m[1]), e = MONTH_NAMES_LC.indexOf(m[2]);
+    if (s !== -1 && e !== -1) {
+      if (e >= s) { for (let i = s; i <= e; i++) found.add(i); }
+      else { for (let i = s; i < 12; i++) found.add(i); for (let i = 0; i <= e; i++) found.add(i); }
+    }
+  }
+  // 2. "Month1 to Month2"
+  const toRe = new RegExp(
+    `\\b(${MONTH_NAMES_LC.join('|')})\\s+to\\s+(${MONTH_NAMES_LC.join('|')})\\b`, 'g'
+  );
+  while ((m = toRe.exec(t)) !== null) {
+    const s = MONTH_NAMES_LC.indexOf(m[1]), e = MONTH_NAMES_LC.indexOf(m[2]);
+    if (s !== -1 && e !== -1) {
+      if (e >= s) { for (let i = s; i <= e; i++) found.add(i); }
+      else { for (let i = s; i < 12; i++) found.add(i); for (let i = 0; i <= e; i++) found.add(i); }
+    }
+  }
+  // 3. Individual month names
+  MONTH_NAMES_LC.forEach((mn, i) => {
+    if (new RegExp(`\\b${mn}\\b`).test(t)) found.add(i);
+  });
+
+  if (found.size) {
+    const groups = splitIntoWindows([...found].sort((a,b) => a-b));
+    return groups.length ? groups : null;
+  }
+
+  // 4. Season keyword fallback
+  // Catch-all patterns use negative lookbehind to avoid double-matching
+  // inside "early spring", "late summer", etc.
+  const seasonMap = [
+    [/\bearly spring\b/,                    [1,2,3]],
+    [/\blate spring\b/,                     [3,4,5]],
+    [/(?<!early |late )\bspring\b/,         [2,3,4]],
+    [/\bearly summer\b/,                    [4,5,6]],
+    [/\bmidsummer\b|\bmid.summer\b/,        [5,6,7]],
+    [/\blate summer\b/,                     [7,8]],
+    [/(?<!early |late |mid)\bsummer\b/,     [5,6,7]],
+    [/\bearly autumn\b|\bearly fall\b/,     [8,9]],
+    [/(?<!early )\bautumn\b|(?<!early )\bfall\b/, [8,9,10]],
+    [/\bwinter\b/,                          [11,0,1]],
+    [/\bwet season\b/,                      [5,6,7,8]],
+    [/\bdry season\b/,                      [11,0,1,2]],
+    [/\bwarm season\b/,                     [4,5,6,7,8,9]],
+  ];
+  const seasonFound = new Set();
+  for (const [re, idx] of seasonMap) {
+    if (re.test(t)) idx.forEach(i => seasonFound.add(i));
+  }
+  if (seasonFound.size) {
+    const groups = splitIntoWindows([...seasonFound].sort((a,b) => a-b));
+    return groups.length ? groups : null;
+  }
+
+  return null;
+}
+
 function stageSpeed(monitoringStage) {
   const s = (monitoringStage || '').toLowerCase();
   // Compound descriptors (e.g. "Fast–medium") → take the slower/more conservative end
@@ -437,47 +529,56 @@ function buildMonitoringCalendar(groups, accessCalendar) {
   }
 
   function idxToRange(indices) {
-    if (!indices.length) return null;
-    // Compact consecutive months into ranges
-    const names = indices.sort((a,b)=>a-b).map(i => MONTHS[i].slice(0,3));
-    if (names.length === 1) return names[0];
-    // Try to express as a range if consecutive
-    const sorted = indices.sort((a,b)=>a-b);
-    if (sorted[sorted.length-1] - sorted[0] === sorted.length - 1) {
+    if (!indices || !indices.length) return null;
+    const sorted = [...indices].sort((a,b)=>a-b);
+    if (sorted.length === 1) return MONTHS[sorted[0]].slice(0,3);
+    if (sorted[sorted.length-1] - sorted[0] === sorted.length - 1)
       return `${MONTHS[sorted[0]].slice(0,3)}–${MONTHS[sorted[sorted.length-1]].slice(0,3)}`;
-    }
-    return names.join(', ');
+    return sorted.map(i => MONTHS[i].slice(0,3)).join(', ');
   }
 
   return groups.map(g => {
     const speed = stageSpeed(g.monitoring_stage);
+
+    // Use seasonal guidance from the assigned protocol level; fall back to level1 text
+    const seasonalText = g[`level${g.assigned_level}_seasonal_primary`]
+      || g.level1_seasonal_primary || '';
+    const parsed = parseSeasonalWindow(seasonalText);
+
     let windows = [];
     let windowIndices = [];
 
     if (accessibleIdx.length === 0) {
-      // No accessible months at all
       windows = ['No accessible months specified — define in Step 3'];
-      windowIndices = [];
-    } else if (speed === 'fast') {
-      // Two windows per year: spring + autumn
-      const sp = pickWindow(SPRING_IDX, WINTER_IDX);
-      const au = pickWindow(AUTUMN_IDX, SPRING_IDX);
-      windowIndices = [...new Set([...sp, ...au])];
-      const spRange = idxToRange(sp);
-      const auRange = idxToRange(au);
-      if (spRange && auRange && spRange !== auRange) windows = [spRange, auRange];
-      else if (spRange) windows = [spRange];
-      else windows = [auRange || 'Any accessible month'];
-    } else if (speed === 'medium') {
-      // One window per year, prefer spring
-      const sp = pickWindow(SPRING_IDX, [...AUTUMN_IDX, ...WINTER_IDX]);
-      windowIndices = sp;
-      windows = [idxToRange(sp) || 'Any accessible month'];
+    } else if (parsed && parsed.length) {
+      // Use indicator-specific windows, filtered to accessible months
+      const w1 = pickWindow(parsed[0], accessibleIdx);
+      const w2 = parsed[1] ? pickWindow(parsed[1], []) : null;
+      windowIndices = [...new Set([...w1, ...(w2 || [])])];
+      const r1 = idxToRange(w1);
+      const r2 = w2 && w2.length ? idxToRange(w2) : null;
+      if (r1 && r2 && r1 !== r2) windows = [r1, r2];
+      else if (r1) windows = [r1];
+      else windows = ['Any accessible month'];
     } else {
-      // Slow — once every few years, best accessible window
-      const best = pickWindow([...SPRING_IDX, ...AUTUMN_IDX], ALL_IDX);
-      windowIndices = best;
-      windows = [idxToRange(best) || 'Any accessible month'];
+      // Speed-based heuristic fallback (no parseable seasonal text)
+      if (speed === 'fast') {
+        const sp = pickWindow(SPRING_IDX, WINTER_IDX);
+        const au = pickWindow(AUTUMN_IDX, SPRING_IDX);
+        windowIndices = [...new Set([...sp, ...au])];
+        const spRange = idxToRange(sp), auRange = idxToRange(au);
+        if (spRange && auRange && spRange !== auRange) windows = [spRange, auRange];
+        else if (spRange) windows = [spRange];
+        else windows = [auRange || 'Any accessible month'];
+      } else if (speed === 'medium') {
+        const sp = pickWindow(SPRING_IDX, [...AUTUMN_IDX, ...WINTER_IDX]);
+        windowIndices = sp;
+        windows = [idxToRange(sp) || 'Any accessible month'];
+      } else {
+        const best = pickWindow([...SPRING_IDX, ...AUTUMN_IDX], ALL_IDX);
+        windowIndices = best;
+        windows = [idxToRange(best) || 'Any accessible month'];
+      }
     }
 
     const constrainedNames = constrainedIdx.map(i => MONTHS[i].slice(0,3));
