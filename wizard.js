@@ -1106,8 +1106,8 @@ function initBlock2Events() {
     })),
     showAllIfEmpty: true,
     getSelected:    () => window.assessment.step1.land_uses,
-    onAdd:  v => { window.assessment.step1.land_uses.push(v); saveState(); },
-    onRemove: v => { window.assessment.step1.land_uses = window.assessment.step1.land_uses.filter(x => x !== v); saveState(); },
+    onAdd:    v => { window.assessment.step1.land_uses.push(v); saveState(); rerenderBlock3(); },
+    onRemove: v => { window.assessment.step1.land_uses = window.assessment.step1.land_uses.filter(x => x !== v); saveState(); rerenderBlock3(); },
   });
 }
 
@@ -1203,6 +1203,17 @@ function initBlock4Events() {
       saveState();
     });
   });
+}
+
+function rerenderBlock3() {
+  const b3 = document.getElementById('b3');
+  if (!b3) return;
+  const tmp = document.createElement('div');
+  tmp.innerHTML = renderBlock3();
+  b3.replaceWith(tmp.firstElementChild);
+  initBlock3Events();
+  initCollapsibles(document.getElementById('b3'));
+  updateCompTotal();
 }
 
 function rerenderBlock5() {
