@@ -1511,6 +1511,34 @@ function showToast(msg) {
   el._t = setTimeout(() => el.classList.remove('is-visible'), 4000);
 }
 
+// ── Fixture loading ────────────────────────────────────────────────────────
+
+async function loadFixture(fixtureId) {
+  const allowed = ['TEST-01', 'TEST-02', 'TEST-03'];
+  if (!allowed.includes(fixtureId)) return false;
+  try {
+    const data = await fetch(`data/test_fixtures/${fixtureId}.json`).then(r => r.json());
+    Object.keys(data).forEach(k => { window.assessment[k] = data[k]; });
+    // Rehydrate step3 access_calendar if missing (ensure all 12 months present)
+    if (!window.assessment.step3.access_calendar || window.assessment.step3.access_calendar.length !== 12) {
+      window.assessment.step3.access_calendar = MONTHS.map(m => ({ month: m, access: 'accessible', reason: '' }));
+    }
+    return true;
+  } catch(e) {
+    console.warn('Could not load fixture', fixtureId, e);
+    return false;
+  }
+}
+
+function showFixtureBanner(fixtureId) {
+  const names = { 'TEST-01': "Skoura M'Daz, Morocco", 'TEST-02': 'PK-17, Mauritania', 'TEST-03': 'Vietnam VSA' };
+  const banner = document.createElement('div');
+  banner.className = 'fixture-banner';
+  banner.innerHTML = `<strong>Test fixture loaded:</strong> ${fixtureId} — ${names[fixtureId] || fixtureId}
+    &nbsp;<a href="?" class="fixture-clear">Clear fixture →</a>`;
+  document.body.insertBefore(banner, document.querySelector('.step-nav'));
+}
+
 // ── Init ──────────────────────────────────────────────────────────────────
 
 async function init() {
@@ -1526,10 +1554,21 @@ async function init() {
     return;
   }
 
-  const hasSaved = loadSavedState();
-  if (!hasSaved) {
-    window.assessment.assessment_id = crypto.randomUUID?.() ?? Date.now().toString(36);
-    window.assessment.created_at    = new Date().toISOString();
+  // Check for ?fixture=TEST-01 URL parameter
+  const urlParams = new URLSearchParams(window.location.search);
+  const fixtureParam = urlParams.get('fixture');
+  if (fixtureParam) {
+    const loaded = await loadFixture(fixtureParam.toUpperCase());
+    if (loaded) {
+      currentStep = 1;
+      showFixtureBanner(fixtureParam.toUpperCase());
+    }
+  } else {
+    const hasSaved = loadSavedState();
+    if (!hasSaved) {
+      window.assessment.assessment_id = crypto.randomUUID?.() ?? Date.now().toString(36);
+      window.assessment.created_at    = new Date().toISOString();
+    }
   }
 
   renderStep1();

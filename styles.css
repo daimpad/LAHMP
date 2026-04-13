@@ -687,6 +687,24 @@ textarea { resize: vertical; min-height: 80px; }
   .step-item { justify-content: center; }
 }
 
+/* ── Fixture banner ──────────────────────────────────────────────────── */
+.fixture-banner {
+  background: var(--yellow);
+  color: #1a1a1a;
+  font-family: var(--font-mono);
+  font-size: .8rem;
+  text-align: center;
+  padding: .55rem 1rem;
+  letter-spacing: .01em;
+}
+.fixture-banner strong { font-weight: 600; }
+.fixture-clear {
+  color: #1a1a1a;
+  text-underline-offset: 2px;
+  margin-left: .5rem;
+}
+.fixture-clear:hover { opacity: .7; }
+
 /* ── Print ───────────────────────────────────────────────────────────── */
 @media print {
   .print-hide, .site-header, .step-nav, .wizard-footer, .output-actions { display: none !important; }

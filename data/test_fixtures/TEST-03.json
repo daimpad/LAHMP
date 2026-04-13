@@ -1,0 +1,161 @@
+{
+  "assessment_id": "TEST-03",
+  "landscape_name": "Vietnam VSA",
+  "created_at": "2024-10-01T08:00:00.000Z",
+  "last_updated": "2024-10-01T10:00:00.000Z",
+
+  "step1": {
+    "landscape_name": "Vietnam VSA",
+    "country": "Vietnam",
+    "admin_region": "Mekong Delta — An Giang Province",
+    "monitoring_programme_name": "Mekong Delta Sustainable Agriculture Monitoring — VSA Pilot",
+
+    "area_ha": 3800,
+    "ipcc_land_use_categories": ["Intensive Annual Cropland", "Irrigated Cropland", "Wetlands"],
+    "efg_codes": ["T7.1", "F3.3"],
+    "soil_types": ["Wetland Soils (Gleysols/Fluvisols)", "Mineral Soils — High Activity Clay (HAC)"],
+
+    "description": "The Vietnam Sustainable Agriculture (VSA) pilot site is located in An Giang Province in the upper Mekong Delta, covering a mosaic of intensive rice paddies (two to three crops per year), seasonal vegetable plots, and canal-side aquaculture ponds. The landscape is characterised by intensive use of synthetic pesticides, fungicides, and nitrogen fertilisers, with widespread herbicide application for weed control in rice cultivation. Seasonal flooding provides natural nutrient deposition but is increasingly unpredictable. This monitoring programme aims to establish land health baselines before the introduction of integrated rice-fish systems, cover cropping, and IPM practices under a VSA certification programme.",
+
+    "land_uses": ["Intensive Annual Cropland", "Irrigated Cropland", "Wetlands"],
+
+    "crops": ["Rice (wet season)", "Rice (dry season)", "Maize", "Soya bean", "Water spinach", "Lotus"],
+    "livestock": ["Ducks (rice-field integrated)", "Freshwater fish (aquaculture)"],
+
+    "land_use_composition": [
+      { "category": "F3.3", "ipcc_category": "Irrigated Cropland",       "area_pct": 55 },
+      { "category": "T7.1", "ipcc_category": "Intensive Annual Cropland", "area_pct": 30 },
+      { "category": "T7.1", "ipcc_category": "Wetlands",                 "area_pct": 15 }
+    ],
+
+    "pressures": [
+      { "id": 1,  "name": "Intensive tillage",                                "status": "past" },
+      { "id": 2,  "name": "Soil compaction by heavy machinery",               "status": "past" },
+      { "id": 3,  "name": "Excessive synthetic fertilizer application",       "status": "ongoing" },
+      { "id": 4,  "name": "Excessive pesticide application (insecticides)",   "status": "ongoing" },
+      { "id": 5,  "name": "Excessive herbicide application",                  "status": "ongoing" },
+      { "id": 6,  "name": "Excessive fungicide application",                  "status": "ongoing" },
+      { "id": 7,  "name": "Excessive nematicide application",                 "status": "not_sure" },
+      { "id": 8,  "name": "Excessive rodenticide application",                "status": "ongoing" },
+      { "id": 9,  "name": "Excessive molluscicide application",               "status": "ongoing" },
+      { "id": 10, "name": "Soil fumigation",                                  "status": "not_relevant" },
+      { "id": 11, "name": "Excessive application of manure or organic waste", "status": "not_relevant" },
+      { "id": 12, "name": "Excessive irrigation",                             "status": "ongoing" },
+      { "id": 13, "name": "Monoculture / loss of crop diversity",             "status": "ongoing" },
+      { "id": 14, "name": "Removal of crop residues",                         "status": "past" },
+      { "id": 15, "name": "Unsustainable water abstraction",                  "status": "ongoing" },
+      { "id": 16, "name": "Drainage or irrigation infrastructure modification","status": "ongoing" },
+      { "id": 17, "name": "Water pollution from internal sources",            "status": "ongoing" },
+      { "id": 18, "name": "Overgrazing",                                      "status": "not_relevant" },
+      { "id": 19, "name": "Removal of non-crop vegetation",                   "status": "past" },
+      { "id": 20, "name": "Overextraction of wood / biomass",                 "status": "not_relevant" },
+      { "id": 21, "name": "Introduction or spread of invasive species",       "status": "not_sure" },
+      { "id": 22, "name": "Land-use change",                                  "status": "past" },
+      { "id": 23, "name": "Landscape fragmentation",                          "status": "ongoing" },
+      { "id": 24, "name": "Fire",                                             "status": "not_relevant" },
+      { "id": 25, "name": "Soil pollution by heavy metals or POPs",           "status": "not_sure" },
+      { "id": 26, "name": "External pollution from upstream/neighbouring",    "status": "not_sure" },
+      { "id": 27, "name": "Abandonment of traditional land management",       "status": "not_relevant" },
+      { "id": 28, "name": "Other (free text)",                                "status": "not_relevant" }
+    ],
+
+    "challenges": [
+      { "id": 8,  "name": "Soil contamination by pollutants",                "confidence": "high",   "pre_populated": true,  "confirmed": true },
+      { "id": 13, "name": "Surface water pollution",                         "confidence": "high",   "pre_populated": true,  "confirmed": true },
+      { "id": 14, "name": "Nutrient runoff and leaching",                    "confidence": "high",   "pre_populated": true,  "confirmed": true },
+      { "id": 17, "name": "Aquatic biodiversity decline",                    "confidence": "high",   "pre_populated": true,  "confirmed": true },
+      { "id": 18, "name": "Eutrophication of water bodies and soils",        "confidence": "high",   "pre_populated": true,  "confirmed": true },
+      { "id": 19, "name": "Overall biodiversity decline",                    "confidence": "medium", "pre_populated": true,  "confirmed": true },
+      { "id": 21, "name": "Pollinator decline",                              "confidence": "high",   "pre_populated": true,  "confirmed": true },
+      { "id": 22, "name": "Soil biodiversity decline",                       "confidence": "high",   "pre_populated": true,  "confirmed": true },
+      { "id": 24, "name": "Loss of agrobiodiversity",                        "confidence": "high",   "pre_populated": true,  "confirmed": true },
+      { "id": 25, "name": "Decline in natural pest regulation capacity",     "confidence": "high",   "pre_populated": true,  "confirmed": true },
+      { "id": 26, "name": "Pest outbreaks",                                  "confidence": "medium", "pre_populated": true,  "confirmed": false },
+      { "id": 34, "name": "Increasing dependence on external inputs",        "confidence": "high",   "pre_populated": true,  "confirmed": true },
+      { "id": 12, "name": "Groundwater depletion",                           "confidence": "medium", "pre_populated": true,  "confirmed": true }
+    ],
+
+    "services": [
+      { "id": 1,  "name": "Crop provisioning services",                      "selected": true,  "priority_rank": 1, "pre_populated": true },
+      { "id": 19, "name": "Water purification — nutrients",                  "selected": true,  "priority_rank": 2, "pre_populated": true },
+      { "id": 27, "name": "Pollination services",                            "selected": true,  "priority_rank": 3, "pre_populated": true },
+      { "id": 9,  "name": "Water supply",                                    "selected": true,  "priority_rank": null, "pre_populated": true },
+      { "id": 28, "name": "Pest control services",                           "selected": true,  "priority_rank": null, "pre_populated": true },
+      { "id": 15, "name": "Soil quality regulation services",                "selected": true,  "priority_rank": null, "pre_populated": true },
+      { "id": 4,  "name": "Aquaculture provisioning services",               "selected": true,  "priority_rank": null, "pre_populated": false }
+    ]
+  },
+
+  "step2": {
+    "prescreen": {
+      "q1_trees": "open_conditionally",
+      "q2_livestock": "open_conditionally",
+      "q3_set_aside": "not_currently",
+      "q4_inputs": "open"
+    },
+    "selected_practices": [
+      { "p_code": "P06", "name": "Minimise synthetic pesticide, herbicide and fungicide inputs", "theme": "Soil Management",                          "tier": "transformative", "score": 16 },
+      { "p_code": "P14", "name": "Implement Integrated Pest Management (IPM)",                  "theme": "Integrated Pest and Disease Management",   "tier": "standard",       "score": 15 },
+      { "p_code": "P05", "name": "Minimise synthetic fertiliser inputs",                        "theme": "Soil Management",                          "tier": "transformative", "score": 13 },
+      { "p_code": "P36", "name": "Close on-farm nutrient loops",                                "theme": "Nutrient Cycling and Resource Efficiency",  "tier": "transformative", "score": 12 },
+      { "p_code": "P17", "name": "Harvest and efficiently manage water on-farm",                "theme": "Water Management",                         "tier": "standard",       "score": 11 },
+      { "p_code": "P11", "name": "Use locally adapted, diverse, and resilient crop varieties and livestock breeds", "theme": "Crop System Diversification", "tier": "standard", "score": 10 },
+      { "p_code": "P23", "name": "Integrate crop and livestock systems",                        "theme": "Livestock and Pasture Management",          "tier": "transformative", "score": 9  },
+      { "p_code": "P01", "name": "Reduce or eliminate tillage",                                 "theme": "Soil Management",                          "tier": "transformative", "score": 7  }
+    ],
+    "practice_count": 8,
+    "theme_counts": {
+      "Soil Management": 3,
+      "Integrated Pest and Disease Management": 1,
+      "Nutrient Cycling and Resource Efficiency": 1,
+      "Water Management": 1,
+      "Crop System Diversification": 1,
+      "Livestock and Pasture Management": 1
+    },
+    "standard_count": 3,
+    "transformative_count": 5
+  },
+
+  "step3": {
+    "team_types": [
+      { "type": "C", "count": 2 },
+      { "type": "D", "count": 1 }
+    ],
+    "willingness_recruit": "yes_any",
+    "willingness_recruit_roles": "",
+    "days_by_type": { "C": 30, "D": 20 },
+    "willingness_time": "yes_significantly",
+    "equipment_capabilities": [1, 2, 3, 4, 5, 6, 9],
+    "willingness_equipment": "yes_any",
+    "willingness_equipment_categories": [],
+    "budget_tier": 3,
+    "site_count_category": "6-20",
+    "site_count": 13,
+    "site_distribution": "single_region",
+    "access_calendar": [
+      { "month": "January",   "access": "accessible",  "reason": "" },
+      { "month": "February",  "access": "accessible",  "reason": "" },
+      { "month": "March",     "access": "accessible",  "reason": "" },
+      { "month": "April",     "access": "accessible",  "reason": "" },
+      { "month": "May",       "access": "accessible",  "reason": "" },
+      { "month": "June",      "access": "accessible",  "reason": "" },
+      { "month": "July",      "access": "accessible",  "reason": "" },
+      { "month": "August",    "access": "accessible",  "reason": "" },
+      { "month": "September", "access": "accessible",  "reason": "" },
+      { "month": "October",   "access": "accessible",  "reason": "" },
+      { "month": "November",  "access": "constrained", "reason": "Flood season — low-lying sites inundated" },
+      { "month": "December",  "access": "constrained", "reason": "Flood season continuing" }
+    ],
+    "capacity_profile": null
+  },
+
+  "step4_outputs": {
+    "practice_chains": [],
+    "selected_indicator_groups": [],
+    "selected_abiotic": [],
+    "protocol_assignments": [],
+    "trimmed_groups": [],
+    "calendar": [],
+    "narrative": { "paragraph1": "", "paragraph2": "", "paragraph3": "", "paragraph4": "" }
+  }
+}

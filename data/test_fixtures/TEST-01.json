@@ -1,0 +1,159 @@
+{
+  "assessment_id": "TEST-01",
+  "landscape_name": "Skoura M'Daz",
+  "created_at": "2024-09-01T08:00:00.000Z",
+  "last_updated": "2024-09-01T09:30:00.000Z",
+
+  "step1": {
+    "landscape_name": "Skoura M'Daz",
+    "country": "Morocco",
+    "admin_region": "Drâa-Tafilalet",
+    "monitoring_programme_name": "IUCN LHMF Pilot — Skoura Oasis Agropastoral System",
+
+    "area_ha": 4200,
+    "ipcc_land_use_categories": ["Grassland and Pasture", "Mixed Crop-Livestock System", "Agroforestry"],
+    "efg_codes": ["T7.2"],
+    "soil_types": ["Arid/Semi-arid Soils (Aridisols/Calcisols)", "Mineral Soils — Sandy Soils"],
+
+    "description": "Skoura M'Daz is a pre-Saharan agropastoral landscape in the Drâa Valley, characterised by traditional oasis farming systems, date palm groves (palmeries), and communal rangelands. The landscape faces increasing pressure from prolonged drought, overgrazing of degraded rangelands, and the abandonment of traditional water-harvesting practices (khettaras). The IUCN LHMF pilot aims to establish a baseline monitoring programme for the communal agropastoral zone, covering approximately 4,200 ha across five village territories.",
+
+    "land_uses": ["Grassland and Pasture", "Mixed Crop-Livestock System", "Agroforestry"],
+
+    "crops": ["Date palm", "Wheat", "Barley", "Alfalfa", "Figs"],
+    "livestock": ["Goats", "Camels", "Sheep", "Donkeys"],
+
+    "land_use_composition": [
+      { "category": "T7.2", "ipcc_category": "Grassland and Pasture", "area_pct": 55 },
+      { "category": "T7.2", "ipcc_category": "Mixed Crop-Livestock System", "area_pct": 25 },
+      { "category": "T7.2", "ipcc_category": "Agroforestry", "area_pct": 20 }
+    ],
+
+    "pressures": [
+      { "id": 1,  "name": "Intensive tillage", "status": "past" },
+      { "id": 2,  "name": "Soil compaction by heavy machinery", "status": "not_relevant" },
+      { "id": 3,  "name": "Excessive synthetic fertilizer application", "status": "not_relevant" },
+      { "id": 4,  "name": "Excessive pesticide application (insecticides)", "status": "not_relevant" },
+      { "id": 5,  "name": "Excessive herbicide application", "status": "not_relevant" },
+      { "id": 6,  "name": "Excessive fungicide application", "status": "not_relevant" },
+      { "id": 7,  "name": "Excessive nematicide application", "status": "not_relevant" },
+      { "id": 8,  "name": "Excessive rodenticide application", "status": "not_relevant" },
+      { "id": 9,  "name": "Excessive molluscicide application", "status": "not_relevant" },
+      { "id": 10, "name": "Soil fumigation", "status": "not_relevant" },
+      { "id": 11, "name": "Excessive application of manure or organic waste", "status": "not_relevant" },
+      { "id": 12, "name": "Excessive irrigation", "status": "not_relevant" },
+      { "id": 13, "name": "Monoculture / loss of crop diversity", "status": "past" },
+      { "id": 14, "name": "Removal of crop residues", "status": "ongoing" },
+      { "id": 15, "name": "Unsustainable water abstraction", "status": "not_sure" },
+      { "id": 16, "name": "Drainage or irrigation infrastructure modification", "status": "not_relevant" },
+      { "id": 17, "name": "Water pollution from internal sources", "status": "not_relevant" },
+      { "id": 18, "name": "Overgrazing", "status": "ongoing" },
+      { "id": 19, "name": "Removal of non-crop vegetation", "status": "ongoing" },
+      { "id": 20, "name": "Overextraction of wood / biomass", "status": "past" },
+      { "id": 21, "name": "Introduction or spread of invasive species", "status": "not_sure" },
+      { "id": 22, "name": "Land-use change", "status": "past" },
+      { "id": 23, "name": "Landscape fragmentation", "status": "past" },
+      { "id": 24, "name": "Fire", "status": "not_sure" },
+      { "id": 25, "name": "Soil pollution by heavy metals or POPs", "status": "not_relevant" },
+      { "id": 26, "name": "External pollution from upstream/neighbouring", "status": "not_relevant" },
+      { "id": 27, "name": "Abandonment of traditional land management", "status": "ongoing" },
+      { "id": 28, "name": "Other (free text)", "status": "not_relevant" }
+    ],
+
+    "challenges": [
+      { "id": 2,  "name": "Soil organic matter depletion",                  "confidence": "high",   "pre_populated": true,  "confirmed": true },
+      { "id": 3,  "name": "Soil erosion",                                    "confidence": "high",   "pre_populated": true,  "confirmed": true },
+      { "id": 1,  "name": "Soil fertility decline",                          "confidence": "medium", "pre_populated": true,  "confirmed": true },
+      { "id": 7,  "name": "Soil structure degradation",                      "confidence": "medium", "pre_populated": true,  "confirmed": false },
+      { "id": 9,  "name": "Water scarcity and drought stress",               "confidence": "medium", "pre_populated": true,  "confirmed": true },
+      { "id": 10, "name": "Reduced soil water retention",                    "confidence": "medium", "pre_populated": true,  "confirmed": true },
+      { "id": 19, "name": "Overall biodiversity decline",                    "confidence": "medium", "pre_populated": true,  "confirmed": true },
+      { "id": 20, "name": "Habitat connectivity loss",                       "confidence": "medium", "pre_populated": true,  "confirmed": true },
+      { "id": 23, "name": "Vegetation diversity loss",                       "confidence": "high",   "pre_populated": true,  "confirmed": true },
+      { "id": 24, "name": "Loss of agrobiodiversity",                        "confidence": "medium", "pre_populated": true,  "confirmed": false },
+      { "id": 33, "name": "Degradation of landscape mosaic and traditional habitats", "confidence": "high", "pre_populated": true, "confirmed": true },
+      { "id": 31, "name": "Reduced resilience to climate variability",       "confidence": "medium", "pre_populated": true,  "confirmed": true }
+    ],
+
+    "services": [
+      { "id": 2,  "name": "Grazed biomass provisioning services",            "selected": true,  "priority_rank": 1, "pre_populated": true },
+      { "id": 1,  "name": "Crop provisioning services",                      "selected": true,  "priority_rank": null, "pre_populated": true },
+      { "id": 15, "name": "Soil quality regulation services",                "selected": true,  "priority_rank": 2, "pre_populated": true },
+      { "id": 16, "name": "Soil erosion control services",                   "selected": true,  "priority_rank": 3, "pre_populated": true },
+      { "id": 27, "name": "Pollination services",                            "selected": true,  "priority_rank": null, "pre_populated": true },
+      { "id": 9,  "name": "Water supply",                                    "selected": true,  "priority_rank": null, "pre_populated": true },
+      { "id": 37, "name": "Ecosystem and species appreciation",              "selected": false, "priority_rank": null, "pre_populated": false }
+    ]
+  },
+
+  "step2": {
+    "prescreen": {
+      "q1_trees": "open_conditionally",
+      "q2_livestock": "open",
+      "q3_set_aside": "open_conditionally",
+      "q4_inputs": "open"
+    },
+    "selected_practices": [
+      { "p_code": "P21", "name": "Implement rotational and managed grazing",               "theme": "Livestock and Pasture Management",    "tier": "standard",       "score": 14 },
+      { "p_code": "P22", "name": "Reduce stocking densities",                              "theme": "Livestock and Pasture Management",    "tier": "standard",       "score": 12 },
+      { "p_code": "P24", "name": "Restore and manage degraded pastures and grasslands",   "theme": "Livestock and Pasture Management",    "tier": "standard",       "score": 11 },
+      { "p_code": "P04", "name": "Apply compost and organic amendments",                   "theme": "Soil Management",                     "tier": "standard",       "score": 9  },
+      { "p_code": "P20", "name": "Implement contour management and anti-erosion earthworks", "theme": "Water Management",                 "tier": "standard",       "score": 8  },
+      { "p_code": "P17", "name": "Harvest and efficiently manage water on-farm",           "theme": "Water Management",                    "tier": "standard",       "score": 7  },
+      { "p_code": "P28", "name": "Plant and maintain windbreaks and shelterbelts",         "theme": "Agroforestry and Tree Integration",   "tier": "transformative", "score": 7  },
+      { "p_code": "P35", "name": "Restore and maintain traditional farming landscapes and practices", "theme": "Habitat and Landscape Management", "tier": "transformative", "score": 6 }
+    ],
+    "practice_count": 8,
+    "theme_counts": {
+      "Livestock and Pasture Management": 3,
+      "Soil Management": 1,
+      "Water Management": 2,
+      "Agroforestry and Tree Integration": 1,
+      "Habitat and Landscape Management": 1
+    },
+    "standard_count": 6,
+    "transformative_count": 2
+  },
+
+  "step3": {
+    "team_types": [
+      { "type": "A", "count": 3 },
+      { "type": "B", "count": 1 }
+    ],
+    "willingness_recruit": "yes_specific",
+    "willingness_recruit_roles": "Field technician (Type C) for soil sampling",
+    "days_by_type": { "A": 15, "B": 10 },
+    "willingness_time": "yes_modestly",
+    "equipment_capabilities": [1, 2, 4, 5],
+    "willingness_equipment": "yes_specific",
+    "willingness_equipment_categories": [9],
+    "budget_tier": 1,
+    "site_count_category": "2-5",
+    "site_count": 3,
+    "site_distribution": "single_landscape",
+    "access_calendar": [
+      { "month": "January",   "access": "accessible",  "reason": "" },
+      { "month": "February",  "access": "accessible",  "reason": "" },
+      { "month": "March",     "access": "accessible",  "reason": "" },
+      { "month": "April",     "access": "accessible",  "reason": "" },
+      { "month": "May",       "access": "accessible",  "reason": "" },
+      { "month": "June",      "access": "constrained", "reason": "Extreme heat — field work unsafe after 10am" },
+      { "month": "July",      "access": "constrained", "reason": "Extreme heat and dry season peak" },
+      { "month": "August",    "access": "constrained", "reason": "Extreme heat and dry season peak" },
+      { "month": "September", "access": "accessible",  "reason": "" },
+      { "month": "October",   "access": "accessible",  "reason": "" },
+      { "month": "November",  "access": "accessible",  "reason": "" },
+      { "month": "December",  "access": "accessible",  "reason": "" }
+    ],
+    "capacity_profile": null
+  },
+
+  "step4_outputs": {
+    "practice_chains": [],
+    "selected_indicator_groups": [],
+    "selected_abiotic": [],
+    "protocol_assignments": [],
+    "trimmed_groups": [],
+    "calendar": [],
+    "narrative": { "paragraph1": "", "paragraph2": "", "paragraph3": "", "paragraph4": "" }
+  }
+}
