@@ -1208,9 +1208,17 @@ function initBlock4Events() {
 function rerenderBlock3() {
   const b3 = document.getElementById('b3');
   if (!b3) return;
+  // Preserve expanded/collapsed state
+  const wasExpanded = b3.querySelector('.block-header')?.getAttribute('aria-expanded') === 'true';
   const tmp = document.createElement('div');
   tmp.innerHTML = renderBlock3();
-  b3.replaceWith(tmp.firstElementChild);
+  const newB3 = tmp.firstElementChild;
+  if (wasExpanded) {
+    newB3.querySelector('.block-header')?.setAttribute('aria-expanded', 'true');
+    const body = newB3.querySelector('.block-body');
+    if (body) body.hidden = false;
+  }
+  b3.replaceWith(newB3);
   initBlock3Events();
   initCollapsibles(document.getElementById('b3'));
   updateCompTotal();
