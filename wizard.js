@@ -259,10 +259,17 @@ function getEligiblePractices() {
     // Land use filter
     if (userLandUses.length) {
       const allApp = [...(p.primary_applicability || []), ...(p.transformative_applicability || [])];
-      const overlap = allApp.some(a =>
-        userLandUses.some(ul => a.toLowerCase().includes(ul) || ul.includes(a.toLowerCase().split(' ')[0]))
-      );
-      if (allApp.length && !overlap) return null;
+      // Entries containing 'all' land use or 'none' (= universally applicable) always pass
+      const isUniversal = allApp.some(a => {
+        const al = a.toLowerCase();
+        return al.startsWith('none') || al.startsWith('all cropland') || al.startsWith('all land use');
+      });
+      if (!isUniversal) {
+        const overlap = allApp.some(a =>
+          userLandUses.some(ul => a.toLowerCase().includes(ul) || ul.includes(a.toLowerCase().split(' ')[0]))
+        );
+        if (allApp.length && !overlap) return null;
+      }
     }
     // Tier / pre-screen
     let tier = 'standard';
@@ -313,7 +320,11 @@ function selectIndicatorGroups(step1, step2) {
       // Land use filter
       if (ind.relevant_ipcc_land_use?.length && userLandUses.length) {
         const indLU = ind.relevant_ipcc_land_use.map(l => l.toLowerCase());
-        if (!indLU.some(il => userLandUses.some(ul => ul.includes(il) || il.includes(ul.split(' ')[0])))) return null;
+        const luPass = indLU.some(il =>
+          il === 'all categories' ||
+          userLandUses.some(ul => ul.includes(il) || il.includes(ul.split(' ')[0]))
+        );
+        if (!luPass) return null;
       }
       const b2 = (ind.b2_practices_primarily_verified || []).some(p => selectedPCodes.includes(p));
       const b1 = (ind.b1_practices_that_benefit || []).some(p => selectedPCodes.includes(p));
@@ -522,7 +533,9 @@ function runStep4Algorithm() {
     .slice(0, 3)
     .map(p => (referenceData.block4_pressures || []).find(r => r.id === p.id)?.name)
     .filter(Boolean);
-  const topChallenges = (step1.challenges || []).filter(c => c.confirmed).slice(0, 3)
+  const topChallenges = (step1.challenges || []).filter(c => c.confirmed)
+    .sort((a, b) => confidenceRank(b.confidence) - confidenceRank(a.confidence))
+    .slice(0, 3)
     .map(c => (referenceData.block5_challenges || []).find(r => r.id === c.id)?.name).filter(Boolean);
   const topServices = (step1.services || []).filter(s => s.selected && s.priority_rank)
     .sort((a,b) => a.priority_rank - b.priority_rank).slice(0, 3)
