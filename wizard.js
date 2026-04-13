@@ -1479,9 +1479,33 @@ function renderStep4() {
 }
 
 function buildStep4HTML() {
-  const out  = window.assessment.step4_outputs;
+  const out   = window.assessment.step4_outputs;
   const step1 = window.assessment.step1;
-  const n    = out.narrative;
+  const step3 = window.assessment.step3;
+  const n     = out.narrative;
+  const cap   = step3.capacity_profile || {};
+
+  // Summary panel
+  const efgNames  = (step1.efg_codes || []).map(c => {
+    const opt = (referenceData.efg_options || []).find(e => e.code === c);
+    return opt ? `${c} ${opt.name}` : c;
+  }).join(', ');
+  const levelLabel = cap.max_protocol_level === 1 ? 'Level 1 — Community observer'
+    : cap.max_protocol_level === 2 ? 'Level 2 — Technician'
+    : cap.max_protocol_level === 3 ? 'Level 3 — Research'
+    : '—';
+  const summaryHtml = `<div class="output-summary-panel">
+    <div class="summary-stat"><span class="stat-num">${out.protocol_assignments.length}</span><span class="stat-label">Biological indicators</span></div>
+    <div class="summary-stat"><span class="stat-num">${out.selected_abiotic.length}</span><span class="stat-label">Abiotic indicators</span></div>
+    <div class="summary-stat"><span class="stat-num">${out.practice_chains.reduce((s,c)=>s+c.practices.length,0)}</span><span class="stat-label">Practices</span></div>
+    <div class="summary-stat"><span class="stat-num">${out.trimmed_groups.length}</span><span class="stat-label">Deferred indicators</span></div>
+    <div class="summary-meta">
+      <span>${esc(step1.landscape_name || '—')}${step1.country ? ', ' + esc(step1.country) : ''}</span>
+      <span>${esc(efgNames || '—')}</span>
+      <span>${esc(levelLabel)}</span>
+      <span>${cap.available_days_total || 0} monitoring days available</span>
+    </div>
+  </div>`;
 
   // Narrative
   const narrativeHtml = `<div class="output-section narrative-section">
@@ -1597,7 +1621,7 @@ function buildStep4HTML() {
     <button class="btn btn-ghost" id="btn-restart">Start New Assessment</button>
   </div>`;
 
-  return actionsHtml + narrativeHtml + chainsHtml + bioHtml + abioHtml + calHtml + enhHtml;
+  return actionsHtml + summaryHtml + narrativeHtml + chainsHtml + bioHtml + abioHtml + calHtml + enhHtml;
 }
 
 // ── Collapsible blocks ────────────────────────────────────────────────────
