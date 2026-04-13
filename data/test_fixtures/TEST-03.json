@@ -17,15 +17,15 @@
 
     "description": "The Vietnam Sustainable Agriculture (VSA) pilot site is located in An Giang Province in the upper Mekong Delta, covering a mosaic of intensive rice paddies (two to three crops per year), seasonal vegetable plots, and canal-side aquaculture ponds. The landscape is characterised by intensive use of synthetic pesticides, fungicides, and nitrogen fertilisers, with widespread herbicide application for weed control in rice cultivation. Seasonal flooding provides natural nutrient deposition but is increasingly unpredictable. This monitoring programme aims to establish land health baselines before the introduction of integrated rice-fish systems, cover cropping, and IPM practices under a VSA certification programme.",
 
-    "land_uses": ["Intensive Annual Cropland", "Irrigated Cropland", "Wetlands"],
+    "land_uses": ["Annual cropland", "Rice paddies and other flooded cropland", "Wetlands and natural waterbodies"],
 
     "crops": ["Rice (wet season)", "Rice (dry season)", "Maize", "Soya bean", "Water spinach", "Lotus"],
     "livestock": ["Ducks (rice-field integrated)", "Freshwater fish (aquaculture)"],
 
     "land_use_composition": [
-      { "category": "F3.3", "ipcc_category": "Irrigated Cropland",       "area_pct": 55 },
-      { "category": "T7.1", "ipcc_category": "Intensive Annual Cropland", "area_pct": 30 },
-      { "category": "T7.1", "ipcc_category": "Wetlands",                 "area_pct": 15 }
+      { "category": "Rice paddies and other flooded cropland", "area_pct": 55 },
+      { "category": "Annual cropland",                         "area_pct": 30 },
+      { "category": "Wetlands and natural waterbodies",        "area_pct": 15 }
     ],
 
     "pressures": [

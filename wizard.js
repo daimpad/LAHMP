@@ -385,14 +385,17 @@ function buildMonitoringCalendar(groups, accessCalendar) {
   return groups.map(g => {
     const speed = stageSpeed(g.monitoring_stage);
     let windows = [];
+    let windowIndices = [];
 
     if (accessibleIdx.length === 0) {
       // No accessible months at all
       windows = ['No accessible months specified — define in Step 3'];
+      windowIndices = [];
     } else if (speed === 'fast') {
       // Two windows per year: spring + autumn
       const sp = pickWindow(SPRING_IDX, WINTER_IDX);
       const au = pickWindow(AUTUMN_IDX, SPRING_IDX);
+      windowIndices = [...new Set([...sp, ...au])];
       const spRange = idxToRange(sp);
       const auRange = idxToRange(au);
       if (spRange && auRange && spRange !== auRange) windows = [spRange, auRange];
@@ -401,10 +404,12 @@ function buildMonitoringCalendar(groups, accessCalendar) {
     } else if (speed === 'medium') {
       // One window per year, prefer spring
       const sp = pickWindow(SPRING_IDX, [...AUTUMN_IDX, ...WINTER_IDX]);
+      windowIndices = sp;
       windows = [idxToRange(sp) || 'Any accessible month'];
     } else {
       // Slow — once every few years, best accessible window
       const best = pickWindow([...SPRING_IDX, ...AUTUMN_IDX], ALL_IDX);
+      windowIndices = best;
       windows = [idxToRange(best) || 'Any accessible month'];
     }
 
@@ -419,6 +424,7 @@ function buildMonitoringCalendar(groups, accessCalendar) {
       monitoring_stage: g.monitoring_stage || '—',
       response_timescale: g.response_timescale || '—',
       suggested_window: windows.join(' and ') + caveat,
+      window_month_indices: windowIndices,
       frequency: speed === 'fast' ? 'Annual (×2)' : speed === 'medium' ? 'Annual' : 'Every 2–5 years',
     };
   });
@@ -533,6 +539,15 @@ function runStep4Algorithm() {
     return sum + (DAYS_PER_LEVEL[g.assigned_level] || 0.5) * siteCount;
   }, 0);
 
+  // EFG context for narrative
+  const efgNames = (step1.efg_codes || []).map(code => {
+    const opt = (referenceData.efg_options || []).find(e => e.code === code);
+    return opt ? opt.name : code;
+  });
+  const efgContext = efgNames.length
+    ? ` — a landscape characterised by ${efgNames.slice(0, 2).join(' and ')} ecosystems`
+    : '';
+
   window.assessment.step4_outputs = {
     practice_chains,
     selected_indicator_groups: rawGroups,
@@ -541,7 +556,7 @@ function runStep4Algorithm() {
     trimmed_groups,
     calendar,
     narrative: {
-      paragraph1: `Your monitoring programme has been designed specifically for ${step1.landscape_name || 'your landscape'}${step1.country ? ', ' + step1.country : ''}. In Step 1, you identified ${(step1.pressures||[]).filter(p=>p.status!=='not_relevant').length} pressures currently affecting your land${ongoingPressures.length ? ' — particularly ' + ongoingPressures.join(', ') : ''}. These pressures are contributing to ${(step1.challenges||[]).filter(c=>c.confirmed).length} confirmed land health challenges${topChallenges.length ? ', with ' + topChallenges.join(', ') + ' being the most significant' : ''}.`,
+      paragraph1: `Your monitoring programme has been designed specifically for ${step1.landscape_name || 'your landscape'}${step1.country ? ', ' + step1.country : ''}${efgContext}. In Step 1, you identified ${(step1.pressures||[]).filter(p=>p.status!=='not_relevant').length} pressures currently affecting your land${ongoingPressures.length ? ' — particularly ' + ongoingPressures.join(', ') : ''}. These pressures are contributing to ${(step1.challenges||[]).filter(c=>c.confirmed).length} confirmed land health challenges${topChallenges.length ? ', with ' + topChallenges.join(', ') + ' being the most significant' : ''}.`,
       paragraph2: `In Step 2, you selected ${(step2.selected_practices||[]).length} sustainable land management practice${(step2.selected_practices||[]).length!==1?'s':''} across ${practice_chains.length} theme${practice_chains.length!==1?'s':''}. The ecosystem services you most want to see recover are${topServices.length ? ': ' + topServices.join(', ') : ' as described in your profile'}.`,
       paragraph3: `Your team capacity supports ${levelLabel} monitoring. ${totalDaysNeeded > cap.available_days_total ? `The full indicator set requires an estimated ${totalDaysNeeded.toFixed(0)} field days; your programme has been fitted to your ${cap.available_days_total} available days, retaining` : 'Your programme includes'} ${protocol_assignments.length} biological indicator group${protocol_assignments.length!==1?'s':''} and ${selected_abiotic.length} abiotic indicator${selected_abiotic.length!==1?'s':''}. ${selected_abiotic.filter(a=>a.universal_baseline).length} abiotic indicators form your universal baseline package, to be established in Year 1 before biological monitoring begins.`,
       paragraph4: `With ${cap.available_days_total} monitoring days available across your team (${cap.per_site_days.toFixed(1)} days per site), ${trimmed_groups.length > 0 ? `${trimmed_groups.length} indicator group${trimmed_groups.length!==1?'s were':' was'} deferred to the Enhancement Recommendations section below — these could be added if your team or budget grows.` : 'your full indicator set fits within your current capacity.'}`,
@@ -624,8 +639,42 @@ function renderBlock1() {
 }
 
 function renderBlock12() {
-  const s  = window.assessment.step1;
-  const efgOpts = (referenceData.efg_options || []).map(e => ({ value: e.code, label: `${e.code} — ${e.name}` }));
+  const s = window.assessment.step1;
+  const efgOpts = referenceData.efg_options || [];
+
+  // Group EFGs by realm, then biome. Agricultural realms expanded by default.
+  const AGRI_REALMS = ['Terrestrial', 'Freshwater', 'Terrestrial-Freshwater'];
+  const allRealms   = [...new Set(efgOpts.map(e => e.realm))];
+  const orderedRealms = [
+    ...AGRI_REALMS.filter(r => allRealms.includes(r)),
+    ...allRealms.filter(r => !AGRI_REALMS.includes(r))
+  ];
+
+  const efgGroupsHtml = orderedRealms.map(realm => {
+    const realmEFGs  = efgOpts.filter(e => e.realm === realm);
+    const biomes     = [...new Set(realmEFGs.map(e => e.biome))];
+    const biomesHtml = biomes.map(biome => {
+      const boxes = efgOpts
+        .filter(e => e.biome === biome)
+        .map(e => {
+          const checked = s.efg_codes.includes(e.code);
+          return `<label class="check-item${checked ? ' is-checked' : ''}">
+            <input type="checkbox" name="efg_code" value="${esc(e.code)}" ${checked ? 'checked' : ''}>
+            <span class="efg-code-badge">${esc(e.code)}</span> ${esc(e.name)}
+          </label>`;
+        }).join('');
+      return `<div class="efg-biome-group">
+        <div class="efg-biome-label">${esc(biome)}</div>
+        <div class="check-grid">${boxes}</div>
+      </div>`;
+    }).join('');
+    const isOpen = AGRI_REALMS.includes(realm);
+    return `<details class="efg-realm-group"${isOpen ? ' open' : ''}>
+      <summary class="efg-realm-summary">${esc(realm)}</summary>
+      <div class="efg-realm-body">${biomesHtml}</div>
+    </details>`;
+  }).join('');
+
   return block('b12', 'Block 1.2 — Land System', `
     <div class="form-grid">
       <div class="form-field">
@@ -639,8 +688,8 @@ function renderBlock12() {
     </div>
     <div class="form-field-full">
       <label>Global Ecosystem Functional Groups (EFGs) <span class="req">*</span></label>
-      <p class="field-hint">Select all EFGs that describe your landscape. Used to filter practice and indicator recommendations.</p>
-      ${multiCheckList(efgOpts, s.efg_codes, 'efg_code', 'value', 'label')}
+      <p class="field-hint">Select all EFGs present in your landscape. Terrestrial, Freshwater, and Terrestrial-Freshwater realms are shown expanded; others are collapsed.</p>
+      <div class="efg-selector">${efgGroupsHtml}</div>
     </div>
     <div class="form-field-full">
       <label>Soil types present</label>
@@ -658,19 +707,68 @@ function renderBlock13() {
 }
 
 function renderBlock2() {
-  const s = window.assessment.step1;
+  const s      = window.assessment.step1;
+  const luList = referenceData.block2_land_uses || [];
+
+  // Group by category, preserving order of first appearance
+  const catOrder = [], catMap = {};
+  for (const lu of luList) {
+    const cat = lu.category || 'Other';
+    if (!catMap[cat]) { catMap[cat] = []; catOrder.push(cat); }
+    catMap[cat].push(lu);
+  }
+
+  const grouped = catOrder.map(cat => {
+    const items = catMap[cat].map(lu => {
+      const checked = s.land_uses.includes(lu.subcategory);
+      return `<label class="lu-check-item check-item${checked ? ' is-checked' : ''}">
+        <input type="checkbox" name="land_use" value="${esc(lu.subcategory)}" ${checked ? 'checked' : ''}>
+        <span class="lu-text">
+          <span class="lu-name">${esc(lu.subcategory)}</span>
+          ${lu.description ? `<span class="lu-desc">${esc(lu.description)}</span>` : ''}
+        </span>
+      </label>`;
+    }).join('');
+    return `<div class="lu-cat-group">
+      <div class="list-group-header">${esc(cat)}</div>
+      <div class="lu-cat-items">${items}</div>
+    </div>`;
+  }).join('');
+
   return block('b2', 'Block 2 — Land Uses Present', `
     <p class="block-desc">Which land uses are present in your landscape? This determines which practices are eligible for recommendation.</p>
-    ${multiCheckList(referenceData.ipcc_land_use_categories || [], s.land_uses, 'land_use')}`,
+    <div class="lu-grouped-list" id="lu-list">${grouped}</div>`,
     { subtitle: 'Select all land uses currently present' });
 }
 
 function renderBlock3() {
   const s = window.assessment.step1;
-  const cropTags = (s.crops || []).map(c => `<span class="tag" data-type="crop" data-val="${esc(c)}">${esc(c)}<button type="button" class="tag-remove" aria-label="Remove ${esc(c)}">×</button></span>`).join('');
-  const lvkTags  = (s.livestock || []).map(l => `<span class="tag" data-type="livestock" data-val="${esc(l)}">${esc(l)}<button type="button" class="tag-remove" aria-label="Remove ${esc(l)}">×</button></span>`).join('');
 
-  const usedLUs = s.land_uses.length ? s.land_uses : (referenceData.ipcc_land_use_categories || []).slice(0, 3);
+  // 3.1 Crops — tag input with datalist autocomplete
+  const cropTags = (s.crops || []).map(c =>
+    `<span class="tag" data-type="crop" data-val="${esc(c)}">${esc(c)}<button type="button" class="tag-remove" aria-label="Remove ${esc(c)}">×</button></span>`
+  ).join('');
+  const cropDatalistOptions = (referenceData.block31_crops || [])
+    .map(c => `<option value="${esc(c.name)}">${esc(c.botanical_name ? c.name + ' (' + c.botanical_name + ')' : c.name)}</option>`)
+    .join('');
+
+  // 3.2 Livestock — checkboxes from block32_livestock
+  const lvkCategories = referenceData.block32_livestock || [];
+  const lvkCheckboxes = lvkCategories.map(cat => {
+    const checked = (s.livestock || []).includes(cat.name);
+    return `<label class="check-item${checked ? ' is-checked' : ''}">
+      <input type="checkbox" name="livestock_cat" value="${esc(cat.name)}" ${checked ? 'checked' : ''}>
+      <span>${esc(cat.name)}</span>
+    </label>`;
+  }).join('');
+  // Additional free-text tags for any livestock not in the standard list
+  const stdLvkNames = lvkCategories.map(c => c.name);
+  const customLvkTags = (s.livestock || [])
+    .filter(l => !stdLvkNames.includes(l))
+    .map(l => `<span class="tag" data-type="livestock" data-val="${esc(l)}">${esc(l)}<button type="button" class="tag-remove" aria-label="Remove ${esc(l)}">×</button></span>`)
+    .join('');
+
+  const usedLUs  = s.land_uses.length ? s.land_uses : (referenceData.ipcc_land_use_categories || []).slice(0, 3);
   const compRows = usedLUs.map(lu => {
     const existing = (s.land_use_composition || []).find(c => c.category === lu);
     return `<tr>
@@ -680,24 +778,25 @@ function renderBlock3() {
   }).join('');
 
   return block('b3', 'Block 3 — Agricultural Context', `
+    <datalist id="crop-suggestions">${cropDatalistOptions}</datalist>
     <div class="form-subsection">
       <h3 class="subsection-title">3.1 — Crops grown</h3>
+      <p class="field-hint">Type to search ${(referenceData.block31_crops || []).length} listed crops, or enter any crop name.</p>
       <div class="tag-input-wrap">
         <div class="tag-list" id="crop-tags">${cropTags}</div>
         <div class="tag-add-row">
-          <input type="text" id="crop-input" placeholder="Type a crop and press Enter (e.g. Wheat, Olives)" class="tag-input">
+          <input type="text" id="crop-input" list="crop-suggestions" placeholder="Search or type a crop name, then press Enter" class="tag-input" autocomplete="off">
           <button type="button" class="btn btn-sm btn-secondary" id="crop-add">Add</button>
         </div>
       </div>
     </div>
     <div class="form-subsection">
       <h3 class="subsection-title">3.2 — Livestock present</h3>
-      <div class="tag-input-wrap">
-        <div class="tag-list" id="livestock-tags">${lvkTags}</div>
-        <div class="tag-add-row">
-          <input type="text" id="livestock-input" placeholder="Type a livestock type and press Enter (e.g. Cattle, Sheep)" class="tag-input">
-          <button type="button" class="btn btn-sm btn-secondary" id="livestock-add">Add</button>
-        </div>
+      <div class="check-grid">${lvkCheckboxes}</div>
+      <div class="tag-list mt-8" id="livestock-tags">${customLvkTags}</div>
+      <div class="tag-add-row mt-8">
+        <input type="text" id="livestock-input" placeholder="Add other livestock not listed above" class="tag-input">
+        <button type="button" class="btn btn-sm btn-secondary" id="livestock-add">Add</button>
       </div>
     </div>
     <div class="form-subsection">
@@ -723,7 +822,7 @@ function renderBlock4() {
     { value: 'not_relevant', label: 'Not relevant' },
   ];
 
-  const rows = pressures.map(p => {
+  function pressureRow(p) {
     const saved = statuses.find(s => s.id === p.id);
     const val   = saved?.status || 'not_relevant';
     const radios = STATUS_OPTS.map(o =>
@@ -739,11 +838,25 @@ function renderBlock4() {
       </div>
       <div class="pressure-radios">${radios}</div>
     </div>`;
-  }).join('');
+  }
+
+  // Group by p.group, preserving order of first appearance
+  const groupOrder = [], groupMap = {};
+  for (const p of pressures) {
+    const g = p.group || 'Other';
+    if (!groupMap[g]) { groupMap[g] = []; groupOrder.push(g); }
+    groupMap[g].push(p);
+  }
+  const grouped = groupOrder.map(g =>
+    `<div class="pressure-group">
+      <div class="list-group-header">${esc(g)}</div>
+      ${groupMap[g].map(pressureRow).join('')}
+    </div>`
+  ).join('');
 
   return block('b4', 'Block 4 — Pressures', `
     <p class="block-desc">For each pressure, indicate whether it is currently affecting your landscape. Responses pre-populate the Challenges list in Block 5.</p>
-    <div class="pressure-list" id="pressure-list">${rows}</div>`,
+    <div class="pressure-list" id="pressure-list">${grouped}</div>`,
     { subtitle: '28 pressures — select status for each' });
 }
 
@@ -751,21 +864,18 @@ function renderBlock5() {
   const allChallenges = referenceData.block5_challenges || [];
   const saved = window.assessment.step1.challenges;
 
-  const rows = allChallenges.map(c => {
-    const state = saved.find(s => s.id === c.id);
-    const confirmed    = state?.confirmed ?? false;
-    const pre_pop      = state?.pre_populated ?? false;
-    const confidence   = state?.confidence ?? null;
-    const isActive     = !!state; // is in the populated list
-
+  function challengeRow(c) {
+    const state      = saved.find(s => s.id === c.id);
+    const confirmed  = state?.confirmed ?? false;
+    const pre_pop    = state?.pre_populated ?? false;
+    const confidence = state?.confidence ?? null;
+    const isActive   = !!state;
     if (!isActive) {
-      // Show as "add manually" option
       return `<div class="challenge-row is-inactive" id="challenge-row-${c.id}">
         <label class="challenge-check">
           <input type="checkbox" class="challenge-manual" data-challenge-id="${c.id}" ${confirmed ? 'checked' : ''}>
           <span class="challenge-name">${esc(c.name)}</span>
         </label>
-        <span class="challenge-group text-muted">${esc(c.group || '')}</span>
       </div>`;
     }
     return `<div class="challenge-row is-prepopulated${confirmed ? ' is-confirmed' : ''}" id="challenge-row-${c.id}">
@@ -776,14 +886,26 @@ function renderBlock5() {
       <div class="challenge-meta">
         ${confidence ? confBadge(confidence) : ''}
         ${pre_pop ? '<span class="badge badge-prepop">Pre-filled</span>' : ''}
-        <span class="challenge-group text-muted">${esc(c.group || '')}</span>
       </div>
     </div>`;
-  }).join('');
+  }
+
+  const groupOrder = [], groupMap = {};
+  for (const c of allChallenges) {
+    const g = c.group || 'Other';
+    if (!groupMap[g]) { groupMap[g] = []; groupOrder.push(g); }
+    groupMap[g].push(c);
+  }
+  const grouped = groupOrder.map(g =>
+    `<div class="challenge-group">
+      <div class="list-group-header">${esc(g)}</div>
+      ${groupMap[g].map(challengeRow).join('')}
+    </div>`
+  ).join('');
 
   return block('b5', 'Block 5 — Challenges', `
-    <p class="block-desc">Challenges pre-populated from Block 4. Confirm the challenges that apply to your landscape. You can also add challenges manually below.</p>
-    <div class="challenge-list" id="challenge-list">${rows}</div>`,
+    <p class="block-desc">Challenges pre-populated from Block 4. Confirm the challenges that apply to your landscape. You can also add challenges manually.</p>
+    <div class="challenge-list" id="challenge-list">${grouped}</div>`,
     { subtitle: '35 challenges — confirm or add' });
 }
 
@@ -791,12 +913,12 @@ function renderBlock6() {
   const allServices = referenceData.block6_services || [];
   const saved = window.assessment.step1.services;
 
-  const rows = allServices.map(s => {
-    const state      = saved.find(sv => sv.id === s.id);
-    const selected   = state?.selected ?? false;
-    const priority   = state?.priority_rank ?? null;
-    const pre_pop    = state?.pre_populated ?? false;
-    const prioOpts   = [1,2,3].map(n =>
+  function serviceRow(s) {
+    const state    = saved.find(sv => sv.id === s.id);
+    const selected = state?.selected ?? false;
+    const priority = state?.priority_rank ?? null;
+    const pre_pop  = state?.pre_populated ?? false;
+    const prioOpts = [1,2,3].map(n =>
       `<option value="${n}" ${priority === n ? 'selected' : ''}>${n}</option>`
     ).join('');
     return `<div class="service-row${selected ? ' is-selected' : ''}" id="service-row-${s.id}">
@@ -806,7 +928,6 @@ function renderBlock6() {
       </label>
       <div class="service-meta">
         ${pre_pop ? '<span class="badge badge-prepop">Pre-filled</span>' : ''}
-        <span class="service-group text-muted">${esc(s.group || '')}</span>
         <label class="priority-label${!selected ? ' is-hidden' : ''}" id="prio-label-${s.id}">
           Priority
           <select class="priority-select" data-service-id="${s.id}" ${!selected ? 'disabled' : ''}>
@@ -815,11 +936,24 @@ function renderBlock6() {
         </label>
       </div>
     </div>`;
-  }).join('');
+  }
+
+  const groupOrder = [], groupMap = {};
+  for (const s of allServices) {
+    const g = s.group || 'Other';
+    if (!groupMap[g]) { groupMap[g] = []; groupOrder.push(g); }
+    groupMap[g].push(s);
+  }
+  const grouped = groupOrder.map(g =>
+    `<div class="service-group">
+      <div class="list-group-header">${esc(g)}</div>
+      ${groupMap[g].map(serviceRow).join('')}
+    </div>`
+  ).join('');
 
   return block('b6', 'Block 6 — Ecosystem Services', `
-    <p class="block-desc">Services pre-populated from your confirmed challenges. Select the services you want your monitoring programme to track, and assign a priority rank (1 = highest priority) to up to three.</p>
-    <div class="service-list" id="service-list">${rows}</div>`,
+    <p class="block-desc">Services pre-populated from your confirmed challenges. Select the services to track and assign a priority rank (1 = highest) to up to three.</p>
+    <div class="service-list" id="service-list">${grouped}</div>`,
     { subtitle: '37 services — select and rank up to 3' });
 }
 
@@ -942,12 +1076,31 @@ function initBlock3Events() {
     cropInput.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); addTag('crop', cropInput.value); cropInput.value = ''; } });
     cropAdd?.addEventListener('click', () => { addTag('crop', cropInput.value); cropInput.value = ''; });
   }
+
+  // Livestock checkboxes (standard categories)
+  document.querySelectorAll('input[name="livestock_cat"]').forEach(cb => {
+    cb.addEventListener('change', () => {
+      const s    = window.assessment.step1;
+      const name = cb.value;
+      if (cb.checked) {
+        cb.closest('label').classList.add('is-checked');
+        if (!s.livestock.includes(name)) s.livestock.push(name);
+      } else {
+        cb.closest('label').classList.remove('is-checked');
+        s.livestock = s.livestock.filter(v => v !== name);
+      }
+      saveState();
+    });
+  });
+
+  // Free-text livestock (custom entries beyond the standard list)
   const lvkInput = document.getElementById('livestock-input');
   const lvkAdd   = document.getElementById('livestock-add');
   if (lvkInput) {
     lvkInput.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); addTag('livestock', lvkInput.value); lvkInput.value = ''; } });
     lvkAdd?.addEventListener('click', () => { addTag('livestock', lvkInput.value); lvkInput.value = ''; });
   }
+
   // Existing tag removes (from restored state)
   document.querySelectorAll('.tag-remove').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -1580,22 +1733,60 @@ function buildStep4HTML() {
     </table>` : '<p class="empty-state">No abiotic indicators selected.</p>'}
   </div>`;
 
-  // Calendar
+  // Calendar — 12-month grid
+  const accessByMonth = {};
+  MONTHS.forEach((m, i) => {
+    const entry = (step3.access_calendar || []).find(e => e.month === m);
+    accessByMonth[i] = entry ? entry.access : 'accessible';
+  });
+  const MONTH_SHORT = MONTHS.map(m => m.slice(0, 3));
+
   const calHtml = `<div class="output-section">
     <h2 class="section-title">Monitoring Calendar</h2>
-    <p class="block-desc">Suggested monitoring windows derived from your Step 3 seasonal access calendar. Adjust timing to match local phenology (e.g. crop growth stages, breeding seasons).</p>
-    <table class="output-table">
-      <thead><tr><th>Indicator Group</th><th>Category</th><th>Stage</th><th>Frequency</th><th>Suggested Window</th></tr></thead>
-      <tbody>
-        ${out.calendar.map(c => `<tr>
-          <td><strong>${esc(c.profile_name)}</strong></td>
-          <td>${esc(c.category || '—')}</td>
-          <td class="stage-cell">${esc((c.monitoring_stage||'—').split(' ')[0])}</td>
-          <td>${esc(c.frequency || '—')}</td>
-          <td>${esc(c.suggested_window || '—')}</td>
-        </tr>`).join('') || '<tr><td colspan="5" class="empty-row">—</td></tr>'}
-      </tbody>
-    </table>
+    <p class="block-desc">Suggested monitoring windows based on indicator response timescales and your Step 3 seasonal access calendar. Adjust to match local phenology.</p>
+    ${out.calendar.length ? `
+    <div class="cal-output-wrap">
+      <table class="cal-output-table">
+        <thead>
+          <tr class="cal-month-header">
+            <th class="cal-group-col">Indicator group</th>
+            ${MONTH_SHORT.map((m, i) => `<th class="cal-month-th${accessByMonth[i] === 'constrained' ? ' cal-th-constrained' : accessByMonth[i] === 'unknown' ? ' cal-th-unknown' : ''}">${m}</th>`).join('')}
+            <th class="cal-freq-col">Frequency</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${out.calendar.map(c => `<tr>
+            <td class="cal-group-name">
+              <strong>${esc(c.profile_name)}</strong>
+              <span class="cal-stage-tag">${esc((c.monitoring_stage || '').split(' ')[0])}</span>
+            </td>
+            ${Array.from({length: 12}, (_, i) => {
+              const inWindow = (c.window_month_indices || []).includes(i);
+              const access   = accessByMonth[i];
+              if (!inWindow) return '<td class="cal-cell cal-cell-off"></td>';
+              if (access === 'constrained') return `<td class="cal-cell cal-cell-warn" title="Constrained access">●</td>`;
+              return `<td class="cal-cell cal-cell-on">●</td>`;
+            }).join('')}
+            <td class="cal-freq-td">${esc(c.frequency || '—')}</td>
+          </tr>`).join('')}
+          <tr class="cal-access-legend-row">
+            <td class="cal-legend-label">Site access</td>
+            ${Array.from({length: 12}, (_, i) => {
+              const a = accessByMonth[i];
+              if (a === 'constrained') return `<td class="cal-cell cal-legend-constrained" title="Constrained">⚠</td>`;
+              if (a === 'unknown')     return `<td class="cal-cell cal-legend-unknown" title="Unknown">?</td>`;
+              return `<td class="cal-cell cal-legend-ok" title="Accessible">✓</td>`;
+            }).join('')}
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="cal-legend">
+      <span class="cal-legend-item"><span class="cal-legend-dot cal-cell-on">●</span> Monitoring window</span>
+      <span class="cal-legend-item"><span class="cal-legend-dot cal-cell-warn">●</span> Window / constrained access</span>
+      <span class="cal-legend-item cal-legend-access"><span class="cal-legend-acc cal-legend-ok">✓</span> Accessible &nbsp; <span class="cal-legend-acc cal-legend-constrained">⚠</span> Constrained &nbsp; <span class="cal-legend-acc cal-legend-unknown">?</span> Unknown</span>
+    </div>` : '<p class="empty-state">No indicators retained. Complete Steps 1–3 to generate a monitoring programme.</p>'}
   </div>`;
 
   // Enhancement recommendations (trimmed groups)

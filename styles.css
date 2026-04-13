@@ -760,6 +760,155 @@ textarea { resize: vertical; min-height: 80px; }
 }
 .fixture-clear:hover { opacity: .7; }
 
+/* ── EFG Grouped Selector ────────────────────────────────────────────── */
+.efg-selector {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.efg-realm-group {
+  border-bottom: 1px solid var(--border);
+}
+.efg-realm-group:last-child { border-bottom: none; }
+.efg-realm-summary {
+  padding: 8px 14px;
+  background: var(--surface-alt);
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.efg-realm-summary::before {
+  content: '▶';
+  font-size: .65rem;
+  transition: transform .15s;
+  flex-shrink: 0;
+}
+.efg-realm-group[open] > .efg-realm-summary::before { transform: rotate(90deg); }
+.efg-realm-summary::-webkit-details-marker { display: none; }
+.efg-realm-body { padding: 10px 14px 14px; }
+.efg-biome-group { margin-bottom: 10px; }
+.efg-biome-group:last-child { margin-bottom: 0; }
+.efg-biome-label {
+  font-size: .72rem;
+  font-weight: 600;
+  color: var(--iucn-navy);
+  margin-bottom: 6px;
+  padding-bottom: 3px;
+  border-bottom: 1px solid var(--border);
+}
+.efg-code-badge {
+  font-family: var(--font-mono);
+  font-size: .75rem;
+  background: var(--iucn-navy);
+  color: #fff;
+  padding: 1px 5px;
+  border-radius: 3px;
+  margin-right: 2px;
+}
+.check-item:has(input[name="efg_code"]) { font-size: .82rem; }
+
+/* ── Block 2 — Land use grouped list ────────────────────────────────── */
+.lu-grouped-list { border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
+.lu-cat-group .list-group-header { margin: 0; }
+.lu-cat-items { padding: 6px 10px 10px; display: flex; flex-direction: column; gap: 2px; }
+.lu-check-item { align-items: flex-start; padding: 6px 8px; }
+.lu-check-item input[type="checkbox"] { margin-top: 3px; }
+.lu-text  { display: flex; flex-direction: column; gap: 1px; }
+.lu-name  { font-size: .87rem; font-weight: 500; color: var(--text); }
+.lu-desc  { font-size: .74rem; color: var(--text-muted); }
+
+/* ── Livestock checkbox grid ─────────────────────────────────────────── */
+.mt-8 { margin-top: 8px; }
+
+/* ── Block 4/5/6 group headers ───────────────────────────────────────── */
+.list-group-header {
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  background: var(--surface-alt);
+  padding: 5px 12px;
+  margin: 0 -12px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.pressure-group:first-child .list-group-header,
+.challenge-group:first-child .list-group-header,
+.service-group:first-child .list-group-header { border-top: none; }
+
+/* ── Monitoring calendar grid (Step 4 output) ────────────────────────── */
+.cal-output-wrap { overflow-x: auto; margin-bottom: 10px; }
+.cal-output-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .8rem;
+  min-width: 640px;
+}
+.cal-output-table th,
+.cal-output-table td {
+  padding: 5px 4px;
+  border: 1px solid var(--border);
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+.cal-month-header th { background: var(--surface-alt); }
+.cal-group-col  { text-align: left !important; min-width: 180px; max-width: 220px; white-space: normal; padding-left: 8px; }
+.cal-freq-col   { min-width: 88px; text-align: left !important; padding-left: 6px; }
+.cal-month-th   { font-size: .7rem; font-weight: 700; color: var(--text-muted); letter-spacing: .02em; width: 36px; }
+.cal-th-constrained { background: #fef9e7; color: #9a6700; }
+.cal-th-unknown     { background: var(--surface-alt); color: var(--text-muted); }
+
+.cal-group-name { text-align: left; padding-left: 8px; }
+.cal-group-name strong { display: block; font-size: .82rem; }
+.cal-stage-tag {
+  display: inline-block;
+  margin-top: 2px;
+  font-size: .65rem;
+  font-weight: 600;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.cal-cell        { font-size: 1rem; line-height: 1; }
+.cal-cell-off    { background: transparent; color: transparent; }
+.cal-cell-on     { background: #e8f5ee; color: var(--iucn-green); font-weight: bold; }
+.cal-cell-warn   { background: #fef9e7; color: #9a6700; font-weight: bold; }
+.cal-freq-td     { font-size: .75rem; text-align: left; padding-left: 6px; white-space: normal; }
+
+/* Access legend row */
+.cal-access-legend-row td  { background: var(--surface-alt); font-size: .8rem; font-weight: 600; }
+.cal-legend-label          { text-align: left; padding-left: 8px; font-style: italic; color: var(--text-muted); }
+.cal-legend-ok             { background: #e8f5ee; color: var(--iucn-green); }
+.cal-legend-constrained    { background: #fef9e7; color: #9a6700; }
+.cal-legend-unknown        { background: #f5f5f5; color: var(--text-muted); }
+
+/* Legend strip below grid */
+.cal-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 6px;
+  font-size: .75rem;
+  color: var(--text-muted);
+}
+.cal-legend-item  { display: flex; align-items: center; gap: 4px; }
+.cal-legend-dot   { font-size: .95rem; }
+.cal-legend-acc   { display: inline-block; font-size: .75rem; font-weight: 700; width: 16px; text-align: center; }
+.cal-legend-access { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+
 /* ── Print ───────────────────────────────────────────────────────────── */
 @media print {
   .print-hide, .site-header, .step-nav, .wizard-footer, .output-actions { display: none !important; }

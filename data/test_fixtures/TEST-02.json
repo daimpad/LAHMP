@@ -17,15 +17,15 @@
 
     "description": "PK-17 is a Sahelian rangeland site approximately 17 km from the Mauritanian capital Nouakchott, where mobile pastoralists graze cattle, sheep, and goats on degraded semi-arid grasslands. The landscape has undergone severe vegetation loss over the past three decades due to overgrazing, firewood extraction, and episodic drought. Invasive Prosopis juliflora is encroaching from degraded river margins. The monitoring programme is part of a rangeland restoration initiative supported by a regional NGO coalition. The objective is to establish baseline vegetation, soil, and biodiversity indicators before restoration interventions begin.",
 
-    "land_uses": ["Degraded Grassland", "Shrubland", "Grassland and Pasture"],
+    "land_uses": ["Permanent grassland / pasture / rangeland", "Natural or semi-natural grassland, savanna or shrub-steppe"],
 
     "crops": [],
     "livestock": ["Cattle", "Sheep", "Goats", "Camels"],
 
     "land_use_composition": [
-      { "category": "T7.5", "ipcc_category": "Degraded Grassland", "area_pct": 60 },
-      { "category": "T7.5", "ipcc_category": "Shrubland",           "area_pct": 30 },
-      { "category": "T7.5", "ipcc_category": "Grassland and Pasture", "area_pct": 10 }
+      { "category": "Permanent grassland / pasture / rangeland",                 "area_pct": 60 },
+      { "category": "Natural or semi-natural grassland, savanna or shrub-steppe","area_pct": 30 },
+      { "category": "Natural or semi-natural forest, shrubland or woodland",     "area_pct": 10 }
     ],
 
     "pressures": [

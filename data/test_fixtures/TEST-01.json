@@ -17,15 +17,15 @@
 
     "description": "Skoura M'Daz is a pre-Saharan agropastoral landscape in the Drâa Valley, characterised by traditional oasis farming systems, date palm groves (palmeries), and communal rangelands. The landscape faces increasing pressure from prolonged drought, overgrazing of degraded rangelands, and the abandonment of traditional water-harvesting practices (khettaras). The IUCN LHMF pilot aims to establish a baseline monitoring programme for the communal agropastoral zone, covering approximately 4,200 ha across five village territories.",
 
-    "land_uses": ["Grassland and Pasture", "Mixed Crop-Livestock System", "Agroforestry"],
+    "land_uses": ["Permanent grassland / pasture / rangeland", "Mixed crop–livestock systems", "Agroforestry or silvopastoral systems"],
 
     "crops": ["Date palm", "Wheat", "Barley", "Alfalfa", "Figs"],
     "livestock": ["Goats", "Camels", "Sheep", "Donkeys"],
 
     "land_use_composition": [
-      { "category": "T7.2", "ipcc_category": "Grassland and Pasture", "area_pct": 55 },
-      { "category": "T7.2", "ipcc_category": "Mixed Crop-Livestock System", "area_pct": 25 },
-      { "category": "T7.2", "ipcc_category": "Agroforestry", "area_pct": 20 }
+      { "category": "Permanent grassland / pasture / rangeland", "area_pct": 55 },
+      { "category": "Mixed crop–livestock systems",              "area_pct": 25 },
+      { "category": "Agroforestry or silvopastoral systems",     "area_pct": 20 }
     ],
 
     "pressures": [
