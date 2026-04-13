@@ -99,6 +99,20 @@ def table_kv(table):
     return result
 
 
+def kv_get(kv, *keys):
+    """Look up first matching key (exact) or key prefix in a kv dict."""
+    for k in keys:
+        # Exact match first
+        if k in kv:
+            return kv[k]
+        # Prefix match (handles 'Output metric (including MANDATORY canopy cover)' etc)
+        k_lower = k.lower()
+        for actual_key, val in kv.items():
+            if actual_key.lower().startswith(k_lower):
+                return val
+    return ""
+
+
 def parse_profile(path):
     """Parse a single indicator profile DOCX and return a dict."""
     doc = python_docx.Document(path)
@@ -301,7 +315,7 @@ def parse_profile(path):
             kv = table_kv(t)
             if section == "level1" or (section not in ("level1_done", "level2", "level2_done", "level3") and "level1_protocol_name" not in profile):
                 profile["level1_protocol_name"] = kv.get("Protocol name", "")
-                profile["level1_output_metric"] = kv.get("Output metric", "")
+                profile["level1_output_metric"] = kv_get(kv, "Output metric")
                 profile["level1_seasonal_primary"] = kv.get("Seasonal window — primary", kv.get("Seasonal window", ""))
                 profile["level1_seasonal_secondary"] = kv.get("Seasonal window — secondary", "")
                 profile["level1_equipment"] = kv.get("Equipment required", "")
@@ -310,7 +324,7 @@ def parse_profile(path):
                 section = "level1_done"
             elif section == "level2" or (section == "level1_done" and "level2_protocol_name" not in profile):
                 profile["level2_protocol_name"] = kv.get("Protocol name", "")
-                profile["level2_output_metric"] = kv.get("Output metric", "")
+                profile["level2_output_metric"] = kv_get(kv, "Output metric")
                 profile["level2_seasonal_primary"] = kv.get("Seasonal window — primary", "")
                 profile["level2_seasonal_secondary"] = kv.get("Seasonal window — secondary", "")
                 profile["level2_equipment"] = kv.get("Equipment required", "")
@@ -320,7 +334,7 @@ def parse_profile(path):
             elif section == "level3":
                 # Level 3 that uses "Protocol name" instead of "Protocol A name"
                 profile["level3_protocol_name"] = kv.get("Protocol name", "")
-                profile["level3_output_metric"] = kv.get("Output metric", kv.get("Output metrics", ""))
+                profile["level3_output_metric"] = kv_get(kv, "Output metrics", "Output metric")
                 profile["level3_seasonal_primary"] = kv.get("Seasonal window — primary", "")
                 profile["level3_seasonal_secondary"] = kv.get("Seasonal window — secondary", "")
                 profile["level3_equipment"] = kv.get("Equipment required", "")
@@ -347,7 +361,7 @@ def parse_profile(path):
         if fc == "Protocol A name" and ncols == 2:
             kv = table_kv(t)
             profile["level3_protocol_name"] = kv.get("Protocol A name", "")
-            profile["level3_output_metric"] = kv.get("Output metrics", kv.get("Output metric", ""))
+            profile["level3_output_metric"] = kv_get(kv, "Output metrics", "Output metric")
             profile["level3_seasonal_primary"] = kv.get("Seasonal window — primary", "")
             profile["level3_seasonal_secondary"] = kv.get("Seasonal window — secondary", "")
             profile["level3_equipment"] = kv.get("Equipment required", "")
