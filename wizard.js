@@ -336,6 +336,60 @@ function assignProtocol(group, cap) {
   };
 }
 
+// ── Operation 4 — Capacity fitting ─────────────────────────────────────────
+
+// Estimated field days per indicator per site at each protocol level
+const DAYS_PER_LEVEL = { 1: 0.5, 2: 1.0, 3: 1.5 };
+
+function priorityScore(group, step2, step1) {
+  const selectedPCodes = (step2.selected_practices || []).map(p => p.p_code);
+  const top3Challenges = (step1.challenges || [])
+    .filter(c => c.confirmed)
+    .sort((a, b) => confidenceRank(b.confidence) - confidenceRank(a.confidence))
+    .slice(0, 3).map(c => c.id);
+  const top3Services = (step1.services || [])
+    .filter(s => s.selected && s.priority_rank)
+    .sort((a, b) => a.priority_rank - b.priority_rank)
+    .slice(0, 3).map(s => s.id);
+
+  let score = 0;
+  score += (group.b2_practices_primarily_verified || []).filter(p => selectedPCodes.includes(p)).length * 3;
+  score += (group.block5_challenges || []).filter(id => top3Challenges.includes(id)).length * 2;
+  score += (group.block6_services || []).filter(id => top3Services.includes(id)).length * 1;
+  if (group.tier === 'Universal') score += 2;
+  if (group.monitoring_stage?.startsWith('Fast')) score += 1;
+  return score;
+}
+
+function capacityFit(assigned, cap, step2, step1) {
+  if (!cap.available_days_total || !cap.per_site_days) return { kept: assigned, trimmed: [] };
+  const siteCount = SITE_COUNT_MIDPOINT[window.assessment.step3.site_count_category] || 1;
+
+  // Score and sort
+  const scored = assigned.map(g => ({
+    ...g,
+    _priority: priorityScore(g, step2, step1),
+    _days_required: (DAYS_PER_LEVEL[g.assigned_level] || 0.5) * siteCount,
+  })).sort((a, b) => b._priority - a._priority || b.assigned_level - a.assigned_level);
+
+  const kept = [];
+  const trimmed = [];
+  let usedDays = 0;
+
+  for (const g of scored) {
+    if (usedDays + g._days_required <= cap.available_days_total) {
+      usedDays += g._days_required;
+      kept.push(g);
+    } else {
+      trimmed.push({
+        ...g,
+        trim_reason: `Exceeds capacity (needs ${g._days_required.toFixed(1)} days/cycle; ${(cap.available_days_total - usedDays).toFixed(1)} days remaining after higher-priority indicators).`,
+      });
+    }
+  }
+  return { kept, trimmed };
+}
+
 function runStep4Algorithm() {
   const { step1, step2, step3 } = window.assessment;
   const cap = computeCapacityProfile(step3);
@@ -360,9 +414,12 @@ function runStep4Algorithm() {
   );
 
   // Op 3 – Protocol assignment
-  const protocol_assignments = rawGroups.map(g => assignProtocol(g, cap));
+  const withProtocols = rawGroups.map(g => assignProtocol(g, cap));
 
-  // Op 5 – Calendar (simplified)
+  // Op 4 – Capacity fitting
+  const { kept: protocol_assignments, trimmed: trimmed_groups } = capacityFit(withProtocols, cap, step2, step1);
+
+  // Op 5 – Calendar (simplified — seasonal window data not yet in indicators.json)
   const calendar = protocol_assignments.map(g => ({
     profile_name: g.profile_name, season: 'Specify based on local conditions',
   }));
@@ -385,18 +442,23 @@ function runStep4Algorithm() {
     ? 'technician level (Protocol Level 2)'
     : 'research level (Protocol Level 3)';
 
+  const totalDaysNeeded = withProtocols.reduce((sum, g) => {
+    const siteCount = SITE_COUNT_MIDPOINT[step3.site_count_category] || 1;
+    return sum + (DAYS_PER_LEVEL[g.assigned_level] || 0.5) * siteCount;
+  }, 0);
+
   window.assessment.step4_outputs = {
     practice_chains,
     selected_indicator_groups: rawGroups,
     selected_abiotic,
     protocol_assignments,
-    trimmed_groups: [],
+    trimmed_groups,
     calendar,
     narrative: {
-      paragraph1: `Your monitoring programme has been designed specifically for ${step1.landscape_name || 'your landscape'}${step1.country ? ', ' + step1.country : ''}. In Step 1, you identified ${(step1.pressures||[]).filter(p=>p.status!=='not_relevant').length} pressures currently affecting your land${ongoingPressures.length ? ' — particularly ' + ongoingPressures.join(', ') : ''}. These pressures are contributing to ${(step1.challenges||[]).filter(c=>c.confirmed).length} land health challenges${topChallenges.length ? ', with ' + topChallenges.join(', ') + ' being the most significant' : ''}.`,
+      paragraph1: `Your monitoring programme has been designed specifically for ${step1.landscape_name || 'your landscape'}${step1.country ? ', ' + step1.country : ''}. In Step 1, you identified ${(step1.pressures||[]).filter(p=>p.status!=='not_relevant').length} pressures currently affecting your land${ongoingPressures.length ? ' — particularly ' + ongoingPressures.join(', ') : ''}. These pressures are contributing to ${(step1.challenges||[]).filter(c=>c.confirmed).length} confirmed land health challenges${topChallenges.length ? ', with ' + topChallenges.join(', ') + ' being the most significant' : ''}.`,
       paragraph2: `In Step 2, you selected ${(step2.selected_practices||[]).length} sustainable land management practice${(step2.selected_practices||[]).length!==1?'s':''} across ${practice_chains.length} theme${practice_chains.length!==1?'s':''}. The ecosystem services you most want to see recover are${topServices.length ? ': ' + topServices.join(', ') : ' as described in your profile'}.`,
-      paragraph3: `Your team capacity supports ${levelLabel} monitoring. Your monitoring programme includes ${protocol_assignments.length} biological indicator group${protocol_assignments.length!==1?'s':''} and ${selected_abiotic.length} abiotic indicator${selected_abiotic.length!==1?'s':''}. ${selected_abiotic.filter(a=>a.universal_baseline).length} abiotic indicators form your universal baseline package, to be established in Year 1 before biological monitoring begins.`,
-      paragraph4: `With ${cap.available_days_total} monitoring days available across your team (${cap.per_site_days.toFixed(1)} days per site), this programme is designed to fit within your current capacity. Review the Enhancement Recommendations section below for indicators that could be added if your team or budget grows.`,
+      paragraph3: `Your team capacity supports ${levelLabel} monitoring. ${totalDaysNeeded > cap.available_days_total ? `The full indicator set requires an estimated ${totalDaysNeeded.toFixed(0)} field days; your programme has been fitted to your ${cap.available_days_total} available days, retaining` : 'Your programme includes'} ${protocol_assignments.length} biological indicator group${protocol_assignments.length!==1?'s':''} and ${selected_abiotic.length} abiotic indicator${selected_abiotic.length!==1?'s':''}. ${selected_abiotic.filter(a=>a.universal_baseline).length} abiotic indicators form your universal baseline package, to be established in Year 1 before biological monitoring begins.`,
+      paragraph4: `With ${cap.available_days_total} monitoring days available across your team (${cap.per_site_days.toFixed(1)} days per site), ${trimmed_groups.length > 0 ? `${trimmed_groups.length} indicator group${trimmed_groups.length!==1?'s were':' was'} deferred to the Enhancement Recommendations section below — these could be added if your team or budget grows.` : 'your full indicator set fits within your current capacity.'}`,
     },
   };
 }
@@ -1419,13 +1481,30 @@ function buildStep4HTML() {
     </table>
   </div>`;
 
+  // Enhancement recommendations (trimmed groups)
+  const enhHtml = out.trimmed_groups.length ? `<div class="output-section">
+    <h2 class="section-title">Enhancement Recommendations</h2>
+    <p class="block-desc">The following indicator groups were identified as relevant to your landscape but were deferred due to current team capacity. They are listed in priority order — add them as your monitoring programme matures.</p>
+    <table class="output-table">
+      <thead><tr><th>Indicator Group</th><th>Category</th><th>Protocol Level</th><th>Why deferred</th></tr></thead>
+      <tbody>
+        ${out.trimmed_groups.map(g => `<tr>
+          <td><strong>${esc(g.profile_name)}</strong></td>
+          <td>${esc(g.category)}</td>
+          <td><span class="level-badge level-${g.assigned_level}">L${g.assigned_level}</span></td>
+          <td class="trim-reason">${esc(g.trim_reason || '—')}</td>
+        </tr>`).join('')}
+      </tbody>
+    </table>
+  </div>` : '';
+
   // Print / actions
   const actionsHtml = `<div class="output-actions print-hide">
     <button class="btn btn-primary" id="btn-print">Print / Save PDF</button>
     <button class="btn btn-ghost" id="btn-restart">Start New Assessment</button>
   </div>`;
 
-  return actionsHtml + narrativeHtml + chainsHtml + bioHtml + abioHtml + calHtml;
+  return actionsHtml + narrativeHtml + chainsHtml + bioHtml + abioHtml + calHtml + enhHtml;
 }
 
 // ── Collapsible blocks ────────────────────────────────────────────────────
