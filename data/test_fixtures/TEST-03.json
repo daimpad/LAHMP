@@ -125,7 +125,7 @@
     "willingness_recruit_roles": "",
     "days_by_type": { "C": 30, "D": 20 },
     "willingness_time": "yes_significantly",
-    "equipment_capabilities": [1, 2, 3, 4, 5, 6, 9],
+    "equipment_capabilities": [0, 1, 2, 3, 4, 5, 8],
     "willingness_equipment": "yes_any",
     "willingness_equipment_categories": [],
     "budget_tier": 3,

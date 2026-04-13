@@ -688,6 +688,10 @@ function renderStep1() {
   initBlock6Events();
   initCollapsibles(el);
   updateCompTotal();
+  // Update header with landscape name if already populated (e.g. from fixture or saved state)
+  const name = window.assessment.step1.landscape_name;
+  const hm = document.getElementById('header-meta');
+  if (hm && name) hm.textContent = name;
 }
 
 // ── Step 1 event handlers ─────────────────────────────────────────────────
@@ -1180,9 +1184,6 @@ function renderCapacityQuestions() {
       <div class="radio-group">${radioGroup('willingness_time', TIME_OPTS, s3.willingness_time ?? '', 'data-field="willingness_time"')}</div>
 
       <h3 class="cap-q">Q3a — Which equipment or analytical capabilities do you have access to?</h3>
-      ${multiCheckList(EQUIPMENT_CATEGORIES, s3.equipment_capabilities.map(String), 'equipment', 'value', 'label')
-        .replace(/"value"/g, 'data-equip').replace(/name="equipment"/g, 'name="equipment"')
-      }
       <div class="cap-equip-list">
         ${EQUIPMENT_CATEGORIES.map((eq, i) => {
           const checked = s3.equipment_capabilities.includes(i);
