@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LAHMP Wizard — Land Health Monitoring Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ── HEADER ─────────────────────────────────────────────────────── -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-brand">
+        <div class="iucn-mark">IUCN</div>
+        <div class="brand-text">
+          <span class="brand-name">LAHMP Wizard</span>
+          <span class="brand-sub">Land Health Monitoring Platform · NBS Hub</span>
+        </div>
+      </div>
+      <div class="header-meta" id="header-meta"></div>
+    </div>
+  </header>
+
+  <!-- ── STEP PROGRESS ──────────────────────────────────────────────── -->
+  <nav class="step-nav" aria-label="Wizard steps">
+    <div class="container">
+      <ol class="step-list" id="step-list">
+        <li class="step-item is-active" data-step="1">
+          <div class="step-bubble"><span>1</span></div>
+          <div class="step-label">Landscape<br>Profile</div>
+        </li>
+        <li class="step-item" data-step="2">
+          <div class="step-bubble"><span>2</span></div>
+          <div class="step-label">Practice<br>Selection</div>
+        </li>
+        <li class="step-item" data-step="3">
+          <div class="step-bubble"><span>3</span></div>
+          <div class="step-label">Capacity<br>Assessment</div>
+        </li>
+        <li class="step-item" data-step="4">
+          <div class="step-bubble"><span>4</span></div>
+          <div class="step-label">Monitoring<br>Plan</div>
+        </li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- ── MAIN ───────────────────────────────────────────────────────── -->
+  <main class="wizard-main" id="wizard-main">
+    <div class="container">
+
+      <!-- Step 1 -->
+      <section id="step-1" class="wizard-step">
+        <div class="step-intro">
+          <p class="eyebrow">Step 1 of 4</p>
+          <h1>Landscape Profile</h1>
+          <p class="lead">Describe your landscape so the platform can tailor practice and monitoring recommendations to your context. All inputs are manual in this prototype.</p>
+        </div>
+        <div id="step1-blocks" class="blocks-container"></div>
+      </section>
+
+      <!-- Step 2 -->
+      <section id="step-2" class="wizard-step is-hidden">
+        <div class="step-intro">
+          <p class="eyebrow">Step 2 of 4</p>
+          <h1>Practice Selection</h1>
+          <p class="lead">Review sustainable land management practices recommended for your landscape. Confirm which practices you are implementing or planning to implement.</p>
+        </div>
+        <div id="step2-blocks" class="blocks-container"></div>
+      </section>
+
+      <!-- Step 3 -->
+      <section id="step-3" class="wizard-step is-hidden">
+        <div class="step-intro">
+          <p class="eyebrow">Step 3 of 4</p>
+          <h1>Capacity Assessment</h1>
+          <p class="lead">Describe your monitoring team, time, equipment, and budget so we can assign the right protocol level to each indicator group.</p>
+        </div>
+        <div id="step3-blocks" class="blocks-container"></div>
+      </section>
+
+      <!-- Step 4 -->
+      <section id="step-4" class="wizard-step is-hidden">
+        <div class="step-intro print-hide">
+          <p class="eyebrow">Step 4 of 4</p>
+          <h1>Your Monitoring Plan</h1>
+          <p class="lead">Your personalised land health monitoring programme, designed for your landscape, practices, and team capacity.</p>
+        </div>
+        <div id="step4-blocks" class="blocks-container"></div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ── FOOTER NAV ─────────────────────────────────────────────────── -->
+  <footer class="wizard-footer print-hide">
+    <div class="container">
+      <button class="btn btn-ghost" id="btn-back" disabled>← Back</button>
+      <span class="autosave" id="autosave"></span>
+      <button class="btn btn-primary" id="btn-next">Continue →</button>
+    </div>
+  </footer>
+
+  <!-- ── TOAST ──────────────────────────────────────────────────────── -->
+  <div class="toast" id="toast" role="alert" aria-live="polite"></div>
+
+  <script src="wizard.js"></script>
+</body>
+</html>

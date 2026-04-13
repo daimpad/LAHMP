@@ -1,0 +1,498 @@
+[
+  {
+    "indicator_id": "A01",
+    "indicator_name": "Soil organic carbon (SOC)",
+    "domain": "Soil physical",
+    "what_it_measures": "The proportion of carbon in the soil derived from decomposed organic matter — the single most important indicator of soil biological health, fertility potential, and long-term soil function.",
+    "block4_pressures": [
+      1,
+      2,
+      3,
+      13,
+      14
+    ],
+    "block5_challenges": [
+      2,
+      3,
+      7,
+      10,
+      22
+    ],
+    "block6_services": null,
+    "linked_practices": [
+      "P01",
+      "P02",
+      "P03",
+      "P04",
+      "P05",
+      "P08",
+      "P23",
+      "P39"
+    ],
+    "hard_prerequisite_land_use": null,
+    "universal_baseline": true,
+    "protocol_name": "Level 2 (field sampling + laboratory) or Level 3 (laboratory spectrometry)",
+    "monitoring_frequency": "Baseline Year 1; annual at sentinel sites from Year 2",
+    "equipment_required": [],
+    "protocol_level": 2,
+    "interpretation_notes": "Increasing SOC over consecutive years is the most important single abiotic signal that practices are rebuilding soil biological capital. No universal threshold — compare against local reference soils. A change of +0.1–0.2% SOC per year under active management improvement is considered a meaningful positive trend in temperate systems.",
+    "response_timescale": "Medium (1–3 years for measurable change under intensive management change)",
+    "validation_status": "DRAFT — Unvalidated"
+  },
+  {
+    "indicator_id": "A02",
+    "indicator_name": "Bulk density (soil compaction)",
+    "domain": "Soil physical",
+    "what_it_measures": "The mass of dry soil per unit volume — a measure of how tightly packed soil particles are. High bulk density indicates compaction that restricts root growth, water infiltration, and earthworm burrowing.",
+    "block4_pressures": [
+      1,
+      2
+    ],
+    "block5_challenges": [
+      4,
+      7,
+      10
+    ],
+    "block6_services": null,
+    "linked_practices": [
+      "P01",
+      "P02",
+      "P20"
+    ],
+    "hard_prerequisite_land_use": null,
+    "universal_baseline": true,
+    "protocol_name": "Level 2 (field core sampling)",
+    "monitoring_frequency": "Baseline Year 1; every 2 years from Year 2",
+    "equipment_required": [],
+    "protocol_level": 2,
+    "interpretation_notes": "Above 1.4 g/cm³ indicates significant compaction limiting biological function in most soil types (threshold varies by texture). Declining bulk density following tillage reduction is the primary early physical verification signal for P01. Should be measured at the same seasonal point each time — avoid measurement when soil is very wet or dry.",
+    "response_timescale": "Medium (1–3 years under consistent no-till and reduced traffic)",
+    "validation_status": "DRAFT — Unvalidated"
+  },
+  {
+    "indicator_id": "A03",
+    "indicator_name": "Water infiltration rate",
+    "domain": "Soil physical",
+    "what_it_measures": "How quickly water enters the soil surface — a direct measure of macropore connectivity, soil structure integrity, and the capacity to absorb rainfall rather than generating runoff.",
+    "block4_pressures": [
+      1,
+      2,
+      12
+    ],
+    "block5_challenges": [
+      3,
+      10,
+      11
+    ],
+    "block6_services": null,
+    "linked_practices": [
+      "P01",
+      "P02",
+      "P03",
+      "P17",
+      "P20"
+    ],
+    "hard_prerequisite_land_use": null,
+    "universal_baseline": true,
+    "protocol_name": "Level 1–2 (field measurement using double ring infiltrometer or simple timing method)",
+    "monitoring_frequency": "Baseline Year 1; annual at sentinel sites",
+    "equipment_required": [],
+    "protocol_level": 1,
+    "interpretation_notes": "Higher infiltration rate = better soil structure and macropore connectivity. Increasing rates following tillage reduction or cover crop establishment are an early positive signal, typically measurable within 1–2 seasons. Very low rates (<5mm/hour) indicate severe compaction or surface sealing.",
+    "response_timescale": "Fast (1–2 seasons under no-till and cover crop establishment)",
+    "validation_status": "DRAFT — Unvalidated"
+  },
+  {
+    "indicator_id": "A04",
+    "indicator_name": "Wet aggregate stability",
+    "domain": "Soil physical",
+    "what_it_measures": "The ability of soil aggregates to resist breaking apart when wetted — a measure of soil structural resilience and organic matter binding of soil particles.",
+    "block4_pressures": [
+      1,
+      2,
+      13
+    ],
+    "block5_challenges": [
+      3,
+      7
+    ],
+    "block6_services": null,
+    "linked_practices": [
+      "P01",
+      "P02",
+      "P04",
+      "P39"
+    ],
+    "hard_prerequisite_land_use": null,
+    "universal_baseline": true,
+    "protocol_name": "Level 2 (field measurement — rainfall simulation or slaking test)",
+    "monitoring_frequency": "Baseline Year 1; every 2 years",
+    "equipment_required": [],
+    "protocol_level": 2,
+    "interpretation_notes": "Higher stability = more stable soil structure that resists erosion and maintains pore networks. Improving aggregate stability following organic matter inputs and reduced tillage confirms that physical soil structure is recovering. Closely linked to earthworm abundance — earthworm casts are primary drivers of water-stable aggregate formation.",
+    "response_timescale": "Medium (2–4 years under consistent organic matter management)",
+    "validation_status": "DRAFT — Unvalidated"
+  },
+  {
+    "indicator_id": "A05",
+    "indicator_name": "Soil texture (sand, silt, clay proportions)",
+    "domain": "Soil physical",
+    "what_it_measures": "The proportions of mineral particle size classes in the soil — determines water retention, drainage, nutrient holding capacity, and the appropriate management practices. Measured once at baseline; does not change with management.",
+    "block4_pressures": null,
+    "block5_challenges": null,
+    "block6_services": null,
+    "linked_practices": null,
+    "hard_prerequisite_land_use": null,
+    "universal_baseline": true,
+    "protocol_name": "Level 3 (laboratory particle size analysis) or Level 2 (field texture assessment by feel)",
+    "monitoring_frequency": "Baseline Year 1 only",
+    "equipment_required": [],
+    "protocol_level": 3,
+    "interpretation_notes": "Texture is baseline context — it explains why other indicators read as they do, not what management has changed. A sandy soil will always have lower water retention than a clay soil regardless of management. Record once and use to calibrate interpretation of all other indicators.",
+    "response_timescale": "None — does not change",
+    "validation_status": "DRAFT — Unvalidated"
+  },
+  {
+    "indicator_id": "A06",
+    "indicator_name": "Percentage ground cover",
+    "domain": "Soil physical",
+    "what_it_measures": "The proportion of the soil surface covered by living vegetation, crop residues, litter, or biological crust versus exposed bare mineral soil. Bare soil is vulnerable to erosion, moisture loss, and temperature extremes.",
+    "block4_pressures": [
+      1,
+      13,
+      14,
+      18
+    ],
+    "block5_challenges": [
+      3,
+      10,
+      22
+    ],
+    "block6_services": null,
+    "linked_practices": [
+      "P01",
+      "P02",
+      "P03",
+      "P18",
+      "P21",
+      "P22",
+      "P30",
+      "P31",
+      "P32"
+    ],
+    "hard_prerequisite_land_use": null,
+    "universal_baseline": true,
+    "protocol_name": "Level 1 (visual line transect or frame observation)",
+    "monitoring_frequency": "Baseline Year 1; every seasonal visit",
+    "equipment_required": [],
+    "protocol_level": 1,
+    "interpretation_notes": "Bare soil above 15–20% indicates inadequate surface protection and erosion risk. Increasing cover following cover crop establishment or reduced bare fallow is among the fastest-responding abiotic improvement signals. Distinguishing bare soil, crop residue, live cover, and biological crust provides richer information than total cover alone.",
+    "response_timescale": "Fast (within 1 season of cover management changes)",
+    "validation_status": "DRAFT — Unvalidated"
+  },
+  {
+    "indicator_id": "A07",
+    "indicator_name": "Soil erosion features",
+    "domain": "Soil physical",
+    "what_it_measures": "Visible evidence of active soil loss — rills (small channels formed by water flow), gullies, pedestalling (rocks or stones left raised as surrounding soil erodes), and surface crusting. Records whether erosion is actively occurring.",
+    "block4_pressures": [
+      1,
+      2,
+      14,
+      18,
+      22
+    ],
+    "block5_challenges": [
+      3
+    ],
+    "block6_services": null,
+    "linked_practices": [
+      "P02",
+      "P03",
+      "P17",
+      "P20",
+      "P28",
+      "P39",
+      "P40",
+      "P29",
+      "P31"
+    ],
+    "hard_prerequisite_land_use": "Sloped terrain (>3%) for rills/gullies; any terrain for surface crusting",
+    "universal_baseline": false,
+    "protocol_name": "Level 1 (visual survey and scoring)",
+    "monitoring_frequency": "Baseline Year 1; every 2 years",
+    "equipment_required": [],
+    "protocol_level": 1,
+    "interpretation_notes": "Presence of active rills or gullies indicates that current ground cover is insufficient to prevent erosion under rainfall events. Declining erosion feature score following cover establishment and earthwork interventions confirms structural improvement. Photograph fixed points annually for change detection.",
+    "response_timescale": "Medium (1–3 years for rill formation to heal under good cover)",
+    "validation_status": "DRAFT — Unvalidated"
+  },
+  {
+    "indicator_id": "A08",
+    "indicator_name": "Soil pH",
+    "domain": "Soil chemical",
+    "what_it_measures": "The acidity or alkalinity of the soil on a scale of 0–14 (7 = neutral). Strongly influences nutrient availability, microbial activity, earthworm populations, and plant community composition.",
+    "block4_pressures": [
+      3,
+      6
+    ],
+    "block5_challenges": [
+      1,
+      6,
+      21
+    ],
+    "block6_services": null,
+    "linked_practices": [
+      "P04",
+      "P05"
+    ],
+    "hard_prerequisite_land_use": null,
+    "universal_baseline": true,
+    "protocol_name": "Level 2 (field pH meter) or Level 3 (laboratory)",
+    "monitoring_frequency": "Baseline Year 1; every 3 years",
+    "equipment_required": [],
+    "protocol_level": 2,
+    "interpretation_notes": "pH below 5.5 indicates acidification limiting biological activity and earthworm populations. pH above 8.0 indicates alkalinity stress. Changes in pH are slow — do not expect meaningful shifts within a 5-year monitoring period under normal management. Useful primarily as a baseline contextualisation factor for interpreting biological indicator results.",
+    "response_timescale": "Slow (years to decades for pH to shift meaningfully under management change)",
+    "validation_status": "DRAFT — Unvalidated"
+  },
+  {
+    "indicator_id": "A09",
+    "indicator_name": "Available nitrogen (nitrate-N)",
+    "domain": "Soil chemical",
+    "what_it_measures": "The amount of nitrogen immediately available to plants in mineral form. Reflects recent fertiliser inputs, organic matter mineralisation, and nitrogen cycling activity. Strongly influences vegetation community composition.",
+    "block4_pressures": [
+      3,
+      11
+    ],
+    "block5_challenges": [
+      1,
+      14,
+      18,
+      22
+    ],
+    "block6_services": null,
+    "linked_practices": [
+      "P03",
+      "P05",
+      "P08",
+      "P23",
+      "P25",
+      "P36"
+    ],
+    "hard_prerequisite_land_use": null,
+    "universal_baseline": true,
+    "protocol_name": "Level 2 (field test strips for approximate) or Level 3 (laboratory)",
+    "monitoring_frequency": "Baseline Year 1; annual",
+    "equipment_required": [],
+    "protocol_level": 2,
+    "interpretation_notes": "Declining available nitrogen under reduced fertiliser input is an early positive signal that nitrogen cycling is shifting toward biological rather than synthetic sources. Closely linked to grassland plant community composition — declining nitrate-N should be accompanied by increasing forb and legume diversity. High nitrate-N in surface water or drainage is an eutrophication risk indicator.",
+    "response_timescale": "Fast (within 1–2 seasons of fertiliser input changes)",
+    "validation_status": "DRAFT — Unvalidated"
+  },
+  {
+    "indicator_id": "A10",
+    "indicator_name": "Soil nutrient panel (P, K, and micronutrients)",
+    "domain": "Soil chemical",
+    "what_it_measures": "The availability of major nutrients (phosphorus, potassium) and micronutrients essential for crop growth and soil biological activity. Contextualises fertility without external inputs.",
+    "block4_pressures": [
+      3
+    ],
+    "block5_challenges": [
+      1,
+      33
+    ],
+    "block6_services": null,
+    "linked_practices": [
+      "P04",
+      "P05",
+      "P36",
+      "P37"
+    ],
+    "hard_prerequisite_land_use": null,
+    "universal_baseline": false,
+    "protocol_name": "Level 3 (laboratory analysis)",
+    "monitoring_frequency": "Baseline Year 1; every 3 years",
+    "equipment_required": [],
+    "protocol_level": 3,
+    "interpretation_notes": "Baseline context for understanding nutrient status without external inputs. Declining phosphorus over time under no external input management is expected and contextualises whether biological cycling is adequate. Copper accumulation (particularly in viticultural soils) is an ecotoxicological indicator linked to earthworm population collapse.",
+    "response_timescale": "Medium (2–5 years for meaningful change under management shifts)",
+    "validation_status": "DRAFT — Unvalidated"
+  },
+  {
+    "indicator_id": "A11",
+    "indicator_name": "Soil salinity (electrical conductivity)",
+    "domain": "Soil chemical",
+    "what_it_measures": "The concentration of dissolved salts in the soil — elevated salinity inhibits plant growth and soil biological activity, particularly in irrigated systems.",
+    "block4_pressures": [
+      12
+    ],
+    "block5_challenges": [
+      5
+    ],
+    "block6_services": null,
+    "linked_practices": [
+      "P05",
+      "P19"
+    ],
+    "hard_prerequisite_land_use": "Irrigated cropland or arid/semi-arid context",
+    "universal_baseline": false,
+    "protocol_name": "Level 2 (field EC meter) or Level 3 (laboratory)",
+    "monitoring_frequency": "Baseline Year 1; every 3 years in irrigated systems",
+    "equipment_required": [],
+    "protocol_level": 2,
+    "interpretation_notes": "EC above 4 dS/m indicates significant salinity stress affecting crop growth and biological communities. Declining EC under improved irrigation management confirms reduction in salt accumulation. Primarily relevant in irrigated and arid/semi-arid systems — not a priority indicator in humid rainfed systems.",
+    "response_timescale": "Medium (years under changed irrigation management)",
+    "validation_status": "DRAFT — Unvalidated"
+  },
+  {
+    "indicator_id": "A12",
+    "indicator_name": "Heavy metal and persistent organic pollutant (POP) soil contamination",
+    "domain": "Soil chemical",
+    "what_it_measures": "The concentration of toxic metals (lead, cadmium, mercury, arsenic, copper) or persistent organic chemicals (pesticide residues, PCBs) in the soil. Contamination suppresses biological communities and presents food safety risks.",
+    "block4_pressures": [
+      10,
+      25,
+      26
+    ],
+    "block5_challenges": [
+      8,
+      21,
+      22
+    ],
+    "block6_services": null,
+    "linked_practices": [
+      "P07"
+    ],
+    "hard_prerequisite_land_use": "Block 4 pressure 25 (soil pollution) or 26 (external pollution) confirmed in Step 1",
+    "universal_baseline": false,
+    "protocol_name": "Level 3 (laboratory analysis — ICP-MS or equivalent)",
+    "monitoring_frequency": "Baseline Year 1 where Block 4 pressures 25 or 26 confirmed; every 5 years",
+    "equipment_required": [],
+    "protocol_level": 3,
+    "interpretation_notes": "Baseline contamination measurement is required before biological monitoring results can be interpreted in contaminated soils — biological suppression from chemical contamination must be distinguished from management-driven suppression. Copper in vineyard soils is particularly important for earthworm monitoring contexts.",
+    "response_timescale": "Very slow (remediation takes years to decades)",
+    "validation_status": "DRAFT — Unvalidated"
+  },
+  {
+    "indicator_id": "A15",
+    "indicator_name": "Water pH (watercourse or pond)",
+    "domain": "Water quality",
+    "what_it_measures": "The acidity or alkalinity of surface water — strongly influences aquatic biological communities and is sensitive to agricultural runoff, particularly from over-limed soils or acidic drainage.",
+    "block4_pressures": [
+      17
+    ],
+    "block5_challenges": [
+      17
+    ],
+    "block6_services": null,
+    "linked_practices": [
+      "P17",
+      "P18",
+      "P33"
+    ],
+    "hard_prerequisite_land_use": "Watercourse, pond, or drainage ditch present in landscape",
+    "universal_baseline": false,
+    "protocol_name": "Level 1 (field pH meter or test strips)",
+    "monitoring_frequency": "Baseline Year 1; every seasonal visit at water monitoring points",
+    "equipment_required": [],
+    "protocol_level": 1,
+    "interpretation_notes": "pH below 6.0 in agricultural watercourses indicates acidification from drainage or runoff. pH above 9.0 may indicate algal bloom activity (photosynthesis raises pH during daylight). Measure at a consistent time of day — pH varies with photosynthetic activity.",
+    "response_timescale": "Fast (within 1 season of improved riparian management)",
+    "validation_status": "DRAFT — Unvalidated"
+  },
+  {
+    "indicator_id": "A16",
+    "indicator_name": "Water turbidity",
+    "domain": "Water quality",
+    "what_it_measures": "The cloudiness of water caused by suspended particles — high turbidity indicates sediment loading from erosion, indicating inadequate soil cover or riparian buffer management upstream.",
+    "block4_pressures": [
+      17,
+      22
+    ],
+    "block5_challenges": [
+      3,
+      13,
+      17
+    ],
+    "block6_services": null,
+    "linked_practices": [
+      "P17",
+      "P18",
+      "P20",
+      "P33"
+    ],
+    "hard_prerequisite_land_use": "Watercourse, pond, or drainage ditch present",
+    "universal_baseline": false,
+    "protocol_name": "Level 1 (visual Secchi disc or turbidity tube) or Level 2 (field turbidimeter)",
+    "monitoring_frequency": "Baseline Year 1; every seasonal visit, and after significant rainfall events",
+    "equipment_required": [],
+    "protocol_level": 1,
+    "interpretation_notes": "Visibly turbid water following rainfall indicates active erosion and sediment loading. Declining turbidity following ground cover improvement and riparian buffer establishment confirms that erosion control practices are functioning. Turbidity is the most accessible Level 1 water quality indicator.",
+    "response_timescale": "Fast (within 1–2 seasons of improved ground cover)",
+    "validation_status": "DRAFT — Unvalidated"
+  },
+  {
+    "indicator_id": "A17",
+    "indicator_name": "Water nitrate concentration",
+    "domain": "Water quality",
+    "what_it_measures": "The concentration of dissolved nitrate in surface water or drainage — an indicator of nutrient leaching from agricultural land, directly linked to eutrophication risk.",
+    "block4_pressures": [
+      3,
+      11,
+      17
+    ],
+    "block5_challenges": [
+      13,
+      14,
+      18
+    ],
+    "block6_services": null,
+    "linked_practices": [
+      "P03",
+      "P05",
+      "P18",
+      "P25",
+      "P33",
+      "P36"
+    ],
+    "hard_prerequisite_land_use": "Watercourse, pond, or drainage ditch present",
+    "universal_baseline": false,
+    "protocol_name": "Level 1 (field nitrate test strips — approximate) or Level 2 (field photometer)",
+    "monitoring_frequency": "Baseline Year 1; every seasonal visit (particularly after fertiliser application or heavy rainfall)",
+    "equipment_required": [],
+    "protocol_level": 1,
+    "interpretation_notes": "Above 11.3 mg/L nitrate-N (50 mg/L as nitrate) indicates exceedance of WHO drinking water guideline and elevated eutrophication risk. Declining nitrate concentration in drainage water following fertiliser reduction and cover crop establishment is a direct early verification signal for practices P03, P05, and P36.",
+    "response_timescale": "Medium (1–3 years under improved nutrient management)",
+    "validation_status": "DRAFT — Unvalidated"
+  },
+  {
+    "indicator_id": "A18",
+    "indicator_name": "Dissolved oxygen (DO)",
+    "domain": "Water quality",
+    "what_it_measures": "The concentration of oxygen dissolved in water — a primary indicator of aquatic biological health. Low DO indicates organic enrichment, algal decomposition, or eutrophication causing oxygen depletion.",
+    "block4_pressures": [
+      17
+    ],
+    "block5_challenges": [
+      17,
+      18
+    ],
+    "block6_services": null,
+    "linked_practices": [
+      "P17",
+      "P18",
+      "P25",
+      "P33"
+    ],
+    "hard_prerequisite_land_use": "Permanent or semi-permanent watercourse or pond present",
+    "universal_baseline": false,
+    "protocol_name": "Level 2 (field DO meter)",
+    "monitoring_frequency": "Baseline Year 1; every seasonal visit in warm season when DO depletion risk is highest",
+    "equipment_required": [],
+    "protocol_level": 2,
+    "interpretation_notes": "Below 5 mg/L indicates stress for most aquatic organisms; below 3 mg/L indicates severe depletion. Improving DO in summer months following nutrient load reduction confirms that eutrophication pressure is declining. Measure in early morning when DO is lowest (overnight respiration depletes oxygen).",
+    "response_timescale": "Fast (within 1 season of improved nutrient management)",
+    "validation_status": "DRAFT — Unvalidated"
+  }
+]

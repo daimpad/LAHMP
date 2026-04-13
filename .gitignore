@@ -1,0 +1,14 @@
+# Excel source files (large binaries — kept locally, not in repo)
+*.xlsx
+*.xls
+
+# Export inspection scratch files
+export/inspect_*.txt
+export/preview.txt
+
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+*.swp

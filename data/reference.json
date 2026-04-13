@@ -1,0 +1,3414 @@
+{
+  "block4_pressures": [
+    {
+      "id": 1,
+      "name": "Intensive tillage",
+      "group": "Soil management",
+      "tooltip": ""
+    },
+    {
+      "id": 2,
+      "name": "Soil compaction by heavy machinery",
+      "group": "Soil management",
+      "tooltip": ""
+    },
+    {
+      "id": 3,
+      "name": "Excessive synthetic fertilizer application",
+      "group": "Soil management",
+      "tooltip": ""
+    },
+    {
+      "id": 4,
+      "name": "Excessive pesticide application (insecticides)",
+      "group": "Soil management",
+      "tooltip": ""
+    },
+    {
+      "id": 5,
+      "name": "Excessive herbicide application",
+      "group": "Soil management",
+      "tooltip": ""
+    },
+    {
+      "id": 6,
+      "name": "Excessive fungicide application",
+      "group": "Soil management",
+      "tooltip": ""
+    },
+    {
+      "id": 7,
+      "name": "Excessive nematicide application",
+      "group": "Soil management",
+      "tooltip": ""
+    },
+    {
+      "id": 8,
+      "name": "Excessive rodenticide application",
+      "group": "Soil management",
+      "tooltip": ""
+    },
+    {
+      "id": 9,
+      "name": "Excessive molluscicide application",
+      "group": "Soil management",
+      "tooltip": ""
+    },
+    {
+      "id": 10,
+      "name": "Soil fumigation",
+      "group": "Soil management",
+      "tooltip": ""
+    },
+    {
+      "id": 11,
+      "name": "Excessive application of manure or organic waste",
+      "group": "Soil management",
+      "tooltip": ""
+    },
+    {
+      "id": 12,
+      "name": "Excessive irrigation",
+      "group": "Water and infrastructure",
+      "tooltip": ""
+    },
+    {
+      "id": 13,
+      "name": "Monoculture / loss of crop diversity",
+      "group": "Soil management",
+      "tooltip": ""
+    },
+    {
+      "id": 14,
+      "name": "Removal of crop residues",
+      "group": "Soil management",
+      "tooltip": ""
+    },
+    {
+      "id": 15,
+      "name": "Unsustainable water abstraction",
+      "group": "Water and infrastructure",
+      "tooltip": ""
+    },
+    {
+      "id": 16,
+      "name": "Drainage or irrigation infrastructure modification",
+      "group": "Water and infrastructure",
+      "tooltip": ""
+    },
+    {
+      "id": 17,
+      "name": "Water pollution from internal sources",
+      "group": "Water and infrastructure",
+      "tooltip": ""
+    },
+    {
+      "id": 18,
+      "name": "Overgrazing",
+      "group": "Vegetation and habitat",
+      "tooltip": ""
+    },
+    {
+      "id": 19,
+      "name": "Removal of non-crop vegetation",
+      "group": "Vegetation and habitat",
+      "tooltip": ""
+    },
+    {
+      "id": 20,
+      "name": "Overextraction of wood / biomass",
+      "group": "Vegetation and habitat",
+      "tooltip": ""
+    },
+    {
+      "id": 21,
+      "name": "Introduction or spread of invasive species",
+      "group": "Vegetation and habitat",
+      "tooltip": ""
+    },
+    {
+      "id": 22,
+      "name": "Land-use change",
+      "group": "Landscape",
+      "tooltip": ""
+    },
+    {
+      "id": 23,
+      "name": "Landscape fragmentation",
+      "group": "Landscape",
+      "tooltip": ""
+    },
+    {
+      "id": 24,
+      "name": "Fire",
+      "group": "Landscape",
+      "tooltip": ""
+    },
+    {
+      "id": 25,
+      "name": "Soil pollution by heavy metals or POPs",
+      "group": "Pollution",
+      "tooltip": ""
+    },
+    {
+      "id": 26,
+      "name": "External pollution from upstream/neighbouring",
+      "group": "Pollution",
+      "tooltip": ""
+    },
+    {
+      "id": 27,
+      "name": "Abandonment of traditional land management",
+      "group": "Socio-ecological",
+      "tooltip": ""
+    },
+    {
+      "id": 28,
+      "name": "Other (free text)",
+      "group": "Other",
+      "tooltip": ""
+    }
+  ],
+  "block5_challenges": [
+    {
+      "id": 1,
+      "name": "Soil fertility decline",
+      "group": "Soil-related",
+      "tooltip": ""
+    },
+    {
+      "id": 2,
+      "name": "Soil organic matter depletion",
+      "group": "Soil-related",
+      "tooltip": ""
+    },
+    {
+      "id": 3,
+      "name": "Soil erosion",
+      "group": "Soil-related",
+      "tooltip": ""
+    },
+    {
+      "id": 4,
+      "name": "Soil compaction",
+      "group": "Soil-related",
+      "tooltip": ""
+    },
+    {
+      "id": 5,
+      "name": "Soil salinisation",
+      "group": "Soil-related",
+      "tooltip": ""
+    },
+    {
+      "id": 6,
+      "name": "Soil pH imbalance",
+      "group": "Soil-related",
+      "tooltip": ""
+    },
+    {
+      "id": 7,
+      "name": "Soil structure degradation",
+      "group": "Soil-related",
+      "tooltip": ""
+    },
+    {
+      "id": 8,
+      "name": "Soil contamination by pollutants",
+      "group": "Soil-related",
+      "tooltip": ""
+    },
+    {
+      "id": 9,
+      "name": "Water scarcity and drought stress",
+      "group": "Water-related",
+      "tooltip": ""
+    },
+    {
+      "id": 10,
+      "name": "Reduced soil water retention",
+      "group": "Water-related",
+      "tooltip": ""
+    },
+    {
+      "id": 11,
+      "name": "Flooding and waterlogging",
+      "group": "Water-related",
+      "tooltip": ""
+    },
+    {
+      "id": 12,
+      "name": "Groundwater depletion",
+      "group": "Water-related",
+      "tooltip": ""
+    },
+    {
+      "id": 13,
+      "name": "Surface water pollution",
+      "group": "Water-related",
+      "tooltip": ""
+    },
+    {
+      "id": 14,
+      "name": "Nutrient runoff and leaching",
+      "group": "Water-related",
+      "tooltip": ""
+    },
+    {
+      "id": 15,
+      "name": "Pathogen contamination of soil and water",
+      "group": "Water-related",
+      "tooltip": ""
+    },
+    {
+      "id": 16,
+      "name": "Wetland loss or degradation",
+      "group": "Water-related",
+      "tooltip": ""
+    },
+    {
+      "id": 17,
+      "name": "Aquatic biodiversity decline",
+      "group": "Water-related",
+      "tooltip": ""
+    },
+    {
+      "id": 18,
+      "name": "Eutrophication of water bodies and soils",
+      "group": "Water-related",
+      "tooltip": ""
+    },
+    {
+      "id": 19,
+      "name": "Overall biodiversity decline",
+      "group": "Biodiversity-related",
+      "tooltip": ""
+    },
+    {
+      "id": 20,
+      "name": "Habitat connectivity loss",
+      "group": "Biodiversity-related",
+      "tooltip": ""
+    },
+    {
+      "id": 21,
+      "name": "Pollinator decline",
+      "group": "Biodiversity-related",
+      "tooltip": ""
+    },
+    {
+      "id": 22,
+      "name": "Soil biodiversity decline",
+      "group": "Biodiversity-related",
+      "tooltip": ""
+    },
+    {
+      "id": 23,
+      "name": "Vegetation diversity loss",
+      "group": "Biodiversity-related",
+      "tooltip": ""
+    },
+    {
+      "id": 24,
+      "name": "Loss of agrobiodiversity",
+      "group": "Biodiversity-related",
+      "tooltip": ""
+    },
+    {
+      "id": 25,
+      "name": "Decline in natural pest regulation capacity",
+      "group": "Biodiversity-related",
+      "tooltip": ""
+    },
+    {
+      "id": 26,
+      "name": "Pest outbreaks",
+      "group": "Biotic pressures",
+      "tooltip": ""
+    },
+    {
+      "id": 27,
+      "name": "Plant disease outbreaks",
+      "group": "Biotic pressures",
+      "tooltip": ""
+    },
+    {
+      "id": 28,
+      "name": "Animal disease outbreaks",
+      "group": "Biotic pressures",
+      "tooltip": ""
+    },
+    {
+      "id": 29,
+      "name": "Weed pressure and herbicide resistance",
+      "group": "Biotic pressures",
+      "tooltip": ""
+    },
+    {
+      "id": 30,
+      "name": "Invasive species establishment and spread",
+      "group": "Biotic pressures",
+      "tooltip": ""
+    },
+    {
+      "id": 31,
+      "name": "Reduced resilience to climate variability",
+      "group": "Climate and resilience",
+      "tooltip": ""
+    },
+    {
+      "id": 32,
+      "name": "Increased vulnerability to extreme weather events",
+      "group": "Climate and resilience",
+      "tooltip": ""
+    },
+    {
+      "id": 33,
+      "name": "Degradation of landscape mosaic and traditional habitats",
+      "group": "Landscape and socio-ecological",
+      "tooltip": ""
+    },
+    {
+      "id": 34,
+      "name": "Increasing dependence on external inputs",
+      "group": "Landscape and socio-ecological",
+      "tooltip": ""
+    },
+    {
+      "id": 35,
+      "name": "Declining stability of yields and productivity",
+      "group": "Landscape and socio-ecological",
+      "tooltip": ""
+    }
+  ],
+  "block6_services": [
+    {
+      "id": 1,
+      "name": "Crop provisioning services",
+      "group": "Provisioning",
+      "tooltip": ""
+    },
+    {
+      "id": 2,
+      "name": "Grazed biomass provisioning services",
+      "group": "Provisioning",
+      "tooltip": ""
+    },
+    {
+      "id": 3,
+      "name": "Livestock provisioning services",
+      "group": "Provisioning",
+      "tooltip": ""
+    },
+    {
+      "id": 4,
+      "name": "Aquaculture provisioning services",
+      "group": "Provisioning",
+      "tooltip": ""
+    },
+    {
+      "id": 5,
+      "name": "Wood provisioning services",
+      "group": "Provisioning",
+      "tooltip": ""
+    },
+    {
+      "id": 6,
+      "name": "Wild fish and aquatic biomass provisioning",
+      "group": "Provisioning",
+      "tooltip": ""
+    },
+    {
+      "id": 7,
+      "name": "Wild animals, plants and biomass provisioning",
+      "group": "Provisioning",
+      "tooltip": ""
+    },
+    {
+      "id": 8,
+      "name": "Genetic material services",
+      "group": "Provisioning",
+      "tooltip": ""
+    },
+    {
+      "id": 9,
+      "name": "Water supply",
+      "group": "Provisioning",
+      "tooltip": ""
+    },
+    {
+      "id": 10,
+      "name": "Other provisioning services",
+      "group": "Provisioning",
+      "tooltip": ""
+    },
+    {
+      "id": 11,
+      "name": "Global climate regulation services",
+      "group": "Regulating & maintenance",
+      "tooltip": ""
+    },
+    {
+      "id": 12,
+      "name": "Rainfall pattern regulation services",
+      "group": "Regulating & maintenance",
+      "tooltip": ""
+    },
+    {
+      "id": 13,
+      "name": "Local climate regulation services",
+      "group": "Regulating & maintenance",
+      "tooltip": ""
+    },
+    {
+      "id": 14,
+      "name": "Air filtration services",
+      "group": "Regulating & maintenance",
+      "tooltip": ""
+    },
+    {
+      "id": 15,
+      "name": "Soil quality regulation services",
+      "group": "Regulating & maintenance",
+      "tooltip": ""
+    },
+    {
+      "id": 16,
+      "name": "Soil erosion control services",
+      "group": "Regulating & maintenance",
+      "tooltip": ""
+    },
+    {
+      "id": 17,
+      "name": "Landslide mitigation services",
+      "group": "Regulating & maintenance",
+      "tooltip": ""
+    },
+    {
+      "id": 18,
+      "name": "Solid waste remediation services",
+      "group": "Regulating & maintenance",
+      "tooltip": ""
+    },
+    {
+      "id": 19,
+      "name": "Water purification — nutrients",
+      "group": "Regulating & maintenance",
+      "tooltip": ""
+    },
+    {
+      "id": 20,
+      "name": "Water purification — other pollutants",
+      "group": "Regulating & maintenance",
+      "tooltip": ""
+    },
+    {
+      "id": 21,
+      "name": "Baseline flow maintenance services",
+      "group": "Regulating & maintenance",
+      "tooltip": ""
+    },
+    {
+      "id": 22,
+      "name": "Peak flow mitigation services",
+      "group": "Regulating & maintenance",
+      "tooltip": ""
+    },
+    {
+      "id": 23,
+      "name": "Coastal protection services",
+      "group": "Regulating & maintenance",
+      "tooltip": ""
+    },
+    {
+      "id": 24,
+      "name": "River flood mitigation services",
+      "group": "Regulating & maintenance",
+      "tooltip": ""
+    },
+    {
+      "id": 25,
+      "name": "Storm mitigation services",
+      "group": "Regulating & maintenance",
+      "tooltip": ""
+    },
+    {
+      "id": 26,
+      "name": "Noise attenuation services",
+      "group": "Regulating & maintenance",
+      "tooltip": ""
+    },
+    {
+      "id": 27,
+      "name": "Pollination services",
+      "group": "Regulating & maintenance",
+      "tooltip": ""
+    },
+    {
+      "id": 28,
+      "name": "Pest control services",
+      "group": "Regulating & maintenance",
+      "tooltip": ""
+    },
+    {
+      "id": 29,
+      "name": "Disease control services",
+      "group": "Regulating & maintenance",
+      "tooltip": ""
+    },
+    {
+      "id": 30,
+      "name": "Nursery population and habitat maintenance",
+      "group": "Regulating & maintenance",
+      "tooltip": ""
+    },
+    {
+      "id": 31,
+      "name": "Other regulating and maintenance services",
+      "group": "Regulating & maintenance",
+      "tooltip": ""
+    },
+    {
+      "id": 32,
+      "name": "Recreation-related services",
+      "group": "Cultural",
+      "tooltip": ""
+    },
+    {
+      "id": 33,
+      "name": "Visual amenity services",
+      "group": "Cultural",
+      "tooltip": ""
+    },
+    {
+      "id": 34,
+      "name": "Education, scientific and research services",
+      "group": "Cultural",
+      "tooltip": ""
+    },
+    {
+      "id": 35,
+      "name": "Spiritual, artistic and symbolic services",
+      "group": "Cultural",
+      "tooltip": ""
+    },
+    {
+      "id": 36,
+      "name": "Other cultural services",
+      "group": "Cultural",
+      "tooltip": ""
+    },
+    {
+      "id": 37,
+      "name": "Ecosystem and species appreciation",
+      "group": "Non-use values",
+      "tooltip": ""
+    }
+  ],
+  "ipcc_land_use_categories": [
+    "Intensive Annual Cropland",
+    "Extensive Annual Cropland",
+    "Permanent Cropland",
+    "Permanent Crops",
+    "Irrigated Cropland",
+    "Grassland and Pasture",
+    "Grassland",
+    "Degraded Grassland",
+    "Mixed Crop-Livestock System",
+    "Agroforestry",
+    "Plantation Forestry",
+    "Forest Land",
+    "Shrubland",
+    "Wetlands",
+    "Other Land"
+  ],
+  "ipcc_soil_types": [
+    "Mineral Soils — High Activity Clay (HAC)",
+    "Mineral Soils — Low Activity Clay (LAC)",
+    "Mineral Soils — Sandy Soils",
+    "Mineral Soils — Volcanic Soils (Andosols)",
+    "Mineral Soils — Spodosols/Podzols",
+    "Organic Soils (Histosols/Peatlands)",
+    "Wetland Soils (Gleysols/Fluvisols)",
+    "Arid/Semi-arid Soils (Aridisols/Calcisols)",
+    "Halomorphic Soils (Solonetz/Solonchak)",
+    "Lithosols/Shallow Soils"
+  ],
+  "efg_options": [
+    {
+      "code": "F3.3",
+      "name": "Rice paddies",
+      "biome": "Intensive land-use biome"
+    },
+    {
+      "code": "T7.1",
+      "name": "Annual croplands",
+      "biome": "Intensive land-use biome"
+    },
+    {
+      "code": "T7.2",
+      "name": "Sown pastures and fields",
+      "biome": "Intensive land-use biome"
+    },
+    {
+      "code": "T7.3",
+      "name": "Plantations",
+      "biome": "Intensive land-use biome"
+    },
+    {
+      "code": "T7.5",
+      "name": "Derived semi-natural pastures and old fields",
+      "biome": "Intensive land-use biome"
+    }
+  ],
+  "pressure_to_challenge_mapping": {
+    "1": [
+      {
+        "challenge_id": 2,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 3,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 4,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 5,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 7,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 8,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 10,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 18,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 21,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 22,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 30,
+        "confidence": "high"
+      }
+    ],
+    "2": [
+      {
+        "challenge_id": 2,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 3,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 4,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 5,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 7,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 8,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 10,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 18,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 21,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 22,
+        "confidence": "high"
+      }
+    ],
+    "3": [
+      {
+        "challenge_id": 1,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 2,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 3,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 4,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 6,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 7,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 10,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 13,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 14,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 15,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 20,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 21,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 22,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 23,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 25,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 26,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 28,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 30,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 33,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 34,
+        "confidence": "high"
+      }
+    ],
+    "4": [
+      {
+        "challenge_id": 8,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 13,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 17,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 18,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 20,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 21,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 24,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 25,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 26,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 28,
+        "confidence": "high"
+      }
+    ],
+    "5": [
+      {
+        "challenge_id": 8,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 13,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 17,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 18,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 20,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 21,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 24,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 25,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 26,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 28,
+        "confidence": "high"
+      }
+    ],
+    "6": [
+      {
+        "challenge_id": 8,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 13,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 17,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 18,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 20,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 21,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 24,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 25,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 26,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 28,
+        "confidence": "high"
+      }
+    ],
+    "7": [
+      {
+        "challenge_id": 8,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 13,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 17,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 18,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 20,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 21,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 24,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 25,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 26,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 28,
+        "confidence": "high"
+      }
+    ],
+    "8": [
+      {
+        "challenge_id": 8,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 13,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 17,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 18,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 20,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 21,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 24,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 25,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 26,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 28,
+        "confidence": "high"
+      }
+    ],
+    "9": [
+      {
+        "challenge_id": 8,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 13,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 17,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 18,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 20,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 21,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 24,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 25,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 26,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 28,
+        "confidence": "high"
+      }
+    ],
+    "10": [
+      {
+        "challenge_id": 8,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 13,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 17,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 20,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 21,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 24,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 25,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 26,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 28,
+        "confidence": "high"
+      }
+    ],
+    "11": [
+      {
+        "challenge_id": 1,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 2,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 4,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 6,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 7,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 10,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 13,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 14,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 15,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 21,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 33,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 34,
+        "confidence": "high"
+      }
+    ],
+    "12": [
+      {
+        "challenge_id": 5,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 9,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 10,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 11,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 12,
+        "confidence": "high"
+      }
+    ],
+    "13": [
+      {
+        "challenge_id": 1,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 2,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 3,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 6,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 7,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 10,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 14,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 18,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 20,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 21,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 22,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 23,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 24,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 25,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 26,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 28,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 30,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 33,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 34,
+        "confidence": "high"
+      }
+    ],
+    "14": [
+      {
+        "challenge_id": 1,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 2,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 3,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 6,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 7,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 10,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 14,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 20,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 21,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 25,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 30,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 33,
+        "confidence": "high"
+      }
+    ],
+    "15": [
+      {
+        "challenge_id": 5,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 9,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 10,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 11,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 12,
+        "confidence": "high"
+      }
+    ],
+    "16": [
+      {
+        "challenge_id": 13,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 14,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 15,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 16,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 17,
+        "confidence": "high"
+      }
+    ],
+    "17": [
+      {
+        "challenge_id": 13,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 14,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 15,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 16,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 17,
+        "confidence": "high"
+      }
+    ],
+    "18": [
+      {
+        "challenge_id": 2,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 3,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 4,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 18,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 22,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 23,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 24,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 27,
+        "confidence": "high"
+      }
+    ],
+    "19": [
+      {
+        "challenge_id": 1,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 2,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 3,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 7,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 18,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 19,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 20,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 22,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 24,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 29,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 30,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 32,
+        "confidence": "high"
+      }
+    ],
+    "20": [
+      {
+        "challenge_id": 7,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 18,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 19,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 22,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 32,
+        "confidence": "high"
+      }
+    ],
+    "22": [
+      {
+        "challenge_id": 1,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 2,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 3,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 4,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 5,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 7,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 8,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 10,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 18,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 19,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 20,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 22,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 29,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 30,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 32,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 34,
+        "confidence": "high"
+      }
+    ],
+    "23": [
+      {
+        "challenge_id": 3,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 18,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 19,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 20,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 22,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 24,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 29,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 30,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 32,
+        "confidence": "high"
+      }
+    ],
+    "24": [
+      {
+        "challenge_id": 3,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 4,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 5,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 8,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 18,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 22,
+        "confidence": "high"
+      }
+    ],
+    "25": [
+      {
+        "challenge_id": 3,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 4,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 5,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 8,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 18,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 21,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 22,
+        "confidence": "high"
+      }
+    ],
+    "26": [
+      {
+        "challenge_id": 8,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 21,
+        "confidence": "high"
+      }
+    ],
+    "27": [
+      {
+        "challenge_id": 1,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 2,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 3,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 7,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 18,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 19,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 22,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 29,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 30,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 32,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 34,
+        "confidence": "high"
+      }
+    ]
+  },
+  "challenge_to_service_mapping": {
+    "1": [
+      {
+        "service_id": 1,
+        "confidence": "high"
+      },
+      {
+        "service_id": 2,
+        "confidence": "high"
+      },
+      {
+        "service_id": 3,
+        "confidence": "high"
+      },
+      {
+        "service_id": 5,
+        "confidence": "high"
+      },
+      {
+        "service_id": 7,
+        "confidence": "high"
+      },
+      {
+        "service_id": 11,
+        "confidence": "high"
+      },
+      {
+        "service_id": 12,
+        "confidence": "high"
+      },
+      {
+        "service_id": 13,
+        "confidence": "high"
+      },
+      {
+        "service_id": 15,
+        "confidence": "high"
+      },
+      {
+        "service_id": 18,
+        "confidence": "high"
+      },
+      {
+        "service_id": 19,
+        "confidence": "high"
+      },
+      {
+        "service_id": 26,
+        "confidence": "high"
+      },
+      {
+        "service_id": 27,
+        "confidence": "high"
+      },
+      {
+        "service_id": 28,
+        "confidence": "high"
+      },
+      {
+        "service_id": 29,
+        "confidence": "high"
+      },
+      {
+        "service_id": 30,
+        "confidence": "high"
+      },
+      {
+        "service_id": 32,
+        "confidence": "high"
+      }
+    ],
+    "2": [
+      {
+        "service_id": 1,
+        "confidence": "high"
+      },
+      {
+        "service_id": 2,
+        "confidence": "high"
+      },
+      {
+        "service_id": 3,
+        "confidence": "high"
+      },
+      {
+        "service_id": 11,
+        "confidence": "high"
+      },
+      {
+        "service_id": 13,
+        "confidence": "high"
+      },
+      {
+        "service_id": 15,
+        "confidence": "high"
+      },
+      {
+        "service_id": 16,
+        "confidence": "high"
+      },
+      {
+        "service_id": 18,
+        "confidence": "high"
+      },
+      {
+        "service_id": 19,
+        "confidence": "high"
+      },
+      {
+        "service_id": 27,
+        "confidence": "high"
+      },
+      {
+        "service_id": 28,
+        "confidence": "high"
+      },
+      {
+        "service_id": 29,
+        "confidence": "high"
+      },
+      {
+        "service_id": 30,
+        "confidence": "high"
+      },
+      {
+        "service_id": 32,
+        "confidence": "high"
+      }
+    ],
+    "3": [
+      {
+        "service_id": 1,
+        "confidence": "high"
+      },
+      {
+        "service_id": 2,
+        "confidence": "high"
+      },
+      {
+        "service_id": 3,
+        "confidence": "high"
+      },
+      {
+        "service_id": 11,
+        "confidence": "high"
+      },
+      {
+        "service_id": 13,
+        "confidence": "high"
+      },
+      {
+        "service_id": 15,
+        "confidence": "high"
+      },
+      {
+        "service_id": 16,
+        "confidence": "high"
+      },
+      {
+        "service_id": 17,
+        "confidence": "high"
+      },
+      {
+        "service_id": 18,
+        "confidence": "high"
+      },
+      {
+        "service_id": 19,
+        "confidence": "high"
+      },
+      {
+        "service_id": 21,
+        "confidence": "high"
+      },
+      {
+        "service_id": 22,
+        "confidence": "high"
+      },
+      {
+        "service_id": 25,
+        "confidence": "high"
+      },
+      {
+        "service_id": 26,
+        "confidence": "high"
+      },
+      {
+        "service_id": 27,
+        "confidence": "high"
+      },
+      {
+        "service_id": 30,
+        "confidence": "high"
+      }
+    ],
+    "4": [
+      {
+        "service_id": 1,
+        "confidence": "high"
+      },
+      {
+        "service_id": 2,
+        "confidence": "high"
+      },
+      {
+        "service_id": 11,
+        "confidence": "high"
+      },
+      {
+        "service_id": 15,
+        "confidence": "high"
+      },
+      {
+        "service_id": 16,
+        "confidence": "high"
+      },
+      {
+        "service_id": 18,
+        "confidence": "high"
+      },
+      {
+        "service_id": 22,
+        "confidence": "high"
+      },
+      {
+        "service_id": 27,
+        "confidence": "high"
+      },
+      {
+        "service_id": 30,
+        "confidence": "high"
+      }
+    ],
+    "5": [
+      {
+        "service_id": 9,
+        "confidence": "high"
+      },
+      {
+        "service_id": 11,
+        "confidence": "high"
+      },
+      {
+        "service_id": 15,
+        "confidence": "high"
+      },
+      {
+        "service_id": 16,
+        "confidence": "high"
+      },
+      {
+        "service_id": 18,
+        "confidence": "high"
+      },
+      {
+        "service_id": 21,
+        "confidence": "high"
+      },
+      {
+        "service_id": 30,
+        "confidence": "high"
+      }
+    ],
+    "6": [
+      {
+        "service_id": 1,
+        "confidence": "high"
+      },
+      {
+        "service_id": 11,
+        "confidence": "high"
+      },
+      {
+        "service_id": 15,
+        "confidence": "high"
+      },
+      {
+        "service_id": 18,
+        "confidence": "high"
+      },
+      {
+        "service_id": 19,
+        "confidence": "high"
+      },
+      {
+        "service_id": 27,
+        "confidence": "high"
+      }
+    ],
+    "7": [
+      {
+        "service_id": 1,
+        "confidence": "high"
+      },
+      {
+        "service_id": 5,
+        "confidence": "high"
+      },
+      {
+        "service_id": 7,
+        "confidence": "high"
+      },
+      {
+        "service_id": 11,
+        "confidence": "high"
+      },
+      {
+        "service_id": 12,
+        "confidence": "high"
+      },
+      {
+        "service_id": 13,
+        "confidence": "high"
+      },
+      {
+        "service_id": 15,
+        "confidence": "high"
+      },
+      {
+        "service_id": 16,
+        "confidence": "high"
+      },
+      {
+        "service_id": 18,
+        "confidence": "high"
+      },
+      {
+        "service_id": 19,
+        "confidence": "high"
+      },
+      {
+        "service_id": 26,
+        "confidence": "high"
+      },
+      {
+        "service_id": 27,
+        "confidence": "high"
+      },
+      {
+        "service_id": 28,
+        "confidence": "high"
+      },
+      {
+        "service_id": 29,
+        "confidence": "high"
+      },
+      {
+        "service_id": 30,
+        "confidence": "high"
+      },
+      {
+        "service_id": 32,
+        "confidence": "high"
+      },
+      {
+        "service_id": 35,
+        "confidence": "high"
+      }
+    ],
+    "8": [
+      {
+        "service_id": 11,
+        "confidence": "high"
+      },
+      {
+        "service_id": 15,
+        "confidence": "high"
+      },
+      {
+        "service_id": 16,
+        "confidence": "high"
+      },
+      {
+        "service_id": 18,
+        "confidence": "high"
+      },
+      {
+        "service_id": 19,
+        "confidence": "high"
+      },
+      {
+        "service_id": 20,
+        "confidence": "high"
+      },
+      {
+        "service_id": 27,
+        "confidence": "high"
+      },
+      {
+        "service_id": 28,
+        "confidence": "high"
+      },
+      {
+        "service_id": 29,
+        "confidence": "high"
+      },
+      {
+        "service_id": 30,
+        "confidence": "high"
+      }
+    ],
+    "9": [
+      {
+        "service_id": 9,
+        "confidence": "high"
+      },
+      {
+        "service_id": 21,
+        "confidence": "high"
+      },
+      {
+        "service_id": 22,
+        "confidence": "high"
+      }
+    ],
+    "10": [
+      {
+        "service_id": 1,
+        "confidence": "high"
+      },
+      {
+        "service_id": 9,
+        "confidence": "high"
+      },
+      {
+        "service_id": 11,
+        "confidence": "high"
+      },
+      {
+        "service_id": 15,
+        "confidence": "high"
+      },
+      {
+        "service_id": 16,
+        "confidence": "high"
+      },
+      {
+        "service_id": 17,
+        "confidence": "high"
+      },
+      {
+        "service_id": 18,
+        "confidence": "high"
+      },
+      {
+        "service_id": 19,
+        "confidence": "high"
+      },
+      {
+        "service_id": 21,
+        "confidence": "high"
+      },
+      {
+        "service_id": 22,
+        "confidence": "high"
+      },
+      {
+        "service_id": 27,
+        "confidence": "high"
+      },
+      {
+        "service_id": 30,
+        "confidence": "high"
+      },
+      {
+        "service_id": 32,
+        "confidence": "high"
+      }
+    ],
+    "11": [
+      {
+        "service_id": 9,
+        "confidence": "high"
+      },
+      {
+        "service_id": 21,
+        "confidence": "high"
+      },
+      {
+        "service_id": 22,
+        "confidence": "high"
+      }
+    ],
+    "12": [
+      {
+        "service_id": 9,
+        "confidence": "high"
+      },
+      {
+        "service_id": 21,
+        "confidence": "high"
+      },
+      {
+        "service_id": 22,
+        "confidence": "high"
+      }
+    ],
+    "13": [
+      {
+        "service_id": 1,
+        "confidence": "high"
+      },
+      {
+        "service_id": 2,
+        "confidence": "high"
+      },
+      {
+        "service_id": 3,
+        "confidence": "high"
+      },
+      {
+        "service_id": 6,
+        "confidence": "high"
+      },
+      {
+        "service_id": 9,
+        "confidence": "high"
+      },
+      {
+        "service_id": 15,
+        "confidence": "high"
+      },
+      {
+        "service_id": 16,
+        "confidence": "high"
+      },
+      {
+        "service_id": 17,
+        "confidence": "high"
+      },
+      {
+        "service_id": 18,
+        "confidence": "high"
+      },
+      {
+        "service_id": 19,
+        "confidence": "high"
+      },
+      {
+        "service_id": 20,
+        "confidence": "high"
+      },
+      {
+        "service_id": 21,
+        "confidence": "high"
+      },
+      {
+        "service_id": 22,
+        "confidence": "high"
+      },
+      {
+        "service_id": 24,
+        "confidence": "high"
+      },
+      {
+        "service_id": 27,
+        "confidence": "high"
+      },
+      {
+        "service_id": 28,
+        "confidence": "high"
+      },
+      {
+        "service_id": 29,
+        "confidence": "high"
+      },
+      {
+        "service_id": 30,
+        "confidence": "high"
+      }
+    ],
+    "14": [
+      {
+        "service_id": 1,
+        "confidence": "high"
+      },
+      {
+        "service_id": 2,
+        "confidence": "high"
+      },
+      {
+        "service_id": 3,
+        "confidence": "high"
+      },
+      {
+        "service_id": 6,
+        "confidence": "high"
+      },
+      {
+        "service_id": 9,
+        "confidence": "high"
+      },
+      {
+        "service_id": 15,
+        "confidence": "high"
+      },
+      {
+        "service_id": 16,
+        "confidence": "high"
+      },
+      {
+        "service_id": 17,
+        "confidence": "high"
+      },
+      {
+        "service_id": 18,
+        "confidence": "high"
+      },
+      {
+        "service_id": 19,
+        "confidence": "high"
+      },
+      {
+        "service_id": 20,
+        "confidence": "high"
+      },
+      {
+        "service_id": 21,
+        "confidence": "high"
+      },
+      {
+        "service_id": 22,
+        "confidence": "high"
+      },
+      {
+        "service_id": 24,
+        "confidence": "high"
+      },
+      {
+        "service_id": 27,
+        "confidence": "high"
+      }
+    ],
+    "15": [
+      {
+        "service_id": 1,
+        "confidence": "high"
+      },
+      {
+        "service_id": 6,
+        "confidence": "high"
+      },
+      {
+        "service_id": 9,
+        "confidence": "high"
+      },
+      {
+        "service_id": 11,
+        "confidence": "high"
+      },
+      {
+        "service_id": 15,
+        "confidence": "high"
+      },
+      {
+        "service_id": 16,
+        "confidence": "high"
+      },
+      {
+        "service_id": 17,
+        "confidence": "high"
+      },
+      {
+        "service_id": 18,
+        "confidence": "high"
+      },
+      {
+        "service_id": 19,
+        "confidence": "high"
+      },
+      {
+        "service_id": 20,
+        "confidence": "high"
+      },
+      {
+        "service_id": 21,
+        "confidence": "high"
+      },
+      {
+        "service_id": 22,
+        "confidence": "high"
+      },
+      {
+        "service_id": 24,
+        "confidence": "high"
+      }
+    ],
+    "16": [
+      {
+        "service_id": 6,
+        "confidence": "high"
+      },
+      {
+        "service_id": 9,
+        "confidence": "high"
+      },
+      {
+        "service_id": 16,
+        "confidence": "high"
+      },
+      {
+        "service_id": 17,
+        "confidence": "high"
+      },
+      {
+        "service_id": 19,
+        "confidence": "high"
+      },
+      {
+        "service_id": 20,
+        "confidence": "high"
+      },
+      {
+        "service_id": 21,
+        "confidence": "high"
+      },
+      {
+        "service_id": 22,
+        "confidence": "high"
+      },
+      {
+        "service_id": 24,
+        "confidence": "high"
+      },
+      {
+        "service_id": 30,
+        "confidence": "high"
+      }
+    ],
+    "17": [
+      {
+        "service_id": 6,
+        "confidence": "high"
+      },
+      {
+        "service_id": 9,
+        "confidence": "high"
+      },
+      {
+        "service_id": 15,
+        "confidence": "high"
+      },
+      {
+        "service_id": 16,
+        "confidence": "high"
+      },
+      {
+        "service_id": 17,
+        "confidence": "high"
+      },
+      {
+        "service_id": 18,
+        "confidence": "high"
+      },
+      {
+        "service_id": 19,
+        "confidence": "high"
+      },
+      {
+        "service_id": 20,
+        "confidence": "high"
+      },
+      {
+        "service_id": 21,
+        "confidence": "high"
+      },
+      {
+        "service_id": 22,
+        "confidence": "high"
+      },
+      {
+        "service_id": 24,
+        "confidence": "high"
+      },
+      {
+        "service_id": 27,
+        "confidence": "high"
+      },
+      {
+        "service_id": 28,
+        "confidence": "high"
+      },
+      {
+        "service_id": 29,
+        "confidence": "high"
+      },
+      {
+        "service_id": 30,
+        "confidence": "high"
+      }
+    ],
+    "18": [
+      {
+        "service_id": 1,
+        "confidence": "high"
+      },
+      {
+        "service_id": 2,
+        "confidence": "high"
+      },
+      {
+        "service_id": 3,
+        "confidence": "high"
+      },
+      {
+        "service_id": 5,
+        "confidence": "high"
+      },
+      {
+        "service_id": 7,
+        "confidence": "high"
+      },
+      {
+        "service_id": 11,
+        "confidence": "high"
+      },
+      {
+        "service_id": 12,
+        "confidence": "high"
+      },
+      {
+        "service_id": 13,
+        "confidence": "high"
+      },
+      {
+        "service_id": 15,
+        "confidence": "high"
+      },
+      {
+        "service_id": 16,
+        "confidence": "high"
+      },
+      {
+        "service_id": 18,
+        "confidence": "high"
+      },
+      {
+        "service_id": 19,
+        "confidence": "high"
+      },
+      {
+        "service_id": 21,
+        "confidence": "high"
+      },
+      {
+        "service_id": 22,
+        "confidence": "high"
+      },
+      {
+        "service_id": 25,
+        "confidence": "high"
+      },
+      {
+        "service_id": 26,
+        "confidence": "high"
+      },
+      {
+        "service_id": 27,
+        "confidence": "high"
+      },
+      {
+        "service_id": 28,
+        "confidence": "high"
+      },
+      {
+        "service_id": 29,
+        "confidence": "high"
+      },
+      {
+        "service_id": 30,
+        "confidence": "high"
+      },
+      {
+        "service_id": 32,
+        "confidence": "high"
+      },
+      {
+        "service_id": 34,
+        "confidence": "high"
+      },
+      {
+        "service_id": 35,
+        "confidence": "high"
+      }
+    ],
+    "19": [
+      {
+        "service_id": 1,
+        "confidence": "high"
+      },
+      {
+        "service_id": 2,
+        "confidence": "high"
+      },
+      {
+        "service_id": 3,
+        "confidence": "high"
+      },
+      {
+        "service_id": 5,
+        "confidence": "high"
+      },
+      {
+        "service_id": 7,
+        "confidence": "high"
+      },
+      {
+        "service_id": 11,
+        "confidence": "high"
+      },
+      {
+        "service_id": 12,
+        "confidence": "high"
+      },
+      {
+        "service_id": 13,
+        "confidence": "high"
+      },
+      {
+        "service_id": 15,
+        "confidence": "high"
+      },
+      {
+        "service_id": 16,
+        "confidence": "high"
+      },
+      {
+        "service_id": 18,
+        "confidence": "high"
+      },
+      {
+        "service_id": 19,
+        "confidence": "high"
+      },
+      {
+        "service_id": 21,
+        "confidence": "high"
+      },
+      {
+        "service_id": 22,
+        "confidence": "high"
+      },
+      {
+        "service_id": 25,
+        "confidence": "high"
+      },
+      {
+        "service_id": 26,
+        "confidence": "high"
+      },
+      {
+        "service_id": 27,
+        "confidence": "high"
+      },
+      {
+        "service_id": 28,
+        "confidence": "high"
+      },
+      {
+        "service_id": 29,
+        "confidence": "high"
+      },
+      {
+        "service_id": 30,
+        "confidence": "high"
+      },
+      {
+        "service_id": 32,
+        "confidence": "high"
+      },
+      {
+        "service_id": 34,
+        "confidence": "high"
+      },
+      {
+        "service_id": 35,
+        "confidence": "high"
+      }
+    ],
+    "20": [
+      {
+        "service_id": 1,
+        "confidence": "high"
+      },
+      {
+        "service_id": 13,
+        "confidence": "high"
+      },
+      {
+        "service_id": 15,
+        "confidence": "high"
+      },
+      {
+        "service_id": 18,
+        "confidence": "high"
+      },
+      {
+        "service_id": 19,
+        "confidence": "high"
+      },
+      {
+        "service_id": 20,
+        "confidence": "high"
+      },
+      {
+        "service_id": 25,
+        "confidence": "high"
+      },
+      {
+        "service_id": 26,
+        "confidence": "high"
+      },
+      {
+        "service_id": 27,
+        "confidence": "high"
+      },
+      {
+        "service_id": 28,
+        "confidence": "high"
+      },
+      {
+        "service_id": 29,
+        "confidence": "high"
+      },
+      {
+        "service_id": 30,
+        "confidence": "high"
+      },
+      {
+        "service_id": 32,
+        "confidence": "high"
+      }
+    ],
+    "21": [
+      {
+        "service_id": 1,
+        "confidence": "high"
+      },
+      {
+        "service_id": 11,
+        "confidence": "high"
+      },
+      {
+        "service_id": 15,
+        "confidence": "high"
+      },
+      {
+        "service_id": 16,
+        "confidence": "high"
+      },
+      {
+        "service_id": 18,
+        "confidence": "high"
+      },
+      {
+        "service_id": 19,
+        "confidence": "high"
+      },
+      {
+        "service_id": 20,
+        "confidence": "high"
+      },
+      {
+        "service_id": 27,
+        "confidence": "high"
+      },
+      {
+        "service_id": 28,
+        "confidence": "high"
+      },
+      {
+        "service_id": 29,
+        "confidence": "high"
+      }
+    ],
+    "22": [
+      {
+        "service_id": 1,
+        "confidence": "high"
+      },
+      {
+        "service_id": 2,
+        "confidence": "high"
+      },
+      {
+        "service_id": 3,
+        "confidence": "high"
+      },
+      {
+        "service_id": 5,
+        "confidence": "high"
+      },
+      {
+        "service_id": 7,
+        "confidence": "high"
+      },
+      {
+        "service_id": 8,
+        "confidence": "high"
+      },
+      {
+        "service_id": 11,
+        "confidence": "high"
+      },
+      {
+        "service_id": 12,
+        "confidence": "high"
+      },
+      {
+        "service_id": 13,
+        "confidence": "high"
+      },
+      {
+        "service_id": 15,
+        "confidence": "high"
+      },
+      {
+        "service_id": 16,
+        "confidence": "high"
+      },
+      {
+        "service_id": 18,
+        "confidence": "high"
+      },
+      {
+        "service_id": 22,
+        "confidence": "high"
+      },
+      {
+        "service_id": 25,
+        "confidence": "high"
+      },
+      {
+        "service_id": 26,
+        "confidence": "high"
+      },
+      {
+        "service_id": 27,
+        "confidence": "high"
+      },
+      {
+        "service_id": 28,
+        "confidence": "high"
+      },
+      {
+        "service_id": 29,
+        "confidence": "high"
+      },
+      {
+        "service_id": 30,
+        "confidence": "high"
+      },
+      {
+        "service_id": 32,
+        "confidence": "high"
+      },
+      {
+        "service_id": 35,
+        "confidence": "high"
+      }
+    ],
+    "23": [
+      {
+        "service_id": 1,
+        "confidence": "high"
+      },
+      {
+        "service_id": 3,
+        "confidence": "high"
+      },
+      {
+        "service_id": 8,
+        "confidence": "high"
+      },
+      {
+        "service_id": 15,
+        "confidence": "high"
+      },
+      {
+        "service_id": 27,
+        "confidence": "high"
+      },
+      {
+        "service_id": 28,
+        "confidence": "high"
+      },
+      {
+        "service_id": 29,
+        "confidence": "high"
+      },
+      {
+        "service_id": 30,
+        "confidence": "high"
+      },
+      {
+        "service_id": 32,
+        "confidence": "high"
+      }
+    ],
+    "24": [
+      {
+        "service_id": 1,
+        "confidence": "high"
+      },
+      {
+        "service_id": 2,
+        "confidence": "high"
+      },
+      {
+        "service_id": 13,
+        "confidence": "high"
+      },
+      {
+        "service_id": 15,
+        "confidence": "high"
+      },
+      {
+        "service_id": 16,
+        "confidence": "high"
+      },
+      {
+        "service_id": 18,
+        "confidence": "high"
+      },
+      {
+        "service_id": 19,
+        "confidence": "high"
+      },
+      {
+        "service_id": 20,
+        "confidence": "high"
+      },
+      {
+        "service_id": 22,
+        "confidence": "high"
+      },
+      {
+        "service_id": 25,
+        "confidence": "high"
+      },
+      {
+        "service_id": 26,
+        "confidence": "high"
+      },
+      {
+        "service_id": 27,
+        "confidence": "high"
+      },
+      {
+        "service_id": 28,
+        "confidence": "high"
+      },
+      {
+        "service_id": 29,
+        "confidence": "high"
+      },
+      {
+        "service_id": 30,
+        "confidence": "high"
+      },
+      {
+        "service_id": 32,
+        "confidence": "high"
+      }
+    ],
+    "25": [
+      {
+        "service_id": 1,
+        "confidence": "high"
+      },
+      {
+        "service_id": 15,
+        "confidence": "high"
+      },
+      {
+        "service_id": 18,
+        "confidence": "high"
+      },
+      {
+        "service_id": 19,
+        "confidence": "high"
+      },
+      {
+        "service_id": 20,
+        "confidence": "high"
+      },
+      {
+        "service_id": 27,
+        "confidence": "high"
+      },
+      {
+        "service_id": 28,
+        "confidence": "high"
+      },
+      {
+        "service_id": 29,
+        "confidence": "high"
+      }
+    ],
+    "26": [
+      {
+        "service_id": 1,
+        "confidence": "high"
+      },
+      {
+        "service_id": 15,
+        "confidence": "high"
+      },
+      {
+        "service_id": 18,
+        "confidence": "high"
+      },
+      {
+        "service_id": 19,
+        "confidence": "high"
+      },
+      {
+        "service_id": 20,
+        "confidence": "high"
+      },
+      {
+        "service_id": 27,
+        "confidence": "high"
+      },
+      {
+        "service_id": 28,
+        "confidence": "high"
+      },
+      {
+        "service_id": 29,
+        "confidence": "high"
+      }
+    ],
+    "27": [
+      {
+        "service_id": 3,
+        "confidence": "high"
+      },
+      {
+        "service_id": 8,
+        "confidence": "high"
+      },
+      {
+        "service_id": 29,
+        "confidence": "high"
+      }
+    ],
+    "28": [
+      {
+        "service_id": 1,
+        "confidence": "high"
+      },
+      {
+        "service_id": 15,
+        "confidence": "high"
+      },
+      {
+        "service_id": 18,
+        "confidence": "high"
+      },
+      {
+        "service_id": 19,
+        "confidence": "high"
+      },
+      {
+        "service_id": 20,
+        "confidence": "high"
+      },
+      {
+        "service_id": 27,
+        "confidence": "high"
+      },
+      {
+        "service_id": 28,
+        "confidence": "high"
+      },
+      {
+        "service_id": 29,
+        "confidence": "high"
+      }
+    ],
+    "29": [
+      {
+        "service_id": 12,
+        "confidence": "high"
+      },
+      {
+        "service_id": 13,
+        "confidence": "high"
+      },
+      {
+        "service_id": 18,
+        "confidence": "high"
+      },
+      {
+        "service_id": 19,
+        "confidence": "high"
+      },
+      {
+        "service_id": 21,
+        "confidence": "high"
+      },
+      {
+        "service_id": 22,
+        "confidence": "high"
+      },
+      {
+        "service_id": 25,
+        "confidence": "high"
+      },
+      {
+        "service_id": 26,
+        "confidence": "high"
+      },
+      {
+        "service_id": 27,
+        "confidence": "high"
+      },
+      {
+        "service_id": 28,
+        "confidence": "high"
+      },
+      {
+        "service_id": 30,
+        "confidence": "high"
+      },
+      {
+        "service_id": 32,
+        "confidence": "high"
+      },
+      {
+        "service_id": 34,
+        "confidence": "high"
+      },
+      {
+        "service_id": 35,
+        "confidence": "high"
+      }
+    ],
+    "30": [
+      {
+        "service_id": 1,
+        "confidence": "high"
+      },
+      {
+        "service_id": 2,
+        "confidence": "high"
+      },
+      {
+        "service_id": 3,
+        "confidence": "high"
+      },
+      {
+        "service_id": 5,
+        "confidence": "high"
+      },
+      {
+        "service_id": 7,
+        "confidence": "high"
+      },
+      {
+        "service_id": 8,
+        "confidence": "high"
+      },
+      {
+        "service_id": 11,
+        "confidence": "high"
+      },
+      {
+        "service_id": 12,
+        "confidence": "high"
+      },
+      {
+        "service_id": 13,
+        "confidence": "high"
+      },
+      {
+        "service_id": 15,
+        "confidence": "high"
+      },
+      {
+        "service_id": 16,
+        "confidence": "high"
+      },
+      {
+        "service_id": 18,
+        "confidence": "high"
+      },
+      {
+        "service_id": 19,
+        "confidence": "high"
+      },
+      {
+        "service_id": 21,
+        "confidence": "high"
+      },
+      {
+        "service_id": 22,
+        "confidence": "high"
+      },
+      {
+        "service_id": 25,
+        "confidence": "high"
+      },
+      {
+        "service_id": 26,
+        "confidence": "high"
+      },
+      {
+        "service_id": 27,
+        "confidence": "high"
+      },
+      {
+        "service_id": 28,
+        "confidence": "high"
+      },
+      {
+        "service_id": 30,
+        "confidence": "high"
+      },
+      {
+        "service_id": 32,
+        "confidence": "high"
+      },
+      {
+        "service_id": 34,
+        "confidence": "high"
+      },
+      {
+        "service_id": 35,
+        "confidence": "high"
+      }
+    ],
+    "32": [
+      {
+        "service_id": 1,
+        "confidence": "high"
+      },
+      {
+        "service_id": 2,
+        "confidence": "high"
+      },
+      {
+        "service_id": 3,
+        "confidence": "high"
+      },
+      {
+        "service_id": 5,
+        "confidence": "high"
+      },
+      {
+        "service_id": 7,
+        "confidence": "high"
+      },
+      {
+        "service_id": 11,
+        "confidence": "high"
+      },
+      {
+        "service_id": 12,
+        "confidence": "high"
+      },
+      {
+        "service_id": 13,
+        "confidence": "high"
+      },
+      {
+        "service_id": 15,
+        "confidence": "high"
+      },
+      {
+        "service_id": 18,
+        "confidence": "high"
+      },
+      {
+        "service_id": 19,
+        "confidence": "high"
+      },
+      {
+        "service_id": 21,
+        "confidence": "high"
+      },
+      {
+        "service_id": 22,
+        "confidence": "high"
+      },
+      {
+        "service_id": 25,
+        "confidence": "high"
+      },
+      {
+        "service_id": 26,
+        "confidence": "high"
+      },
+      {
+        "service_id": 27,
+        "confidence": "high"
+      },
+      {
+        "service_id": 28,
+        "confidence": "high"
+      },
+      {
+        "service_id": 30,
+        "confidence": "high"
+      },
+      {
+        "service_id": 32,
+        "confidence": "high"
+      },
+      {
+        "service_id": 34,
+        "confidence": "high"
+      },
+      {
+        "service_id": 35,
+        "confidence": "high"
+      }
+    ],
+    "33": [
+      {
+        "service_id": 1,
+        "confidence": "high"
+      },
+      {
+        "service_id": 2,
+        "confidence": "high"
+      },
+      {
+        "service_id": 3,
+        "confidence": "high"
+      },
+      {
+        "service_id": 11,
+        "confidence": "high"
+      },
+      {
+        "service_id": 15,
+        "confidence": "high"
+      },
+      {
+        "service_id": 18,
+        "confidence": "high"
+      },
+      {
+        "service_id": 19,
+        "confidence": "high"
+      },
+      {
+        "service_id": 27,
+        "confidence": "high"
+      },
+      {
+        "service_id": 28,
+        "confidence": "high"
+      },
+      {
+        "service_id": 29,
+        "confidence": "high"
+      }
+    ],
+    "34": [
+      {
+        "service_id": 1,
+        "confidence": "high"
+      },
+      {
+        "service_id": 2,
+        "confidence": "high"
+      },
+      {
+        "service_id": 3,
+        "confidence": "high"
+      },
+      {
+        "service_id": 8,
+        "confidence": "high"
+      },
+      {
+        "service_id": 15,
+        "confidence": "high"
+      },
+      {
+        "service_id": 27,
+        "confidence": "high"
+      },
+      {
+        "service_id": 28,
+        "confidence": "high"
+      },
+      {
+        "service_id": 29,
+        "confidence": "high"
+      },
+      {
+        "service_id": 30,
+        "confidence": "high"
+      }
+    ]
+  }
+}

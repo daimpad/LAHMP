@@ -1,0 +1,2747 @@
+[
+  {
+    "profile_number": 1,
+    "profile_name": "Soil bacteria",
+    "category": "Soil microbial and fungal communities",
+    "tier": "Universal",
+    "conditionality_criteria": null,
+    "hard_prerequisite": null,
+    "primary_monitoring_role": "Ecological indicator",
+    "monitoring_stage": "Fast (Stage 2, Year 2-5)",
+    "response_timescale": "1-2 seasons",
+    "block4_pressures": [
+      1,
+      3,
+      4,
+      5,
+      6
+    ],
+    "block5_challenges": [
+      21,
+      22,
+      1
+    ],
+    "block6_services": [
+      15,
+      11
+    ],
+    "relevant_efgs": [
+      "T7.1",
+      "T7.2",
+      "T7.5"
+    ],
+    "relevant_ipcc_land_use": [
+      "Cropland",
+      "Grassland"
+    ],
+    "soil_type_associations": [
+      "All mineral and organic soil types; most sensitive signal in sandy and loam soils with low organic carbon history"
+    ],
+    "crop_livestock_associations": [
+      "Low-input and organic cereal and vegetable rotations; permanent grassland; all systems where soil management is the monitoring objective"
+    ],
+    "b1_practices_that_benefit": [
+      "P01",
+      "P04",
+      "P08"
+    ],
+    "b2_practices_primarily_verified": [
+      "P01",
+      "P04"
+    ],
+    "linkage_c_connected_groups": [
+      2,
+      6,
+      3
+    ],
+    "level1_protocol_name": "Soil biological activity proxy — WFPS and visual soil assessment",
+    "level2_protocol_name": "Phospholipid fatty acid (PLFA) analysis",
+    "level3_protocol_name": "16S rRNA amplicon sequencing — bacterial community profiling",
+    "level1_output_metric": "Visual soil condition score; earthworm count proxy",
+    "level2_output_metric": "Total PLFA biomass (nmol/g); functional group ratios",
+    "level3_output_metric": "OTU richness; Shannon diversity; phylum-level composition",
+    "primary_reference": "Fierer & Jackson (2006) PNAS; PLFA methodology",
+    "monitoring_task_type": "Biological count-based",
+    "b2_expected_direction_of_change": "P01: Increasing PLFA biomass and functional diversity within 2–4 seasons of no-till adoption. P04: Bacterial biomass increasing within 1–2 seasons of compost application.",
+    "validation_status": "DRAFT - Unvalidated",
+    "populated": true
+  },
+  {
+    "profile_number": 2,
+    "profile_name": "Mycorrhizal fungi",
+    "category": "Soil microbial and fungal communities",
+    "tier": "Universal",
+    "conditionality_criteria": null,
+    "hard_prerequisite": null,
+    "primary_monitoring_role": "Ecological indicator",
+    "monitoring_stage": "Medium (Stage 2-3, Year 2-5)",
+    "response_timescale": "2-4 years",
+    "block4_pressures": [
+      1,
+      3,
+      4,
+      5,
+      6
+    ],
+    "block5_challenges": [
+      21,
+      22,
+      2
+    ],
+    "block6_services": [
+      15,
+      11
+    ],
+    "relevant_efgs": [
+      "T7.1",
+      "T7.2",
+      "T7.3",
+      "T7.5"
+    ],
+    "relevant_ipcc_land_use": [
+      "Cropland",
+      "Grassland",
+      "Forest Land (agroforestry)"
+    ],
+    "soil_type_associations": [
+      "Well-drained loam and sandy soils; most diverse AMF communities in undisturbed permanent grassland soils; reduced under waterlogged conditions"
+    ],
+    "crop_livestock_associations": [
+      "Agroforestry; perennial crops; low-input vegetable and cereal rotations; most responsive under phosphorus-limited conditions where AMF symbiosis is most active"
+    ],
+    "b1_practices_that_benefit": [
+      "P01",
+      "P04",
+      "P10"
+    ],
+    "b2_practices_primarily_verified": [
+      "P01",
+      "P04"
+    ],
+    "linkage_c_connected_groups": [
+      1,
+      6
+    ],
+    "level1_protocol_name": "Root colonisation assessment — visual hyphal inspection",
+    "level2_protocol_name": "PLFA/NLFA ratio and 18S metabarcoding",
+    "level3_protocol_name": "Species-level ITS2 metabarcoding with functional guild assignment",
+    "level1_output_metric": "Root infection rate (% colonised root segments); hyphal presence Y/N",
+    "level2_output_metric": "NLFA 16:1ω5 concentration; AMF:non-AMF PLFA ratio",
+    "level3_output_metric": "AMF species richness; Shannon diversity; functional guild proportions",
+    "primary_reference": "Smith & Read (2008) Mycorrhizal Symbiosis; PLFA/NLFA Frostegård et al.",
+    "monitoring_task_type": "Biological count-based",
+    "b2_expected_direction_of_change": "P01: NLFA AMF biomarker increasing within 2–4 seasons of no-till. P04: AMF colonisation rate increasing within 1–2 seasons of compost addition.",
+    "validation_status": "DRAFT - Unvalidated",
+    "populated": true
+  },
+  {
+    "profile_number": 3,
+    "profile_name": "Nematodes",
+    "category": "Soil invertebrate communities",
+    "tier": "Universal",
+    "conditionality_criteria": null,
+    "hard_prerequisite": null,
+    "primary_monitoring_role": "Ecological indicator",
+    "monitoring_stage": "Fast-medium (Stage 2, Year 1-3)",
+    "response_timescale": "1-3 years",
+    "block4_pressures": [
+      1,
+      3,
+      4,
+      5,
+      6
+    ],
+    "block5_challenges": [
+      21,
+      22
+    ],
+    "block6_services": [
+      15
+    ],
+    "relevant_efgs": [
+      "T7.1",
+      "T7.2",
+      "T7.5"
+    ],
+    "relevant_ipcc_land_use": [
+      "Cropland",
+      "Grassland"
+    ],
+    "soil_type_associations": [
+      "Universal — all soil types; enriched fauna in silty and loamy soils with high organic matter; reduced in heavily waterlogged anaerobic soils"
+    ],
+    "crop_livestock_associations": [
+      "Universal across all cropping systems; most ecologically informative in permanent grassland and no-till arable"
+    ],
+    "b1_practices_that_benefit": [
+      "P01",
+      "P04",
+      "P08"
+    ],
+    "b2_practices_primarily_verified": [
+      "P01",
+      "P04"
+    ],
+    "linkage_c_connected_groups": [
+      1,
+      6,
+      4
+    ],
+    "level1_protocol_name": "No Level 1 protocol — minimum Level 2 required",
+    "level2_protocol_name": "Baermann funnel extraction with guild classification (MI/EI/SI)",
+    "level3_protocol_name": "Centrifugal flotation with species-level identification and index calculation",
+    "level1_output_metric": null,
+    "level2_output_metric": "Total nematode abundance (per 100g dry soil); MI, EI, SI indices",
+    "level3_output_metric": "Species-level community composition; Shannon diversity; cp-class distribution",
+    "primary_reference": "Bongers (1990) nematode maturity index; Yeates et al. (1993)",
+    "monitoring_task_type": "Biological count-based",
+    "b2_expected_direction_of_change": "P01: MI increasing and EI stabilising within 2–3 seasons of no-till adoption. P04: EI increasing within 1–2 seasons of compost application.",
+    "validation_status": "DRAFT - Unvalidated",
+    "populated": true
+  },
+  {
+    "profile_number": 4,
+    "profile_name": "Springtails",
+    "category": "Soil invertebrate communities",
+    "tier": "Universal",
+    "conditionality_criteria": null,
+    "hard_prerequisite": null,
+    "primary_monitoring_role": "Ecological indicator",
+    "monitoring_stage": "Fast (Stage 2, Year 1-3)",
+    "response_timescale": "1-3 years",
+    "block4_pressures": [
+      1,
+      3,
+      4,
+      5,
+      6
+    ],
+    "block5_challenges": [
+      21
+    ],
+    "block6_services": [
+      15
+    ],
+    "relevant_efgs": [
+      "T7.1",
+      "T7.2",
+      "T7.5"
+    ],
+    "relevant_ipcc_land_use": [
+      "Cropland",
+      "Grassland"
+    ],
+    "soil_type_associations": [
+      "All soil types; most abundant in loam and sandy loam with good drainage and organic matter; sensitive to acid soils (<pH 5.0)"
+    ],
+    "crop_livestock_associations": [
+      "Universal; most informative in permanent grassland",
+      "orchard understory",
+      "and forest margin habitats"
+    ],
+    "b1_practices_that_benefit": [
+      "P01",
+      "P04"
+    ],
+    "b2_practices_primarily_verified": [
+      "P01"
+    ],
+    "linkage_c_connected_groups": [
+      5,
+      10,
+      3
+    ],
+    "level1_protocol_name": "Flotation extraction — visual count from soil water suspension",
+    "level2_protocol_name": "Berlese-Tullgren heat extraction with QBS-ar scoring (shared with P05)",
+    "level3_protocol_name": "Species-level identification with full QBS-ar and feeding guild analysis",
+    "level1_output_metric": "Springtail presence/absence; approximate abundance class",
+    "level2_output_metric": "Total Collembola per 100g dry soil; QBS-ar score; functional form ratio",
+    "level3_output_metric": "Species richness; Shannon diversity; feeding guild proportions; full QBS-ar",
+    "primary_reference": "Parisi et al. (2005) QBS-ar; Hopkin (1997) Biology of Springtails",
+    "monitoring_task_type": "Biological count-based",
+    "b2_expected_direction_of_change": "P01: QBS-ar score increasing within 2–3 seasons of reduced tillage. Total abundance increasing measurably within 1–2 seasons.",
+    "validation_status": "DRAFT - Unvalidated",
+    "populated": true
+  },
+  {
+    "profile_number": 5,
+    "profile_name": "Oribatid mites",
+    "category": "Soil invertebrate communities",
+    "tier": "Universal",
+    "conditionality_criteria": null,
+    "hard_prerequisite": null,
+    "primary_monitoring_role": "Ecological indicator",
+    "monitoring_stage": "Medium (Stage 2-3, Year 2-4)",
+    "response_timescale": "2-4 years",
+    "block4_pressures": [
+      1,
+      3,
+      4,
+      5,
+      6
+    ],
+    "block5_challenges": [
+      21
+    ],
+    "block6_services": [
+      15
+    ],
+    "relevant_efgs": [
+      "T7.1",
+      "T7.2",
+      "T7.5"
+    ],
+    "relevant_ipcc_land_use": [
+      "Cropland",
+      "Grassland"
+    ],
+    "soil_type_associations": [
+      "All soil types; most diverse communities in undisturbed loam and silt soils with litter layer; reduced under waterlogged conditions"
+    ],
+    "crop_livestock_associations": [
+      "Universal across farming systems; most ecologically informative in permanent grassland and forested agricultural systems with litter accumulation"
+    ],
+    "b1_practices_that_benefit": [
+      "P01",
+      "P04"
+    ],
+    "b2_practices_primarily_verified": [
+      "P01"
+    ],
+    "linkage_c_connected_groups": [
+      4,
+      3
+    ],
+    "level1_protocol_name": "Limited heat extraction — sorting from shallow soil sample",
+    "level2_protocol_name": "Berlese-Tullgren extraction with QBS-ar scoring (shared with P04)",
+    "level3_protocol_name": "Species-level oribatid identification with full QBS-ar and feeding guild analysis",
+    "level1_output_metric": "Oribatid presence/absence; approximate abundance class",
+    "level2_output_metric": "Total Oribatida per 100g dry soil; QBS-ar score; OPD (Oribatida ratio)",
+    "level3_output_metric": "Species richness; Shannon diversity; OPD index; full QBS-ar",
+    "primary_reference": "Parisi et al. (2005) QBS-ar; Behan-Pelletier (1999) oribatid mites",
+    "monitoring_task_type": "Biological count-based",
+    "b2_expected_direction_of_change": "P01: QBS-ar and OPD increasing measurably within 2–4 seasons of no-till adoption.",
+    "validation_status": "DRAFT - Unvalidated",
+    "populated": true
+  },
+  {
+    "profile_number": 6,
+    "profile_name": "Earthworms",
+    "category": "Soil invertebrate communities",
+    "tier": "Universal",
+    "conditionality_criteria": null,
+    "hard_prerequisite": null,
+    "primary_monitoring_role": "Ecological indicator",
+    "monitoring_stage": "Fast (Stage 2, Year 1-3)",
+    "response_timescale": "1-3 years",
+    "block4_pressures": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "block5_challenges": [
+      21,
+      7,
+      1
+    ],
+    "block6_services": [
+      15,
+      11
+    ],
+    "relevant_efgs": [
+      "T7.1",
+      "T7.2",
+      "T7.5"
+    ],
+    "relevant_ipcc_land_use": [
+      "Cropland",
+      "Grassland"
+    ],
+    "soil_type_associations": [
+      "Loam",
+      "clay-loam",
+      "and silty soils with neutral to slightly alkaline pH (6.0–7.5); significantly reduced in sandy",
+      "acid",
+      "or heavily compacted soils; anecic species absent from compacted (>1.5g/cm3) soils"
+    ],
+    "crop_livestock_associations": [
+      "Permanent grassland; agroforestry; low-input mixed farming; organic systems; most sensitive indicator in arable systems transitioning to no-till"
+    ],
+    "b1_practices_that_benefit": [
+      "P01",
+      "P04",
+      "P13"
+    ],
+    "b2_practices_primarily_verified": [
+      "P01",
+      "P04"
+    ],
+    "linkage_c_connected_groups": [
+      1,
+      8,
+      26
+    ],
+    "level1_protocol_name": "Visual hand-excavation count with guild classification",
+    "level2_protocol_name": "Mustard extraction with biomass measurement",
+    "level3_protocol_name": "DNA metabarcoding COI with population genetics",
+    "level1_output_metric": "Earthworm count per 0.25m2 × 30cm; guild proportions (juvenile/adult/anecic)",
+    "level2_output_metric": "Total abundance per m2 by guild; fresh biomass (g/m2)",
+    "level3_output_metric": "Species richness; Shannon diversity; biomass per species; Fst between sites",
+    "primary_reference": "Clements et al. (1991) mustard extraction; ISO 23611-1 earthworm sampling",
+    "monitoring_task_type": "Biological count-based",
+    "b2_expected_direction_of_change": "P01: Earthworm abundance and anecic guild proportion increasing measurably within 2–3 seasons of no-till. P04: Total biomass increasing within 1–2 seasons of compost application.",
+    "validation_status": "DRAFT - Unvalidated",
+    "populated": true
+  },
+  {
+    "profile_number": 7,
+    "profile_name": "Terrestrial snails and slugs",
+    "category": "Soil invertebrate communities",
+    "tier": "Universal",
+    "conditionality_criteria": null,
+    "hard_prerequisite": null,
+    "primary_monitoring_role": "Ecological indicator",
+    "monitoring_stage": "Fast-medium (Stage 2, Year 1-3)",
+    "response_timescale": "1-3 years",
+    "block4_pressures": [
+      9,
+      1,
+      14,
+      2,
+      3,
+      6
+    ],
+    "block5_challenges": [
+      21,
+      25,
+      6,
+      2
+    ],
+    "block6_services": [
+      15,
+      28,
+      30
+    ],
+    "relevant_efgs": [
+      "T7.1",
+      "T7.2",
+      "T7.5"
+    ],
+    "relevant_ipcc_land_use": [
+      "Cropland",
+      "Grassland"
+    ],
+    "soil_type_associations": [
+      "All mineral soil types; snails most abundant on calcareous soils (pH >6.5); slugs more tolerant of acid conditions; both reduced in very sandy or waterlogged soils"
+    ],
+    "crop_livestock_associations": [
+      "Arable and vegetable cropping with pest slug species; permanent grassland with native snail communities; orchards with diverse snail fauna"
+    ],
+    "b1_practices_that_benefit": [
+      "P04",
+      "P02",
+      "P13"
+    ],
+    "b2_practices_primarily_verified": [
+      "P11",
+      "P01"
+    ],
+    "linkage_c_connected_groups": [
+      10,
+      6,
+      20
+    ],
+    "level1_protocol_name": "Visual search transect at dusk — snail/slug count and guild classification",
+    "level2_protocol_name": "Refuge trap survey — tile trap counts with species identification",
+    "level3_protocol_name": "Full malacological survey with soil sampling and metabarcoding",
+    "level1_output_metric": "Snail count (size classes); slug count; feeding damage score (0–3)",
+    "level2_output_metric": "Mean slugs per trap per night; snail species count; damage threshold index",
+    "level3_output_metric": "Full species list; calcium index; seed bank composition; metabarcoding community",
+    "primary_reference": "Barker (2004) Natural Enemies of Terrestrial Molluscs; Glen et al. (2006)",
+    "monitoring_task_type": "Biological count-based",
+    "b2_expected_direction_of_change": "P11 (molluscicide reduction): Non-target snail species richness increasing in field margins within 2–4 seasons; pest slug populations may initially increase. P01 (no-till): Total gastropod abundance increasing within 1–2 seasons.",
+    "validation_status": "DRAFT - Unvalidated",
+    "populated": true
+  },
+  {
+    "profile_number": 8,
+    "profile_name": "Ants",
+    "category": "Soil and ground surface ecosystem engineers",
+    "tier": "Universal",
+    "conditionality_criteria": null,
+    "hard_prerequisite": null,
+    "primary_monitoring_role": "Ecological indicator",
+    "monitoring_stage": "Fast (Stage 2, Year 1-3)",
+    "response_timescale": "1-3 years",
+    "block4_pressures": [
+      1,
+      2,
+      4,
+      18,
+      20
+    ],
+    "block5_challenges": [
+      21,
+      7,
+      23,
+      19
+    ],
+    "block6_services": [
+      15,
+      28,
+      30
+    ],
+    "relevant_efgs": [
+      "T7.5",
+      "T7.2",
+      "T7.1",
+      "T7.3"
+    ],
+    "relevant_ipcc_land_use": [
+      "Grassland",
+      "Cropland",
+      "Forest Land (agroforestry)"
+    ],
+    "soil_type_associations": [
+      "Well-structured loam and clay-loam soils in permanent grassland; reduced in compacted or heavily disturbed soils; colony establishment requires stable soil conditions over multiple seasons"
+    ],
+    "crop_livestock_associations": [
+      "Traditional permanent grassland; wood pasture; agroforestry; organic mixed farming; least responsive in intensive annual cropping"
+    ],
+    "b1_practices_that_benefit": [
+      "P13",
+      "P02",
+      "P10"
+    ],
+    "b2_practices_primarily_verified": [
+      "P13",
+      "P11"
+    ],
+    "linkage_c_connected_groups": [
+      6,
+      14,
+      25
+    ],
+    "level1_protocol_name": "Ant mound count transect — community observer survey",
+    "level2_protocol_name": "Pitfall trap survey — activity-density and morphospecies richness",
+    "level3_protocol_name": "Species-level myrmecological survey with stable isotope analysis",
+    "level1_output_metric": "Mound count per 200m2; size class distribution; active colony proportion (%)",
+    "level2_output_metric": "Ant activity-density (workers/trap/day); morphospecies richness; functional group proportions",
+    "level3_output_metric": "Full species list; colony density (N/ha); isotope trophic position diversity",
+    "primary_reference": "Peck et al. (1998) Environ. Entomol.; Dauber & Wolters (2000); Agosti et al. (2000)",
+    "monitoring_task_type": "Biological count-based",
+    "b2_expected_direction_of_change": "P13 (rotational grazing): Mound count stable then increasing from Year 3–5. P11 (insecticide reduction): Pitfall trap activity-density increasing within 2–3 seasons.",
+    "validation_status": "DRAFT - Unvalidated",
+    "populated": true
+  },
+  {
+    "profile_number": 9,
+    "profile_name": "Dung beetles",
+    "category": "Soil and ground surface ecosystem engineers",
+    "tier": "Universal",
+    "conditionality_criteria": null,
+    "hard_prerequisite": "Livestock present OR wild large mammals present in or adjacent to landscape",
+    "primary_monitoring_role": "Ecological indicator",
+    "monitoring_stage": "Fast (Stage 2, Year 1-3)",
+    "response_timescale": "1-3 years",
+    "block4_pressures": [
+      4,
+      18,
+      27,
+      13,
+      1
+    ],
+    "block5_challenges": [
+      21,
+      27,
+      1
+    ],
+    "block6_services": [
+      15,
+      29,
+      28,
+      11
+    ],
+    "relevant_efgs": [
+      "T7.2",
+      "T7.5",
+      "T7.3"
+    ],
+    "relevant_ipcc_land_use": [
+      "Grassland",
+      "Forest Land (agroforestry)"
+    ],
+    "soil_type_associations": [
+      "Not soil-dependent directly; grazing land with adequate dung input; most diverse communities in extensively grazed permanent pasture with diverse livestock species"
+    ],
+    "crop_livestock_associations": [
+      "Extensive livestock farming (cattle",
+      "horse",
+      "sheep); most diverse communities where multiple livestock species co-graze; lowest diversity in intensive dairy"
+    ],
+    "b1_practices_that_benefit": [
+      "P13",
+      "P11",
+      "P12"
+    ],
+    "b2_practices_primarily_verified": [
+      "P11",
+      "P13"
+    ],
+    "linkage_c_connected_groups": [
+      6,
+      20,
+      7
+    ],
+    "level1_protocol_name": "Fresh dung pat observation — dung beetle visitor count and burial activity",
+    "level2_protocol_name": "Dung-baited pitfall trap survey — quantitative abundance and guild assessment",
+    "level3_protocol_name": "Full dung beetle community assessment with nest chamber excavation and burial rate",
+    "level1_output_metric": "Mean dung beetle count per 10-min observation; % pats showing tunnelling; 24-hour burial rate",
+    "level2_output_metric": "Dung beetle abundance per trap/day; morphospecies richness; functional guild proportions",
+    "level3_output_metric": "Full species list; nest chamber density (chambers/m2); burial rate (g/hour/m2)",
+    "primary_reference": "Lumaret et al. (1993) J. Appl. Ecol.; Nichols et al. (2008) Biol. Conserv.; Verdú et al. (2015)",
+    "monitoring_task_type": "Biological count-based",
+    "b2_expected_direction_of_change": "P11 (antiparasitic drug reduction): Dung beetle abundance increasing within 1–2 seasons of reduced ivermectin use; tunneller guild appearing within 2–4 seasons. P13 (rotational grazing): Tunneller species increasing within 2–3 seasons.",
+    "validation_status": "DRAFT - Unvalidated",
+    "populated": true
+  },
+  {
+    "profile_number": 10,
+    "profile_name": "Ground beetles and rove beetles",
+    "category": "Aboveground invertebrate communities",
+    "tier": "Universal",
+    "conditionality_criteria": null,
+    "hard_prerequisite": null,
+    "primary_monitoring_role": "Ecological indicator",
+    "monitoring_stage": "Fast (Stage 2, Year 1-3)",
+    "response_timescale": "1-3 years",
+    "block4_pressures": [
+      1,
+      4,
+      5,
+      13,
+      19
+    ],
+    "block5_challenges": [
+      24,
+      21,
+      19
+    ],
+    "block6_services": [
+      28,
+      28,
+      15
+    ],
+    "relevant_efgs": [
+      "T7.1",
+      "T7.2",
+      "T7.5"
+    ],
+    "relevant_ipcc_land_use": [
+      "Cropland",
+      "Grassland"
+    ],
+    "soil_type_associations": [
+      "All mineral soils; most diverse communities in loam and sandy loam with undisturbed surface horizon; brachypterous specialists lost from frequently tilled soils"
+    ],
+    "crop_livestock_associations": [
+      "All cropping systems; most diverse in organic or low-input systems with permanent headlands; field margin monitoring prioritised over cropped areas"
+    ],
+    "b1_practices_that_benefit": [
+      "P16",
+      "P02",
+      "P08"
+    ],
+    "b2_practices_primarily_verified": [
+      "P11",
+      "P01"
+    ],
+    "linkage_c_connected_groups": [
+      11,
+      7,
+      4
+    ],
+    "level1_protocol_name": "Refuge tile search — ground beetle and rove beetle daytime shelter count (shared with P07, P11)",
+    "level2_protocol_name": "Pitfall trap survey — activity-density and morphospecies assessment (shared with P11)",
+    "level3_protocol_name": "Species-level assessment with wing morph ratio and connectivity genetics",
+    "level1_output_metric": "Number of ground beetles/rove beetles per tile; size class distribution; large species (>15mm) presence",
+    "level2_output_metric": "Total carabid activity-density (individuals/trap/day); morphospecies richness; brachypterous:macropterous ratio",
+    "level3_output_metric": "Full species list; wing morph ratio; isotope dietary positions; Fst between sites",
+    "primary_reference": "Kromp (1999) Agric. Ecosyst. Environ.; Lövei & Sunderland (1996) Ann. Rev. Entomol.",
+    "monitoring_task_type": "Biological count-based",
+    "b2_expected_direction_of_change": "P11 (insecticide reduction): Activity-density increasing within 1–2 seasons; brachypterous specialists increasing over 3–5 years. P01 (no-till): Spring activity-density increasing within 1–2 seasons.",
+    "validation_status": "DRAFT - Unvalidated",
+    "populated": true
+  },
+  {
+    "profile_number": 11,
+    "profile_name": "Spiders",
+    "category": "Aboveground invertebrate communities",
+    "tier": "Universal",
+    "conditionality_criteria": null,
+    "hard_prerequisite": null,
+    "primary_monitoring_role": "Ecological indicator",
+    "monitoring_stage": "Fast (Stage 2, Year 1-3)",
+    "response_timescale": "1-3 years",
+    "block4_pressures": [
+      4,
+      6,
+      20,
+      1,
+      13
+    ],
+    "block5_challenges": [
+      24,
+      19,
+      18
+    ],
+    "block6_services": [
+      28,
+      30,
+      11
+    ],
+    "relevant_efgs": [
+      "T7.1",
+      "T7.2",
+      "T7.5"
+    ],
+    "relevant_ipcc_land_use": [
+      "Cropland",
+      "Grassland"
+    ],
+    "soil_type_associations": [
+      "All soil types; web-building species in tussock and rough vegetation; hunting species in litter and soil surface; reduced in bare",
+      "frequently disturbed soils"
+    ],
+    "crop_livestock_associations": [
+      "Field margins",
+      "hedgerow bases",
+      "permanent grassland; any system with structural vegetation; shared monitoring with carabid pitfall deployment"
+    ],
+    "b1_practices_that_benefit": [
+      "P16",
+      "P14",
+      "P02"
+    ],
+    "b2_practices_primarily_verified": [
+      "P11",
+      "P16"
+    ],
+    "linkage_c_connected_groups": [
+      10,
+      20,
+      14
+    ],
+    "level1_protocol_name": "Refuge tile search + web count (shared tiles with P07 and P10)",
+    "level2_protocol_name": "Pitfall trap survey (shared deployment with P10) + optional suction sampling",
+    "level3_protocol_name": "Species-level survey with canopy quantification and network analysis",
+    "level1_output_metric": "Spider count per tile (hunters/web-builders); egg sac presence; web count per 10m vegetation",
+    "level2_output_metric": "Spider activity-density/trap/day; functional group proportions; web-builder:hunter ratio",
+    "level3_output_metric": "Full species list; web-type diversity; linyphiid density (individuals/m2); isotope trophic diversity",
+    "primary_reference": "Marc et al. (1999) Agric. Ecosyst. Environ.; Nyffeler & Birkhofer (2017); Schmidt & Tscharntke (2005)",
+    "monitoring_task_type": "Biological count-based",
+    "b2_expected_direction_of_change": "P11 (insecticide/acaricide reduction): Activity-density increasing within 1–2 seasons; functional group diversity recovering within 2–4 seasons. P16 (buffer strips): Margin activity-density increasing within 1–2 seasons.",
+    "validation_status": "DRAFT - Unvalidated",
+    "populated": true
+  },
+  {
+    "profile_number": 12,
+    "profile_name": "Parasitic wasps",
+    "category": "Aboveground invertebrate communities",
+    "tier": "Universal",
+    "conditionality_criteria": null,
+    "hard_prerequisite": null,
+    "primary_monitoring_role": "Ecological indicator",
+    "monitoring_stage": "Medium (Stage 2-3, Year 2-4)",
+    "response_timescale": "2-4 years",
+    "block4_pressures": [
+      4,
+      5,
+      20,
+      3,
+      23
+    ],
+    "block5_challenges": [
+      24,
+      20,
+      19
+    ],
+    "block6_services": [
+      28,
+      27
+    ],
+    "relevant_efgs": [
+      "T7.1",
+      "T7.2",
+      "T7.3"
+    ],
+    "relevant_ipcc_land_use": [
+      "Cropland",
+      "Grassland"
+    ],
+    "soil_type_associations": [
+      "Not primarily soil-dependent; most abundant where flowering plant communities in field margins are diverse and permanent"
+    ],
+    "crop_livestock_associations": [
+      "All cropping systems where wildflower margins",
+      "beetle banks",
+      "or diverse headlands are present; highest diversity in low-input mixed farming"
+    ],
+    "b1_practices_that_benefit": [
+      "P23",
+      "P14",
+      "P16"
+    ],
+    "b2_practices_primarily_verified": [
+      "P23",
+      "P11"
+    ],
+    "linkage_c_connected_groups": [
+      14,
+      15,
+      13
+    ],
+    "level1_protocol_name": "Umbellifer floral resource assessment and flower visitor count (shared with P13, P14)",
+    "level2_protocol_name": "Yellow pan trap survey — parasitoid Hymenoptera abundance and morphospecies",
+    "level3_protocol_name": "Species-level parasitoid survey with parasitism rearing experiment",
+    "level1_output_metric": "Umbellifer cover class; small wasp-like visitor count per 2-min observation",
+    "level2_output_metric": "Parasitoid abundance/trap/day; morphospecies richness; family-level proportions",
+    "level3_output_metric": "Full species list; parasitism rate (%) per host species; host-parasitoid network indices",
+    "primary_reference": "Landis et al. (2000) Ann. Rev. Entomol.; Wratten et al. (2003) Agric. Ecosyst. Environ.",
+    "monitoring_task_type": "Biological count-based",
+    "b2_expected_direction_of_change": "P23 (wildflower seeding): Pan trap parasitoid abundance measurably higher in first flowering season; parasitism rate increasing within 2–3 seasons. P11 (insecticide reduction): Abundance increasing within 1–2 seasons where floral resources exist.",
+    "validation_status": "DRAFT - Unvalidated",
+    "populated": true
+  },
+  {
+    "profile_number": 13,
+    "profile_name": "Wild bees",
+    "category": "Aboveground invertebrate communities",
+    "tier": "Universal",
+    "conditionality_criteria": null,
+    "hard_prerequisite": null,
+    "primary_monitoring_role": "Ecological indicator",
+    "monitoring_stage": "Fast (Stage 2, Year 1-3)",
+    "response_timescale": "1-3 years",
+    "block4_pressures": [
+      4,
+      5,
+      20,
+      3,
+      2
+    ],
+    "block5_challenges": [
+      20,
+      22,
+      19
+    ],
+    "block6_services": [
+      27,
+      30,
+      8
+    ],
+    "relevant_efgs": [
+      "T7.1",
+      "T7.2",
+      "T7.5",
+      "T7.3"
+    ],
+    "relevant_ipcc_land_use": [
+      "Cropland",
+      "Grassland",
+      "Forest Land (agroforestry)"
+    ],
+    "soil_type_associations": [
+      "Well-drained loam and sandy soils for ground-nesting bumblebee species; all soils for flower-foragers; acid soils reduce availability of preferred forage plants"
+    ],
+    "crop_livestock_associations": [
+      "Diverse flowering crop rotations (field beans",
+      "clover leys",
+      "oilseed rape as transitional forage); permanent grassland; orchards; low-input and organic systems"
+    ],
+    "b1_practices_that_benefit": [
+      "P12",
+      "P13",
+      "P10"
+    ],
+    "b2_practices_primarily_verified": [
+      "P23",
+      "P14",
+      "P11"
+    ],
+    "linkage_c_connected_groups": [
+      12,
+      14,
+      28
+    ],
+    "level1_protocol_name": "Bumblebee transect count and flower visitor assessment — BMS-based",
+    "level2_protocol_name": "Pan trap survey (yellow/white/blue) + timed netting (shared with P12)",
+    "level3_protocol_name": "Species-level bee community survey with nesting habitat assessment and network analysis",
+    "level1_output_metric": "Total bumblebee count per 100m transect; species count (colour-pattern); queen:worker ratio",
+    "level2_output_metric": "Wild bee abundance/trap/day; morphospecies richness; functional group proportions; cuckoo bee detection",
+    "level3_output_metric": "Full species list; nesting density per type; plant-pollinator network specialisation (H2'); cuckoo bee richness",
+    "primary_reference": "Goulson et al. (2015) Science; Potts et al. (2010) Trends Ecol. Evol.; Ollerton et al. (2011)",
+    "monitoring_task_type": "Biological count-based",
+    "b2_expected_direction_of_change": "P23 (wildflower seeding): Bee forager visits detectable in first flowering season; bumblebee queen counts increasing within 2–3 seasons. P14 (delayed cutting): Bee abundance measurably higher within first season. P11 (neonicotinoid reduction): Abundance increasing within 1–2 seasons.",
+    "validation_status": "DRAFT - Unvalidated",
+    "populated": true
+  },
+  {
+    "profile_number": 14,
+    "profile_name": "Hoverflies",
+    "category": "Aboveground invertebrate communities",
+    "tier": "Universal",
+    "conditionality_criteria": null,
+    "hard_prerequisite": null,
+    "primary_monitoring_role": "Ecological indicator",
+    "monitoring_stage": "Fast (Stage 2, Year 1-3)",
+    "response_timescale": "1-3 years",
+    "block4_pressures": [
+      4,
+      5,
+      20,
+      16,
+      14
+    ],
+    "block5_challenges": [
+      20,
+      24,
+      17
+    ],
+    "block6_services": [
+      27,
+      28,
+      15
+    ],
+    "relevant_efgs": [
+      "T7.1",
+      "T7.2"
+    ],
+    "relevant_ipcc_land_use": [
+      "Cropland",
+      "Grassland"
+    ],
+    "soil_type_associations": [
+      "Not primarily soil-dependent; wetland-associated species (Eristalis) require wet mud for larval development; most diverse communities in habitats with diverse flowering plants"
+    ],
+    "crop_livestock_associations": [
+      "All cropping systems with wildflower margins; orchards; mixed farming with diverse flowering field margins; wet and riparian systems for aquatic-larval species"
+    ],
+    "b1_practices_that_benefit": [
+      "P16",
+      "P19",
+      "P13"
+    ],
+    "b2_practices_primarily_verified": [
+      "P23",
+      "P14"
+    ],
+    "linkage_c_connected_groups": [
+      13,
+      12,
+      17
+    ],
+    "level1_protocol_name": "Hoverfly flower visitor count and photographic species record (shared with P12, P13)",
+    "level2_protocol_name": "Pan trap survey (shared with P12, P13) with Syrphidae morphospecies sorting",
+    "level3_protocol_name": "Species-level hoverfly survey with larval habitat characterisation",
+    "level1_output_metric": "Hoverfly count per 2-min observation; morphotype count; photographic species records",
+    "level2_output_metric": "Syrphidae abundance/trap/day; morphospecies richness; aphidophagous:saprotrophic guild ratio",
+    "level3_output_metric": "Full species list; larval guild proportions; hoverfly egg density per aphid colony; wet habitat extent",
+    "primary_reference": "Haenke et al. (2009) J. Appl. Ecol.; Jauker & Wolters (2008); Ssymank et al. (2008)",
+    "monitoring_task_type": "Biological count-based",
+    "b2_expected_direction_of_change": "P23 (wildflower seeding): Hoverfly adult abundance detectable and measurably higher in first flowering season. P14 (delayed cutting): Abundance measurably higher within first season of practice change.",
+    "validation_status": "DRAFT - Unvalidated",
+    "populated": true
+  },
+  {
+    "profile_number": 15,
+    "profile_name": "Butterflies and moths",
+    "category": "Aboveground invertebrate communities",
+    "tier": "Universal",
+    "conditionality_criteria": null,
+    "hard_prerequisite": null,
+    "primary_monitoring_role": "Ecological indicator",
+    "monitoring_stage": "Medium (Stage 2-3, Year 2-5)",
+    "response_timescale": "2-5 years",
+    "block4_pressures": [
+      5,
+      20,
+      4,
+      3,
+      18
+    ],
+    "block5_challenges": [
+      18,
+      22,
+      19
+    ],
+    "block6_services": [
+      30,
+      30,
+      27
+    ],
+    "relevant_efgs": [
+      "T7.5",
+      "T7.1",
+      "T7.2"
+    ],
+    "relevant_ipcc_land_use": [
+      "Grassland",
+      "Cropland"
+    ],
+    "soil_type_associations": [
+      "Chalk and limestone soils for specialist calcareous grassland species; sandy and loam soils for arable specialists; acid grassland soils for upland species; not strongly soil-dependent for most agricultural species"
+    ],
+    "crop_livestock_associations": [
+      "Permanent calcareous and neutral grassland; arable field margins with wildflower strips; orchards; hay meadows; unimproved pastoral farmland"
+    ],
+    "b1_practices_that_benefit": [
+      "P23",
+      "P08",
+      "P12"
+    ],
+    "b2_practices_primarily_verified": [
+      "P14",
+      "P23"
+    ],
+    "linkage_c_connected_groups": [
+      19,
+      20,
+      28
+    ],
+    "level1_protocol_name": "Butterfly transect count — BMS-based community observer survey",
+    "level2_protocol_name": "Full BMS butterfly transect with light trap moth survey",
+    "level3_protocol_name": "Mark-recapture population estimation with larval host plant survey and full moth assessment",
+    "level1_output_metric": "Total butterfly count per transect; species count; specialist species count; seasonal abundance index",
+    "level2_output_metric": "Annual index (sum of transect counts); species list; specialist species count; moth species richness per trap-night",
+    "level3_output_metric": "Population size estimate (N); nest survival probability; mark-recapture-based population trend",
+    "primary_reference": "Pollard & Yates (1993) BMS methodology; van Swaay et al. (2008) Biodivers. Conserv.",
+    "monitoring_task_type": "Biological count-based",
+    "b2_expected_direction_of_change": "P14 (delayed cutting): Total butterfly abundance measurably higher within first season; specialist species appearing within 2–4 seasons. P23 (wildflower seeding): Host plant establishment within 1–2 seasons; specialist species colonising within 2–4 seasons.",
+    "validation_status": "DRAFT - Unvalidated",
+    "populated": true
+  },
+  {
+    "profile_number": 16,
+    "profile_name": "Grasshoppers",
+    "category": "Aboveground invertebrate communities",
+    "tier": "Universal",
+    "conditionality_criteria": "Not applicable — Universal. Grasshoppers and crickets (Orthoptera) are ecologically significant in agricultural landscapes globally wherever semi-natural vegetation, grassland, or field margins exist — across temperate Europe and North America, Mediterranean, subtropical, tropical, semi-arid, and savannah systems. Orthopteran diversity decline is a well-documented signal of agricultural intensification across all these biomes. Monitorable with Level 1 capacity wherever grassland, pasture, or field margin habitat is present.",
+    "hard_prerequisite": "Grassland, pasture, semi-natural field margin, or uncropped vegetation present. Profile is not applicable in landscapes comprising exclusively built-up areas, open water, or fully sealed surfaces.",
+    "primary_monitoring_role": "Ecological indicator",
+    "monitoring_stage": "Fast-medium (Stage 2, Year 1-3)",
+    "response_timescale": "1-3 years",
+    "block4_pressures": [
+      20,
+      18,
+      4,
+      3,
+      27
+    ],
+    "block5_challenges": [
+      22,
+      18,
+      32
+    ],
+    "block6_services": [
+      30,
+      15,
+      27
+    ],
+    "relevant_efgs": [
+      "T7.5",
+      "T7.2",
+      "T7.1"
+    ],
+    "relevant_ipcc_land_use": [
+      "Grassland",
+      "Cropland"
+    ],
+    "soil_type_associations": [
+      "All mineral soils; most diverse communities in thin-soiled calcareous grassland and sandy heath; reduced in heavy clay soils; requires warm well-drained conditions for basking"
+    ],
+    "crop_livestock_associations": [
+      "Traditional hay meadow; extensively grazed permanent grassland; calcareous grassland; rough field margins; least diverse in intensively managed silage leys"
+    ],
+    "b1_practices_that_benefit": [
+      "P13",
+      "P14",
+      "P16"
+    ],
+    "b2_practices_primarily_verified": [
+      "P13",
+      "P14"
+    ],
+    "linkage_c_connected_groups": [
+      23,
+      19,
+      28
+    ],
+    "level1_protocol_name": "Orthoptera visual and acoustic transect — community observer count",
+    "level2_protocol_name": "Acoustic transect with bat detector and sweep net species identification",
+    "level3_protocol_name": "Full orthopteran community assessment with distance sampling and connectivity genetics",
+    "level1_output_metric": "Grasshopper visual count per 50m; cricket/bush-cricket song count; sward heterogeneity score; acoustic activity level",
+    "level2_output_metric": "Orthoptera species list; species richness; acoustic activity index; sweep net abundance per 100 strokes",
+    "level3_output_metric": "Density (individuals/ha) per species; population structure; acoustic abundance index; biomass per guild",
+    "primary_reference": "Braschler et al. (2009) Ecol. Entomol.; Gardiner et al. (2005); Orthoptera Recording Scheme",
+    "monitoring_task_type": "Biological count-based",
+    "b2_expected_direction_of_change": "P13 (rotational grazing): Total species count increasing within 2–3 seasons; bush-cricket species appearing within 3–5 seasons. P14 (delayed cutting): Orthoptera abundance measurably higher in delayed-cut sections within first season.",
+    "validation_status": "DRAFT - Unvalidated",
+    "populated": true
+  },
+  {
+    "profile_number": 17,
+    "profile_name": "Aquatic macroinvertebrates",
+    "category": "Aquatic communities",
+    "tier": "Universal",
+    "conditionality_criteria": null,
+    "hard_prerequisite": "Water feature present (stream, ditch, pond, seasonal watercourse)",
+    "primary_monitoring_role": "Ecological indicator",
+    "monitoring_stage": "Fast (Stage 2, Year 1-2)",
+    "response_timescale": "1-2 years",
+    "block4_pressures": [
+      17,
+      3,
+      16,
+      18,
+      15,
+      4
+    ],
+    "block5_challenges": [
+      17,
+      13,
+      14,
+      11
+    ],
+    "block6_services": [
+      6,
+      19,
+      21,
+      30
+    ],
+    "relevant_efgs": null,
+    "relevant_ipcc_land_use": [
+      "Cropland",
+      "Grassland",
+      "Wetlands"
+    ],
+    "soil_type_associations": [
+      "Primarily water-dependent (sediment quality",
+      "not terrestrial soil); fine sediment inputs from silty and loamy soils most damaging to EPT communities; clay soils generate highest turbidity under compaction"
+    ],
+    "crop_livestock_associations": [
+      "All cropping systems where drainage connects to water bodies; most sensitive in headwater catchments; buffer strip systems in silty arable catchments"
+    ],
+    "b1_practices_that_benefit": [
+      "P16",
+      "P13",
+      "P17"
+    ],
+    "b2_practices_primarily_verified": [
+      "P16",
+      "P13"
+    ],
+    "linkage_c_connected_groups": [
+      18,
+      31,
+      21
+    ],
+    "level1_protocol_name": "EPT presence/absence assessment — community observer kick sample",
+    "level2_protocol_name": "Standardised 3-minute kick-net sample with BMWP/WHPT scoring or regional equivalent",
+    "level3_protocol_name": "Species-level survey with multi-metric index, functional trait analysis, and eDNA metabarcoding",
+    "level1_output_metric": "Stonefly present (Y/N); Mayfly present (Y/N); Caddisfly present (Y/N); EPT score (0–3)",
+    "level2_output_metric": "BMWP score (or equivalent); ASPT; EPT taxon richness; community functional group proportions",
+    "level3_output_metric": "Full species list; multi-metric index suite; functional trait diversity; eDNA community composition",
+    "primary_reference": "Hering et al. (2006) Hydrobiologia; Friberg et al. (2009); Wright et al. (1984)",
+    "monitoring_task_type": "Biological count-based",
+    "b2_expected_direction_of_change": "P16 (buffer strip establishment): BMWP score measurably higher within 2–4 seasons; EPT taxon count increasing over 2–5 seasons. P13 (livestock exclusion): EPT taxa detectable within 1–2 seasons of exclusion.",
+    "validation_status": "DRAFT - Unvalidated",
+    "populated": true
+  },
+  {
+    "profile_number": 18,
+    "profile_name": "Fish",
+    "category": "Aquatic communities",
+    "tier": "Universal",
+    "conditionality_criteria": null,
+    "hard_prerequisite": "Permanent or semi-permanent watercourse present",
+    "primary_monitoring_role": "Ecological indicator",
+    "monitoring_stage": "Medium (Stage 2-3, Year 3-5)",
+    "response_timescale": "3-5 years",
+    "block4_pressures": [
+      17,
+      16,
+      15,
+      18,
+      4
+    ],
+    "block5_challenges": [
+      17,
+      13,
+      11
+    ],
+    "block6_services": [
+      6,
+      28,
+      30
+    ],
+    "relevant_efgs": null,
+    "relevant_ipcc_land_use": [
+      "Grassland",
+      "Cropland",
+      "Wetlands"
+    ],
+    "soil_type_associations": [
+      "Primarily water-dependent (substrate quality in water body); gravel and cobble substrates for salmonids; sand and silt for cyprinid spawning; sediment input from adjacent soils is the primary farm soil linkage"
+    ],
+    "crop_livestock_associations": [
+      "Pastoral farming adjacent to salmonid streams; arable farming adjacent to lowland rivers; farm pond systems with fish populations"
+    ],
+    "b1_practices_that_benefit": [
+      "P19",
+      "P17",
+      "P16"
+    ],
+    "b2_practices_primarily_verified": [
+      "P13",
+      "P16"
+    ],
+    "linkage_c_connected_groups": [
+      17,
+      31,
+      19
+    ],
+    "level1_protocol_name": "Visual fish observation and eDNA presence/absence detection",
+    "level2_protocol_name": "Standardised single-pass electrofishing with EFI+ scoring (licensed operator required)",
+    "level3_protocol_name": "Multi-pass electrofishing population estimates with eDNA metabarcoding and genetic connectivity",
+    "level1_output_metric": "Fish presence (Y/N); size class distribution; guild assessment; water clarity; eDNA species detection",
+    "level2_output_metric": "EFI+ score (or equivalent); species list; total fish density (individuals/100m); guild ratio",
+    "level3_output_metric": "Population density estimate (N/100m) with 95% CI; survival rate; eDNA quantification; full species inventory",
+    "primary_reference": "Pont et al. (2006) J. Appl. Ecol.; Friberg et al. (2009); Rees et al. (2014)",
+    "monitoring_task_type": "Biological count-based",
+    "b2_expected_direction_of_change": "P13 (livestock exclusion): Juvenile salmonid cohorts detectable within 3–5 seasons; EFI+ score improving over 5–10 years. P16 (buffer strip): Guild ratio (sensitive:tolerant) improving within 3–7 seasons.",
+    "validation_status": "DRAFT - Unvalidated",
+    "populated": true
+  },
+  {
+    "profile_number": 19,
+    "profile_name": "Bats",
+    "category": "Vertebrate communities",
+    "tier": "Universal",
+    "conditionality_criteria": null,
+    "hard_prerequisite": null,
+    "primary_monitoring_role": "Ecological indicator",
+    "monitoring_stage": "Medium (Stage 2-3, Year 2-5)",
+    "response_timescale": "2-5 years",
+    "block4_pressures": [
+      4,
+      19,
+      5,
+      6,
+      23
+    ],
+    "block5_challenges": [
+      18,
+      19,
+      23
+    ],
+    "block6_services": [
+      28,
+      30
+    ],
+    "relevant_efgs": [
+      "T7.1",
+      "T7.2",
+      "T7.5"
+    ],
+    "relevant_ipcc_land_use": [
+      "Cropland",
+      "Grassland"
+    ],
+    "soil_type_associations": [
+      "Not directly soil-dependent; roost sites in farm buildings and old trees; foraging over all terrestrial habitats with insect prey"
+    ],
+    "crop_livestock_associations": [
+      "All farming systems; highest bat activity in organic or low-input mixed farming with intact hedgerow networks; Daubenton's bat specifically in pastoral systems with clean waterways"
+    ],
+    "b1_practices_that_benefit": [
+      "P19",
+      "P10",
+      "P11"
+    ],
+    "b2_practices_primarily_verified": [
+      "P11",
+      "P19"
+    ],
+    "linkage_c_connected_groups": [
+      15,
+      16,
+      17,
+      18
+    ],
+    "level1_protocol_name": "Bat detector walked transect — community observer activity count",
+    "level2_protocol_name": "Full-spectrum static detector survey with species identification",
+    "level3_protocol_name": "Licensed bat roost count and population assessment with radiotracking",
+    "level1_output_metric": "Total bat passes per 500m transect; passes per 50m section; feeding buzzes over water; call frequency categories",
+    "level2_output_metric": "Bat passes/hour/monitoring point/night; species composition; guild proportions; seasonal activity pattern",
+    "level3_output_metric": "Colony emergence count; foraging area (ha); population structure; home range overlap with farm zones",
+    "primary_reference": "Battersby (2010) EUROBATS; Wickramasinghe et al. (2003) J. Appl. Ecol.; Fuentes-Montemayor et al. (2013)",
+    "monitoring_task_type": "Biological presence/absence",
+    "b2_expected_direction_of_change": "P11 (insecticide reduction): Activity-density increasing within 2–3 seasons; additional species appearing within 3–5 seasons. P19 (hedgerow restoration): Activity increasing along restored transect sections within 3–5 years.",
+    "validation_status": "DRAFT - Unvalidated",
+    "populated": true
+  },
+  {
+    "profile_number": 20,
+    "profile_name": "Farmland birds",
+    "category": "Vertebrate communities",
+    "tier": "Universal",
+    "conditionality_criteria": null,
+    "hard_prerequisite": null,
+    "primary_monitoring_role": "Ecological indicator",
+    "monitoring_stage": "Slow (Stage 3, Year 5-10)",
+    "response_timescale": "5-10 years",
+    "block4_pressures": [
+      5,
+      4,
+      20,
+      3,
+      2,
+      13
+    ],
+    "block5_challenges": [
+      18,
+      22,
+      23
+    ],
+    "block6_services": [
+      34,
+      28,
+      30
+    ],
+    "relevant_efgs": [
+      "T7.1",
+      "T7.2",
+      "T7.5"
+    ],
+    "relevant_ipcc_land_use": [
+      "Cropland",
+      "Grassland"
+    ],
+    "soil_type_associations": [
+      "Not directly soil-dependent for breeding; soil structure influences soil invertebrate chick food availability (lapwing probing for worms); sandy soils for skylark nesting"
+    ],
+    "crop_livestock_associations": [
+      "Mixed arable-pastoral with spring crops; winter stubble retention systems; traditional hay meadow; calcareous grassland for grey partridge"
+    ],
+    "b1_practices_that_benefit": [
+      "P08",
+      "P13",
+      "P23"
+    ],
+    "b2_practices_primarily_verified": [
+      "P08",
+      "P23"
+    ],
+    "linkage_c_connected_groups": [
+      15,
+      27,
+      26
+    ],
+    "level1_protocol_name": "Fixed point count survey — farmland indicator bird species abundance",
+    "level2_protocol_name": "BBS-standard transect survey with farmland indicator species territory mapping",
+    "level3_protocol_name": "Full territory mapping with nest success monitoring and brood counts",
+    "level1_output_metric": "Total farmland indicator species count; total individual abundance per species; breeding evidence; winter granivore count",
+    "level2_output_metric": "Territory count per farmland indicator species; FBI or equivalent; species richness; breeding evidence",
+    "level3_output_metric": "Territory density (pairs/km2); nest survival probability; mean brood size; adult:juvenile ratio",
+    "primary_reference": "Donald et al. (2006) Agric. Ecosyst. Environ.; Pollard & Yates (1993) BMS; Robinson & Sutherland (2002)",
+    "monitoring_task_type": "Biological count-based",
+    "b2_expected_direction_of_change": "P08 (diversified rotation — winter stubble): Granivorous indicator species at 3–10× higher density on stubble within first winter. P23 (wildflower seeding): Grey partridge brood sightings increasing within 2–3 seasons.",
+    "validation_status": "DRAFT - Unvalidated",
+    "populated": true
+  },
+  {
+    "profile_number": 21,
+    "profile_name": "Frogs and toads",
+    "category": "Vertebrate communities",
+    "tier": "Universal",
+    "conditionality_criteria": null,
+    "hard_prerequisite": null,
+    "primary_monitoring_role": "Ecological indicator",
+    "monitoring_stage": "Medium (Stage 2-3, Year 3-7)",
+    "response_timescale": "3-7 years",
+    "block4_pressures": [
+      15,
+      4,
+      17,
+      16,
+      18
+    ],
+    "block5_challenges": [
+      17,
+      11,
+      19
+    ],
+    "block6_services": [
+      28,
+      30,
+      6
+    ],
+    "relevant_efgs": [
+      "T7.2"
+    ],
+    "relevant_ipcc_land_use": [
+      "Wetlands",
+      "Grassland",
+      "Cropland"
+    ],
+    "soil_type_associations": [
+      "Not directly soil-dependent; pond substrate (loam or sandy bank) for egg-laying; terrestrial habitat in loam or sand for overwintering adults"
+    ],
+    "crop_livestock_associations": [
+      "All farming systems with permanent water bodies; most diverse amphibian communities in organic or low-input mixed farming with retained farm ponds"
+    ],
+    "b1_practices_that_benefit": [
+      "P17",
+      "P13",
+      "P19"
+    ],
+    "b2_practices_primarily_verified": [
+      "P13",
+      "P17"
+    ],
+    "linkage_c_connected_groups": [
+      17,
+      24,
+      7
+    ],
+    "level1_protocol_name": "Breeding pond amphibian spawn count — community observer survey",
+    "level2_protocol_name": "Night torch survey with adult count and egg mass survey",
+    "level3_protocol_name": "Mark-recapture population estimation with eDNA quantification and disease surveillance",
+    "level1_output_metric": "Common frog egg mass count per pond; toad spawn string length; tadpole aggregation score; metamorph count",
+    "level2_output_metric": "Adult count per species per torch survey; sex ratio; peak count; egg mass count",
+    "level3_output_metric": "Population size estimate (N) with 95% CI; eDNA concentration; disease prevalence (Bd/Bsal/ranavirus)",
+    "primary_reference": "Beebee & Griffiths (2005) Biol. Conserv.; Griffiths et al. (2010); Relyea (2005)",
+    "monitoring_task_type": "Biological presence/absence",
+    "b2_expected_direction_of_change": "P13 (livestock exclusion): Common frog egg mass count increasing within 2–3 seasons; spawn count stable or increasing within 3–5 seasons. P17 (pond creation): First spawn detectable within 1–2 springs of establishment.",
+    "validation_status": "DRAFT - Unvalidated",
+    "populated": true
+  },
+  {
+    "profile_number": 22,
+    "profile_name": "Small mammal insectivores",
+    "category": "Vertebrate communities",
+    "tier": "Universal",
+    "conditionality_criteria": null,
+    "hard_prerequisite": null,
+    "primary_monitoring_role": "Ecological indicator",
+    "monitoring_stage": "Medium (Stage 2-3, Year 3-7)",
+    "response_timescale": "3-7 years",
+    "block4_pressures": [
+      1,
+      4,
+      20,
+      14,
+      2
+    ],
+    "block5_challenges": [
+      21,
+      18,
+      7
+    ],
+    "block6_services": [
+      28,
+      15,
+      30
+    ],
+    "relevant_efgs": [
+      "T7.2",
+      "T7.5",
+      "T7.1"
+    ],
+    "relevant_ipcc_land_use": [
+      "Grassland",
+      "Cropland"
+    ],
+    "soil_type_associations": [
+      "Loam and sandy loam with tussock grass margin; well-structured soils support mole tunnelling; compacted soils (>1.5g/cm3) exclude mole activity"
+    ],
+    "crop_livestock_associations": [
+      "Permanent grassland; mixed farming with rough field margins; hedgerow-rich landscapes; organic systems; least diverse in intensively managed arable with simplified margins"
+    ],
+    "b1_practices_that_benefit": [
+      "P14",
+      "P19",
+      "P04"
+    ],
+    "b2_practices_primarily_verified": [
+      "P14",
+      "P11"
+    ],
+    "linkage_c_connected_groups": [
+      6,
+      26,
+      25
+    ],
+    "level1_protocol_name": "Hedgehog track tube survey, molehill count, and opportunistic night observation",
+    "level2_protocol_name": "Longworth live trap survey — shrew activity index and species assessment",
+    "level3_protocol_name": "Small mammal population density estimation with mark-recapture and isotope analysis",
+    "level1_output_metric": "Hedgehog footprint detection rate (% tubes); mole activity density (molehills/200m2); evening hedgehog count",
+    "level2_output_metric": "Shrew captures per 100 trap-nights; species list where identifiable; seasonal activity index",
+    "level3_output_metric": "Population density estimate (N/ha) per shrew species; survival rate; genetic diversity; landscape connectivity index",
+    "primary_reference": "Churchfield (1990) Natural History of Shrews; Huijser & Bergers (2000) Biol. Conserv.; Roos et al. (2012)",
+    "monitoring_task_type": "Biological count-based",
+    "b2_expected_direction_of_change": "P14 (delayed cutting): Shrew live trap index measurably higher in uncut sections within 1–2 seasons. P11 (rodenticide reduction): Hedgehog detection rate improving within 2–4 seasons.",
+    "validation_status": "DRAFT - Unvalidated",
+    "populated": true
+  },
+  {
+    "profile_number": 23,
+    "profile_name": "Lizards",
+    "category": "Vertebrate communities",
+    "tier": "Universal",
+    "conditionality_criteria": "Not applicable — Universal. Lizards are ecologically significant agricultural land health indicators across all major LAHMP deployment biomes from temperate through tropical, in every region except boreal/subarctic and high alpine systems. They function as predators of invertebrate pests (slugs, insect larvae), as sensitive indicators of pesticide bioaccumulation, and as structural habitat quality indicators. Practically monitorable wherever structural habitat features are present.",
+    "hard_prerequisite": "Structural habitat features present — field margins, hedgerows, stone walls, unmanaged vegetation patches, or woodland edges providing refuge and thermoregulation substrate. In fully open intensively managed arable with no structural elements, lizard populations cannot persist — this prerequisite handles the exclusion.",
+    "primary_monitoring_role": "Ecological indicator",
+    "monitoring_stage": "Medium (Stage 2-3, Year 3-5)",
+    "response_timescale": "3-5 years",
+    "block4_pressures": [
+      20,
+      4,
+      1,
+      2,
+      23
+    ],
+    "block5_challenges": [
+      18,
+      22,
+      19
+    ],
+    "block6_services": [
+      28,
+      30
+    ],
+    "relevant_efgs": [
+      "T7.5",
+      "T7.2",
+      "T7.1"
+    ],
+    "relevant_ipcc_land_use": [
+      "Grassland",
+      "Cropland"
+    ],
+    "soil_type_associations": [
+      "Well-drained sandy and thin soils for basking sites; south-facing embankments in any soil type; dry calcareous soils for sand lizard specifically"
+    ],
+    "crop_livestock_associations": [
+      "Extensive pastoral farming with diverse field boundaries; orchards with rough understory; heathland-adjacent agricultural systems; least diverse in intensive arable"
+    ],
+    "b1_practices_that_benefit": [
+      "P14",
+      "P19",
+      "P13"
+    ],
+    "b2_practices_primarily_verified": [
+      "P14"
+    ],
+    "linkage_c_connected_groups": [
+      16,
+      24,
+      7
+    ],
+    "level1_protocol_name": "Artificial refugia reptile count and visual basking survey (shared tiles with P07, P10, P24)",
+    "level2_protocol_name": "Extended refugia survey with photographic individual identification",
+    "level3_protocol_name": "Licensed capture survey with PIT-tagging, mark-recapture, and genetic connectivity analysis",
+    "level1_output_metric": "Species presence/count per refugium; visual basking count per 50m; seasonal count trend",
+    "level2_output_metric": "Maximum seasonal count per species (population index); number of individually identified animals; habitat quality index",
+    "level3_output_metric": "Population size estimate (N) with 95% CI; survival rate (phi); Fst between sites",
+    "primary_reference": "Edgar & Bird (2006) ARG UK; Gent & Gibson (1998) Herpetofauna Workers Manual",
+    "monitoring_task_type": "Biological presence/absence",
+    "b2_expected_direction_of_change": "P14 (delayed cutting): Lizard/slow worm detections at refugia measurably higher within 2–3 seasons of practice change; species count increasing over 3–5 seasons.",
+    "validation_status": "DRAFT - Unvalidated",
+    "populated": true
+  },
+  {
+    "profile_number": 24,
+    "profile_name": "Snakes",
+    "category": "Vertebrate communities",
+    "tier": "Universal",
+    "conditionality_criteria": "Not applicable — Universal. Snakes are ecologically significant rodent regulators and trophic indicators in agricultural landscapes across temperate Europe and North America (grass snake, smooth snake, rat snakes, king snakes), East and Southeast Asia, South Asia, Africa, and Latin America. Their decline is a documented signal of landscape simplification, pesticide bioaccumulation, and loss of habitat connectivity. Present and monitorable in all LAHMP biomes except boreal/subarctic and high alpine.",
+    "hard_prerequisite": "Structural habitat features providing refugia present — field margins, hedgerows, grassland patches, woodland edges, water margins, or stone walls. In fully open intensively managed arable with no structural elements, snake populations cannot persist.",
+    "primary_monitoring_role": "Ecological indicator",
+    "monitoring_stage": "Slow (Stage 3, Year 5+)",
+    "response_timescale": "5+ years",
+    "block4_pressures": [
+      17,
+      20,
+      1,
+      4,
+      23
+    ],
+    "block5_challenges": [
+      18,
+      19,
+      23
+    ],
+    "block6_services": [
+      28,
+      30,
+      34
+    ],
+    "relevant_efgs": [
+      "T7.5",
+      "T7.2",
+      "T7.1"
+    ],
+    "relevant_ipcc_land_use": [
+      "Wetlands",
+      "Grassland",
+      "Cropland"
+    ],
+    "soil_type_associations": [
+      "Not strongly soil-dependent directly; loam and sandy bank soils adjacent to water for grass snake egg-laying; south-facing embankment soils for adder basking"
+    ],
+    "crop_livestock_associations": [
+      "Traditional mixed pastoral farming with farm ponds (grass snake); extensive pastoral farmland with diverse south-facing structural features (adder)"
+    ],
+    "b1_practices_that_benefit": [
+      "P17",
+      "P04",
+      "P19"
+    ],
+    "b2_practices_primarily_verified": [
+      "P17"
+    ],
+    "linkage_c_connected_groups": [
+      21,
+      23,
+      26
+    ],
+    "level1_protocol_name": "Artificial refugia reptile check and visual transect — shared with Profile 23",
+    "level2_protocol_name": "Extended refugia snake survey with egg-laying site systematic assessment",
+    "level3_protocol_name": "Licensed snake capture survey with PIT-tagging and population estimation",
+    "level1_output_metric": "Species presence/absence per visit; count per species per refugium; grass snake egg-laying site confirmed (Y/N)",
+    "level2_output_metric": "Maximum seasonal count per species; number of egg-laying sites; clutch size range; adder early-spring count",
+    "level3_output_metric": "Population size estimate (N); survival probability (phi); home range size; genetic diversity",
+    "primary_reference": "Edgar & Bird (2006) ARG UK; Gent & Gibson (1998); Beebee & Griffiths (2005)",
+    "monitoring_task_type": "Biological presence/absence",
+    "b2_expected_direction_of_change": "P17 (pond creation — grass snake prey habitat): First grass snake detection at refugia adjacent to restored pond within 3–5 seasons; egg-laying aggregation within 5–7 seasons.",
+    "validation_status": "DRAFT - Unvalidated",
+    "populated": true
+  },
+  {
+    "profile_number": 25,
+    "profile_name": "Small carnivores",
+    "category": "Vertebrate communities",
+    "tier": "Universal",
+    "conditionality_criteria": "Not applicable — Universal. Small carnivores as mesopredators are ecologically significant in agricultural landscapes globally — mustelids (weasels, stoats, polecats, martens, badgers) in temperate Europe and North America; viverrids and herpestids (civets, mongooses) in Africa and Asia; procyonids and mustelids (coatis, tayras, grisons) in Latin America; felids across all biomes; quolls in Australia. They regulate rodent populations, occupy key trophic positions, and are sensitive indicators of landscape connectivity and habitat quality. Present and monitorable in all LAHMP biomes where landscape connectivity features exist.",
+    "hard_prerequisite": "Landscape connectivity features present — semi-natural habitat patches, hedgerows, woodland edges, riparian corridors, or equivalent structural elements providing movement corridors and territory support. In fully fragmented open arable monoculture with no semi-natural elements, mesopredator populations cannot persist.",
+    "primary_monitoring_role": "Ecological indicator",
+    "monitoring_stage": "Medium-slow (Stage 3, Year 5-8)",
+    "response_timescale": "5-8 years",
+    "block4_pressures": [
+      4,
+      1,
+      19,
+      17,
+      23
+    ],
+    "block5_challenges": [
+      18,
+      13,
+      19
+    ],
+    "block6_services": [
+      28,
+      28,
+      30
+    ],
+    "relevant_efgs": [
+      "T7.2",
+      "T7.5"
+    ],
+    "relevant_ipcc_land_use": [
+      "Grassland",
+      "Cropland",
+      "Wetlands"
+    ],
+    "soil_type_associations": [
+      "Not directly soil-dependent; small mammal prey requires good soil structure in tussock margins; otter requires stable",
+      "vegetated bank soils for holt sites"
+    ],
+    "crop_livestock_associations": [
+      "Organic mixed farming with intact hedgerow network; riparian pastoral farmland with clean waterways (otter); all farming systems with grain storage (weasel)"
+    ],
+    "b1_practices_that_benefit": [
+      "P11",
+      "P16",
+      "P14"
+    ],
+    "b2_practices_primarily_verified": [
+      "P11",
+      "P16"
+    ],
+    "linkage_c_connected_groups": [
+      22,
+      18,
+      26
+    ],
+    "level1_protocol_name": "Footprint tunnel survey and otter spraint survey — community observer carnivore detection",
+    "level2_protocol_name": "Camera trap survey — small carnivore species detection and occupancy assessment",
+    "level3_protocol_name": "Live trap mustelid survey with individual marking and genetic analysis",
+    "level1_output_metric": "Weasel detection rate (% tunnels/deployment); stoat detection rate; otter spraint site density (/500m); fresh:old spraint ratio",
+    "level2_output_metric": "Species occupancy per station; relative abundance index (detections/100 camera-trap-nights); activity pattern",
+    "level3_output_metric": "Population density estimate (N/km2); survival probability; genetic diversity; otter eDNA concentration",
+    "primary_reference": "McDonald & Harris (2002) J. Appl. Ecol.; Chanin (2003) Monitoring Otter Populations; Burton et al. (2015)",
+    "monitoring_task_type": "Biological presence/absence",
+    "b2_expected_direction_of_change": "P11 (rodenticide reduction): Camera trap weasel/stoat detection rate increasing within 2–4 seasons. P16 (riparian buffer strip): First otter spraint detection at restored corridor within 3–7 seasons.",
+    "validation_status": "DRAFT - Unvalidated",
+    "populated": true
+  },
+  {
+    "profile_number": 26,
+    "profile_name": "Birds of prey and owls",
+    "category": "Vertebrate communities",
+    "tier": "Universal",
+    "conditionality_criteria": "Not applicable — Universal. Raptors and owls are ecologically significant in agricultural landscapes globally, functioning as apex predators of rodent and small vertebrate populations. Present and monitorable wherever landscape connectivity features (hedgerows, woodland edges, grassland patches, riparian corridors) provide nesting and foraging habitat. Applicable across all biomes except boreal and high-alpine systems where agricultural land use is absent.",
+    "hard_prerequisite": "Structural features providing nesting and foraging habitat present — hedgerows with mature trees, woodland edges, grassland patches, water margins, or equivalent semi-natural elements. Barn-pole or nest box installation may extend monitorability into otherwise featureless open landscapes.",
+    "primary_monitoring_role": "Ecological indicator — raptor and owl community composition, abundance, and breeding success integrate prey availability, rodenticide and pesticide bioaccumulation, and landscape connectivity across large spatial scales. Practice verification — barn owl and kestrel breeding success are primary biological indicators that rodenticide and insecticide reduction practices are reducing contamination through the food chain.",
+    "monitoring_stage": "Slow (Stage 3, Year 5+)",
+    "response_timescale": "Slow (5–10 years): Population-level responses to management change are slow due to long generation times, territory fidelity, and the need for prey base recovery before predator populations respond. Breeding success metrics (clutch size, fledgling number) respond faster (3–5 years) than population abundance trends. [geo] Timescales apply across biomes — tropical raptors may respond faster due to shorter generation times.",
+    "block4_pressures": [
+      4,
+      20,
+      3,
+      23,
+      16
+    ],
+    "block5_challenges": [
+      18,
+      22,
+      24
+    ],
+    "block6_services": [
+      28,
+      34,
+      30
+    ],
+    "relevant_efgs": [
+      "T7.2",
+      "T7.5",
+      "T7.1"
+    ],
+    "relevant_ipcc_land_use": [
+      "Grassland",
+      "Cropland"
+    ],
+    "soil_type_associations": [
+      "Not directly soil-dependent; rough tussock grassland on any well-drained soil for small mammal prey; old farm buildings on any soil for barn owl nest sites"
+    ],
+    "crop_livestock_associations": [
+      "Mixed organic farming with retained rough grassland (barn owl and kestrel); traditional hay meadow; permanent pasture with intact hedgerow system; all systems with old farm buildings"
+    ],
+    "b1_practices_that_benefit": [
+      "P14",
+      "P11",
+      "P19"
+    ],
+    "b2_practices_primarily_verified": [
+      "P14",
+      "P11"
+    ],
+    "linkage_c_connected_groups": [
+      22,
+      20,
+      25
+    ],
+    "level1_protocol_name": "Diurnal raptor point count (shared with P20), barn owl nest box check, and dusk observation",
+    "level2_protocol_name": "Barn owl nest box programme with pellet analysis and kestrel territory mapping",
+    "level3_protocol_name": "Licensed nest recording with chick ringing and rodenticide body burden assessment",
+    "level1_output_metric": "Raptor species per point count; barn owl occupancy/eggs/chicks per box visit; dusk departure count",
+    "level2_output_metric": "Clutch size; brood size; chicks fledged/pair/year; prey species list from pellets; kestrel territory count",
+    "level3_output_metric": "Nest record grade; ringing recovery rate; anticoagulant body burden (ng/g); survival probability",
+    "primary_reference": "Taylor (1994) Barn Owls; Village (1990) The Kestrel; Newton (1979) Population Ecology of Raptors",
+    "monitoring_task_type": "Biological presence/absence",
+    "b2_expected_direction_of_change": "P14 (rough grassland management): Barn owl nest box occupation and breeding attempt increasing within 2–4 seasons. P11 (rodenticide reduction): Brood size measurably higher within 2–4 seasons; anticoagulant residues declining over 5+ seasons.",
+    "validation_status": "DRAFT — Unvalidated",
+    "populated": true
+  },
+  {
+    "profile_number": 27,
+    "profile_name": "Arable field vegetation",
+    "category": "Vegetation communities",
+    "tier": "Universal",
+    "conditionality_criteria": null,
+    "hard_prerequisite": "Cropping system present",
+    "primary_monitoring_role": "Ecological indicator + soil-habitat proxy",
+    "monitoring_stage": "Fast (Stage 1-2, Year 1-2 seasons)",
+    "response_timescale": "1-2 seasons",
+    "block4_pressures": [
+      5,
+      3,
+      13,
+      1,
+      14
+    ],
+    "block5_challenges": [
+      22,
+      23,
+      20,
+      18
+    ],
+    "block6_services": [
+      7,
+      27,
+      34
+    ],
+    "relevant_efgs": [
+      "T7.1"
+    ],
+    "relevant_ipcc_land_use": [
+      "Cropland"
+    ],
+    "soil_type_associations": [
+      "All arable soil types; most species-rich communities on calcareous soils (pH >6.5); archaeophyte species most abundant on disturbed",
+      "open sandy soils; severely depleted in acid soils below pH 5.5"
+    ],
+    "crop_livestock_associations": [
+      "All arable cropping systems; most informative in winter cereal headlands and spring crop systems; traditional mixed arable rotations retain highest archaeophyte diversity"
+    ],
+    "b1_practices_that_benefit": [
+      "P08",
+      "P02"
+    ],
+    "b2_practices_primarily_verified": [
+      "P11",
+      "P21"
+    ],
+    "linkage_c_connected_groups": [
+      20,
+      14,
+      29
+    ],
+    "level1_protocol_name": "Arable headland flora walkthrough — functional group presence and species count",
+    "level2_protocol_name": "Arable headland community composition survey — species-level quadrat assessment",
+    "level3_protocol_name": "Full arable weed survey with seed bank sampling and in-crop survey",
+    "level1_output_metric": "Non-crop plant species count per 50m; cover class; management evidence record",
+    "level2_output_metric": "Total species richness per quadrat; forb richness; Braun-Blanquet cover; archaeophyte presence; Ellenberg N mean",
+    "level3_output_metric": "Full species list; seed bank density per species (seeds/m2); archaeophyte population size; community classification",
+    "primary_reference": "Storkey & Westbury (2007) Pest Manag. Sci.; Marshall et al. (2003) Weed Research; Meyer et al. (2013)",
+    "monitoring_task_type": "Biological community composition",
+    "b2_expected_direction_of_change": "P11 (herbicide reduction): Forb species richness increase detectable within first growing season; archaeophyte species within 3–7 years where seed bank survives. P21 (reduced N): Dominant nitrophilous species cover declining over 2–4 seasons.",
+    "validation_status": "DRAFT - Unvalidated",
+    "populated": true
+  },
+  {
+    "profile_number": 28,
+    "profile_name": "Grassland and meadow plant communities",
+    "category": "Vegetation communities",
+    "tier": "Universal",
+    "conditionality_criteria": null,
+    "hard_prerequisite": "Grassland or pasture present",
+    "primary_monitoring_role": "Ecological indicator + practice verification",
+    "monitoring_stage": "Medium-slow (Stage 2-3, Year 3-15)",
+    "response_timescale": "3-15 years (HNV recovery)",
+    "block4_pressures": [
+      5,
+      18,
+      3,
+      20,
+      4
+    ],
+    "block5_challenges": [
+      22,
+      18
+    ],
+    "block6_services": [
+      7,
+      27,
+      16
+    ],
+    "relevant_efgs": [
+      "T7.5",
+      "T7.2"
+    ],
+    "relevant_ipcc_land_use": [
+      "Grassland"
+    ],
+    "soil_type_associations": [
+      "Neutral to slightly alkaline loam and clay-loam for most mesotrophic grassland species; calcareous soils for calcicolous communities; acid soils for acidic grassland specialists; heavily degraded in highly nitrogen-enriched soils"
+    ],
+    "crop_livestock_associations": [
+      "Traditional hay meadow; semi-improved permanent pasture; extensive livestock grassland; least diverse in intensively managed silage leys and improved permanent pasture"
+    ],
+    "b1_practices_that_benefit": [
+      "P13",
+      "P23",
+      "P14"
+    ],
+    "b2_practices_primarily_verified": [
+      "P13",
+      "P14"
+    ],
+    "linkage_c_connected_groups": [
+      13,
+      15,
+      16
+    ],
+    "level1_protocol_name": "Structured walkthrough — functional group presence and sward height assessment",
+    "level2_protocol_name": "Braun-Blanquet quadrat survey with Ellenberg indicator analysis",
+    "level3_protocol_name": "NVC classification with soil biology sampling",
+    "level1_output_metric": "Forb species count per 50m; sward height class; structural features; management evidence",
+    "level2_output_metric": "Total species richness; forb:grass cover ratio; Ellenberg N mean; Shannon diversity",
+    "level3_output_metric": "NVC community type; full species richness; soil biology co-assessment",
+    "primary_reference": "Ellenberg et al. (1992); Rodwell (2006) NVC — British Plant Communities; Grime et al. (1988)",
+    "monitoring_task_type": "Biological community composition",
+    "b2_expected_direction_of_change": "P13 (rotational grazing): Forb species richness increasing within 2–4 seasons of improved grazing management. P14 (delayed cutting): Flowering forb cover measurably higher within first season.",
+    "validation_status": "DRAFT - Unvalidated",
+    "populated": true
+  },
+  {
+    "profile_number": 29,
+    "profile_name": "Field margin and uncropped boundary vegetation",
+    "category": "Vegetation communities",
+    "tier": "Universal",
+    "conditionality_criteria": null,
+    "hard_prerequisite": "Field boundaries present",
+    "primary_monitoring_role": "Ecological indicator + practice verification",
+    "monitoring_stage": "Fast-medium (Stage 2, Year 1-3)",
+    "response_timescale": "1-3 years",
+    "block4_pressures": [
+      5,
+      3,
+      20,
+      19,
+      18
+    ],
+    "block5_challenges": [
+      20,
+      24,
+      19,
+      22
+    ],
+    "block6_services": [
+      27,
+      28,
+      16,
+      30
+    ],
+    "relevant_efgs": [
+      "T7.1",
+      "T7.2",
+      "T7.3"
+    ],
+    "relevant_ipcc_land_use": [
+      "Cropland",
+      "Grassland"
+    ],
+    "soil_type_associations": [
+      "All soil types; most diverse margins on calcareous soils; nitrogen-enriched margins dominated by competitive coarse grasses regardless of soil type; sandy soils for bare-ground specialists"
+    ],
+    "crop_livestock_associations": [
+      "All cropping systems with field margin management; most diverse under organic or low-input management; enhanced by buffer strip and beetle bank establishment programmes"
+    ],
+    "b1_practices_that_benefit": [
+      "P23",
+      "P11",
+      "P16"
+    ],
+    "b2_practices_primarily_verified": [
+      "P14",
+      "P16",
+      "P11"
+    ],
+    "linkage_c_connected_groups": [
+      27,
+      14,
+      11,
+      10
+    ],
+    "level1_protocol_name": "Field margin walkthrough — forb presence and structural diversity assessment",
+    "level2_protocol_name": "Field margin community composition survey — species-level quadrat assessment",
+    "level3_protocol_name": "Full margin phytosociological survey with simultaneous pollinator and natural enemy assessment",
+    "level1_output_metric": "Non-grass plant species count per 50m; sward height class; structural features (tussocks/bare patches); management evidence",
+    "level2_output_metric": "Species richness; forb:grass cover ratio; legume cover (%); sward structural diversity score (0–4); Ellenberg N mean",
+    "level3_output_metric": "NVC community type; full species richness; pollinator visit rate (visits/m margin/min); ground beetle species richness",
+    "primary_reference": "Marshall & Moonen (2002) Agric. Ecosyst. Environ.; Pywell et al. (2005) Biol. Conserv.; Potts et al. (2010)",
+    "monitoring_task_type": "Biological community composition",
+    "b2_expected_direction_of_change": "P14 (delayed cutting): Flowering forb cover and bee visitor abundance measurably higher within first season. P16 (buffer strip establishment): Vegetative cover within 1 season; forb richness increasing within 2–4 seasons. P11 (herbicide cessation): Species richness increase within 1–2 seasons.",
+    "validation_status": "DRAFT - Unvalidated",
+    "populated": true
+  },
+  {
+    "profile_number": 30,
+    "profile_name": "Hedgerow and woody boundary vegetation",
+    "category": "Vegetation communities",
+    "tier": "Universal",
+    "conditionality_criteria": null,
+    "hard_prerequisite": "Hedgerow or woody boundary present OR being established",
+    "primary_monitoring_role": "Ecological indicator + practice verification",
+    "monitoring_stage": "Slow (Stage 3, Year 5-15)",
+    "response_timescale": "5-15 years (structural maturity)",
+    "block4_pressures": [
+      5,
+      3,
+      20,
+      19,
+      18
+    ],
+    "block5_challenges": [
+      19,
+      18,
+      22
+    ],
+    "block6_services": [
+      30,
+      15,
+      16
+    ],
+    "relevant_efgs": [
+      "T7.1",
+      "T7.2",
+      "T7.5"
+    ],
+    "relevant_ipcc_land_use": [
+      "Cropland",
+      "Grassland"
+    ],
+    "soil_type_associations": [
+      "All soil types; ancient hedgerows most species-rich on calcareous soils; planted hedgerows on any soil type; nutrient-rich bank soils promote weed-dominated ground flora"
+    ],
+    "crop_livestock_associations": [
+      "All farming systems with field boundary management; most diverse hedgerows in traditional mixed pastoral and arable farmland with long hedgerow management history"
+    ],
+    "b1_practices_that_benefit": [
+      "P19",
+      "P14",
+      "P13"
+    ],
+    "b2_practices_primarily_verified": [
+      "P19"
+    ],
+    "linkage_c_connected_groups": [
+      29,
+      13,
+      20
+    ],
+    "level1_protocol_name": "Structural walkthrough + canopy cover assessment (A19 embedded)",
+    "level2_protocol_name": "Measured hedgerow survey with densiometer canopy measurement",
+    "level3_protocol_name": "Full phytosociological survey with GIS network connectivity analysis",
+    "level1_output_metric": "Species count; canopy continuity (%); layering description; height/width class; management evidence",
+    "level2_output_metric": "Full species list; structural measurements; canopy cover (%); HEGS score equivalent",
+    "level3_output_metric": "Phytosociology community type; GIS-derived network metrics; full floristic survey",
+    "primary_reference": "Barr et al. (1993) Countryside Survey hedgerow assessment; Sparks et al. (1996)",
+    "monitoring_task_type": "Biological community composition",
+    "b2_expected_direction_of_change": "P19 (hedgerow restoration/planting): Structural continuity and species count increasing progressively over 5–15 years of establishment; canopy cover approaching reference within 10–20 years.",
+    "validation_status": "DRAFT - Unvalidated",
+    "populated": true
+  },
+  {
+    "profile_number": 31,
+    "profile_name": "Aquatic and riparian vegetation",
+    "category": "Vegetation communities",
+    "tier": "Universal",
+    "conditionality_criteria": null,
+    "hard_prerequisite": "Water feature present",
+    "primary_monitoring_role": "Ecological indicator + practice verification",
+    "monitoring_stage": "Medium (Stage 2-3, Year 3-7)",
+    "response_timescale": "3-7 years",
+    "block4_pressures": [
+      17,
+      3,
+      18,
+      16,
+      4
+    ],
+    "block5_challenges": [
+      17,
+      19,
+      22
+    ],
+    "block6_services": [
+      6,
+      19,
+      15,
+      30
+    ],
+    "relevant_efgs": null,
+    "relevant_ipcc_land_use": [
+      "Cropland",
+      "Grassland",
+      "Wetlands"
+    ],
+    "soil_type_associations": [
+      "Mineral riparian soils; alluvial silt and loam for emergent vegetation; clay banks for bank stability; sandy soils less stable under livestock pressure"
+    ],
+    "crop_livestock_associations": [
+      "All farming systems with water bodies; most diverse riparian communities in pastoral farmland with livestock exclusion from water margins"
+    ],
+    "b1_practices_that_benefit": [
+      "P16",
+      "P13",
+      "P17"
+    ],
+    "b2_practices_primarily_verified": [
+      "P13",
+      "P16"
+    ],
+    "linkage_c_connected_groups": [
+      17,
+      18,
+      21
+    ],
+    "level1_protocol_name": "Riparian zone presence walkthrough + canopy cover assessment (A19 embedded)",
+    "level2_protocol_name": "Species-level quadrats with densiometer canopy measurement",
+    "level3_protocol_name": "Full phytosociological survey + diatom assessment",
+    "level1_output_metric": "Vegetation zone presence/absence; canopy cover (%) at monitoring points; key species presence",
+    "level2_output_metric": "Full species list; zone widths; canopy cover %; Ellenberg moisture indicator mean",
+    "level3_output_metric": "Phytosociology classification; diatom community index; full floristic survey",
+    "primary_reference": "Palmer et al. (1992) River Vegetation Survey; Lorenz et al. (2016)",
+    "monitoring_task_type": "Biological community composition",
+    "b2_expected_direction_of_change": "P13 (livestock exclusion from margins): Native riparian species recovering within 2–4 seasons; canopy cover increasing over 5–10 years of consistent livestock exclusion.",
+    "validation_status": "DRAFT - Unvalidated",
+    "populated": true
+  },
+  {
+    "profile_number": 32,
+    "profile_name": "Soil surface biological communities",
+    "category": "Vegetation communities",
+    "tier": "Universal",
+    "conditionality_criteria": "Not applicable - most relevant in semi-arid and low-disturbance contexts",
+    "hard_prerequisite": null,
+    "primary_monitoring_role": "Ecological indicator + soil-habitat proxy",
+    "monitoring_stage": "Fast (Stage 1-2, Year 1-3)",
+    "response_timescale": "1-3 years",
+    "block4_pressures": [
+      1,
+      18,
+      2,
+      3,
+      6
+    ],
+    "block5_challenges": [
+      3,
+      21,
+      30
+    ],
+    "block6_services": [
+      16,
+      11,
+      15
+    ],
+    "relevant_efgs": [
+      "T7.1",
+      "T7.2",
+      "T7.5"
+    ],
+    "relevant_ipcc_land_use": [
+      "Cropland (no-till only)",
+      "Grassland"
+    ],
+    "soil_type_associations": [
+      "Dryland",
+      "well-drained sandy",
+      "silty",
+      "or loamy soils in arid or semi-arid conditions; absent from regularly cultivated soils; reduced in waterlogged or very acid soils"
+    ],
+    "crop_livestock_associations": [
+      "Dryland extensive pastoral or no-till arable farming; semi-arid and arid systems; traditional low-disturbance grazing systems; not applicable in frequently cultivated temperate soils"
+    ],
+    "b1_practices_that_benefit": [
+      "P13",
+      "P02"
+    ],
+    "b2_practices_primarily_verified": [
+      "P01"
+    ],
+    "linkage_c_connected_groups": [
+      1,
+      6
+    ],
+    "level1_protocol_name": "Biological soil crust presence and cover assessment — hand lens visual survey",
+    "level2_protocol_name": "Point-intercept BSC cover measurement with chlorophyll a extraction",
+    "level3_protocol_name": "Species-level BSC characterisation with nitrogen fixation measurement (acetylene reduction assay)",
+    "level1_output_metric": "BSC functional types present; estimated cover % per type; crust integrity class; soil moisture condition",
+    "level2_output_metric": "BSC cover % per functional type (point-intercept); chlorophyll a concentration (µg/cm2); penetration resistance (kPa)",
+    "level3_output_metric": "Cyanobacterial species richness; N-fixation rate (nmol C2H4/cm2/hour); community composition similarity",
+    "primary_reference": "Belnap & Lange (2001) Biological Soil Crusts (Springer); Eldridge & Greene (1994); Evans & Johansen (1999)",
+    "monitoring_task_type": "Biological community composition",
+    "b2_expected_direction_of_change": "P01 (no-till): Cyanobacterial/algal crust detectable within 1–3 seasons of no-till adoption in dryland systems; lichen crust within 5–10 years.",
+    "validation_status": "DRAFT - Unvalidated",
+    "populated": true
+  },
+  {
+    "profile_number": 33,
+    "profile_name": "Scattered trees and parkland tree cover",
+    "category": "Vegetation communities",
+    "tier": "Universal",
+    "conditionality_criteria": null,
+    "hard_prerequisite": "Trees present OR natural regeneration potential confirmed in the landscape",
+    "primary_monitoring_role": "Ecological indicator + practice verification",
+    "monitoring_stage": "Slow (Stage 3, decades for mature cover)",
+    "response_timescale": "Decades (regeneration monitoring medium: 3-7 years)",
+    "block4_pressures": [
+      5,
+      3,
+      20,
+      19,
+      18
+    ],
+    "block5_challenges": [
+      18,
+      22,
+      19
+    ],
+    "block6_services": [
+      30,
+      15,
+      16
+    ],
+    "relevant_efgs": [
+      "T7.1",
+      "T7.2",
+      "T7.3"
+    ],
+    "relevant_ipcc_land_use": [
+      "Cropland",
+      "Grassland",
+      "Forest Land (agroforestry)"
+    ],
+    "soil_type_associations": [
+      "All soil types for naturally occurring trees; best root anchorage in loam and clay-loam; compacted soils restrict rooting depth and stability"
+    ],
+    "crop_livestock_associations": [
+      "Agroforestry; traditional mixed farming; orchard systems; all farming systems with field trees retained in hedgerows or as standards"
+    ],
+    "b1_practices_that_benefit": [
+      "P19",
+      "P10",
+      "P13"
+    ],
+    "b2_practices_primarily_verified": [
+      "P19"
+    ],
+    "linkage_c_connected_groups": [
+      19,
+      20,
+      22
+    ],
+    "level1_protocol_name": "Individual tree census with visual crown cover assessment (A19 embedded)",
+    "level2_protocol_name": "Measured tree census with densiometer crown cover measurement",
+    "level3_protocol_name": "Dendrochronology + remote sensing + saproxylic beetle assessment",
+    "level1_output_metric": "Individual tree count; species list; crown cover estimate (%); structural condition per tree",
+    "level2_output_metric": "Measured crown cover (%); densiometer readings; species composition; age class distribution",
+    "level3_output_metric": "Tree age structure; remote-sensing derived crown cover; saproxylic beetle species richness",
+    "primary_reference": "Read et al. (2000) Trees and woodland in the British landscape",
+    "monitoring_task_type": "Biological community composition",
+    "b2_expected_direction_of_change": "P19 (tree planting/restoration): Crown cover increase measurable within 3–5 years of establishment; full structural value within 20–50 years.",
+    "validation_status": "DRAFT - Unvalidated",
+    "populated": true
+  },
+  {
+    "profile_number": 34,
+    "profile_name": "Woody plant regeneration",
+    "category": "Vegetation communities",
+    "tier": "Universal",
+    "conditionality_criteria": null,
+    "hard_prerequisite": "None - applicable wherever woody plants can potentially establish",
+    "primary_monitoring_role": "Ecological indicator + practice verification",
+    "monitoring_stage": "Medium (Stage 2-3, Year 3-7)",
+    "response_timescale": "3-7 years",
+    "block4_pressures": [
+      20,
+      18,
+      5,
+      3,
+      1
+    ],
+    "block5_challenges": [
+      22,
+      19,
+      18
+    ],
+    "block6_services": [
+      30,
+      15,
+      16
+    ],
+    "relevant_efgs": [
+      "T7.1",
+      "T7.2",
+      "T7.5"
+    ],
+    "relevant_ipcc_land_use": [
+      "Cropland",
+      "Grassland"
+    ],
+    "soil_type_associations": [
+      "All soil types; most rapid establishment on neutral loam; acid soils limit shrub species diversity; calcareous soils support the highest shrub species richness"
+    ],
+    "crop_livestock_associations": [
+      "Extensive pastoral farmland; conservation grazing schemes; traditional mixed farming; NOTE: context-dependent — positive in arable systems; potentially negative in species-rich grassland"
+    ],
+    "b1_practices_that_benefit": [
+      "P13",
+      "P08",
+      "P19"
+    ],
+    "b2_practices_primarily_verified": [
+      "P19"
+    ],
+    "linkage_c_connected_groups": [
+      28,
+      30,
+      20
+    ],
+    "level1_protocol_name": "Height class cover estimation — community observer survey",
+    "level2_protocol_name": "Point-intercept transect — cover per height class",
+    "level3_protocol_name": "GPS-mapped individual census with connectivity assessment",
+    "level1_output_metric": "Woody regeneration presence (Y/N); height class cover estimate; context note (positive/negative depending on habitat type)",
+    "level2_output_metric": "Cover % per height class; species composition; spatial distribution pattern",
+    "level3_output_metric": "GPS-mapped individual count; connectivity metrics; population structure",
+    "primary_reference": "Peterken (1996) Natural Woodland; English Nature habitat management guidance",
+    "monitoring_task_type": "Biological community composition",
+    "b2_expected_direction_of_change": "P19 (tree restoration/planting): First height class establishment within 1–2 seasons; progressive height class cover increase over 5–15 years. NOTE: context-dependent interpretation — regeneration in species-rich grassland may be negative.",
+    "validation_status": "DRAFT - Unvalidated",
+    "populated": true
+  },
+  {
+    "profile_number": 35,
+    "profile_name": "Invasive plant species",
+    "category": "Vegetation communities",
+    "tier": "Universal",
+    "conditionality_criteria": null,
+    "hard_prerequisite": null,
+    "primary_monitoring_role": "Ecological indicator — negative trajectory tracking",
+    "monitoring_stage": "Fast (Stage 1-2, Year 1-2 seasons)",
+    "response_timescale": "1-2 seasons (spread detection)",
+    "block4_pressures": [
+      1,
+      17,
+      21,
+      23
+    ],
+    "block5_challenges": [
+      29,
+      19,
+      22
+    ],
+    "block6_services": [
+      27,
+      30,
+      24
+    ],
+    "relevant_efgs": null,
+    "relevant_ipcc_land_use": [
+      "All categories"
+    ],
+    "soil_type_associations": [
+      "All soil types — most invasive species are broad soil tolerants; some specialists: Fallopia japonica on riverine silts; Lupinus on acid sandy soils; Solidago on disturbed calcareous soils"
+    ],
+    "crop_livestock_associations": [
+      "All farming systems; most significant in field margins",
+      "riparian zones",
+      "and areas of historic disturbance; monitoring prioritised where invasive species are at the expanding edge of their range"
+    ],
+    "b1_practices_that_benefit": [
+      "P16",
+      "P05"
+    ],
+    "b2_practices_primarily_verified": [
+      "P29"
+    ],
+    "linkage_c_connected_groups": [
+      29,
+      31,
+      14
+    ],
+    "level1_protocol_name": "Invasive species presence and area mapping — community observer survey (DECLINING trend = POSITIVE outcome)",
+    "level2_protocol_name": "Quantitative invasive species cover assessment with GPS patch mapping",
+    "level3_protocol_name": "Remote sensing patch mapping with population genetics invasion pathway analysis",
+    "level1_output_metric": "Occurrence count per species (GPS-mapped); estimated invaded area (m2); trajectory per occurrence (new/expanding/stable/declining)",
+    "level2_output_metric": "Invasive cover % per species per zone (transect-derived); total invaded area (m2); annual spread rate (m2/year)",
+    "level3_output_metric": "Total landscape invaded area (ha); genetic clusters per species; propagule pressure index",
+    "primary_reference": "Pyšek & Richardson (2010) Ann. Rev. Environ. Resour.; Simberloff et al. (2013) Trends Ecol. Evol.",
+    "monitoring_task_type": "Biological community composition",
+    "b2_expected_direction_of_change": "P29 (invasive control): Invasive cover DECLINING within 1–2 seasons of effective control; populations suppressed below competitive exclusion within 2–5 years of sustained management. NOTE: DECLINING = POSITIVE for this profile.",
+    "validation_status": "DRAFT - Unvalidated",
+    "populated": true
+  },
+  {
+    "profile_number": 36,
+    "profile_name": "Permanent crop and orchard understory vegetation",
+    "category": "Vegetation communities",
+    "tier": "Universal",
+    "conditionality_criteria": null,
+    "hard_prerequisite": "Permanent crops present (orchards, olives, vines, coffee, cocoa, tea, rubber, or equivalent permanent crop systems)",
+    "primary_monitoring_role": "Ecological indicator + practice verification",
+    "monitoring_stage": "Fast-medium (Stage 2, Year 1-4)",
+    "response_timescale": "1-4 years",
+    "block4_pressures": [
+      5,
+      3,
+      20,
+      18,
+      19
+    ],
+    "block5_challenges": [
+      20,
+      22,
+      18
+    ],
+    "block6_services": [
+      27,
+      30,
+      15
+    ],
+    "relevant_efgs": [
+      "T7.3"
+    ],
+    "relevant_ipcc_land_use": [
+      "Cropland"
+    ],
+    "soil_type_associations": [
+      "All orchard soil types; most diverse understory communities on neutral to calcareous loam; degraded by nitrogen enrichment on any soil type"
+    ],
+    "crop_livestock_associations": [
+      "Traditional and modern orchard systems; pomefruit and stone fruit orchards; cider apple and perry pear orchards; all orchard types where canopy allows understorey vegetation development"
+    ],
+    "b1_practices_that_benefit": [
+      "P13",
+      "P14",
+      "P23"
+    ],
+    "b2_practices_primarily_verified": [
+      "P14",
+      "P23"
+    ],
+    "linkage_c_connected_groups": [
+      13,
+      14,
+      29
+    ],
+    "level1_protocol_name": "Inter-row walkthrough — forb presence, cover class, and canopy cover assessment (A19 embedded)",
+    "level2_protocol_name": "Species-level quadrat survey with densiometer canopy measurement",
+    "level3_protocol_name": "Full phytosociology + pollinator transect in orchard inter-rows",
+    "level1_output_metric": "Forb species count per 50m inter-row; dominant species; canopy cover class (contextual)",
+    "level2_output_metric": "Full species list; forb:grass ratio; Ellenberg N mean; canopy cover % (densiometer)",
+    "level3_output_metric": "Community classification; pollinator visit rate (visits/m margin/min); canopy cover %",
+    "primary_reference": "Holland et al. (1994) orchard biodiversity; Mäder et al. (2002) Science organic vs conventional",
+    "monitoring_task_type": "Biological community composition",
+    "b2_expected_direction_of_change": "P14 (delayed inter-row cutting): Forb cover and pollinator visits measurably higher within first season. P23 (wildflower seeding): Forb cover establishing within 1–2 seasons; bee visits increasing within 2–3 seasons.",
+    "validation_status": "DRAFT - Unvalidated",
+    "populated": true
+  },
+  {
+    "profile_number": 37,
+    "profile_name": "Termites",
+    "category": "Soil and ground surface ecosystem engineers",
+    "tier": "Conditional",
+    "conditionality_criteria": "Tropical and subtropical agricultural landscapes; surfaced where EFGs T1.x (tropical forests), T2.x (tropical woodlands), T4.x (savannahs and grasslands), or T7.x managed systems in tropical/subtropical biomes are confirmed in Step 1. Termites function as soil engineers in agricultural contexts almost exclusively in tropical and subtropical systems — their mound-building, wood decomposition, and soil aeration roles are ecologically negligible in most temperate agricultural soils.",
+    "hard_prerequisite": null,
+    "primary_monitoring_role": "Ecological indicator",
+    "monitoring_stage": "Medium (Stage 2-3, Year 2-5)",
+    "response_timescale": "2-5 years",
+    "block4_pressures": [
+      1,
+      4,
+      28
+    ],
+    "block5_challenges": [
+      21,
+      7
+    ],
+    "block6_services": [
+      15,
+      11
+    ],
+    "relevant_efgs": [
+      "T7.1",
+      "T7.2"
+    ],
+    "relevant_ipcc_land_use": [
+      "Cropland (no-till)",
+      "Grassland"
+    ],
+    "soil_type_associations": [
+      "Tropical and subtropical clay",
+      "loam",
+      "and sandy soils with adequate organic matter; mound-building species most abundant in well-drained savannah soils; absent from waterlogged soils"
+    ],
+    "crop_livestock_associations": [
+      "Tropical subsistence and smallholder farming; extensive pastoral systems; savannah-adjacent dryland farming; no-till tropical and subtropical arable systems"
+    ],
+    "b1_practices_that_benefit": [
+      "P01"
+    ],
+    "b2_practices_primarily_verified": [
+      "P01"
+    ],
+    "linkage_c_connected_groups": [
+      1,
+      6
+    ],
+    "level1_protocol_name": "Termite mound count transect — community observer survey",
+    "level2_protocol_name": "Functional group assessment using wood bait transect and soil sampling (TSBF protocol)",
+    "level3_protocol_name": "Species-level community assessment with soil respiration measurement",
+    "level1_output_metric": "Mound density (mounds/200m2); height class distribution; active mound proportion; surface runway presence",
+    "level2_output_metric": "Number of functional groups represented; relative abundance per group; morphospecies richness",
+    "level3_output_metric": "Full species list; functional diversity index; soil CO2 respiration differential (mound vs non-mound)",
+    "primary_reference": "Bignell & Eggleton (2000) in Termites: Evolution, Sociality, Symbioses, Ecology; Donovan et al. (2001)",
+    "monitoring_task_type": "Biological count-based",
+    "b2_expected_direction_of_change": "P01 (no-till): Functional group richness increasing within 2–5 seasons; subterranean species returning within 5+ seasons.",
+    "validation_status": "DRAFT - Unvalidated",
+    "populated": true
+  },
+  {
+    "profile_number": 38,
+    "profile_name": "Freshwater turtles",
+    "category": "Aquatic communities",
+    "tier": "Conditional",
+    "conditionality_criteria": "Agricultural landscapes with permanent or seasonal water bodies in tropical, subtropical, Mediterranean, warm-temperate, and temperate biomes wherever freshwater turtle populations are ecologically present. Includes temperate North America (painted turtles, map turtles, snapping turtles, box turtles at wetland edges), Mediterranean Europe (Emys orbicularis and related species), East Asia (diverse softshell and pond turtle communities in rice paddy and irrigated landscapes), and tropical/subtropical systems globally. Excludes boreal and high alpine systems.",
+    "hard_prerequisite": "Permanent or seasonal water body present within or adjacent to the monitored landscape.",
+    "primary_monitoring_role": "Ecological indicator",
+    "monitoring_stage": "Medium (Stage 2-3, Year 3-7)",
+    "response_timescale": "3-7 years",
+    "block4_pressures": [
+      18,
+      15,
+      17
+    ],
+    "block5_challenges": [
+      17,
+      11,
+      19
+    ],
+    "block6_services": [
+      6,
+      28,
+      30
+    ],
+    "relevant_efgs": [
+      "T7.2"
+    ],
+    "relevant_ipcc_land_use": [
+      "Wetlands",
+      "Grassland",
+      "Cropland"
+    ],
+    "soil_type_associations": [
+      "Not directly soil-dependent; loam and sandy bank soils adjacent to water body for nesting; bank stability under livestock pressure is key"
+    ],
+    "crop_livestock_associations": [
+      "Tropical",
+      "subtropical",
+      "and Mediterranean pastoral and arable systems with permanent water bodies; rice paddy systems where native turtle species are present"
+    ],
+    "b1_practices_that_benefit": [
+      "P17",
+      "P13",
+      "P19"
+    ],
+    "b2_practices_primarily_verified": [
+      "P13"
+    ],
+    "linkage_c_connected_groups": [
+      17,
+      18,
+      21
+    ],
+    "level1_protocol_name": "Freshwater turtle basking count — community observer survey from bank",
+    "level2_protocol_name": "Hoop net trap survey with mark-recapture population assessment (licensed)",
+    "level3_protocol_name": "Radiotracking for home range delineation; nest monitoring with wire cage protection",
+    "level1_output_metric": "Total turtle count per visit; species composition; nest site evidence; juvenile detection",
+    "level2_output_metric": "Population size estimate (N) with 95% CI; carapace length distribution; sex ratio; body condition index",
+    "level3_output_metric": "Home range size (ha); nest success (% producing hatchlings); population growth rate (lambda)",
+    "primary_reference": "van Dijk (2011) in Soorae (ed) Global Re-introduction Perspectives; IUCN Freshwater Turtle Specialist Group",
+    "monitoring_task_type": "Biological presence/absence",
+    "b2_expected_direction_of_change": "P13 (livestock exclusion from water margins): Basking count increasing within 2–4 seasons; nest success improving within 3–7 seasons.",
+    "validation_status": "DRAFT - Unvalidated",
+    "populated": true
+  },
+  {
+    "profile_number": 39,
+    "profile_name": "Salamanders and newts",
+    "category": "Vertebrate communities",
+    "tier": "Conditional",
+    "conditionality_criteria": "Temperate and cool subtropical highland agricultural landscapes in Europe, North America, East Asia, highland Central America, highland South America (Andes), and highland Southeast Asia. Core Plethodontidae (North America) and Salamandridae (Europe, Asia) are temperate and cool subtropical in distribution. Relevant wherever moist agricultural habitats — wet meadows, ditch margins, pond edges, riparian strips — are present within farmed landscapes.",
+    "hard_prerequisite": "Permanent or seasonal water body, wet area, or reliably moist habitat present within 500m of the monitoring site.",
+    "primary_monitoring_role": "Ecological indicator",
+    "monitoring_stage": "Medium (Stage 2-3, Year 2-5)",
+    "response_timescale": "2-5 years",
+    "block4_pressures": [
+      17,
+      18,
+      4
+    ],
+    "block5_challenges": [
+      17,
+      11,
+      19
+    ],
+    "block6_services": [
+      30,
+      28
+    ],
+    "relevant_efgs": null,
+    "relevant_ipcc_land_use": [
+      "Wetlands",
+      "Grassland",
+      "Cropland"
+    ],
+    "soil_type_associations": [
+      "Not directly soil-dependent; moist loam and clay-loam bank soils for terrestrial habitat; pond substrate quality influences larval survival"
+    ],
+    "crop_livestock_associations": [
+      "Temperate pastoral and arable systems with suitable farm ponds; organic and low-input farming with retained farm pond network; most relevant in European agricultural landscapes"
+    ],
+    "b1_practices_that_benefit": [
+      "P17",
+      "P13",
+      "P19"
+    ],
+    "b2_practices_primarily_verified": [
+      "P17"
+    ],
+    "linkage_c_connected_groups": [
+      17,
+      21,
+      18
+    ],
+    "level1_protocol_name": "Night torch survey for newts — community observer pond assessment",
+    "level2_protocol_name": "eDNA survey for great crested newt and common newt species detection",
+    "level3_protocol_name": "Licensed bottle trap population assessment with Bsal disease surveillance",
+    "level1_output_metric": "Newt count per species per visit; GCN presence/absence (4-visit standard); sex ratio of breeding adults",
+    "level2_output_metric": "GCN eDNA detection (positive/negative/inconclusive); occupancy probability score; common newt species detected",
+    "level3_output_metric": "Population size estimate (N) per species; sex ratio; Bsal/Bd prevalence (%); population trend",
+    "primary_reference": "Biggs et al. (2014) Biol. Conserv. (eDNA GCN); Beebee & Griffiths (2005)",
+    "monitoring_task_type": "Biological presence/absence",
+    "b2_expected_direction_of_change": "P17 (fish-free pond creation): Common newt colonisation within 1–3 springs; GCN eDNA detection within 2–5 springs of suitable pond establishment.",
+    "validation_status": "DRAFT - Unvalidated",
+    "populated": true
+  },
+  {
+    "profile_number": 40,
+    "profile_name": "Large soil invertebrates",
+    "category": "Soil invertebrate communities",
+    "tier": "Conditional",
+    "conditionality_criteria": "Tropical and subtropical agricultural landscapes; relevant where EFGs T1.x (tropical forests), T2.x (subtropical woodlands), and derived managed systems are present. Includes humid tropical Africa, Asia, Latin America, and subtropical humid zones of South and Southeast Asia, southern China, and northeastern South America. In temperate systems, the large soil invertebrate community niche is substantially covered by Profiles 03–07 (nematodes, springtails, oribatid mites, earthworms, snails).",
+    "hard_prerequisite": null,
+    "primary_monitoring_role": "Ecological indicator",
+    "monitoring_stage": "Medium (Stage 2-3, Year 2-5)",
+    "response_timescale": "2-5 years",
+    "block4_pressures": [
+      1,
+      4,
+      3
+    ],
+    "block5_challenges": [
+      21,
+      7
+    ],
+    "block6_services": [
+      15,
+      11
+    ],
+    "relevant_efgs": [
+      "T7.1",
+      "T7.2",
+      "T7.3"
+    ],
+    "relevant_ipcc_land_use": [
+      "Cropland",
+      "Grassland"
+    ],
+    "soil_type_associations": [
+      "Tropical and subtropical loam and clay-loam soils with high organic matter; most diverse macrofauna in permanently vegetated systems; absent from severely compacted or chemically treated soils"
+    ],
+    "crop_livestock_associations": [
+      "Tropical smallholder and subsistence arable systems; traditional agroforestry; no-till tropical farming; systems with high crop residue retention"
+    ],
+    "b1_practices_that_benefit": [
+      "P01",
+      "P04"
+    ],
+    "b2_practices_primarily_verified": [
+      "P01"
+    ],
+    "linkage_c_connected_groups": [
+      6,
+      22
+    ],
+    "level1_protocol_name": "Combined soil macrofauna monolith — large invertebrate count alongside Profile 06 earthworm assessment",
+    "level2_protocol_name": "TSBF protocol macrofauna survey — functional diversity and biomass (Anderson & Ingram 1993)",
+    "level3_protocol_name": "Species-level macrofauna food web analysis with isotope trophic mapping",
+    "level1_output_metric": "Count per functional group per monolith (beetles/centipedes/millipedes); biomass estimate; functional group richness",
+    "level2_output_metric": "Biomass per functional group (g fresh weight/m2); functional group richness; total macrofauna biomass",
+    "level3_output_metric": "Full species list; isotope trophic diversity (range of δ15N); food web complexity index",
+    "primary_reference": "Lavelle et al. (1997) European Journal of Soil Biology; Brown et al. (2001); Anderson & Ingram (1993) TSBF Handbook",
+    "monitoring_task_type": "Biological count-based",
+    "b2_expected_direction_of_change": "P01 (no-till): Functional group richness increasing within 2–4 seasons; total macrofauna biomass increasing over 3–5 seasons.",
+    "validation_status": "DRAFT - Unvalidated",
+    "populated": true
+  },
+  {
+    "profile_number": 41,
+    "profile_name": "Crop pest invertebrates",
+    "category": "Aboveground invertebrate communities",
+    "tier": "Conditional",
+    "conditionality_criteria": "Globally applicable wherever a cropping system is present, but operationally conditional on crop type confirmed in Step 1 Block 3. This profile is surfaced based on the specific crop types the user confirms — not geographic conditionality. Specific crop-pest monitoring protocols are crop-system specific and are activated when the user confirms crop types for which validated pest indicator protocols exist in the LAHMP knowledge base.",
+    "hard_prerequisite": "Cropping system present — confirmed in Step 1 Block 3.",
+    "primary_monitoring_role": "Ecological indicator - negative trajectory tracking; biological control effectiveness verification",
+    "monitoring_stage": "Fast (Stage 1-2, Year 1-2 seasons)",
+    "response_timescale": "1-2 seasons",
+    "block4_pressures": [
+      13,
+      5,
+      23
+    ],
+    "block5_challenges": [
+      24,
+      19
+    ],
+    "block6_services": [
+      28
+    ],
+    "relevant_efgs": [
+      "T7.1",
+      "T7.2",
+      "T7.3"
+    ],
+    "relevant_ipcc_land_use": [
+      "Cropland",
+      "Grassland"
+    ],
+    "soil_type_associations": [
+      "Not soil-dependent; monitoring targets aerial and plant-surface crop pest species"
+    ],
+    "crop_livestock_associations": [
+      "All arable and horticultural cropping systems where invertebrate pest management is part of the farm programme; most ecologically informative when co-deployed with natural enemy profiles"
+    ],
+    "b1_practices_that_benefit": null,
+    "b2_practices_primarily_verified": [
+      "P11",
+      "P23"
+    ],
+    "linkage_c_connected_groups": [
+      12,
+      10,
+      11,
+      14
+    ],
+    "level1_protocol_name": "Crop pest scouting walk — aphid density and natural enemy co-observation",
+    "level2_protocol_name": "Suction sampling for aphid colony density and parasitism rate assessment",
+    "level3_protocol_name": "Species-level pest and natural enemy community assessment with rearing parasitism confirmation",
+    "level1_output_metric": "% plants with aphid colonies; mean colony density category; % plants with natural enemies; NE:pest ratio; vs economic threshold",
+    "level2_output_metric": "Aphid density (individuals/m2); parasitism rate (% mummies); predator:prey ratio; vs economic threshold",
+    "level3_output_metric": "Full aphid/parasitoid species list; parasitism rate per species pair; correlation of NE profile indices with pest density",
+    "primary_reference": "Bianchi et al. (2006) Proc. R. Soc. B; Landis et al. (2000) Ann. Rev. Entomol.",
+    "monitoring_task_type": "Biological count-based",
+    "b2_expected_direction_of_change": "P11 (insecticide reduction): Pest density remaining BELOW economic threshold without insecticide treatment within 3–5 seasons of natural enemy habitat improvement. P23 (wildflower seeding): Aphid density measurably lower in crop headlands adjacent to wildflower strips within 2–4 seasons.",
+    "validation_status": "DRAFT - Unvalidated",
+    "populated": true
+  }
+]

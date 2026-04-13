@@ -16,7 +16,7 @@ The full production platform (LAHMP v1) is specified in a separate document set 
 2. A **demonstration tool** — shareable with Simon (IUCN project lead), Mercedes (biodiversity expert), and funders via a simple URL
 3. A **development testbed** — contributors can verify JSON data structure correctness against algorithm output
 
-Live URL: `https://[username].github.io/lahmp-wizard`
+Live URL: `https://DaimPad.github.io/lahmp`
 
 ---
 

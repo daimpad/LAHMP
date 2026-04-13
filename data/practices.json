@@ -1,0 +1,1921 @@
+[
+  {
+    "p_code": "P01",
+    "name": "Reduce or eliminate tillage",
+    "theme": "Soil Management",
+    "rationale": "Mechanical soil disturbance is one of the primary drivers of soil structure degradation, organic matter loss, and soil biodiversity decline. Reducing or eliminating tillage allows soil aggregates to reform, fungal networks to develop, earthworm populations to recover, and organic matter to accumulate. Also reduces fuel use and erosion risk. Most effective when combined with permanent soil cover (P02).",
+    "approach_origins": "1.1, 2.6, 2.8, 6.1, 7.1, 8.1, 13.2",
+    "block4_pressures": [
+      1,
+      2
+    ],
+    "block5_challenges": [
+      2,
+      3,
+      4,
+      7,
+      10,
+      21
+    ],
+    "block6_services": [
+      11,
+      15,
+      16
+    ],
+    "hard_prerequisites": "None — applicable wherever annual or perennial crops are grown.",
+    "primary_applicability": [
+      "Intensive Annual Cropland",
+      "Extensive Annual Cropland",
+      "Irrigated Cropland",
+      "Permanent Crops"
+    ],
+    "transformative_applicability": [
+      "Grassland and Pasture transitioning to crop-livestock systems (combined with P02 and P03)."
+    ],
+    "prescreen_question": "Q4",
+    "applicable_scale": "Field",
+    "relevant_efgs": [
+      "T7.1",
+      "T7.3"
+    ],
+    "implementation_constraints": "Requires adapted seeding equipment. Short-term yield dip during transition. Weed management strategy must be redesigned.",
+    "tape_mapping": "Element 1 — Diversity (Index 2: Temporal and spatial diversity; Criterion 2.1 Temporal diversity: rotation)\nElement 5 — Efficiency (Index 9: Soil management; Criterion on tillage reduction)",
+    "field_observation_checklist": "1. Has soil been mechanically inverted or tilled since the last visit? (Yes / No / Partial area)\n2. Is crop residue or mulch visible on the soil surface? (Yes — good cover / Partial / Absent)\n3. Are earthworm surface casts or middens visible at the monitoring points? (Present / Absent)\n4. Is there visible disturbance of the soil surface from equipment traffic? (Yes — note extent / No)",
+    "evidence_correct": "Soil surface shows continuous residue or living cover. No tilling marks or exposed subsoil. Earthworm surface activity visible at monitoring points. Soil surface is undisturbed between crop rows.",
+    "evidence_non_implementation": "Fresh tillage lines, turned soil, or completely bare and disturbed soil surface. Absence of any residue cover. No earthworm surface activity. Compaction tracks across field without protective measures."
+  },
+  {
+    "p_code": "P02",
+    "name": "Maintain permanent soil cover",
+    "theme": "Soil Management",
+    "rationale": "Bare soil erodes, loses moisture, overheats, and loses biological activity rapidly. Keeping the soil surface covered at all times — through crop residues, mulch, or living cover — protects soil organisms, retains moisture, reduces temperature extremes, and feeds decomposer communities. An essential companion to reduced tillage and one of the three pillars of conservation agriculture.",
+    "approach_origins": "1.4, 3.4, 6.2, 7.2, 8.4",
+    "block4_pressures": [
+      1,
+      13,
+      14
+    ],
+    "block5_challenges": [
+      2,
+      3,
+      7,
+      10
+    ],
+    "block6_services": [
+      15,
+      16
+    ],
+    "hard_prerequisites": "None.",
+    "primary_applicability": [
+      "Intensive Annual Cropland",
+      "Extensive Annual Cropland",
+      "Irrigated Cropland",
+      "Permanent Crops"
+    ],
+    "transformative_applicability": [
+      "Degraded Grassland (where bare patches are present and recovery is being managed)."
+    ],
+    "prescreen_question": null,
+    "applicable_scale": "Field",
+    "relevant_efgs": [
+      "T7.1"
+    ],
+    "implementation_constraints": "In humid climates, retained residues may harbour disease — variety selection and residue management important.",
+    "tape_mapping": "Element 4 — Recycling (Index 7: Recycling biomass; Criterion on crop residue management)\nElement 5 — Efficiency (Index 9: Soil management)",
+    "field_observation_checklist": "1. Is the soil surface covered at the monitoring points? Estimate cover class: >75% / 50–75% / 25–50% / <25% / Bare\n2. What is providing the cover: crop residue / mulch / living cover crop / spontaneous plants / combination?\n3. Any signs of residue removal or burning since last visit? (Yes / No)\n4. Is cover consistent across the field or only in some areas? (Consistent / Patchy — note pattern)",
+    "evidence_correct": "Soil surface is ≥75% covered at monitoring points. Cover is continuous across the field rather than patchy. Cover type is noted — mulch, residue, or living plants all qualify. No evidence of residue burning.",
+    "evidence_non_implementation": "Bare soil visible across >25% of field. Freshly burned or removed crop residues. Cover only present in strips or at field edges. Surface crusting or erosion marks on bare patches."
+  },
+  {
+    "p_code": "P03",
+    "name": "Establish cover crops and green manures",
+    "theme": "Soil Management",
+    "rationale": "Growing non-harvested plant species between main crops adds organic matter, fixes nitrogen (if leguminous), suppresses weeds, supports soil invertebrates, and provides flowers for pollinators. Multi-species mixes deliver greater ecological benefit than single-species covers. One of the most cost-effective soil health interventions available — addresses soil, water, and biodiversity challenges simultaneously.",
+    "approach_origins": "1.4, 4.4, 5.6, 5.7, 6.2, 7.2, 11.1, 11.3, 13.1",
+    "block4_pressures": [
+      3,
+      13,
+      14
+    ],
+    "block5_challenges": [
+      1,
+      2,
+      3,
+      6,
+      7,
+      10,
+      14,
+      20,
+      21,
+      25,
+      33
+    ],
+    "block6_services": [
+      1,
+      15,
+      19,
+      27
+    ],
+    "hard_prerequisites": "None — cropping system of any kind must be present.",
+    "primary_applicability": [
+      "Intensive Annual Cropland",
+      "Extensive Annual Cropland",
+      "Irrigated Cropland"
+    ],
+    "transformative_applicability": [
+      "Permanent Crops and Orchards (as understory cover); Grassland transitioning to crop systems."
+    ],
+    "prescreen_question": null,
+    "applicable_scale": "Field",
+    "relevant_efgs": [
+      "T7.1"
+    ],
+    "implementation_constraints": "Seed costs may be a barrier. Water availability during establishment required. Termination timing must not conflict with next crop.",
+    "tape_mapping": "Element 1 — Diversity (Index 1: Plant diversity; Criterion 1.1 Diversity of plant species)\nElement 1 — Diversity (Index 2: Temporal and spatial diversity; Criterion 2.1 Temporal diversity: rotation)",
+    "field_observation_checklist": "1. Is a cover crop or green manure currently established or recently terminated? (Established / Terminated <4 weeks / Not present)\n2. If established: is it actively growing and covering the soil? (Yes — good cover / Struggling / Failed)\n3. What species or mix is present? (Single species / Multi-species mix — note species if known)\n4. Evidence of flowering in the cover crop? (Yes — important for pollinators / Not yet / Species does not flower)\n5. Has the cover crop been terminated by: incorporation / mowing / rolling / herbicide / other?",
+    "evidence_correct": "Cover crop is visibly established with good ground coverage. Multi-species mixes show multiple plant types growing simultaneously. Legume species (clovers, vetches) are identifiable. Flowering present during appropriate season.",
+    "evidence_non_implementation": "No cover crop established in the inter-crop or post-harvest period. Single failed emergence with large bare patches. Cover crop terminated very early before ecological benefit period. Only grass monoculture with no legume component."
+  },
+  {
+    "p_code": "P04",
+    "name": "Apply compost and organic amendments",
+    "theme": "Soil Management",
+    "rationale": "Returning organic matter through composted residues, animal manure, or other organic materials feeds soil organisms, improves structure, increases water-holding capacity, and rebuilds fertility over time. Long-term and cumulative in effect — the biological foundation of soil fertility. Also reduces the volume of organic waste requiring disposal elsewhere.",
+    "approach_origins": "1.6, 1.10, 3.1, 4.4, 7.2, 8.4, 12.5, 12.11",
+    "block4_pressures": [
+      3,
+      11
+    ],
+    "block5_challenges": [
+      1,
+      2,
+      4,
+      6,
+      7,
+      10,
+      15,
+      21,
+      33
+    ],
+    "block6_services": [
+      1,
+      11,
+      15,
+      18
+    ],
+    "hard_prerequisites": "None.",
+    "primary_applicability": [
+      "All cropland",
+      "Grassland",
+      "Pasture",
+      "Extensive Agroforestry",
+      "Intensive Agroforestry"
+    ],
+    "transformative_applicability": [
+      "None — universally applicable across all productive land use types."
+    ],
+    "prescreen_question": null,
+    "applicable_scale": "Field",
+    "relevant_efgs": [
+      "T7.1",
+      "T7.2",
+      "T7.5"
+    ],
+    "implementation_constraints": "Quality of compost matters — poorly composted manure can introduce pathogens or weed seeds. Rates and timing must be managed to avoid runoff.",
+    "tape_mapping": "Element 4 — Recycling (Index 7: Recycling biomass; Criteria on organic matter management)\nElement 5 — Efficiency (Index 9: Soil management; Criterion on use of organic inputs)",
+    "field_observation_checklist": "1. Has compost, manure, or other organic amendment been applied since the last visit? (Yes / No)\n2. If yes: what type? (Compost / Farm manure / Green waste / Other) and estimated application rate?\n3. Is there evidence of incorporation (mixed into surface soil) or surface application?\n4. Any odour or visual signs of poorly composted or raw manure application? (Yes — note / No)",
+    "evidence_correct": "Records of organic amendment application available. Well-composted material visible in soil or as surface dressing. No ammonia odour from fresh manure. Application rates within recommended agronomic range.",
+    "evidence_non_implementation": "No organic amendments applied in the current season. Raw or poorly composted manure applied with strong ammonia smell indicating nitrogen loss. Applications only on a small portion of the monitored area."
+  },
+  {
+    "p_code": "P05",
+    "name": "Minimise synthetic fertiliser inputs",
+    "theme": "Soil Management",
+    "rationale": "Excessive mineral nitrogen and other synthetic fertilisers acidify soils, disrupt microbial communities, drive nutrient runoff into water bodies, and create dependency cycles that degrade long-term soil health. Reducing synthetic inputs stimulates biological nutrient cycling — which strengthens soil function over time. Requires soil testing and adjusted nutrient management planning during transition.",
+    "approach_origins": "2.2, 2.9, 5.3, 5.8, 7.2, 11.1",
+    "block4_pressures": [
+      3,
+      11
+    ],
+    "block5_challenges": [
+      1,
+      2,
+      6,
+      13,
+      14,
+      33
+    ],
+    "block6_services": [
+      1,
+      15,
+      19
+    ],
+    "hard_prerequisites": "None.",
+    "primary_applicability": [
+      "All cropland and livestock land use categories"
+    ],
+    "transformative_applicability": [
+      "None — applicable everywhere chemical fertilisers are used."
+    ],
+    "prescreen_question": "Q4",
+    "applicable_scale": "Field",
+    "relevant_efgs": [
+      "T7.1",
+      "T7.2",
+      "T7.5"
+    ],
+    "implementation_constraints": "Transition period may result in temporary yield reduction. Requires soil testing and nutrient management planning.",
+    "tape_mapping": "Element 5 — Efficiency (Index 10: Input use efficiency; Criterion on reduction of synthetic inputs)\nElement 2 — Synergies (Index 4: Plant-livestock integration; Criteria on nutrient cycling)",
+    "field_observation_checklist": "1. Were synthetic fertilisers applied since the last visit? (Yes / No / Unknown)\n2. If yes: type (nitrogen / phosphorus / potassium / compound) and approximate rate?\n3. Is there evidence of fertiliser application marks or machinery tracks?\n4. Any yellowing or deficiency symptoms in crops suggesting nutrient limitation? (Yes — note / No)",
+    "evidence_correct": "Farm records confirm reduction in synthetic fertiliser use compared to baseline. Soil nitrate test shows declining or stable nitrogen without supplementation. Crops show healthy growth without deficiency symptoms. Leguminous cover crops or intercrops present as biological nitrogen source.",
+    "evidence_non_implementation": "Farm records show no change in fertiliser inputs. Fresh fertiliser application marks or prills visible on soil surface. Increasing crop yellowing without management response adjustment. No biological nitrogen sources present in the system."
+  },
+  {
+    "p_code": "P06",
+    "name": "Minimise synthetic pesticide, herbicide and fungicide inputs",
+    "theme": "Soil Management",
+    "rationale": "Chemical pesticides, herbicides, and fungicides disrupt soil biological communities — killing beneficial fungi, bacteria, and invertebrates that underpin nutrient cycling and natural regulation. They also harm pollinators, natural predators, and aquatic organisms through runoff. Reducing inputs allows natural regulatory processes to recover. Most effective when combined with IPM (P14) and habitat management (P30, P31).",
+    "approach_origins": "2.3, 5.3, 5.9, 7.2, 11.2, 14.2",
+    "block4_pressures": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "block5_challenges": [
+      8,
+      13,
+      17,
+      20,
+      21,
+      24,
+      25,
+      26,
+      28
+    ],
+    "block6_services": [
+      15,
+      18,
+      19,
+      20,
+      27,
+      28,
+      29
+    ],
+    "hard_prerequisites": "None.",
+    "primary_applicability": [
+      "All cropland and livestock land use categories"
+    ],
+    "transformative_applicability": [
+      "None — applicable everywhere chemical crop protection is used."
+    ],
+    "prescreen_question": "Q4",
+    "applicable_scale": "Field",
+    "relevant_efgs": [
+      "T7.1",
+      "T7.2",
+      "T7.5",
+      "F3.3"
+    ],
+    "implementation_constraints": "Requires transition period for pest and weed management adaptation. Resistant variety selection and IPM must be implemented in parallel.",
+    "tape_mapping": "Element 5 — Efficiency (Index 10: Input use efficiency; Criterion on reduction of pesticide use)\nElement 3 — Efficiency / Element 11 — Co-creation of knowledge (criteria on IPM adoption)",
+    "field_observation_checklist": "1. Were synthetic pesticides, herbicides, or fungicides applied since the last visit? (Yes — list products / No)\n2. If yes: was application based on monitoring and threshold decisions (IPM) or calendar-based? (Threshold / Calendar / Unknown)\n3. Any evidence of spray marks, drift, or dead non-target organisms near application areas?\n4. Are beneficial insects (bees, hoverflies, beetles) observed near treated areas? (Yes / Absent — may indicate chemical pressure)",
+    "evidence_correct": "Farm spray records confirm reduction in applications compared to baseline. Applications are threshold-based and documented. Non-target beneficial organisms observed at monitoring points. No evidence of drift into margins or water features.",
+    "evidence_non_implementation": "No change in pesticide application frequency compared to baseline. Calendar-based spraying without monitoring. Dead non-target insects observed near treated areas. No beneficial insect activity in field margins adjacent to treated areas."
+  },
+  {
+    "p_code": "P07",
+    "name": "Detoxify and restore degraded soils",
+    "theme": "Soil Management",
+    "rationale": "Soils contaminated by heavy metals, persistent organic pollutants, or agrochemical accumulation require active remediation before biological function can recover. Phytoremediation, biochar application, microbial inoculation, and isolation of contaminated zones are tools depending on contamination type and severity. A prerequisite for other soil health interventions in affected areas.",
+    "approach_origins": "13.2",
+    "block4_pressures": [
+      10,
+      25,
+      26
+    ],
+    "block5_challenges": [
+      8,
+      21
+    ],
+    "block6_services": [
+      15,
+      18,
+      20
+    ],
+    "hard_prerequisites": "Soil contamination confirmed (Block 4 pressure 25 or 26 present, or Block 5 challenge 8 validated).",
+    "primary_applicability": [
+      "Intensive Annual Cropland",
+      "Extensive Annual Cropland",
+      "Irrigated Cropland"
+    ],
+    "transformative_applicability": [
+      "Degraded Grassland",
+      "Forest (Low Integrity) where historical contamination present."
+    ],
+    "prescreen_question": null,
+    "applicable_scale": "Field",
+    "relevant_efgs": [
+      "T7.1"
+    ],
+    "implementation_constraints": "Requires diagnosis of contamination type before intervention. Some methods are slow (phytoremediation over multiple seasons). Specialist support likely needed.",
+    "tape_mapping": "Element 5 — Efficiency (Index 9: Soil management; criteria on soil health restoration)\nElement 4 — Recycling (criteria on remediation and rehabilitation of degraded land)",
+    "field_observation_checklist": "1. Has a soil contamination assessment been carried out and documented? (Yes — results available / In progress / No)\n2. What remediation method is in place: phytoremediation / biochar application / microbial inoculation / physical isolation / other?\n3. Are remediation plants (if phytoremediation) established and growing? (Yes — good establishment / Partial / Not yet planted)\n4. Is the contaminated area physically separated from food production areas? (Yes — clearly delineated / Partial / No separation)\n5. Any evidence of contamination spreading to adjacent areas? (No — contained / Possible — note / Yes — active spread)",
+    "evidence_correct": "Contamination assessment documented with results. Remediation method selected and in active implementation. Remediation plants established or amendment applied as planned. Clear physical delineation of treated area from food production. No evidence of contaminant spread.",
+    "evidence_non_implementation": "No contamination assessment conducted despite confirmed pressure 25 or 26. No remediation action taken. Remediation plants failed or not planted. No physical separation of contaminated soil from food production areas. Contamination spreading to adjacent areas."
+  },
+  {
+    "p_code": "P08",
+    "name": "Implement crop rotation",
+    "theme": "Crop System Diversification",
+    "rationale": "Growing different crop species or families in sequence breaks pest, disease, and weed cycles adapted to a single host. Including legumes in the rotation fixes atmospheric nitrogen, reducing fertiliser need. Rotation also prevents depletion of specific nutrients and builds organic matter across the cycle. One of the most universally applicable and evidence-based practices in sustainable agriculture.",
+    "approach_origins": "1.3, 4.4, 5.6, 6.3, 7.2, 11.3, 12.7, 13.1",
+    "block4_pressures": [
+      3,
+      13
+    ],
+    "block5_challenges": [
+      1,
+      2,
+      7,
+      23,
+      25,
+      26,
+      28,
+      33,
+      34
+    ],
+    "block6_services": [
+      1,
+      15,
+      28,
+      29
+    ],
+    "hard_prerequisites": "Cropping system present.",
+    "primary_applicability": [
+      "Intensive Annual Cropland",
+      "Extensive Annual Cropland",
+      "Irrigated Cropland"
+    ],
+    "transformative_applicability": [
+      "Permanent Crops and Orchards (partial intercrop rotation of understory species)."
+    ],
+    "prescreen_question": null,
+    "applicable_scale": "Field",
+    "relevant_efgs": [
+      "T7.1",
+      "F3.3"
+    ],
+    "implementation_constraints": "Requires planning across seasons and access to diverse seed. Market access for diverse crops may be a constraint in commodity-oriented systems.",
+    "tape_mapping": "Element 1 — Diversity (Index 2: Temporal and spatial diversity; Criterion 2.1 Temporal diversity: rotation)\nElement 5 — Efficiency (Index 9: Soil management)",
+    "field_observation_checklist": "1. What crop is currently growing in this field? (Record species and variety)\n2. What was grown in this field in the previous season? (Record if known)\n3. Does the rotation include a legume species in the current or planned sequence? (Yes / No / Unknown)\n4. Is the rotation plan documented for at least 3 years? (Yes / Partial / No)",
+    "evidence_correct": "Rotation records confirm different crop family from previous season. Legume included somewhere in the 3–4 year rotation sequence. Crop diversity across the farm's fields is visible — not all fields in the same crop. Rotation plan documented.",
+    "evidence_non_implementation": "Same crop species grown in the same field for 2+ consecutive seasons. No legume in the rotation sequence. All farm fields in the same crop simultaneously. No documented rotation plan."
+  },
+  {
+    "p_code": "P09",
+    "name": "Practice intercropping and polycultures",
+    "theme": "Crop System Diversification",
+    "rationale": "Growing two or more crop species together improves resource use efficiency — different root depths, canopy heights, and nutrient demands complement each other. Diversity of flowering plants supports pollinators; diversity of plant architecture supports predatory insects. Reduces pest and disease pressure by disrupting host specificity. Particularly powerful when combining cereals with legumes or aromatic herbs.",
+    "approach_origins": "1.2, 7.3, 12.7, 12.8, 13.1, 14.1",
+    "block4_pressures": [
+      13
+    ],
+    "block5_challenges": [
+      1,
+      7,
+      20,
+      22,
+      23,
+      24,
+      25,
+      26,
+      33,
+      34
+    ],
+    "block6_services": [
+      1,
+      15,
+      27,
+      28
+    ],
+    "hard_prerequisites": "Cropping system present.",
+    "primary_applicability": [
+      "Extensive Annual Cropland",
+      "Intensive Annual Cropland"
+    ],
+    "transformative_applicability": [
+      "Irrigated Cropland (more complex harvest logistics); Permanent Crops (as understory species mixing)."
+    ],
+    "prescreen_question": null,
+    "applicable_scale": "Field",
+    "relevant_efgs": [
+      "T7.1"
+    ],
+    "implementation_constraints": "Harvesting and mechanisation more complex. Market channels for mixed harvests may be limited. Knowledge of compatible crop combinations required.",
+    "tape_mapping": "Element 1 — Diversity (Index 2: Temporal and spatial diversity; Criterion 2.2 Spatial diversity: intercropping)\nElement 1 — Diversity (Index 1: Plant diversity)",
+    "field_observation_checklist": "1. Are two or more crop species growing simultaneously in the monitored field? (Yes — list species / No)\n2. What is the spatial arrangement: mixed / row intercrop / strip intercrop / other?\n3. Is there a legume component in the intercrop? (Yes / No)\n4. Are the intercropped species at a comparable stage of development? (Yes / One dominant / Both poor)",
+    "evidence_correct": "Two or more clearly identifiable crop species growing simultaneously. Legume component visible. Both species showing healthy establishment. Spatial arrangement intentional and consistent across the field.",
+    "evidence_non_implementation": "Only one crop species present. Failed establishment of one intercrop component. One species completely dominated by the other with no viable mixed stand."
+  },
+  {
+    "p_code": "P10",
+    "name": "Introduce or maintain crop fallow periods",
+    "theme": "Crop System Diversification",
+    "rationale": "Allowing land to rest — with natural vegetation or a deliberately managed fallow — gives soil time to recover microbial activity, allows weed seed bank depletion, and provides temporary habitat for beneficial organisms. Planned fallow with diverse spontaneous vegetation is ecologically more valuable than bare fallow. Important complement to rotation systems.",
+    "approach_origins": "1.3",
+    "block4_pressures": [
+      13
+    ],
+    "block5_challenges": [
+      1,
+      2,
+      7,
+      10,
+      18,
+      22,
+      23
+    ],
+    "block6_services": [
+      15,
+      30,
+      32
+    ],
+    "hard_prerequisites": "None.",
+    "primary_applicability": [
+      "Extensive Annual Cropland"
+    ],
+    "transformative_applicability": [
+      "Intensive Annual Cropland (economic sacrifice requires compensation or diversified income); Irrigated Cropland."
+    ],
+    "prescreen_question": null,
+    "applicable_scale": "Field",
+    "relevant_efgs": [
+      "T7.1",
+      "T7.5"
+    ],
+    "implementation_constraints": "Economic loss during fallow period. Length of fallow must balance recovery benefit against productivity need.",
+    "tape_mapping": "Element 1 — Diversity (Index 2: Temporal and spatial diversity; Criterion 2.1 Temporal diversity: rotation)\nElement 5 — Efficiency (Index 9: Soil management)",
+    "field_observation_checklist": "1. Is the designated field currently in a fallow period as planned? (Yes / No — crop or other use)\n2. What vegetation is present on the fallow: bare / spontaneous vegetation / sown fallow mix?\n3. If spontaneous or sown vegetation: is it diverse with multiple functional groups present? (Yes — diverse / Grass dominated / Bare)\n4. Has the fallow been disturbed by tillage or herbicide since the last visit? (No — undisturbed / Yes — note extent)",
+    "evidence_correct": "Field in planned fallow period with spontaneous or sown vegetation cover. Vegetation diverse — multiple functional groups visible. Fallow undisturbed since last visit. Duration of fallow documented in farm records.",
+    "evidence_non_implementation": "Field not in fallow as planned — cropped or tilled during supposed fallow period. Bare fallow with no vegetation cover. Fallow interrupted by tillage or herbicide application. Duration far shorter than planned minimum."
+  },
+  {
+    "p_code": "P11",
+    "name": "Use locally adapted, diverse, and resilient crop varieties and livestock breeds",
+    "theme": "Crop System Diversification",
+    "rationale": "Local and heritage varieties and breeds have co-evolved with regional pests, diseases, soils, and climates — making them inherently more resilient and less dependent on external inputs. They maintain genetic diversity — the raw material for adaptation. Supporting traditional seed systems and breed conservation also maintains cultural knowledge and identity. Not limited to traditional farming contexts.",
+    "approach_origins": "4.7, 5.9, 9.6",
+    "block4_pressures": [
+      13
+    ],
+    "block5_challenges": [
+      23,
+      30,
+      34
+    ],
+    "block6_services": [
+      8,
+      1
+    ],
+    "hard_prerequisites": "None.",
+    "primary_applicability": [
+      "All cropland and livestock land use categories"
+    ],
+    "transformative_applicability": [
+      "None — applicable everywhere",
+      "but most impactful in intensified systems where genetic uniformity is highest."
+    ],
+    "prescreen_question": null,
+    "applicable_scale": "Farm",
+    "relevant_efgs": [
+      "T7.1",
+      "T7.2",
+      "T7.3",
+      "T7.5"
+    ],
+    "implementation_constraints": "Local varieties may have lower yield potential under high-input conditions. Seed availability and market acceptance may be limited.",
+    "tape_mapping": "Element 1 — Diversity (Index 1: Plant diversity; Criterion 1.2 Plant genetic diversity — number of varieties)\nElement 1 — Diversity (Index 3: Animal diversity; Criterion 3.2 Animal genetic diversity)",
+    "field_observation_checklist": "1. How many distinct crop varieties or livestock breeds are present on the farm? (Record number)\n2. Are any locally adapted, heritage, or traditional varieties or breeds in use? (Yes — note names if known / Only commercial varieties)\n3. Is there a documented seed or breed source for local varieties? (Yes — seed saved on farm or local source / Commercial only)\n4. Is the farm actively maintaining genetic diversity across seasons? (Yes — same varieties replanted / Varies — record)",
+    "evidence_correct": "Multiple varieties of the same crop or multiple breeds in use. At least one locally adapted, heritage, or traditional variety or breed documented. Farmer-saved seed or verified local breed source in use. Diversity maintained across seasons.",
+    "evidence_non_implementation": "Single commercial variety of each crop with no diversity. Only commercial high-input varieties selected for maximum yield. No farmer-saved seed. All livestock of one commercial breed with no local or heritage breeds."
+  },
+  {
+    "p_code": "P12",
+    "name": "Introduce perennial crops into the production system",
+    "theme": "Crop System Diversification",
+    "rationale": "Perennial crops — species that grow for multiple years without replanting — maintain continuous root systems that stabilise soil, improve water infiltration, sequester carbon, and support below-ground biodiversity year-round. They require less tillage and fewer inputs once established. Integration of perennial species alongside annual crops adds structural and biological diversity to the farm system.",
+    "approach_origins": "3.3, 7.2, 9.2",
+    "block4_pressures": [
+      1,
+      13
+    ],
+    "block5_challenges": [
+      2,
+      3,
+      7,
+      10,
+      30
+    ],
+    "block6_services": [
+      1,
+      11,
+      15,
+      16
+    ],
+    "hard_prerequisites": "None — market channels for perennial crop products desirable but not an absolute prerequisite.",
+    "primary_applicability": [
+      "Extensive Agroforestry",
+      "Intensive Agroforestry",
+      "Permanent Crops"
+    ],
+    "transformative_applicability": [
+      "Intensive Annual Cropland",
+      "Extensive Annual Cropland (partial conversion of a portion of the farm to perennials)."
+    ],
+    "prescreen_question": "Q1",
+    "applicable_scale": "Field",
+    "relevant_efgs": [
+      "T7.1",
+      "T7.3"
+    ],
+    "implementation_constraints": "Multi-year establishment period. Capital investment required. Market channels for perennial crop products must be considered.",
+    "tape_mapping": "Element 1 — Diversity (Index 1: Plant diversity; Criterion 1.1 Diversity of plant species)\nElement 2 — Synergies (Index 5: Integration of trees; criteria on perennial species integration)",
+    "field_observation_checklist": "1. Are perennial crop species (fruit trees, shrubs, perennial grasses, other multi-year species) present in the monitored field? (Yes — note species / No)\n2. Are perennial species established and growing actively? (Healthy establishment / Stressed / Failed)\n3. What proportion of the monitored area has perennial cover: >50% / 25–50% / 10–25% / <10%?\n4. Is there evidence of perennial species providing soil cover and root structure year-round? (Yes — continuous / Seasonal only / No)",
+    "evidence_correct": "Perennial species established and actively growing. Multiple species present where planned. Perennial cover providing year-round root structure and canopy. Proportion of perennial cover increasing from baseline.",
+    "evidence_non_implementation": "No perennial species present despite commitment in programme. Planted perennials failed or not established. Annual replanting of same annuals with no perennial component added. Perennial species present but dying due to neglect."
+  },
+  {
+    "p_code": "P13",
+    "name": "Adopt push-pull and allelopathic cropping strategies",
+    "theme": "Crop System Diversification",
+    "rationale": "Push-pull intercropping uses companion plants to repel target pests from the main crop while attracting natural enemies or directing pests to trap crops. Allelopathy exploits natural chemical interactions between plants to suppress weeds or pathogens without herbicides. Particularly well-documented for stem borer management in East African cereal systems (Desmodium-Napier grass push-pull).",
+    "approach_origins": "1.7, 13.5",
+    "block4_pressures": [
+      4,
+      5,
+      13
+    ],
+    "block5_challenges": [
+      24,
+      25,
+      26,
+      28
+    ],
+    "block6_services": [
+      1,
+      28,
+      29
+    ],
+    "hard_prerequisites": "Cropping system present; knowledge of locally validated plant combinations for target pests required.",
+    "primary_applicability": [
+      "Extensive Annual Cropland"
+    ],
+    "transformative_applicability": [
+      "Intensive Annual Cropland",
+      "Irrigated Cropland (where specific pest problems align with documented push-pull systems)."
+    ],
+    "prescreen_question": null,
+    "applicable_scale": "Field",
+    "relevant_efgs": [
+      "T7.1"
+    ],
+    "implementation_constraints": "Requires knowledge of specific plant combinations for local pest context. Not yet documented for all crop-pest systems globally.",
+    "tape_mapping": "Element 1 — Diversity (Index 2: Temporal and spatial diversity; Criterion 2.2 Spatial diversity: intercropping)\nElement 5 — Efficiency (Index 10: Input use efficiency — pest management)",
+    "field_observation_checklist": "1. Are the designated push crops (repellent companion plants) established alongside the main crop? (Yes — good establishment / Partial / Absent)\n2. Are the pull crops (trap crops or attractant plants) established at the field perimeter or designated positions? (Yes / Partial / Absent)\n3. Is the main crop showing lower visible pest damage in areas with push-pull companion plants compared to unmanaged areas? (Lower damage / No difference / Not yet assessable)\n4. Are any allelopathic species present in the planned configuration? (Yes / No)",
+    "evidence_correct": "Push plants established alongside main crop at planned density. Pull or trap crops established at field margins or designated positions. Visible pest pressure lower in push-pull treated areas compared to control zones. Configuration maintained across the field.",
+    "evidence_non_implementation": "Push-pull companion plants absent despite planned establishment. Only main crop present with no companion planting. Companion plants established but in wrong configuration. Pull crops absent from field margins."
+  },
+  {
+    "p_code": "P14",
+    "name": "Implement Integrated Pest Management (IPM)",
+    "theme": "Integrated Pest and Disease Management",
+    "rationale": "IPM uses biological, cultural, physical, and chemical measures in combination to manage pests, diseases, and weeds — applying chemical controls only as a last resort and at the lowest effective dose. Regular monitoring of pest populations informs decisions before damage thresholds are exceeded. Reduces chemical inputs, protects natural enemies, and maintains long-term effectiveness of available tools. Compatible with any level of input use.",
+    "approach_origins": "1.7, 11.2, 13.3",
+    "block4_pressures": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "block5_challenges": [
+      24,
+      25,
+      26,
+      28
+    ],
+    "block6_services": [
+      28,
+      29
+    ],
+    "hard_prerequisites": "None.",
+    "primary_applicability": [
+      "All cropland and livestock land use categories"
+    ],
+    "transformative_applicability": [
+      "None — applicable everywhere. Compatible with all levels of input use and all farming systems."
+    ],
+    "prescreen_question": null,
+    "applicable_scale": "Farm",
+    "relevant_efgs": [
+      "T7.1",
+      "T7.2",
+      "T7.3",
+      "T7.5",
+      "F3.3"
+    ],
+    "implementation_constraints": "Requires training in monitoring and decision-making. Access to biological control agents may be limited in some regions.",
+    "tape_mapping": "Element 5 — Efficiency (Index 10: Input use efficiency; Criterion on reduction of pesticide use)\nElement 2 — Synergies (criteria on biological regulation)",
+    "field_observation_checklist": "1. Is there a documented pest monitoring programme in place? (Yes with records / Informal / No)\n2. Are applications made based on recorded pest threshold decisions? (Yes / Partially / No — calendar-based)\n3. Are natural enemies (ladybirds, parasitic wasps, ground beetles) observed in the field? (Abundant / Present / Absent)\n4. Are physical or biological control measures in use alongside or instead of chemical controls? (Yes — note type / No)",
+    "evidence_correct": "Written pest monitoring records available with dates and population estimates. Applications linked to documented threshold exceedance. Natural enemies observed at multiple monitoring points. Non-chemical control measures in use.",
+    "evidence_non_implementation": "No pest monitoring records. All applications calendar-based without threshold assessment. No natural enemies observed. Only chemical controls in use with no diversity of methods."
+  },
+  {
+    "p_code": "P15",
+    "name": "Promote and manage populations of natural pest predators",
+    "theme": "Integrated Pest and Disease Management",
+    "rationale": "Predatory insects (ground beetles, ladybirds, parasitic wasps, hoverflies), spiders, birds, and bats are the principal natural regulators of agricultural pest populations. Their effectiveness depends on habitat availability — overwintering sites, nesting areas, flowering plants for adult food — within and around the cropped area. Best implemented alongside flower strips (P30), hedgerows (P31), and reduced pesticide use (P06).",
+    "approach_origins": "2.7, 3.2, 4.9, 5.9",
+    "block4_pressures": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "block5_challenges": [
+      18,
+      24
+    ],
+    "block6_services": [
+      28,
+      29,
+      30
+    ],
+    "hard_prerequisites": "None.",
+    "primary_applicability": [
+      "Extensive Annual Cropland",
+      "Intensive Annual Cropland"
+    ],
+    "transformative_applicability": [
+      "Irrigated Cropland",
+      "Grassland",
+      "Permanent Crops (habitat management for beneficial insects around and within productive areas)."
+    ],
+    "prescreen_question": null,
+    "applicable_scale": "Farm",
+    "relevant_efgs": [
+      "T7.1",
+      "T7.2"
+    ],
+    "implementation_constraints": "Effectiveness depends on reducing pesticide pressure simultaneously. Habitat creation must be maintained.",
+    "tape_mapping": "Element 2 — Synergies (Index 6: Habitat management; criteria on proportion and diversity of semi-natural habitats)\nElement 5 — Efficiency (Index 10: Input use efficiency — biological pest control)",
+    "field_observation_checklist": "1. Are habitat features for natural enemies present adjacent to or within the monitored field? (Yes — flower strips / hedgerows / margins — note types / No)\n2. Are natural enemies (ladybirds, ground beetles, parasitic wasps, spiders) observed in the field? (Abundant / Present / Absent)\n3. Is pest pressure within a manageable range without chemical intervention in this visit period? (Yes / Borderline / No — chemicals required)\n4. Have habitat features been maintained undisturbed during the current season? (Yes / Partially disturbed / Fully disturbed)",
+    "evidence_correct": "Habitat features for natural enemies present and maintained within or adjacent to field. Natural enemies observed at multiple points during field visit. Pest pressure within manageable range. Habitat features undisturbed during key invertebrate activity period.",
+    "evidence_non_implementation": "No habitat features for natural enemies adjacent to or within field. No natural enemies observed. Pest pressure requiring chemical intervention despite claimed practice. Habitat features destroyed or completely mown during key season."
+  },
+  {
+    "p_code": "P16",
+    "name": "Manage animal health through preventive and holistic approaches",
+    "theme": "Integrated Pest and Disease Management",
+    "rationale": "Maintaining livestock health through prevention — adequate nutrition, appropriate stocking density, outdoor access, clean water, and species-appropriate husbandry — reduces routine antibiotic and pharmaceutical use. Overuse of veterinary medicines contributes to antimicrobial resistance and soil/water contamination. Healthy, well-managed animals in appropriate environments are inherently more resistant to disease.",
+    "approach_origins": "4.8, 5.4, 5.10, 5.11",
+    "block4_pressures": [
+      18
+    ],
+    "block5_challenges": [
+      27
+    ],
+    "block6_services": [
+      3,
+      29
+    ],
+    "hard_prerequisites": "Livestock present.",
+    "primary_applicability": [
+      "Grassland",
+      "Pasture",
+      "Mixed Farming Systems"
+    ],
+    "transformative_applicability": [
+      "None — not applicable where no livestock are present or planned."
+    ],
+    "prescreen_question": "Q2",
+    "applicable_scale": "Farm",
+    "relevant_efgs": [
+      "T7.2",
+      "T7.5"
+    ],
+    "implementation_constraints": "Requires shift in farm management culture. Transition period may see higher disease incidence. Holistic veterinary support may be limited in some areas.",
+    "tape_mapping": "Element 2 — Synergies (Index 4: Plant-livestock integration; Criterion 4.2 Animal in the agroecosystem)\nElement 5 — Efficiency (Index 10: Input use efficiency — veterinary medicine use)",
+    "field_observation_checklist": "1. Are livestock showing signs of good general health: alert behaviour, good body condition, no visible lesions? (Good health / Minor concerns / Significant health issues present)\n2. Does livestock have access to adequate space, shelter, and clean water? (Yes — all adequate / Partial / No)\n3. Have antibiotic or anthelmintic treatments been administered since last visit? (No routine treatments / Yes — therapeutic use only / Yes — routine preventive use)\n4. Is stocking density within the range recommended for the species and available forage? (Within range / Borderline / Excessive)",
+    "evidence_correct": "Livestock alert and in good body condition. Adequate space, shelter, and clean water access confirmed. Veterinary treatments recorded as therapeutic only when required — not routine preventive calendar-based. Stocking density appropriate for available forage.",
+    "evidence_non_implementation": "Animals showing signs of stress, poor body condition, or disease outbreak. Overcrowded conditions without adequate space or shelter. Routine preventive antibiotic or anthelmintic use without health monitoring basis. Chronic health problems unaddressed."
+  },
+  {
+    "p_code": "P17",
+    "name": "Harvest and efficiently manage water on-farm",
+    "theme": "Water Management",
+    "rationale": "Capturing and storing rainwater and surface runoff through earthworks, ponds, tanks, and infiltration structures reduces dependence on groundwater extraction and irrigation. On-farm water storage creates wetland habitats, supports amphibians and aquatic invertebrates, and improves landscape water regulation. Keyline design — directing water infiltration along topographic contours — is particularly effective on sloped terrain.",
+    "approach_origins": "1.8, 3.1, 3.8, 9.7",
+    "block4_pressures": [
+      12,
+      15
+    ],
+    "block5_challenges": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "block6_services": [
+      9,
+      21,
+      22
+    ],
+    "hard_prerequisites": "Rainfall or surface water present in the landscape (not exclusively arid with no seasonal water).",
+    "primary_applicability": [
+      "Extensive Annual Cropland",
+      "Extensive Agroforestry",
+      "Grassland",
+      "Pasture"
+    ],
+    "transformative_applicability": [
+      "Intensive Annual Cropland",
+      "Irrigated Cropland (to reduce dependency on abstracted water)."
+    ],
+    "prescreen_question": null,
+    "applicable_scale": "Farm",
+    "relevant_efgs": [
+      "T7.1",
+      "T7.2",
+      "T7.5"
+    ],
+    "implementation_constraints": "Earthwork design requires topographic survey. Pond creation may require regulatory approval. Initial capital investment required.",
+    "tape_mapping": "Element 5 — Efficiency (Index 8: Water management; Criterion on water harvesting and storage)\nElement 2 — Synergies (criteria on landscape water management)",
+    "field_observation_checklist": "1. Are water harvesting structures (ponds, tanks, earthworks, contour bunds) present and functional? (Yes — note types / Partially functional / No)\n2. Are any structures showing damage or overflow from recent rainfall events? (Yes — note / No)\n3. Is water present in storage structures? (Full / Partial / Empty — note season context)\n4. Evidence of vegetation establishment around water structures? (Good / Establishing / Absent)",
+    "evidence_correct": "Water storage or infiltration structures are intact and functioning. Water is present in storage during appropriate season. Vegetation establishing around structures providing bank stability. Structures are maintained and free of major damage.",
+    "evidence_non_implementation": "Structures damaged, blocked, or non-functional. Water storage empty at time when expected to hold water. Banks eroded or unstable. No vegetation establishment around structures."
+  },
+  {
+    "p_code": "P18",
+    "name": "Restore and manage wetlands, waterways, and riparian zones",
+    "theme": "Water Management",
+    "rationale": "Wetlands, ponds, drainage channels, and riparian vegetation are among the most biologically productive habitats in agricultural landscapes. They regulate water flow, filter nutrients and pollutants, support amphibians, aquatic invertebrates, and riparian birds, and provide microclimate benefits. Restoring drainage ditches, maintaining riparian vegetation, and creating or restoring ponds delivers multiple ecosystem services simultaneously. The key prerequisite is the presence of a water feature — not a wetland EFG classification.",
+    "approach_origins": "8.6, 9.7",
+    "block4_pressures": [
+      16,
+      17
+    ],
+    "block5_challenges": [
+      13,
+      14,
+      15,
+      16,
+      17
+    ],
+    "block6_services": [
+      6,
+      9,
+      16,
+      17,
+      19,
+      20,
+      21,
+      22,
+      24
+    ],
+    "hard_prerequisites": "Watercourse, drainage ditch, seasonal water body, or riparian zone present within or adjacent to the landscape.",
+    "primary_applicability": [
+      "Any land use type with a water feature present (ditch",
+      "stream",
+      "pond",
+      "seasonal waterway)"
+    ],
+    "transformative_applicability": [
+      "Intensive Annual Cropland",
+      "Irrigated Cropland (where drainage channels have been over-engineered and can be partially restored)."
+    ],
+    "prescreen_question": null,
+    "applicable_scale": "Farm / Landscape",
+    "relevant_efgs": null,
+    "implementation_constraints": "May require regulatory permission for hydrological modifications. Long-term management commitment required.",
+    "tape_mapping": "Element 2 — Synergies (Index 6: Habitat management; Criterion on proportion of natural and semi-natural elements)\nElement 5 — Efficiency (Index 8: Water management)",
+    "field_observation_checklist": "1. Is riparian vegetation (grasses, herbs, shrubs) present along the monitored watercourse margins? (Yes — dense / Present — sparse / Absent)\n2. Are there bare, eroded, or compacted bank sections? (Yes — estimate length / No)\n3. Evidence of phased vegetation management (sections at different stages of growth)? (Yes / All same stage — just cut / No management)\n4. Aquatic vegetation visible in the water body? (Present / Absent)",
+    "evidence_correct": "Riparian vegetation provides continuous bank cover with no bare or eroded sections. Phased management visible — some sections recently cut, others with taller growth. Aquatic vegetation present in water body. No evidence of uniform complete clearance.",
+    "evidence_non_implementation": "Riparian margins completely bare or uniformly mown to ground level. Eroded bank sections exposed. No vegetation diversity along bank — all same management stage. Aquatic vegetation absent from water body that previously had it."
+  },
+  {
+    "p_code": "P19",
+    "name": "Optimise irrigation efficiency",
+    "theme": "Water Management",
+    "rationale": "Where irrigation is practised, reducing water applied per unit of production protects groundwater, reduces waterlogging and salinisation risk, and lowers energy consumption. Drip irrigation, deficit irrigation, alternate wetting and drying (particularly in rice systems), and sensor-based scheduling are progressively more efficient approaches. Also reduces nutrient leaching by maintaining better soil water balance.",
+    "approach_origins": "9.2, 9.7",
+    "block4_pressures": [
+      12,
+      15
+    ],
+    "block5_challenges": [
+      5,
+      9,
+      11,
+      12
+    ],
+    "block6_services": [
+      9,
+      21
+    ],
+    "hard_prerequisites": "Irrigation infrastructure present.",
+    "primary_applicability": [
+      "Irrigated Cropland",
+      "Intensive Annual Cropland (where partial irrigation is used)"
+    ],
+    "transformative_applicability": [
+      "None — not applicable where no irrigation is practised."
+    ],
+    "prescreen_question": null,
+    "applicable_scale": "Farm",
+    "relevant_efgs": [
+      "T7.1",
+      "F3.3"
+    ],
+    "implementation_constraints": "Capital investment in drip or precision systems required. Technical knowledge for system management needed.",
+    "tape_mapping": "Element 5 — Efficiency (Index 8: Water management; Criterion on water use efficiency in irrigation)",
+    "field_observation_checklist": "1. Is irrigation applied according to a schedule based on crop need or soil moisture rather than fixed calendar? (Need-based / Fixed calendar / Unknown)\n2. What irrigation method is in use: surface flood / furrow / sprinkler / drip / subsurface drip?\n3. Is there evidence of over-irrigation: standing water, waterlogging, surface salt crust, or runoff from irrigated areas? (No / Minor signs / Significant over-irrigation)\n4. Are irrigation infrastructure components (pipes, drippers, timers) functional and leak-free? (Fully functional / Minor leaks / Significant losses)",
+    "evidence_correct": "Irrigation scheduled based on crop water need assessment or soil moisture monitoring. Efficient delivery method in use (drip preferred). No signs of over-irrigation, waterlogging, or surface runoff from irrigated areas. Infrastructure maintained with no significant leaks.",
+    "evidence_non_implementation": "Fixed calendar irrigation regardless of crop need or weather. Surface flood irrigation on sloped or poorly drained land. Standing water, waterlogging, or salt crust visible after irrigation. Significant infrastructure leaks wasting water."
+  },
+  {
+    "p_code": "P20",
+    "name": "Implement contour management and anti-erosion earthworks",
+    "theme": "Water Management",
+    "rationale": "On sloped terrain, water moves rapidly downhill, carrying topsoil and nutrients into watercourses. Terraces, contour bunds, check dams, and grassed waterways slow this movement, increase infiltration, and trap sediment. These structures can also create microhabitats for soil organisms and form ecological corridors. Traditional terracing is among the most ancient and effective land management practices for sloped agricultural land.",
+    "approach_origins": "8.6, 9.7",
+    "block4_pressures": [
+      1,
+      2
+    ],
+    "block5_challenges": [
+      3,
+      10
+    ],
+    "block6_services": [
+      16,
+      17,
+      21,
+      22
+    ],
+    "hard_prerequisites": "Sloped terrain present (gradient >3–5% in the landscape).",
+    "primary_applicability": [
+      "Extensive Annual Cropland and Grassland on slopes",
+      "Shrubland",
+      "Agroforestry on slopes"
+    ],
+    "transformative_applicability": [
+      "Intensive Annual Cropland on slopes (often the land most in need of this intervention)."
+    ],
+    "prescreen_question": null,
+    "applicable_scale": "Farm",
+    "relevant_efgs": [
+      "T7.1",
+      "T7.2"
+    ],
+    "implementation_constraints": "Construction requires technical survey and labour investment. Maintenance needed after heavy rainfall. Most critical on slopes >5%.",
+    "tape_mapping": "Element 5 — Efficiency (Index 9: Soil management; criteria on erosion control and land conservation)\nElement 5 — Efficiency (Index 8: Water management — water retention)",
+    "field_observation_checklist": "1. Are contour structures (bunds, terraces, check dams, grassed waterways) present and intact? (Yes — intact / Partially damaged / Absent or completely failed)\n2. Have any structures been breached or overtopped following recent rainfall events? (No / Minor damage — note / Major breach — note)\n3. Is vegetation established on contour banks and waterways? (Good cover / Establishing / Bare and eroding)\n4. Any evidence of rill or gully formation in the monitored sloped area? (No / Minor rills / Active gullying)",
+    "evidence_correct": "Contour structures intact and functional. Vegetation established on bunds and waterways providing structural protection. No breaches following recent rainfall events. No active rill or gully formation in the monitored area.",
+    "evidence_non_implementation": "Structures breached or completely failed. Bunds and waterways bare and actively eroding. Major gully formation evident in the monitored slope. Structures not maintained following damage."
+  },
+  {
+    "p_code": "P21",
+    "name": "Implement rotational and managed grazing",
+    "theme": "Livestock and Pasture Management",
+    "rationale": "Moving livestock between paddocks on a planned rotation allows grazed vegetation to recover before being grazed again. Prevents overgrazing, maintains plant diversity, improves soil carbon and structure, and restores pasture water-holding capacity. Well-managed rotational grazing can increase overall pasture productivity while significantly improving ecological function. The inverse of set-stocking, which progressively degrades pastures.",
+    "approach_origins": "7.4, 10.1",
+    "block4_pressures": [
+      18
+    ],
+    "block5_challenges": [
+      2,
+      3,
+      4,
+      18,
+      22
+    ],
+    "block6_services": [
+      2,
+      15,
+      16
+    ],
+    "hard_prerequisites": "Livestock present.",
+    "primary_applicability": [
+      "Grassland",
+      "Pasture"
+    ],
+    "transformative_applicability": [
+      "Extensive Agroforestry and Silvopastoral systems where livestock are being introduced or re-integrated (governed by Q2)."
+    ],
+    "prescreen_question": "Q2",
+    "applicable_scale": "Farm",
+    "relevant_efgs": [
+      "T7.2",
+      "T7.5"
+    ],
+    "implementation_constraints": "Requires fencing investment for paddock subdivision. Water supply to each paddock required. Rotation planning and record-keeping essential.",
+    "tape_mapping": "Element 2 — Synergies (Index 4: Plant-livestock integration; Criterion 4.2 Animal in the agroecosystem)\nElement 5 — Efficiency (Index 9: Soil management — grazing management)",
+    "field_observation_checklist": "1. Has livestock been rotated out of this paddock since the last visit? (Yes — note days rested / No — still grazed)\n2. What is the current sward height at monitoring points? (>15cm — resting well / 5–15cm — light grazing / <5cm — overgrazed)\n3. Is there evidence of flowering plant heads in the sward? (Yes — rotation allowing recovery / No — grazed too short)\n4. Is fencing functional and are paddock divisions clear? (Yes / Partial / No divisions visible)",
+    "evidence_correct": "Rotation records confirm livestock moved on a planned schedule. Sward height varies across paddocks — some at >15cm after rest, others actively grazed. Flowering forbs and grasses present in resting paddocks. Paddock fencing intact.",
+    "evidence_non_implementation": "Livestock present in all paddocks simultaneously with no rotation. Sward uniformly grazed to <5cm across the whole area. No flowering plants — grazed too short and too frequently. No paddock division fencing."
+  },
+  {
+    "p_code": "P22",
+    "name": "Reduce stocking densities",
+    "theme": "Livestock and Pasture Management",
+    "rationale": "Livestock numbers exceeding land carrying capacity are the primary driver of overgrazing, soil compaction, vegetation loss, and water quality degradation in pastoral landscapes. Matching animal numbers to land capacity — based on vegetation monitoring — is the foundational intervention for pasture recovery. Often the single highest-impact change in degraded grazing systems.",
+    "approach_origins": "2.1, 5.11, 10.1",
+    "block4_pressures": [
+      18
+    ],
+    "block5_challenges": [
+      3,
+      4,
+      18,
+      22
+    ],
+    "block6_services": [
+      2,
+      16
+    ],
+    "hard_prerequisites": "Livestock present.",
+    "primary_applicability": [
+      "Grassland",
+      "Pasture"
+    ],
+    "transformative_applicability": [
+      "None — not applicable without livestock."
+    ],
+    "prescreen_question": "Q2",
+    "applicable_scale": "Farm",
+    "relevant_efgs": [
+      "T7.2",
+      "T7.5"
+    ],
+    "implementation_constraints": "Economic impact on livestock-dependent households must be considered. Gradual transition more feasible than sudden destocking.",
+    "tape_mapping": "Element 2 — Synergies (Index 4: Plant-livestock integration; Criterion 4.2 Animal in the agroecosystem)\nElement 5 — Efficiency (Index 10: Input use efficiency — stocking density)",
+    "field_observation_checklist": "1. Approximate livestock density in the monitored area at time of visit: (animals/hectare — record number and species)\n2. Is bare soil visible at monitoring points? (<5% / 5–15% / 15–30% / >30%)\n3. Evidence of hoof poaching or soil compaction around water points and gates? (Severe / Moderate / Minimal)\n4. Are there areas of the grassland showing active vegetation recovery? (Yes — note extent / No)",
+    "evidence_correct": "Bare soil below 10% at monitoring points. No severe poaching around water points. Livestock density records show reduction from baseline. Vegetation cover recovering in areas identified as overgrazed at baseline.",
+    "evidence_non_implementation": "Bare soil above 20% across the monitored area. Severe poaching and compaction around water points and gates extending >5m. Livestock density unchanged from pre-programme baseline. No recovery of vegetation in previously degraded areas."
+  },
+  {
+    "p_code": "P23",
+    "name": "Integrate crop and livestock systems",
+    "theme": "Livestock and Pasture Management",
+    "rationale": "Combining crop and livestock production closes nutrient loops — livestock manure fertilises crops, crop residues feed livestock — reducing dependence on external inputs. Mixed systems also buffer against market volatility and provide ecological benefits through habitat diversity. One of the most ancient and widespread sustainable farming systems globally, and one of the most powerful transitions available for landscapes where the siloed model has driven land degradation.",
+    "approach_origins": "1.5, 4.3, 9.1, 9.3, 12.10, 14.2",
+    "block4_pressures": [
+      3,
+      11,
+      13
+    ],
+    "block5_challenges": [
+      1,
+      2,
+      33,
+      34
+    ],
+    "block6_services": [
+      1,
+      2,
+      3,
+      15
+    ],
+    "hard_prerequisites": "None — this practice IS the integration. No livestock prerequisite for the transformative tier.",
+    "primary_applicability": [
+      "Mixed systems where both crops and livestock are already present and managed in coordination"
+    ],
+    "transformative_applicability": [
+      "Pure cropland systems (no current livestock — governed by Q2); Pure grassland systems seeking crop integration."
+    ],
+    "prescreen_question": "Q2",
+    "applicable_scale": "Farm",
+    "relevant_efgs": [
+      "T7.1",
+      "T7.2",
+      "T7.5"
+    ],
+    "implementation_constraints": "Requires management of both enterprises simultaneously. Infrastructure for livestock (fencing, water, housing) required. Significant knowledge and capital investment.",
+    "tape_mapping": "Element 2 — Synergies (Index 4: Plant-livestock integration; Criteria 4.1 and 4.2 — feed production and animals in agroecosystem)\nElement 4 — Recycling (Index 7: Recycling biomass — manure management)",
+    "field_observation_checklist": "1. Are both crop and livestock enterprises present on the same farm? (Yes — both present / Crop only / Livestock only)\n2. Is crop residue or by-product being used as livestock feed? (Yes — note type / No)\n3. Is livestock manure being applied to crop fields? (Yes — note frequency / No)\n4. Is there a documented nutrient flow between crop and livestock systems? (Yes / Informal / No)",
+    "evidence_correct": "Both enterprises active on the farm. Physical evidence of manure application on crop fields. Crop residues or by-products being fed to livestock. Basic records of nutrient flows between enterprises.",
+    "evidence_non_implementation": "Enterprises completely separated with no physical exchange of materials. Crop residues burned or removed without use as feed. Manure stockpiled or disposed of without application to cropland. No documented connection between the two systems."
+  },
+  {
+    "p_code": "P24",
+    "name": "Restore and manage degraded pastures and grasslands",
+    "theme": "Livestock and Pasture Management",
+    "rationale": "Pastures and grasslands degraded by overgrazing, compaction, or weed encroachment can be restored through strategic resting, reseeding with diverse native or adapted species mixes, and corrective earthworks. Restoration of plant diversity in grasslands drives recovery of pollinator, invertebrate, and bird communities that depend on structurally diverse vegetation. High nature value grasslands are among the most biodiversity-rich habitats in agricultural landscapes.",
+    "approach_origins": "9.3, 9.7, 10.1",
+    "block4_pressures": [
+      18
+    ],
+    "block5_challenges": [
+      3,
+      4,
+      18,
+      22,
+      24
+    ],
+    "block6_services": [
+      2,
+      16,
+      22,
+      27,
+      30
+    ],
+    "hard_prerequisites": "Grazing land present — even if severely degraded.",
+    "primary_applicability": [
+      "Grassland",
+      "Pasture"
+    ],
+    "transformative_applicability": [
+      "Abandoned Cropland being converted to grassland or agroforestry; Degraded Shrubland being restored to productive grassland."
+    ],
+    "prescreen_question": "Q2",
+    "applicable_scale": "Farm",
+    "relevant_efgs": [
+      "T7.2",
+      "T7.5"
+    ],
+    "implementation_constraints": "Recovery timescales 2–10 years depending on degradation severity. Grazing exclusion required during recovery phase.",
+    "tape_mapping": "Element 1 — Diversity (Index 1: Plant diversity; Criterion 1.1 diversity of plant species)\nElement 2 — Synergies (Index 6: Habitat management)",
+    "field_observation_checklist": "1. Is there evidence of reseeding or restoration work (new seedling establishment, seeded patches)? (Yes — note stage / No — natural recovery only)\n2. Are target species (native grasses, forbs, legumes) establishing? (Yes — note species if known / Not yet visible / Establishment failed)\n3. Has competitive grass or invasive species management been carried out? (Yes / No — may be limiting recovery)\n4. Current grazing exclusion or reduced pressure status: (Fully excluded / Reduced stocking / Unchanged)",
+    "evidence_correct": "New species establishing beyond the monoculture that was present at baseline. Legumes and flowering forbs visible in areas identified as degraded. Grazing exclusion or reduced pressure maintained as planned. Competitive grass management evidence where specified in restoration plan.",
+    "evidence_non_implementation": "No new species beyond original degraded community. Grazing intensity unchanged from baseline in restoration areas. Competitive species (aggressive grasses, thistles) dominating without management response. Seeded species failed to establish."
+  },
+  {
+    "p_code": "P25",
+    "name": "Manage manure and livestock effluent responsibly",
+    "theme": "Livestock and Pasture Management",
+    "rationale": "Poorly managed manure is a primary source of water pollution, atmospheric emissions, and soil imbalance. Proper storage, composting, treatment, and application transforms a pollution risk into a soil fertility asset. Biodigestion of slurry produces biogas and digestate, closing energy and nutrient loops. A critical practice wherever livestock are present.",
+    "approach_origins": "9.3, 12.5",
+    "block4_pressures": [
+      11,
+      17
+    ],
+    "block5_challenges": [
+      13,
+      14,
+      15
+    ],
+    "block6_services": [
+      15,
+      18,
+      19,
+      20
+    ],
+    "hard_prerequisites": "Livestock present.",
+    "primary_applicability": [
+      "Grassland",
+      "Pasture",
+      "Mixed Farming Systems with livestock"
+    ],
+    "transformative_applicability": [
+      "Cropland systems receiving imported manure from external livestock enterprises (where responsible application practice is still required)."
+    ],
+    "prescreen_question": "Q2",
+    "applicable_scale": "Farm",
+    "relevant_efgs": [
+      "T7.2",
+      "T7.1"
+    ],
+    "implementation_constraints": "Infrastructure investment (storage tanks, composting facilities) required. Regulatory standards for manure management vary by country.",
+    "tape_mapping": "Element 4 — Recycling (Index 7: Recycling biomass; Criterion on manure management and recycling)\nElement 2 — Synergies (Index 4: Plant-livestock integration; criteria on manure management)",
+    "field_observation_checklist": "1. Is manure or slurry stored in a covered or managed storage facility? (Yes — covered storage / Open lagoon / No storage — field deposited directly)\n2. Any evidence of manure or slurry running off storage areas into watercourses or adjacent land? (No / Minor seepage / Active runoff)\n3. Is manure applied to land at agronomic rates based on crop need? (Yes — records available / Estimated / No — excess application)\n4. Is there evidence of composting or treatment of manure before application? (Yes — composted / Partly / Applied raw)",
+    "evidence_correct": "Manure stored in covered or managed facility with no runoff. Application rates documented and consistent with agronomic need. Composting or treatment visible — no strong ammonia odour during application period. No evidence of runoff to watercourses.",
+    "evidence_non_implementation": "Manure storage overflowing or actively running off to watercourse. Excess application producing ponding or runoff from fields. Raw manure applied at rates far exceeding agronomic need. Strong ammonia odour indicating significant nitrogen volatilisation."
+  },
+  {
+    "p_code": "P26",
+    "name": "Establish or maintain agroforestry systems",
+    "theme": "Agroforestry and Tree Integration",
+    "rationale": "Integrating trees into crop production delivers multiple simultaneous benefits: improved soil fertility through nitrogen fixation and leaf litter decomposition, microclimate regulation, habitat for pollinators and natural enemies, carbon sequestration in woody biomass and roots, and diversified farm income. Agroforestry is the single practice that simultaneously addresses the broadest range of land health challenges. It does not require existing tree cover — it can be established on annual cropland as a system transition. It is one of the most powerful transformative interventions available for degraded annual crop landscapes.",
+    "approach_origins": "1.9, 3.5, 7.3, 8.2, 8.7, 9.1",
+    "block4_pressures": [
+      19,
+      22,
+      27
+    ],
+    "block5_challenges": [
+      1,
+      7,
+      18,
+      19,
+      22,
+      30,
+      32
+    ],
+    "block6_services": [
+      1,
+      5,
+      7,
+      11,
+      12,
+      13,
+      15,
+      26,
+      27,
+      28,
+      30
+    ],
+    "hard_prerequisites": "None — agroforestry can be established from scratch on any land use type.",
+    "primary_applicability": [
+      "Extensive Agroforestry",
+      "Intensive Agroforestry",
+      "Permanent Crops"
+    ],
+    "transformative_applicability": [
+      "Extensive Annual Cropland",
+      "Intensive Annual Cropland",
+      "Grassland",
+      "Pasture — as a system transition introducing trees where none currently exist."
+    ],
+    "prescreen_question": "Q1",
+    "applicable_scale": "Farm",
+    "relevant_efgs": [
+      "T7.1",
+      "T7.2",
+      "T7.3"
+    ],
+    "implementation_constraints": "Multi-year establishment before tree benefits fully realised. Species selection critical. Tenure security required. Land tenure and tree rights must be clarified.",
+    "tape_mapping": "Element 2 — Synergies (Index 5: Integration of trees; Criteria 5.1 and 5.2)\nElement 1 — Diversity (Index 1: Plant diversity — tree species diversity)",
+    "field_observation_checklist": "1. Are trees or shrubs present in the monitored field or pasture? (Yes — note species and density / No)\n2. Are newly planted trees showing active growth and good establishment? (Healthy and growing / Stressed / Failed — note cause)\n3. Is there adequate protection of young trees from livestock or machinery? (Yes / Insufficient — some damage / No protection)\n4. Evidence of natural regeneration under established trees? (Present / Absent)",
+    "evidence_correct": "Trees present at planned density. Newly planted individuals showing healthy establishment with protective measures in place. No mechanical or livestock damage to young trees. Species diversity present — not monoculture.",
+    "evidence_non_implementation": "Tree establishment failed due to unprotected browsing or mechanical damage. Planted trees wilting, dead, or missing entirely. No natural regeneration under or around established trees. Monospecific planting with no diversity."
+  },
+  {
+    "p_code": "P27",
+    "name": "Establish or maintain silvopastoral systems",
+    "theme": "Agroforestry and Tree Integration",
+    "rationale": "Integrating trees into grazing land provides shade and shelter for livestock (improving welfare and reducing heat stress), contributes leaf litter and deep root turnover to soil fertility, creates habitat structure for birds and insects, and sequesters carbon in soil and woody biomass. Silvopasture transforms monoculture pastures into structurally complex, multi-layered systems. Can be established on existing grassland or as part of crop-livestock integration on cropland.",
+    "approach_origins": "3.6, 7.3, 7.4, 8.7, 9.3",
+    "block4_pressures": [
+      19,
+      22,
+      27
+    ],
+    "block5_challenges": [
+      2,
+      3,
+      18,
+      19,
+      22,
+      32
+    ],
+    "block6_services": [
+      2,
+      3,
+      11,
+      13,
+      27,
+      30
+    ],
+    "hard_prerequisites": "None — trees can be introduced into any grazing system. Livestock presence required for the 'pasture' component; governed by Q2 if livestock are absent.",
+    "primary_applicability": [
+      "Grassland with some tree cover",
+      "Pasture",
+      "Existing Silvopastoral systems"
+    ],
+    "transformative_applicability": [
+      "Degraded Intensive Grassland",
+      "Extensive Annual Cropland where crop-livestock-tree integration is the target system."
+    ],
+    "prescreen_question": "Q1",
+    "applicable_scale": "Farm",
+    "relevant_efgs": [
+      "T7.2",
+      "T7.3",
+      "T7.5"
+    ],
+    "implementation_constraints": "Tree establishment requires fencing during early growth. Species selection must consider livestock palatability. Long establishment period.",
+    "tape_mapping": "Element 2 — Synergies (Index 5: Integration of trees; Criteria 5.1 and 5.2)\nElement 2 — Synergies (Index 4: Plant-livestock integration; Criterion 4.2 Animal in the agroecosystem)",
+    "field_observation_checklist": "1. Are trees or shrubs present within the grazed area as an intentional silvopastoral component? (Yes — established / Planted but early establishment / Absent)\n2. Are livestock able to access shade and shelter from established trees? (Yes — good shade available / Partial / Trees too small or absent)\n3. Are young trees adequately protected from livestock browsing and rubbing? (Yes — protected / Partially / Not protected — damage visible)\n4. Evidence of ground vegetation diversity beneath tree canopy compared to open areas? (More diverse under trees / Similar / Less diverse)",
+    "evidence_correct": "Trees established within grazed area with intentional spacing. Livestock accessing shade and shelter. Young trees protected with guards or exclosures. Ground vegetation shows higher diversity beneath tree canopy than in open areas.",
+    "evidence_non_implementation": "No trees within grazed area despite planned silvopastoral design. All planted trees dead from unprotected livestock browsing. Ground vegetation completely absent beneath trees due to overgrazing. No shade or shelter available to livestock."
+  },
+  {
+    "p_code": "P28",
+    "name": "Plant and maintain windbreaks and shelterbelts",
+    "theme": "Agroforestry and Tree Integration",
+    "rationale": "Linear plantings of trees and shrubs along field edges protect crops and soil from wind erosion, reduce evapotranspiration stress, moderate microclimate, and create linear habitat corridors connecting larger habitat patches. In arid and semi-arid systems, windbreaks can dramatically reduce topsoil loss. Also support birds, pollinators, and wildlife that use linear structures for movement. Do not require existing tree cover — they create it.",
+    "approach_origins": "1.11, 8.6",
+    "block4_pressures": [
+      19,
+      22,
+      23
+    ],
+    "block5_challenges": [
+      3,
+      18,
+      19,
+      30
+    ],
+    "block6_services": [
+      13,
+      16,
+      25,
+      26,
+      30
+    ],
+    "hard_prerequisites": "None — applicable wherever field boundaries exist.",
+    "primary_applicability": [
+      "Extensive Annual Cropland",
+      "Intensive Annual Cropland",
+      "Grassland",
+      "Pasture"
+    ],
+    "transformative_applicability": [
+      "Irrigated Cropland in windy or dry areas; Permanent Crops; Orchards."
+    ],
+    "prescreen_question": "Q1",
+    "applicable_scale": "Landscape",
+    "relevant_efgs": [
+      "T7.1",
+      "T7.2"
+    ],
+    "implementation_constraints": "Long-term commitment required. Species selection must balance windbreak effectiveness with crop competition. Coordination with neighbours may be needed for landscape-scale connectivity.",
+    "tape_mapping": "Element 2 — Synergies (Index 5: Integration of trees; Criterion 5.1 Integration of trees)\nElement 2 — Synergies (Index 6: Habitat management)",
+    "field_observation_checklist": "1. Are windbreak or shelterbelt plantings present along planned field boundaries or vulnerable exposures? (Yes — established / Planted but establishing / Absent)\n2. What is the approximate current height of established windbreaks? (Record estimate)\n3. Is the windbreak continuous without significant gaps? (Continuous / 1–2 gaps / Multiple gaps)\n4. Is there evidence of wind erosion or crop damage on the sheltered side compared to unsheltered areas? (Reduced damage / No difference yet — plants young / No assessment possible)",
+    "evidence_correct": "Windbreak present and growing along planned alignment. Continuous without major gaps. Height increasing from baseline. Evidence of wind protection effect on sheltered crops — less lodging, less soil movement.",
+    "evidence_non_implementation": "Windbreak absent or failed. Major gaps allowing unrestricted wind flow. Established windbreak severely pruned or damaged. Wind erosion and crop lodging continuing unchanged on supposedly sheltered side."
+  },
+  {
+    "p_code": "P29",
+    "name": "Protect and regenerate scattered trees within agricultural land",
+    "theme": "Agroforestry and Tree Integration",
+    "rationale": "Individual trees retained within crop fields and pastures — particularly keystone parkland species like Faidherbia albida or Vitellaria paradoxa — are foundational elements of traditional agricultural landscapes. They fix nitrogen, provide shade, support biodiversity, anchor soil, and sequester carbon. Their loss is often irreversible on human timescales. Protection of existing trees and active promotion of natural regeneration (Farmer-Managed Natural Regeneration, FMNR) is one of the most cost-effective land restoration interventions globally. Applicable even where trees have been largely removed — FMNR has restored tree cover at massive scale across the Sahel.",
+    "approach_origins": "2.4, 8.7",
+    "block4_pressures": [
+      19,
+      20,
+      22,
+      27
+    ],
+    "block5_challenges": [
+      7,
+      18,
+      19,
+      22,
+      32
+    ],
+    "block6_services": [
+      5,
+      7,
+      11,
+      13,
+      15,
+      30,
+      35
+    ],
+    "hard_prerequisites": "At least some scattered trees or stumps with regeneration potential present, OR documented history of tree cover that could be restored through FMNR.",
+    "primary_applicability": [
+      "Extensive Agroforestry",
+      "traditional farming landscapes with existing scattered trees",
+      "Grassland Parkland systems"
+    ],
+    "transformative_applicability": [
+      "Extensive Annual Cropland",
+      "Intensive Annual Cropland where trees have been removed but regeneration potential exists (FMNR approach)."
+    ],
+    "prescreen_question": "Q1",
+    "applicable_scale": "Farm",
+    "relevant_efgs": [
+      "T7.1",
+      "T7.2"
+    ],
+    "implementation_constraints": "Cultural attitudes toward trees in fields must be addressed. Tenure rights over trees must be clarified. Active protection from overextraction required in degraded contexts.",
+    "tape_mapping": "Element 2 — Synergies (Index 5: Integration of trees; Criteria 5.1 and 5.2)\nElement 3 — Recycling / Synergies (FMNR-related criteria)",
+    "field_observation_checklist": "1. Are existing scattered trees protected from cutting, lopping, or overgrazing? (Yes — intact / Signs of recent cutting / Active threat)\n2. Evidence of natural regeneration (seedlings or saplings within 5m of parent trees)? (Present and protected / Present but browsed / Absent)\n3. If FMNR is planned: are regrowth stems being selectively protected and pruned? (Yes / No FMNR management visible)\n4. Tree health status: are canopies intact and healthy? (Healthy / Stressed / Dying or dead — note cause)",
+    "evidence_correct": "Existing trees intact with no new cutting or severe lopping. Natural regeneration present and protected from browsing. FMNR management visible where planned — selected stems growing without livestock pressure. Tree canopies healthy.",
+    "evidence_non_implementation": "Fresh cutting or lopping of existing trees. Regeneration completely browsed to ground level. No FMNR management — all regrowth eliminated by livestock. Tree canopies severely damaged or trees dead."
+  },
+  {
+    "p_code": "P30",
+    "name": "Establish or restore field margins, flower strips, and herb edges",
+    "theme": "Habitat and Landscape Management",
+    "rationale": "Strips of native wildflowers, grasses, and herbs along field edges are disproportionately important for pollinators, natural predators, and other beneficial organisms relative to their small area. They provide nectar and pollen for bees and hoverflies, overwintering habitat for ground beetles and spiders, and nesting sites for solitary bees and farmland birds. Multi-species mixes providing season-long flowering are most effective. One of the highest biodiversity-per-area interventions available — applicable to any agricultural landscape with field boundaries.",
+    "approach_origins": "2.5, 7.3, 8.6, 10.2",
+    "block4_pressures": [
+      19,
+      23
+    ],
+    "block5_challenges": [
+      18,
+      19,
+      20,
+      22,
+      24
+    ],
+    "block6_services": [
+      27,
+      28,
+      29,
+      30,
+      32
+    ],
+    "hard_prerequisites": "None — applicable to any landscape with field boundaries or edges.",
+    "primary_applicability": [
+      "Extensive Annual Cropland",
+      "Intensive Annual Cropland",
+      "Grassland",
+      "Pasture",
+      "Permanent Crops"
+    ],
+    "transformative_applicability": [
+      "Irrigated Cropland (where field margins may be minimal or absent)."
+    ],
+    "prescreen_question": "Q3",
+    "applicable_scale": "Farm",
+    "relevant_efgs": [
+      "T7.1",
+      "T7.2"
+    ],
+    "implementation_constraints": "Requires removal of small productive area (typically 2–6m strips). Weed management in early establishment. Mix must be appropriate for local climate and pollinator fauna.",
+    "tape_mapping": "Element 2 — Synergies (Index 6: Habitat management; Criterion on proportion of natural and semi-natural elements)\nElement 1 — Diversity (Index 1: Plant diversity)",
+    "field_observation_checklist": "1. Is the flower strip or field margin established and visible? (Yes — good cover / Establishing / Failed / Not yet implemented)\n2. Are flowering plants present in the strip? (Yes — abundant / Yes — sparse / No — grass dominated)\n3. Evidence of invertebrate activity (bees, hoverflies, beetles) in the strip? (Abundant / Present / Absent)\n4. Has the strip been mown, sprayed, or disturbed since the last visit? (Yes — note timing / No)",
+    "evidence_correct": "Flower strip visibly established with diverse flowering plants. Insect activity observed during visit. No recent complete mowing (managed in sections if at all). Strip width maintained at planned dimensions.",
+    "evidence_non_implementation": "No flower strip established despite commitment in the programme. Strip entirely grass-dominated with no flowering forbs. Completely mown to ground level during key flowering period. Strip sprayed with herbicide eliminating forb component."
+  },
+  {
+    "p_code": "P31",
+    "name": "Establish or maintain hedgerows and linear woody elements",
+    "theme": "Habitat and Landscape Management",
+    "rationale": "Hedgerows — mixed shrub and tree plantings along field boundaries — support nesting birds, small mammals, bats, beetles, spiders, and many invertebrates. They also provide windbreak effects, regulate microclimate, reduce erosion, and connect habitat patches. A well-managed multi-layered hedgerow is among the most ecologically valuable farm features in temperate and subtropical agricultural landscapes. Establishment from scratch is straightforward and does not require existing woody vegetation.",
+    "approach_origins": "1.11, 2.4, 8.6",
+    "block4_pressures": [
+      19,
+      23
+    ],
+    "block5_challenges": [
+      18,
+      19,
+      20,
+      22,
+      24,
+      29,
+      32
+    ],
+    "block6_services": [
+      13,
+      25,
+      26,
+      27,
+      28,
+      30
+    ],
+    "hard_prerequisites": "None — can be established on any land use type with field boundaries.",
+    "primary_applicability": [
+      "Extensive Annual Cropland",
+      "Grassland",
+      "Pasture",
+      "Extensive Agroforestry"
+    ],
+    "transformative_applicability": [
+      "Intensive Annual Cropland (where field rationalisation has eliminated hedgerows — requires field boundary reconfiguration)."
+    ],
+    "prescreen_question": "Q1",
+    "applicable_scale": "Farm",
+    "relevant_efgs": [
+      "T7.1",
+      "T7.2",
+      "T7.5"
+    ],
+    "implementation_constraints": "Establishment investment and regular management required. Species mix must be locally appropriate. Management frequency affects which species benefit.",
+    "tape_mapping": "Element 2 — Synergies (Index 5: Integration of trees; criteria on woody boundary structures)\nElement 2 — Synergies (Index 6: Habitat management)",
+    "field_observation_checklist": "1. Is the hedgerow intact along its planned length with no major gaps (>2m)? (Intact / 1–2 gaps / Multiple gaps)\n2. What is the approximate current height and width? (Record estimates)\n3. Evidence of recent cutting or management? (Yes — note timing and method / No recent management)\n4. Is there a diverse ground layer beneath the hedgerow? (Yes — herbs and grasses / Grass only / Bare / Nettle dominant)",
+    "evidence_correct": "Hedgerow continuous along planned line with no significant gaps. Height and width increasing over time from baseline. Ground layer diverse with herbs and grasses beneath. Management (if any) phased — not complete simultaneous cutting.",
+    "evidence_non_implementation": "Major gaps in hedgerow allowing livestock through or creating connectivity breaks. Machine-cut to uniform low height simultaneously along entire length. Ground layer completely absent or dominated by nettles (high nitrogen indicator). Overall structural complexity declining from baseline."
+  },
+  {
+    "p_code": "P32",
+    "name": "Create or maintain habitat patches within the landscape",
+    "theme": "Habitat and Landscape Management",
+    "rationale": "Reserving small areas — woodland patches, shrub clumps, grassy corners, fallow strips, wetland depressions — within and between fields creates refuges for beneficial organisms. These patches act as source populations recolonising fields after disturbance, overwintering sites for natural predators, and stepping stones for species movement. Even very small areas (0.1–0.5 ha) have significant biodiversity value when distributed across a landscape. Most needed in Intensive Annual Cropland where such features have been eliminated entirely.",
+    "approach_origins": "2.7, 10.2",
+    "block4_pressures": [
+      19,
+      22,
+      23
+    ],
+    "block5_challenges": [
+      18,
+      19,
+      20,
+      22,
+      29,
+      32
+    ],
+    "block6_services": [
+      18,
+      30,
+      32
+    ],
+    "hard_prerequisites": "None — any productive land can have a portion set aside.",
+    "primary_applicability": [
+      "Extensive Annual Cropland",
+      "Grassland"
+    ],
+    "transformative_applicability": [
+      "Intensive Annual Cropland",
+      "Irrigated Cropland (where habitat features have been entirely eliminated — often the contexts most in need of this intervention)."
+    ],
+    "prescreen_question": "Q3",
+    "applicable_scale": "Landscape",
+    "relevant_efgs": [
+      "T7.1",
+      "T7.2"
+    ],
+    "implementation_constraints": "Productive area sacrifice required. Invasive species management needed. Long-term commitment required.",
+    "tape_mapping": "Element 2 — Synergies (Index 6: Habitat management; Criterion on proportion and diversity of semi-natural habitats)\nElement 1 — Diversity (Index 1: Plant diversity — within habitat patches)",
+    "field_observation_checklist": "1. Are the designated habitat patches present and undisturbed? (Yes — intact / Partially disturbed / Converted to productive use)\n2. What is the approximate area of habitat patches in the monitored landscape? (Record estimate and compare to baseline)\n3. Is vegetation within patches diverse and structurally complex? (Yes — multi-layered / Grass dominated / Bare or disturbed)\n4. Evidence of wildlife use of patches: tracks, droppings, nesting material, insect activity? (Multiple evidence types / Some evidence / No evidence)",
+    "evidence_correct": "Habitat patches present at planned locations and undisturbed. Area maintained or increasing from baseline. Structural diversity within patches — multiple height layers, diverse plant types. Evidence of wildlife use observed.",
+    "evidence_non_implementation": "Habitat patches converted to productive use or disturbed. Area declining from baseline. Patches uniformly mown or grazed eliminating structural diversity. No evidence of wildlife use in supposedly established patches."
+  },
+  {
+    "p_code": "P33",
+    "name": "Manage ditch and riparian vegetation",
+    "theme": "Habitat and Landscape Management",
+    "rationale": "Drainage ditches and watercourse margins are linear habitats that — managed in phases rather than cleared all at once — support aquatic invertebrates, amphibians, riparian plants, and associated wildlife. Phased management (clearing sections in rotation, leaving alternating sections uncut each year) maintains continuous habitat. No-mow periods during breeding seasons protect nesting birds and invertebrates. These features connect wetland habitats across the landscape.",
+    "approach_origins": "2.10, 2.11",
+    "block4_pressures": [
+      16,
+      17
+    ],
+    "block5_challenges": [
+      13,
+      16,
+      17
+    ],
+    "block6_services": [
+      17,
+      19,
+      20,
+      21,
+      24,
+      30
+    ],
+    "hard_prerequisites": "Drainage ditches, watercourse margins, or riparian features present.",
+    "primary_applicability": [
+      "Any land use type where drainage ditches or watercourses are present"
+    ],
+    "transformative_applicability": [
+      "None — not a transformative intervention. Either applicable or not",
+      "depending on water feature presence."
+    ],
+    "prescreen_question": "Q3",
+    "applicable_scale": "Farm",
+    "relevant_efgs": null,
+    "implementation_constraints": "Phased management requires careful scheduling. May conflict with drainage maintenance requirements. Coordination with drainage authorities may be needed.",
+    "tape_mapping": "Element 2 — Synergies (Index 6: Habitat management; criteria on semi-natural habitats and water features)\nElement 5 — Efficiency (Index 8: Water management)",
+    "field_observation_checklist": "1. Is ditch or riparian vegetation management phased rather than simultaneously clearing the entire length? (Yes — sections at different stages / All same stage — just cut / Not managed)\n2. Are there sections of ditch or bank with taller, uncut vegetation providing habitat continuity? (Yes — multiple height sections / Only recently cut / All completely cleared)\n3. Evidence of aquatic invertebrates, amphibians, or riparian bird activity? (Multiple species / Some / Absent)\n4. Is the watercourse free from significant blockage or debris that would cause flooding or bypass flows? (Clear / Minor blockage / Significant blockage)",
+    "evidence_correct": "Ditch management demonstrably phased — sections at different vegetation heights. Some sections with tall undisturbed vegetation alongside recently managed sections. Aquatic and riparian wildlife activity observed. Watercourse functional with no significant blockage.",
+    "evidence_non_implementation": "Complete clearance of all ditch vegetation simultaneously with no phasing. Uniformly mown or dredged at the same time along entire length. No aquatic or riparian wildlife activity. Watercourse blocked or diverted."
+  },
+  {
+    "p_code": "P34",
+    "name": "Implement holistic landscape management",
+    "theme": "Habitat and Landscape Management",
+    "rationale": "Planning and managing land use at the landscape level — across multiple farms, land uses, and ownership boundaries — to maintain ecological connectivity, habitat diversity, and watershed function. Includes watershed management, corridor planning, coordinated grazing across common land, and stakeholder engagement. Individual farm-level interventions are most effective when coordinated at landscape scale. This is the governance and planning framework that makes other practices work together coherently.",
+    "approach_origins": "1.11, 9.7",
+    "block4_pressures": [
+      22,
+      23,
+      27
+    ],
+    "block5_challenges": [
+      18,
+      19,
+      29,
+      30,
+      32
+    ],
+    "block6_services": [
+      12,
+      18,
+      19,
+      21,
+      22,
+      30,
+      32,
+      34,
+      35
+    ],
+    "hard_prerequisites": "None — but multi-stakeholder engagement and basic governance capacity required.",
+    "primary_applicability": [
+      "All land use categories — at landscape scale"
+    ],
+    "transformative_applicability": [
+      "None — the transformative dimension is the governance challenge (coordinating across landholder boundaries)",
+      "not a land use shift."
+    ],
+    "prescreen_question": "Q3",
+    "applicable_scale": "Landscape",
+    "relevant_efgs": null,
+    "implementation_constraints": "Requires multi-stakeholder coordination and governance structures. Facilitation support often needed. Long-term commitment beyond individual farm or project cycle.",
+    "tape_mapping": "Element 6 — Co-creation and sharing of knowledge (criteria on multi-stakeholder engagement)\nElement 2 — Synergies (Index 6: Habitat management — landscape-level coordination)",
+    "field_observation_checklist": "1. Is there a documented landscape management plan or coordination agreement involving multiple landholders? (Yes — documented / Informal agreement / No coordination)\n2. Are neighbouring landholders or stakeholders actively engaged in the programme? (Yes — multiple participating / Some / This farm only)\n3. Evidence of landscape-scale habitat connectivity features planned or in place? (Yes — corridors mapped / Partial / No landscape planning)\n4. Has a landscape assessment or mapping exercise been conducted as part of the programme? (Yes / In progress / No)",
+    "evidence_correct": "Landscape management plan documented with multiple stakeholder involvement. Neighbouring landholders engaged and implementing compatible practices. Habitat connectivity mapped across landscape boundaries. Regular coordination between participating stakeholders.",
+    "evidence_non_implementation": "All management confined to single farm with no coordination with neighbours. No landscape-level planning or mapping. Features at this farm disconnected from any broader landscape structure. No stakeholder engagement beyond this farm."
+  },
+  {
+    "p_code": "P35",
+    "name": "Restore and maintain traditional farming landscapes and practices",
+    "theme": "Habitat and Landscape Management",
+    "rationale": "Many ecologically valuable landscapes have been shaped by centuries of low-intensity farming — traditional agroforestry parklands, pastoral meadows, terraced mountain agriculture, rotational grazing systems. The abandonment or intensification of these practices destroys the conditions that thousands of species depend on. Most critically, this practice is often most needed in landscapes that have already been intensified or degraded — restoring a traditional system after abandonment is a transformative intervention, not a maintenance of status quo.",
+    "approach_origins": "10.1, 10.2",
+    "block4_pressures": [
+      22,
+      27
+    ],
+    "block5_challenges": [
+      22,
+      32
+    ],
+    "block6_services": [
+      2,
+      7,
+      11,
+      27,
+      30,
+      32,
+      35
+    ],
+    "hard_prerequisites": "Some remnant of traditional system or documented history of traditional management in the landscape.",
+    "primary_applicability": [
+      "Grassland (HNV)",
+      "Pasture (HNV)",
+      "Extensive Agroforestry with traditional management",
+      "Shrubland (High Integrity)"
+    ],
+    "transformative_applicability": [
+      "Intensified or degraded versions of the above — Intensive Annual Cropland on traditionally terraced slopes; degraded Pastoral systems; recently abandoned Traditional Agroforestry."
+    ],
+    "prescreen_question": "Q1",
+    "applicable_scale": "Landscape",
+    "relevant_efgs": [
+      "T7.2",
+      "T7.5"
+    ],
+    "implementation_constraints": "Economic viability must be addressed — often requires policy support or premium markets. Knowledge transfer across generations required.",
+    "tape_mapping": "Element 7 — Diversity (traditional knowledge dimension)\nElement 8 — Responsible governance (criteria on maintenance of traditional practices)\nElement 2 — Synergies (Index 6: Habitat management)",
+    "field_observation_checklist": "1. Are traditional management practices (documented at baseline) currently being implemented? (Yes — maintained / Partially / Abandoned since baseline)\n2. Is traditional knowledge being actively applied in management decisions? (Yes — farmer articulates traditional rationale / Partially / No)\n3. Are traditional landscape features (terraces, water management structures, parkland trees, traditional crop varieties) present and maintained? (Yes — all maintained / Partial / Features declining)\n4. Evidence of intergenerational knowledge transfer — young farmers or community members participating in traditional management? (Yes / Declining / No)",
+    "evidence_correct": "Traditional management practices documented and actively implemented. Farmer articulates traditional ecological knowledge informing decisions. Traditional landscape features intact and maintained. Younger generations participating in traditional management activities.",
+    "evidence_non_implementation": "Traditional practices abandoned since programme baseline. Traditional landscape features (terraces, traditional trees, structures) deteriorating without maintenance. No traditional knowledge applied to current management decisions. No intergenerational transfer occurring."
+  },
+  {
+    "p_code": "P36",
+    "name": "Close on-farm nutrient loops",
+    "theme": "Nutrient Cycling and Resource Efficiency",
+    "rationale": "A farming system in which nutrients cycle within the farm — through manure, compost, crop residues, and legumes — is intrinsically more resilient and less polluting than one that imports external inputs and exports waste. Closing nutrient loops reduces costs, reduces environmental loading, and builds the biological capital of the farm. Combining crop-livestock integration, composting, and green manures is the most complete approach. Partially applicable even in pure cropping systems through composting and green manures.",
+    "approach_origins": "1.6, 3.1, 4.4, 7.2, 12.5, 12.10, 12.11",
+    "block4_pressures": [
+      3,
+      11
+    ],
+    "block5_challenges": [
+      1,
+      2,
+      13,
+      14,
+      33
+    ],
+    "block6_services": [
+      1,
+      2,
+      3,
+      15,
+      19
+    ],
+    "hard_prerequisites": "None.",
+    "primary_applicability": [
+      "Mixed farming systems (crop + livestock)",
+      "Extensive Agroforestry"
+    ],
+    "transformative_applicability": [
+      "Pure cropland systems (where nutrient loop closure uses organic waste inputs",
+      "composting",
+      "and legumes — without livestock); Pure grassland systems (through manure management and legume-rich swards)."
+    ],
+    "prescreen_question": "Q2",
+    "applicable_scale": "Farm",
+    "relevant_efgs": [
+      "T7.1",
+      "T7.2",
+      "T7.5"
+    ],
+    "implementation_constraints": "Full closure of nutrient loops requires both crop and livestock enterprises or access to external organic waste streams.",
+    "tape_mapping": "Element 4 — Recycling (Index 7: Recycling biomass; criteria on nutrient cycling)\nElement 2 — Synergies (Index 4: Plant-livestock integration — nutrient flows)",
+    "field_observation_checklist": "1. Is there documented evidence of organic matter cycling on the farm: crop residues fed to livestock or composted rather than removed? (Yes / Partial / No — residues removed or burned)\n2. Is livestock manure returned to crop fields rather than disposed of externally? (Yes / Partial / No)\n3. Is the farm's dependence on synthetic fertiliser inputs stable or declining? (Declining — note change / Stable / Increasing)\n4. Is there a nutrient budget or record tracking inputs versus outputs? (Yes / Informal / No)",
+    "evidence_correct": "Demonstrable nutrient cycling — residues composted or fed to livestock, manure returned to crop fields. Farm records show declining synthetic fertiliser use. Nutrient budget or tracking in place. Biological nitrogen fixation (legumes) documented as a nutrient source.",
+    "evidence_non_implementation": "Crop residues burned or removed without use. Manure disposed of or exported. Synthetic fertiliser use unchanged or increasing. No nutrient tracking. Farm completely dependent on external inputs with no internal nutrient cycling."
+  },
+  {
+    "p_code": "P37",
+    "name": "Use organic waste and by-products to improve soil fertility",
+    "theme": "Nutrient Cycling and Resource Efficiency",
+    "rationale": "Food processing by-products, food waste, municipal organic waste, and agricultural by-products can be composted or applied to land as soil amendments — converting a waste management problem into a soil fertility asset. Most effective when the source, composition, and pathogen status of the material is known and appropriate treatment applied before field use.",
+    "approach_origins": "1.10, 12.11, 12.12",
+    "block4_pressures": [
+      11
+    ],
+    "block5_challenges": [
+      1,
+      2,
+      15
+    ],
+    "block6_services": [
+      15,
+      18
+    ],
+    "hard_prerequisites": "Access to organic waste streams (agricultural, food processing, or municipal).",
+    "primary_applicability": [
+      "Intensive Annual Cropland",
+      "Extensive Annual Cropland",
+      "Grassland"
+    ],
+    "transformative_applicability": [
+      "None — limited by access to input materials rather than land use type."
+    ],
+    "prescreen_question": null,
+    "applicable_scale": "Farm",
+    "relevant_efgs": [
+      "T7.1",
+      "T7.2"
+    ],
+    "implementation_constraints": "Safety and quality of organic waste streams must be verified. Regulatory framework for use of non-farm organic waste varies by country. Transport costs may limit viability.",
+    "tape_mapping": "Element 4 — Recycling (Index 7: Recycling biomass; criteria on use of external organic inputs)\nElement 5 — Efficiency (Index 9: Soil management — organic matter inputs)",
+    "field_observation_checklist": "1. Are organic waste or by-product materials (food processing residues, municipal compost, agricultural by-products) being applied to the land? (Yes — note type and source / No)\n2. Is the source and composition of organic waste inputs documented? (Yes — records available / Partially / No records)\n3. Any signs of pathogen contamination risk from organic inputs: odour, visible pathogens, proximity to water features? (No concerns / Minor concerns / Significant risk)\n4. Are organic inputs incorporated into the soil or applied as surface mulch at appropriate rates? (Yes — appropriate rates / Excessive application / Not incorporated)",
+    "evidence_correct": "Organic waste inputs documented with source and composition records. No signs of pathogen contamination risk. Applied at agronomic rates and incorporated appropriately. Material visibly improving soil surface condition.",
+    "evidence_non_implementation": "No documentation of organic input sources or composition. Strong odour or visible contamination risk from inputs. Applied at excessive rates causing nutrient runoff. Applied near watercourses or drainage without buffer."
+  },
+  {
+    "p_code": "P38",
+    "name": "Use insects, worms, or fungi to process organic residues",
+    "theme": "Nutrient Cycling and Resource Efficiency",
+    "rationale": "Vermicomposting, insect bioconversion (black soldier fly larvae), and fungal decomposition transform agricultural by-products into nutrient-rich soil amendments or animal feed. These biological technologies accelerate circular economy within the farm and can create additional income streams. Particularly valuable where large volumes of organic residues are generated and current disposal is causing pollution or waste.",
+    "approach_origins": "12.3",
+    "block4_pressures": [
+      11,
+      14
+    ],
+    "block5_challenges": [
+      2,
+      21
+    ],
+    "block6_services": [
+      15,
+      18
+    ],
+    "hard_prerequisites": "Adequate volumes of organic residue generated on-farm.",
+    "primary_applicability": [
+      "Intensive Annual Cropland",
+      "Intensive Agroforestry",
+      "Mixed Farming Systems"
+    ],
+    "transformative_applicability": [
+      "None — limited by residue volume rather than land use type."
+    ],
+    "prescreen_question": null,
+    "applicable_scale": "Farm",
+    "relevant_efgs": [
+      "T7.1"
+    ],
+    "implementation_constraints": "Technical knowledge and infrastructure required. Regulatory status of insect-derived feed varies by country.",
+    "tape_mapping": "Element 4 — Recycling (Index 7: Recycling biomass; criteria on biological processing of organic residues)\nElement 5 — Efficiency (criteria on circular economy within farm)",
+    "field_observation_checklist": "1. Are vermicomposting (worm), insect bioconversion, or fungal decomposition systems established and operational? (Yes — operational / Establishing / Not yet implemented)\n2. What volume of organic residues is being processed through biological systems? (Record estimate)\n3. Is the output (vermicompost, insect frass, fungal substrate) being applied to land or used as feed? (Yes — note use / Produced but unused / Not yet producing output)\n4. Are the biological systems (worms, insect colonies, fungi) healthy and actively processing? (Healthy and active / Some issues / System failed)",
+    "evidence_correct": "Biological processing system operational and actively processing residues. Healthy populations of processing organisms confirmed during visit. Output being applied to land or used as feed. Volume of residues diverted from waste stream is documented.",
+    "evidence_non_implementation": "System established but biological organisms dead or unhealthy. Residues accumulating without being processed. Output not being used — composting in uncontrolled heap. System abandoned after initial setup."
+  },
+  {
+    "p_code": "P39",
+    "name": "Increase soil and vegetation carbon stocks",
+    "theme": "Carbon and Land Restoration",
+    "rationale": "Agricultural soils and vegetation are significant carbon sinks when managed appropriately. No-till, cover crops, compost application, agroforestry, and restoration of degraded lands all increase carbon stocks — contributing to climate regulation while simultaneously improving soil fertility and water retention. Increasing soil organic carbon is one of the most powerful land health levers: it benefits virtually every soil function simultaneously. Applicable across all productive land use types.",
+    "approach_origins": "7.1, 7.2, 8.1, 8.2, 8.3, 8.4, 8.5, 8.6, 8.7, 9.2, 9.7",
+    "block4_pressures": [
+      1,
+      13,
+      14,
+      22
+    ],
+    "block5_challenges": [
+      2,
+      3,
+      10,
+      30
+    ],
+    "block6_services": [
+      11,
+      15,
+      16
+    ],
+    "hard_prerequisites": "None.",
+    "primary_applicability": [
+      "Extensive Annual Cropland",
+      "Extensive Agroforestry",
+      "Grassland",
+      "Pasture",
+      "Forest (all integrity levels)"
+    ],
+    "transformative_applicability": [
+      "Intensive Annual Cropland (carbon farming practices require significant management change); Irrigated Cropland."
+    ],
+    "prescreen_question": "Q4",
+    "applicable_scale": "Farm",
+    "relevant_efgs": [
+      "T7.1",
+      "T7.2",
+      "T7.3",
+      "T7.5"
+    ],
+    "implementation_constraints": "Carbon sequestration rates vary by soil type, climate, and management history. Measurement and verification require technical capacity.",
+    "tape_mapping": "Element 5 — Efficiency (Index 9: Soil management; criteria on soil carbon and organic matter)\nElement 4 — Recycling (criteria on carbon sequestration practices)",
+    "field_observation_checklist": "1. Is soil organic carbon measurement available from the current year? (Yes — record value / No — last measured date?)\n2. What carbon-building practices are currently in place? (note which of: cover crops / compost / no-till / agroforestry / permanent pasture)\n3. Evidence of increasing soil biological activity (earthworms, surface casts, organic matter visible in soil profile)? (Yes / Partial / No)\n4. Is the practice combination likely to be building rather than depleting carbon? (Observer assessment: Yes / Uncertain / No)",
+    "evidence_correct": "Multiple carbon-building practices confirmed as active simultaneously. SOC measurement shows stable or increasing values from baseline. Soil profile shows visible organic matter and biological activity. No practices in use that would negate carbon gains (e.g. deep tillage alongside cover crops).",
+    "evidence_non_implementation": "No carbon-building practices active. SOC declining or unchanged despite claimed management changes. Soil profile shows pale, low organic matter soil without biological activity. Contradictory practices in use simultaneously."
+  },
+  {
+    "p_code": "P40",
+    "name": "Restore degraded and abandoned land",
+    "theme": "Carbon and Land Restoration",
+    "rationale": "Land severely degraded by erosion, compaction, salinisation, chemical contamination, or abandonment requires active restoration before it can support ecological function or productive agriculture. Restoration approaches include reseeding, tree planting, earthworks, soil amendment, and managed recovery under reduced pressure. Restored land delivers ecosystem services that degraded land cannot — and provides the ecological infrastructure that makes surrounding productive land more resilient. Degraded cropland — not only forest and shrubland — is a primary candidate for restoration.",
+    "approach_origins": "9.7",
+    "block4_pressures": [
+      1,
+      2,
+      22,
+      24,
+      25
+    ],
+    "block5_challenges": [
+      3,
+      4,
+      5,
+      8,
+      18,
+      22
+    ],
+    "block6_services": [
+      11,
+      15,
+      16,
+      18,
+      30
+    ],
+    "hard_prerequisites": "Degraded land present within the landscape (confirmed through Block 5 soil challenges or Block 4 land-use change pressure).",
+    "primary_applicability": [
+      "Forest (Low Integrity)",
+      "Shrubland (Low and Medium Integrity)",
+      "Grassland (degraded)",
+      "Degraded Cropland"
+    ],
+    "transformative_applicability": [
+      "Intensive Annual Cropland (partial conversion of severely degraded portions to restored grassland",
+      "agroforestry",
+      "or woodland)."
+    ],
+    "prescreen_question": "Q1",
+    "applicable_scale": "Landscape",
+    "relevant_efgs": [
+      "T7.5"
+    ],
+    "implementation_constraints": "Restoration timescales long (5–20+ years). Must address root cause of degradation. Governance of restored land must be secured to prevent re-degradation.",
+    "tape_mapping": "Element 5 — Efficiency (Index 9: Soil management; criteria on restoration practices)\nElement 2 — Synergies (Index 6: Habitat management — restoration)",
+    "field_observation_checklist": "1. Is the area designated for restoration showing signs of plant establishment? (Good establishment / Slow / Failed)\n2. Is grazing or other disturbance excluded from the restoration area? (Fully excluded / Partially / Not excluded)\n3. Evidence of soil structure improvement in the restoration area compared to baseline? (Visible improvement / No change / Deteriorating)\n4. Are invasive species being managed in the restoration area? (Yes — under control / Present but not managed / Dominant)",
+    "evidence_correct": "Vegetation establishing across the designated restoration area. Disturbance excluded as planned. Soil structure visibly improving — less crusting, reduced bare ground, increasing biological activity. Invasive species under active management.",
+    "evidence_non_implementation": "Restoration area still barren or with only sparse establishment. Disturbance continuing — livestock still accessing area. Soil surface unchanged from baseline degraded condition. Invasive species colonising the restoration area without management response."
+  },
+  {
+    "p_code": "P41",
+    "name": "Diversify crops across the farm and landscape",
+    "theme": "Agrobiodiversity",
+    "rationale": "Growing a wider range of crop species and varieties — across the farm and the surrounding landscape — directly addresses agrobiodiversity loss. Diversity reduces vulnerability to pests, diseases, and climate variability; supports a wider range of soil organisms, pollinators, and other beneficial species; and maintains the cultural knowledge associated with diverse cropping systems. At landscape scale, diverse cropping creates the mosaic of habitats and food sources that wildlife depends on.",
+    "approach_origins": "1.2, 1.3, 12.8, 13.1, 14.1",
+    "block4_pressures": [
+      3,
+      13
+    ],
+    "block5_challenges": [
+      22,
+      23,
+      30,
+      34
+    ],
+    "block6_services": [
+      1,
+      8,
+      27,
+      28
+    ],
+    "hard_prerequisites": "Cropping system present.",
+    "primary_applicability": [
+      "Extensive Annual Cropland",
+      "Intensive Annual Cropland"
+    ],
+    "transformative_applicability": [
+      "Irrigated Cropland (monoculture systems — introducing diversity here may require market development and management changes)."
+    ],
+    "prescreen_question": null,
+    "applicable_scale": "Farm",
+    "relevant_efgs": [
+      "T7.1"
+    ],
+    "implementation_constraints": "Market channels for diverse crops may be limited. Knowledge of suitable varieties for local conditions required. More complex harvest and storage logistics.",
+    "tape_mapping": "Element 1 — Diversity (Index 1: Plant diversity; Criterion 1.1 Diversity of plant species — crops)\nElement 1 — Diversity (Index 2: Temporal and spatial diversity)",
+    "field_observation_checklist": "1. How many distinct crop species are currently growing across the farm's fields? (Record number)\n2. Are different fields in different crops simultaneously — not all fields in the same crop? (Yes — multiple crops across farm / 2–3 crops / All fields same crop)\n3. Has a new crop species been introduced to the farm in the current or recent season? (Yes — note species / No change)\n4. Is there evidence of crop diversity at the landscape scale — neighbours also diversifying? (Yes / No — monoculture landscape / Unknown)",
+    "evidence_correct": "Three or more distinct crop species growing across farm fields simultaneously. Different fields clearly in different crops. Farm records show introduction of new species or varieties in recent seasons. Crop diversity visible at landscape scale beyond this farm.",
+    "evidence_non_implementation": "All farm fields in the same single crop. No rotation or diversification visible across the farm's field portfolio. Crop list unchanged from pre-programme baseline. Monoculture landscape extending beyond farm boundaries."
+  },
+  {
+    "p_code": "P42",
+    "name": "Maintain diversity in livestock breeds",
+    "theme": "Agrobiodiversity",
+    "rationale": "Local and heritage livestock breeds have adapted to regional conditions, parasites, and feed resources over generations — making them more resilient, requiring fewer external inputs, and better suited to extensive systems. Their genetic diversity is a reservoir of adaptive potential for future conditions. Loss of local breeds through replacement with high-yielding commercial breeds represents an irreversible loss of genetic capital.",
+    "approach_origins": "4.7, 9.6",
+    "block4_pressures": [
+      18
+    ],
+    "block5_challenges": [
+      23,
+      27
+    ],
+    "block6_services": [
+      3,
+      8
+    ],
+    "hard_prerequisites": "Livestock present.",
+    "primary_applicability": [
+      "Grassland",
+      "Pasture",
+      "Mixed Farming Systems"
+    ],
+    "transformative_applicability": [
+      "None — not applicable without livestock."
+    ],
+    "prescreen_question": "Q2",
+    "applicable_scale": "Farm",
+    "relevant_efgs": [
+      "T7.2",
+      "T7.5"
+    ],
+    "implementation_constraints": "Local breeds may have lower productivity under intensive management. Market demand for products from local breeds must be developed.",
+    "tape_mapping": "Element 1 — Diversity (Index 3: Animal diversity; Criterion 3.2 Animal genetic diversity)\nElement 7 — Human and social values (criteria on maintenance of traditional breeds and cultural heritage)",
+    "field_observation_checklist": "1. Are multiple distinct livestock breeds present on the farm? (Yes — note breeds and numbers / Single breed / No livestock)\n2. Is at least one locally adapted, heritage, or traditional breed present? (Yes — note breed / Commercial breeds only)\n3. Is there a documented source for locally adapted breeds: farm-maintained breeding stock, local breeder, or conservation programme? (Yes / Informal / No)\n4. Are local breeds showing adequate production performance for the management system? (Yes — viable / Below expectations but maintained / Struggling)",
+    "evidence_correct": "Multiple breeds including at least one local or heritage breed. Documented source for local breed genetics — not entirely dependent on commercial suppliers. Local breeds demonstrating viable performance under current management. Records of breed identity maintained.",
+    "evidence_non_implementation": "Single commercial breed with no diversity. No local or heritage breeds despite commitment in programme. Local breeds abandoned in favour of commercial alternatives. No records of breed identity."
+  },
+  {
+    "p_code": "P43",
+    "name": "Adopt a whole-farm systems approach",
+    "theme": "System-Level",
+    "rationale": "Sustainable agriculture is most effective when the farm is planned as an integrated ecological and economic system — recognising interactions between soil, crops, livestock, water, habitat, energy, and markets — rather than optimising individual components in isolation. A systems approach means thinking about how each practice affects all others, identifying feedback loops, and managing for long-term resilience rather than short-term yield. This is the enabling framework that makes individual practices work together coherently and that often reveals the most cost-effective entry points for change.",
+    "approach_origins": "4.1, 3.1, 9.1",
+    "block4_pressures": [
+      22,
+      27
+    ],
+    "block5_challenges": [
+      30,
+      32,
+      34
+    ],
+    "block6_services": [
+      1,
+      2,
+      3,
+      15,
+      30
+    ],
+    "hard_prerequisites": "None.",
+    "primary_applicability": [
+      "All land use categories"
+    ],
+    "transformative_applicability": [
+      "None — the transformative dimension is the management culture shift",
+      "not a land use change."
+    ],
+    "prescreen_question": null,
+    "applicable_scale": "Farm",
+    "relevant_efgs": null,
+    "implementation_constraints": "Requires whole-farm planning capacity and often facilitation support. Benefits are long-term. Requires shift from input-focused to ecosystem-focused management thinking.",
+    "tape_mapping": "Element 6 — Co-creation and sharing of knowledge (criteria on farm planning and adaptive management)\nElement 7 — Human and social values (criteria on farmer empowerment and knowledge)\nElement 8 — Responsible governance (criteria on farm management planning)",
+    "field_observation_checklist": "1. Is there a documented whole-farm management plan that addresses interactions between soil, crops, livestock, water, and habitat? (Yes — documented / Informal / No)\n2. Is the farmer able to articulate how different farm enterprises and elements are connected? (Yes — clear systemic understanding / Partial / No — managed as separate departments)\n3. Evidence of adaptive management — practices adjusted in response to observed results? (Yes — documented changes / Informal adaptation / No adaptation)\n4. Is the farm monitoring its own performance across multiple dimensions beyond yield? (Yes — multiple indicators / Yield only / No self-monitoring)",
+    "evidence_correct": "Whole-farm management plan documented addressing multiple farm dimensions. Farmer articulates systemic connections between farm elements. Evidence of adaptive management — practices adjusted based on observed outcomes. Multiple performance indicators being tracked beyond yield alone.",
+    "evidence_non_implementation": "Farm managed as entirely separate enterprises with no cross-cutting planning. Farmer focused exclusively on individual crop or livestock performance metrics. No adaptive response to observed problems — same management regardless of outcomes. No self-monitoring beyond production yields."
+  }
+]
