@@ -432,8 +432,8 @@ textarea { resize: vertical; min-height: 80px; }
 .level-3 { background: var(--navy); color: var(--white); }
 
 .text-muted { color: var(--grey-500); font-size: .78rem; }
-.trim-reason { font-size: .8rem; color: var(--grey-600); max-width: 340px; }
-.stage-cell  { font-size: .78rem; color: var(--grey-600); white-space: nowrap; }
+.trim-reason { font-size: .8rem; color: var(--grey-700); max-width: 340px; }
+.stage-cell  { font-size: .78rem; color: var(--grey-700); white-space: nowrap; }
 
 /* ── Pre-screen ──────────────────────────────────────────────────────── */
 .prescreen-question { margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--grey-200); }
@@ -762,22 +762,22 @@ textarea { resize: vertical; min-height: 80px; }
 
 /* ── EFG Grouped Selector ────────────────────────────────────────────── */
 .efg-selector {
-  border: 1px solid var(--border);
+  border: 1px solid var(--grey-200);
   border-radius: 6px;
   overflow: hidden;
 }
 .efg-realm-group {
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--grey-200);
 }
 .efg-realm-group:last-child { border-bottom: none; }
 .efg-realm-summary {
   padding: 8px 14px;
-  background: var(--surface-alt);
+  background: var(--grey-100);
   font-size: .8rem;
   font-weight: 700;
   letter-spacing: .04em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--grey-500);
   cursor: pointer;
   list-style: none;
   user-select: none;
@@ -799,15 +799,15 @@ textarea { resize: vertical; min-height: 80px; }
 .efg-biome-label {
   font-size: .72rem;
   font-weight: 600;
-  color: var(--iucn-navy);
+  color: var(--navy);
   margin-bottom: 6px;
   padding-bottom: 3px;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--grey-200);
 }
 .efg-code-badge {
   font-family: var(--font-mono);
   font-size: .75rem;
-  background: var(--iucn-navy);
+  background: var(--navy);
   color: #fff;
   padding: 1px 5px;
   border-radius: 3px;
@@ -881,7 +881,7 @@ textarea { resize: vertical; min-height: 80px; }
 .tp-dropdown {
   position: fixed;
   background: #fff;
-  border: 1.5px solid var(--iucn-navy);
+  border: 1.5px solid var(--navy);
   border-radius: 6px;
   box-shadow: 0 6px 20px rgba(0,52,120,.12);
   list-style: none;
@@ -919,12 +919,12 @@ textarea { resize: vertical; min-height: 80px; }
   font-weight: 700;
   letter-spacing: .06em;
   text-transform: uppercase;
-  color: var(--text-muted);
-  background: var(--surface-alt);
+  color: var(--grey-500);
+  background: var(--grey-100);
   padding: 5px 12px;
   margin: 0 -12px;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
+  border-top: 1px solid var(--grey-200);
+  border-bottom: 1px solid var(--grey-200);
   position: sticky;
   top: 0;
   z-index: 1;
@@ -944,17 +944,17 @@ textarea { resize: vertical; min-height: 80px; }
 .cal-output-table th,
 .cal-output-table td {
   padding: 5px 4px;
-  border: 1px solid var(--border);
+  border: 1px solid var(--grey-200);
   text-align: center;
   vertical-align: middle;
   white-space: nowrap;
 }
-.cal-month-header th { background: var(--surface-alt); }
+.cal-month-header th { background: var(--grey-100); }
 .cal-group-col  { text-align: left !important; min-width: 180px; max-width: 220px; white-space: normal; padding-left: 8px; }
 .cal-freq-col   { min-width: 88px; text-align: left !important; padding-left: 6px; }
-.cal-month-th   { font-size: .7rem; font-weight: 700; color: var(--text-muted); letter-spacing: .02em; width: 36px; }
+.cal-month-th   { font-size: .7rem; font-weight: 700; color: var(--grey-500); letter-spacing: .02em; width: 36px; }
 .cal-th-constrained { background: #fef9e7; color: #9a6700; }
-.cal-th-unknown     { background: var(--surface-alt); color: var(--text-muted); }
+.cal-th-unknown     { background: var(--grey-100); color: var(--grey-500); }
 
 .cal-group-name { text-align: left; padding-left: 8px; }
 .cal-group-name strong { display: block; font-size: .82rem; }
@@ -965,20 +965,20 @@ textarea { resize: vertical; min-height: 80px; }
   font-weight: 600;
   letter-spacing: .03em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--grey-500);
 }
 .cal-cell        { font-size: 1rem; line-height: 1; }
 .cal-cell-off    { background: transparent; color: transparent; }
-.cal-cell-on     { background: #e8f5ee; color: var(--iucn-green); font-weight: bold; }
+.cal-cell-on     { background: #e8f5ee; color: var(--green); font-weight: bold; }
 .cal-cell-warn   { background: #fef9e7; color: #9a6700; font-weight: bold; }
 .cal-freq-td     { font-size: .75rem; text-align: left; padding-left: 6px; white-space: normal; }
 
 /* Access legend row */
-.cal-access-legend-row td  { background: var(--surface-alt); font-size: .8rem; font-weight: 600; }
-.cal-legend-label          { text-align: left; padding-left: 8px; font-style: italic; color: var(--text-muted); }
-.cal-legend-ok             { background: #e8f5ee; color: var(--iucn-green); }
+.cal-access-legend-row td  { background: var(--grey-100); font-size: .8rem; font-weight: 600; }
+.cal-legend-label          { text-align: left; padding-left: 8px; font-style: italic; color: var(--grey-500); }
+.cal-legend-ok             { background: #e8f5ee; color: var(--green); }
 .cal-legend-constrained    { background: #fef9e7; color: #9a6700; }
-.cal-legend-unknown        { background: #f5f5f5; color: var(--text-muted); }
+.cal-legend-unknown        { background: #f5f5f5; color: var(--grey-500); }
 
 /* Legend strip below grid */
 .cal-legend {
@@ -987,7 +987,7 @@ textarea { resize: vertical; min-height: 80px; }
   gap: 16px;
   margin-top: 6px;
   font-size: .75rem;
-  color: var(--text-muted);
+  color: var(--grey-500);
 }
 .cal-legend-item  { display: flex; align-items: center; gap: 4px; }
 .cal-legend-dot   { font-size: .95rem; }
