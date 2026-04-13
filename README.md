@@ -1,7 +1,6 @@
 # LAHMP Wizard — Prototype
 
 **Land Health Monitoring Platform · IUCN NBS Hub**  
-Vanilla HTML / JavaScript / JSON · GitHub Pages · No build step · No server
 
 ---
 
@@ -899,16 +898,5 @@ All three Excel workbooks are the canonical source of truth. Always edit the Exc
 | Equipment cross-reference | Equipment requirements per group/level are in indicator profiles — not yet extracted to `indicators.json`. Prototype skips equipment override. | Open — add when profile data available |
 | Seasonal windows | Not yet in `indicators.json`. Prototype shows "Specify based on local conditions." | Open — add when profile data available |
 
----
 
-## Contact and governance
 
-**IUCN project lead:** Simon — scientific content, strategic decisions, external partnerships.  
-**Biodiversity/agricultural expert:** Mercedes — field-level validation of ecological logic.  
-**Developer/consultant:** Daim — technical implementation, platform architecture.
-
-Questions about scientific content → Simon or Mercedes.  
-Questions about data structure or algorithm logic → raise a GitHub issue with the `question: science` label.  
-Questions about code → raise a GitHub issue with the `question: code` label.
-
-The canonical specification documents are maintained by the IUCN team. If you find a discrepancy between this `CLAUDE.md` and the spec documents, **the spec documents take precedence**. Flag it as a GitHub issue with the label `spec-conflict`.
