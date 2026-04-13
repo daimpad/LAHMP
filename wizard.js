@@ -1634,13 +1634,15 @@ async function init() {
     return;
   }
 
-  // Check for ?fixture=TEST-01 URL parameter
+  // Check for ?fixture=TEST-01 and optional &step=N URL parameters
   const urlParams = new URLSearchParams(window.location.search);
   const fixtureParam = urlParams.get('fixture');
+  const stepParam    = parseInt(urlParams.get('step')) || 1;
+
   if (fixtureParam) {
     const loaded = await loadFixture(fixtureParam.toUpperCase());
     if (loaded) {
-      currentStep = 1;
+      currentStep = Math.min(Math.max(stepParam, 1), 4);
       showFixtureBanner(fixtureParam.toUpperCase());
     }
   } else {

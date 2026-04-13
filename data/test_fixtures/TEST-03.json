@@ -101,18 +101,19 @@
       { "p_code": "P17", "name": "Harvest and efficiently manage water on-farm",                "theme": "Water Management",                         "tier": "standard",       "score": 11 },
       { "p_code": "P11", "name": "Use locally adapted, diverse, and resilient crop varieties and livestock breeds", "theme": "Crop System Diversification", "tier": "standard", "score": 10 },
       { "p_code": "P23", "name": "Integrate crop and livestock systems",                        "theme": "Livestock and Pasture Management",          "tier": "transformative", "score": 9  },
-      { "p_code": "P01", "name": "Reduce or eliminate tillage",                                 "theme": "Soil Management",                          "tier": "transformative", "score": 7  }
+      { "p_code": "P01", "name": "Reduce or eliminate tillage",                                 "theme": "Soil Management",                          "tier": "transformative", "score": 7  },
+      { "p_code": "P02", "name": "Maintain permanent soil cover",                               "theme": "Soil Management",                          "tier": "standard",       "score": 6  }
     ],
-    "practice_count": 8,
+    "practice_count": 9,
     "theme_counts": {
-      "Soil Management": 3,
+      "Soil Management": 4,
       "Integrated Pest and Disease Management": 1,
       "Nutrient Cycling and Resource Efficiency": 1,
       "Water Management": 1,
       "Crop System Diversification": 1,
       "Livestock and Pasture Management": 1
     },
-    "standard_count": 3,
+    "standard_count": 4,
     "transformative_count": 5
   },
 

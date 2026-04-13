@@ -91,9 +91,9 @@
       "q4_inputs": "not_currently"
     },
     "selected_practices": [
-      { "p_code": "P22", "name": "Reduce stocking densities",                                        "theme": "Livestock and Pasture Management",  "tier": "standard",       "score": 13 },
-      { "p_code": "P21", "name": "Implement rotational and managed grazing",                         "theme": "Livestock and Pasture Management",  "tier": "standard",       "score": 11 },
-      { "p_code": "P24", "name": "Restore and manage degraded pastures and grasslands",             "theme": "Livestock and Pasture Management",  "tier": "standard",       "score": 10 },
+      { "p_code": "P22", "name": "Reduce stocking densities",                                        "theme": "Livestock and Pasture Management",  "tier": "transformative", "score": 13 },
+      { "p_code": "P21", "name": "Implement rotational and managed grazing",                         "theme": "Livestock and Pasture Management",  "tier": "transformative", "score": 11 },
+      { "p_code": "P24", "name": "Restore and manage degraded pastures and grasslands",             "theme": "Livestock and Pasture Management",  "tier": "transformative", "score": 10 },
       { "p_code": "P40", "name": "Restore degraded and abandoned land",                             "theme": "Carbon and Land Restoration",       "tier": "transformative", "score": 9  },
       { "p_code": "P27", "name": "Establish or maintain silvopastoral systems",                     "theme": "Agroforestry and Tree Integration",  "tier": "transformative", "score": 8  },
       { "p_code": "P42", "name": "Maintain diversity in livestock breeds",                          "theme": "Agrobiodiversity",                  "tier": "standard",       "score": 6  },

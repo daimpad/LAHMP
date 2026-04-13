@@ -93,9 +93,9 @@
       "q4_inputs": "open"
     },
     "selected_practices": [
-      { "p_code": "P21", "name": "Implement rotational and managed grazing",               "theme": "Livestock and Pasture Management",    "tier": "standard",       "score": 14 },
-      { "p_code": "P22", "name": "Reduce stocking densities",                              "theme": "Livestock and Pasture Management",    "tier": "standard",       "score": 12 },
-      { "p_code": "P24", "name": "Restore and manage degraded pastures and grasslands",   "theme": "Livestock and Pasture Management",    "tier": "standard",       "score": 11 },
+      { "p_code": "P21", "name": "Implement rotational and managed grazing",               "theme": "Livestock and Pasture Management",    "tier": "transformative", "score": 14 },
+      { "p_code": "P22", "name": "Reduce stocking densities",                              "theme": "Livestock and Pasture Management",    "tier": "transformative", "score": 12 },
+      { "p_code": "P24", "name": "Restore and manage degraded pastures and grasslands",   "theme": "Livestock and Pasture Management",    "tier": "transformative", "score": 11 },
       { "p_code": "P04", "name": "Apply compost and organic amendments",                   "theme": "Soil Management",                     "tier": "standard",       "score": 9  },
       { "p_code": "P20", "name": "Implement contour management and anti-erosion earthworks", "theme": "Water Management",                 "tier": "standard",       "score": 8  },
       { "p_code": "P17", "name": "Harvest and efficiently manage water on-farm",           "theme": "Water Management",                    "tier": "standard",       "score": 7  },
