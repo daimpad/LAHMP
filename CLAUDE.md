@@ -294,7 +294,7 @@ Contains all static reference lists used in Step 1. **Do not hardcode any of the
 
 ### `data/practices.json`
 
-43 practices. Exported from `LAHMP_Practice_Matrix.xlsx`, sheet `Practice Matrix`.
+43 practices. Exported from `raw/LAHMP_Practice_Matrix.xlsx`, sheet `Practice Matrix`.
 
 ```json
 [
@@ -325,7 +325,7 @@ Contains all static reference lists used in Step 1. **Do not hardcode any of the
 
 ### `data/indicators.json`
 
-41 profiles. Exported from `LAHMP_Indicator_Linkage_Matrix.xlsx`, sheet `Indicator Linkage Matrix`. **Content columns (protocol names, output metrics) will be null for unpopulated profiles — the algorithm must handle this gracefully.**
+41 profiles. Exported from `raw/LAHMP_Indicator_Linkage_Matrix.xlsx`, sheet `Indicator Linkage Matrix`. **Content columns (protocol names, output metrics) will be null for unpopulated profiles — the algorithm must handle this gracefully.**
 
 ```json
 [
@@ -399,7 +399,7 @@ Contains all static reference lists used in Step 1. **Do not hardcode any of the
 
 ### `data/abiotic.json`
 
-16 abiotic indicators. Exported from `LAHMP_Abiotic_Reference_Table.xlsx`.
+16 abiotic indicators. Exported from `raw/LAHMP_Abiotic_Reference_Table.xlsx`.
 
 ```json
 [
@@ -873,7 +873,7 @@ Fixture files for these assessments are in `data/test_fixtures/` as pre-filled `
 ### Adding a new indicator profile
 
 1. Author the profile content in the Word template (`LAHMP_Indicator_Profile_Template.docx`)
-2. Add the profile data to `LAHMP_Indicator_Linkage_Matrix.xlsx` (the canonical source)
+2. Add the profile data to `raw/LAHMP_Indicator_Linkage_Matrix.xlsx` (the canonical source)
 3. Run `python export/convert.py` to regenerate `data/indicators.json`
 4. Test with `?fixture=TEST-01` — verify the profile appears in Step 4 output when its P-code linkages match the test landscape's selected practices
 5. Set `"populated": true` in the JSON entry

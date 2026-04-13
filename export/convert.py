@@ -15,6 +15,7 @@ from pathlib import Path
 import openpyxl
 
 BASE = Path(__file__).resolve().parent.parent
+RAW  = BASE / "raw"
 DATA = BASE / "data"
 DATA.mkdir(exist_ok=True)
 
@@ -150,7 +151,7 @@ UNIVERSAL_BASELINE_IDS = {"A01", "A02", "A03", "A04", "A05", "A06", "A08", "A09"
 # ---------------------------------------------------------------------------
 
 def export_practices():
-    wb = openpyxl.load_workbook(BASE / "LAHMP_Practice_Matrix.xlsx")
+    wb = openpyxl.load_workbook(RAW / "LAHMP_Practice_Matrix.xlsx")
     ws = wb["Practice Matrix"]
 
     practices = []
@@ -193,7 +194,7 @@ def export_practices():
 # ---------------------------------------------------------------------------
 
 def export_indicators():
-    wb = openpyxl.load_workbook(BASE / "LAHMP_Indicator_Linkage_Matrix_Populated.xlsx")
+    wb = openpyxl.load_workbook(RAW / "LAHMP_Indicator_Linkage_Matrix_Populated.xlsx")
     ws = wb["Indicator Linkage Matrix"]
 
     indicators = []
@@ -266,7 +267,7 @@ def export_indicators():
 # ---------------------------------------------------------------------------
 
 def export_abiotic():
-    wb = openpyxl.load_workbook(BASE / "LAHMP_Abiotic_Reference_Table.xlsx")
+    wb = openpyxl.load_workbook(RAW / "LAHMP_Abiotic_Reference_Table.xlsx")
     ws = wb["Abiotic Reference Table"]
 
     abiotic = []
@@ -422,11 +423,11 @@ def _collect_efg_options(practices, indicators):
 
 def export_reference(practices, indicators):
     # Use the Practice Matrix Reference Lists as the canonical source
-    wb_pm  = openpyxl.load_workbook(BASE / "LAHMP_Practice_Matrix.xlsx")
+    wb_pm  = openpyxl.load_workbook(RAW / "LAHMP_Practice_Matrix.xlsx")
     ws_ref = wb_pm["Reference Lists"]
 
     # Use the Indicator Matrix Reference Lists for challenges (has the eutrophication addition)
-    wb_ilm  = openpyxl.load_workbook(BASE / "LAHMP_Indicator_Linkage_Matrix_Populated.xlsx")
+    wb_ilm  = openpyxl.load_workbook(RAW / "LAHMP_Indicator_Linkage_Matrix_Populated.xlsx")
     ws_ref2 = wb_ilm["Reference Lists"]
 
     # Block 4 pressures: cols 1-3 (id, name, group), data rows 3+
@@ -475,7 +476,7 @@ def export_reference(practices, indicators):
 
 if __name__ == "__main__":
     print("LAHMP Excel -> JSON export")
-    print(f"  Source: {BASE}")
+    print(f"  Source: {RAW}")
     print(f"  Output: {DATA}")
     print()
 

@@ -415,7 +415,7 @@ Before contributing, note what is **deliberately out of scope** for this prototy
 ### Adding a new indicator profile
 
 1. Author the profile content in `LAHMP_Indicator_Profile_Template.docx`
-2. Add the row to `LAHMP_Indicator_Linkage_Matrix_Populated.xlsx` (canonical source)
+2. Add the row to `raw/LAHMP_Indicator_Linkage_Matrix_Populated.xlsx` (canonical source)
 3. Run `python3 export/extract_indicators.py` to regenerate `data/indicators.json`
 4. Load `?fixture=TEST-01&step=4` and verify the new profile appears when its P-code linkages match the test landscape's selected practices
 5. Confirm `"populated": true` is set in the generated JSON entry
