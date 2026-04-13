@@ -567,10 +567,12 @@ function runStep4Algorithm() {
 // ── Tag picker (reusable autocomplete multi-select) ───────────────────
 
 function renderTagPickerHtml(id, selectedArr, placeholder) {
-  const tags = (selectedArr || []).map(v =>
+  const arr = selectedArr || [];
+  const hasTags = arr.length > 0 ? ' has-tags' : '';
+  const tags = arr.map(v =>
     `<span class="tp-tag">${esc(v)}<button type="button" class="tp-remove" data-value="${esc(v)}" aria-label="Remove ${esc(v)}">×</button></span>`
   ).join('');
-  return `<div class="tag-picker" id="${esc(id)}-picker">
+  return `<div class="tag-picker${hasTags}" id="${esc(id)}-picker">
     <div class="tp-tags" id="${esc(id)}-tp-tags">${tags}</div>
     <div class="tp-control">
       <input type="text" class="tp-input" id="${esc(id)}-tp-input"
@@ -584,7 +586,8 @@ function initTagPicker({ id, items, getSelected, onAdd, onRemove, showAllIfEmpty
   const input    = document.getElementById(id + '-tp-input');
   const dropdown = document.getElementById(id + '-tp-dropdown');
   const tagsEl   = document.getElementById(id + '-tp-tags');
-  if (!input || !dropdown || !tagsEl) return;
+  const pickerEl = document.getElementById(id + '-picker');
+  if (!input || !dropdown || !tagsEl || !pickerEl) return;
 
   function hl(text, q) {
     if (!q) return esc(text);
@@ -593,6 +596,13 @@ function initTagPicker({ id, items, getSelected, onAdd, onRemove, showAllIfEmpty
     return esc(text.slice(0, qi))
          + '<strong>' + esc(text.slice(qi, qi + q.length)) + '</strong>'
          + esc(text.slice(qi + q.length));
+  }
+
+  function positionDropdown() {
+    const rect = input.getBoundingClientRect();
+    dropdown.style.top   = (rect.bottom + 3) + 'px';
+    dropdown.style.left  = rect.left + 'px';
+    dropdown.style.width = rect.width + 'px';
   }
 
   function open(query) {
@@ -607,6 +617,7 @@ function initTagPicker({ id, items, getSelected, onAdd, onRemove, showAllIfEmpty
       );
     } else if (!showAllIfEmpty) {
       dropdown.innerHTML = `<li class="tp-hint">Type to search…</li>`;
+      positionDropdown();
       dropdown.classList.remove('is-hidden');
       return;
     }
@@ -626,6 +637,7 @@ function initTagPicker({ id, items, getSelected, onAdd, onRemove, showAllIfEmpty
         li.addEventListener('mousedown', e => { e.preventDefault(); select(li.dataset.value); });
       });
     }
+    positionDropdown();
     dropdown.classList.remove('is-hidden');
   }
 
@@ -638,6 +650,7 @@ function initTagPicker({ id, items, getSelected, onAdd, onRemove, showAllIfEmpty
     span.className = 'tp-tag';
     span.innerHTML = `${esc(value)}<button type="button" class="tp-remove" data-value="${esc(value)}" aria-label="Remove ${esc(value)}">×</button>`;
     tagsEl.appendChild(span);
+    pickerEl.classList.add('has-tags');
     input.value = '';
     close();
     input.focus();
@@ -669,6 +682,9 @@ function initTagPicker({ id, items, getSelected, onAdd, onRemove, showAllIfEmpty
     if (!btn) return;
     onRemove(btn.dataset.value);
     btn.closest('.tp-tag').remove();
+    if (!tagsEl.querySelector('.tp-tag')) {
+      pickerEl.classList.remove('has-tags');
+    }
   });
 }
 

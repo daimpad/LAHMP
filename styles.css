@@ -829,11 +829,12 @@ textarea { resize: vertical; min-height: 80px; }
   background: var(--surface);
   min-height: 38px;
 }
-.tp-tags:empty {
+/* Hidden when no tags selected — toggled via JS .has-tags class */
+.tag-picker:not(.has-tags) .tp-tags {
   display: none;
 }
 /* When no tags, give input full border-radius */
-.tag-picker:not(:has(.tp-tag)) .tp-input {
+.tag-picker:not(.has-tags) .tp-input {
   border-radius: 6px;
 }
 
@@ -878,9 +879,7 @@ textarea { resize: vertical; min-height: 80px; }
 .tp-input:focus { border-color: var(--iucn-navy); background: #fff; }
 
 .tp-dropdown {
-  position: absolute;
-  left: 0; right: 0;
-  top: calc(100% + 3px);
+  position: fixed;
   background: #fff;
   border: 1.5px solid var(--iucn-navy);
   border-radius: 6px;
@@ -890,7 +889,7 @@ textarea { resize: vertical; min-height: 80px; }
   padding: 4px 0;
   max-height: 260px;
   overflow-y: auto;
-  z-index: 200;
+  z-index: 9999;
 }
 .tp-dropdown.is-hidden { display: none; }
 
