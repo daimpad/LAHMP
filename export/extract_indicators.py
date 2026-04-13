@@ -159,25 +159,20 @@ def parse_profile(path):
         if fc == "Monitoring stage" and ncols == 2:
             kv = table_kv(t)
             raw_stage = kv.get("Monitoring stage", "")
-            # Extract just the short descriptor before the long explanation
-            stage_short = raw_stage.split("(")[0].strip() if "(" in raw_stage else raw_stage
-            # Reconstruct as "Fast (Stage ...)" etc
-            m = re.match(r'(Fast|Medium|Slow|Very slow)', raw_stage, re.I)
-            if m:
-                # Find Stage info
-                stage_m = re.search(r'Stage \d[\d\-–, ]+Year \d[\d\-–, ]+', raw_stage)
-                if stage_m:
-                    profile["monitoring_stage"] = f"{m.group(1)} ({stage_m.group().strip()})"
-                else:
-                    profile["monitoring_stage"] = raw_stage[:80]
+            # Extract compact speed descriptor: everything before first "(" or ":"
+            # e.g. "Fast–medium (Stage 2 from Year 1). ..." → "Fast–medium"
+            speed_m = re.match(r'((?:Very slow|Slow[\u2013\-]very slow|Slow|Fast[\u2013\-]medium|Fast|Medium)[^(:]*)', raw_stage, re.I)
+            if speed_m:
+                speed_desc = speed_m.group(1).strip().rstrip('.')
+                profile["monitoring_stage"] = speed_desc
             else:
-                profile["monitoring_stage"] = raw_stage[:80]
+                profile["monitoring_stage"] = raw_stage[:40]
 
             raw_ts = kv.get("Response timescale", "")
-            # Extract concise timescale
-            ts_m = re.search(r'(Fast|Medium|Slow|Very slow)[^:]*:\s*([^.]+)', raw_ts, re.I)
+            # Extract concise timescale — first sentence after the colon
+            ts_m = re.search(r'(?:Fast|Medium|Slow|Very slow)[^:]*:\s*([^.]+)', raw_ts, re.I)
             if ts_m:
-                profile["response_timescale"] = f"{ts_m.group(2).strip()[:60]}"
+                profile["response_timescale"] = ts_m.group(1).strip()[:80]
             else:
                 profile["response_timescale"] = raw_ts[:80]
             continue

@@ -357,9 +357,12 @@ const ALL_IDX     = Array.from({length:12},(_,i)=>i);
 
 function stageSpeed(monitoringStage) {
   const s = (monitoringStage || '').toLowerCase();
+  // Compound descriptors (e.g. "Fast–medium") → take the slower/more conservative end
+  if (s.startsWith('fast–medium') || s.startsWith('fast-medium')) return 'medium';
+  if (s.startsWith('slow–very') || s.startsWith('slow-very')) return 'slow';
   if (s.startsWith('fast')) return 'fast';
   if (s.startsWith('medium')) return 'medium';
-  if (s.startsWith('slow')) return 'slow';
+  if (s.startsWith('slow') || s.startsWith('very slow')) return 'slow';
   return 'medium';
 }
 
