@@ -2172,42 +2172,57 @@ function buildStep4HTML() {
     <h2 class="section-title">Biological Monitoring Programme</h2>
     <div class="advisory-notice">⚠ <strong>Draft protocols</strong> — All indicator profiles are currently DRAFT and unvalidated. Review with your biodiversity expert before finalising your monitoring programme.</div>
     ${out.protocol_assignments.length ? `
-    <div class="table-scroll"><table class="output-table">
-      <thead><tr>
-        <th>Indicator Group</th><th>Category</th><th>Stage</th><th>Level</th><th>Protocol</th><th>Output Metric</th><th>Expected signal</th><th>Rationale</th>
-      </tr></thead>
-      <tbody>
-        ${out.protocol_assignments.map(g => {
-          const precursorNames = (g.abiotic_precursor_linkages || []).map(id => abioticNameMap[id] || id);
-          const precursorHtml  = precursorNames.length
-            ? `<div class="abiotic-precursors">Abiotic context: ${precursorNames.map(n => `<span class="precursor-tag">${esc(n)}</span>`).join('')}</div>`
-            : '';
-          const connectedNames = (g.linkage_c_connected_groups || [])
-            .map(num => profileNameMap[num]).filter(Boolean);
-          const connectedHtml = connectedNames.length
-            ? `<div class="connected-groups">Connected with: ${connectedNames.map(cn => `<span class="connected-tag">${esc(cn)}</span>`).join('')}</div>`
-            : '';
-          const eqLabels = (g.assigned_equipment_ids || []).map(id => EQUIPMENT_CATEGORIES[id] || `Cat. ${id}`);
-          const eqHtml   = eqLabels.length
-            ? `<details class="eq-details"><summary>Equipment (${eqLabels.length})</summary><ul class="eq-list">${eqLabels.map(e => `<li>${esc(e)}</li>`).join('')}</ul></details>`
-            : '';
-          return `<tr>
-            <td>
-              <strong>${esc(g.profile_name)}</strong>
-              ${g.primary_monitoring_role ? `<div class="monitoring-role">${esc(g.primary_monitoring_role)}</div>` : ''}
-              ${precursorHtml}${connectedHtml}
-            </td>
-            <td>${esc(g.category)}</td>
-            <td class="stage-cell" title="${esc(g.response_timescale || '')}">${esc((g.monitoring_stage||'').split(' ')[0])}</td>
-            <td><span class="level-badge level-${g.assigned_level}">L${g.assigned_level}</span>${g.requires_upgrade ? ' <span class="badge badge-warn" title="Requires higher team capacity than currently available">↑ Upgrade</span>' : ''}</td>
-            <td>${esc(g.assigned_protocol || 'TBC')}${g.assigned_reference_link ? ` <a class="ref-link" href="${esc(g.assigned_reference_link)}" target="_blank" rel="noopener" title="${esc(g.assigned_reference || '')}">[ref]</a>` : g.assigned_reference ? ` <span class="ref-plain" title="${esc(g.assigned_reference)}">[ref]</span>` : ''}${eqHtml}</td>
-            <td class="metric-cell">${esc(g.assigned_metric || '—')}</td>
-            <td class="expected-cell">${esc(g.b2_expected_direction_of_change || '—')}</td>
-            <td><span class="badge badge-inclusion">${esc(g.inclusion_reason)}</span></td>
-          </tr>`;
-        }).join('')}
-      </tbody>
-    </table></div>` : '<p class="empty-state">No biological indicators selected. Complete Steps 1–3 to generate recommendations.</p>'}
+    <div class="bio-cards">
+      ${out.protocol_assignments.map(g => {
+        const precursorNames = (g.abiotic_precursor_linkages || []).map(id => abioticNameMap[id] || id);
+        const precursorHtml  = precursorNames.length
+          ? `<div class="abiotic-precursors">Abiotic context: ${precursorNames.map(n => `<span class="precursor-tag">${esc(n)}</span>`).join('')}</div>`
+          : '';
+        const connectedNames = (g.linkage_c_connected_groups || [])
+          .map(num => profileNameMap[num]).filter(Boolean);
+        const connectedHtml = connectedNames.length
+          ? `<div class="connected-groups">Connected with: ${connectedNames.map(cn => `<span class="connected-tag">${esc(cn)}</span>`).join('')}</div>`
+          : '';
+        const eqLabels = (g.assigned_equipment_ids || []).map(id => EQUIPMENT_CATEGORIES[id] || `Cat. ${id}`);
+        const eqHtml   = eqLabels.length
+          ? `<details class="eq-details"><summary>Equipment (${eqLabels.length})</summary><ul class="eq-list">${eqLabels.map(e => `<li>${esc(e)}</li>`).join('')}</ul></details>`
+          : '';
+        const refHtml = g.assigned_reference_link
+          ? ` <a class="ref-link" href="${esc(g.assigned_reference_link)}" target="_blank" rel="noopener" title="${esc(g.assigned_reference || '')}">[ref]</a>`
+          : g.assigned_reference ? ` <span class="ref-plain" title="${esc(g.assigned_reference)}">[ref]</span>` : '';
+        return `<div class="bio-card">
+          <div class="bio-card-header">
+            <div class="bio-card-title-wrap">
+              <span class="bio-card-name">${esc(g.profile_name)}</span>
+              <span class="bio-card-category">${esc(g.category)}</span>
+            </div>
+            <div class="bio-card-badges">
+              <span class="level-badge level-${g.assigned_level}">L${g.assigned_level}</span>
+              ${g.requires_upgrade ? `<span class="badge badge-warn" title="Requires higher team capacity than currently available">↑ Upgrade</span>` : ''}
+              <span class="badge badge-stage">${esc((g.monitoring_stage||'').split(' ')[0])}</span>
+              <span class="badge badge-inclusion">${esc(g.inclusion_reason)}</span>
+            </div>
+          </div>
+          <div class="bio-card-body">
+            ${g.primary_monitoring_role ? `<div class="monitoring-role">${esc(g.primary_monitoring_role)}</div>` : ''}
+            <div class="bio-field-row">
+              <span class="bio-field-label">Protocol</span>
+              <span class="bio-field-value">${esc(g.assigned_protocol || 'TBC')}${refHtml}${eqHtml}</span>
+            </div>
+            <div class="bio-field-row">
+              <span class="bio-field-label">Output metric</span>
+              <span class="bio-field-value">${esc(g.assigned_metric || '—')}</span>
+            </div>
+            ${g.b2_expected_direction_of_change ? `
+            <details class="bio-signal-details">
+              <summary class="bio-signal-summary">Expected signal</summary>
+              <p class="bio-signal-text">${esc(g.b2_expected_direction_of_change)}</p>
+            </details>` : ''}
+            ${precursorHtml}${connectedHtml}
+          </div>
+        </div>`;
+      }).join('')}
+    </div>` : '<p class="empty-state">No biological indicators selected. Complete Steps 1–3 to generate recommendations.</p>'}
   </div>`;
 
   // Abiotic table
