@@ -221,7 +221,7 @@ window.assessment = {
 };
 ```
 
-See `CLAUDE.md` for the complete field-level schema.
+See `CLAUDE.md` for the complete field-level schema. See `FORM_DOCUMENTATION.md` for structured guidance on every user-facing input form.
 
 ---
 
@@ -232,8 +232,8 @@ See `CLAUDE.md` for the complete field-level schema.
 ```
 lahmp/
 ├── index.html                      ← Presentation shell — structural HTML only
-├── wizard.js                       ← All state management and algorithm logic (~2 200 lines)
-├── styles.css                      ← IUCN brand styling (~1 000 lines)
+├── wizard.js                       ← All state management and algorithm logic (~2 500 lines)
+├── styles.css                      ← IUCN brand styling (~1 300 lines)
 ├── data/
 │   ├── reference.json              ← Pressures, challenges, services, mapping tables
 │   ├── practices.json              ← 43 practice profiles
@@ -254,7 +254,8 @@ lahmp/
 ├── export/
 │   ├── convert.py                  ← raw/*.xlsx → data/*.json
 │   └── extract_indicators.py       ← indicators/*.docx → data/indicators.json
-├── CLAUDE.md                       ← Canonical developer specification
+├── CLAUDE.md                       ← Canonical developer specification and open items
+├── FORM_DOCUMENTATION.md           ← Complete reference for all user-facing input forms (Steps 1–3)
 └── LICENSE
 ```
 
@@ -343,7 +344,7 @@ https://daimpad.github.io/LAHMP?fixture=TEST-03&step=4
 | Block 5 pre-population | Challenges appear when Block 4 pressures are marked `ongoing`; confidence degrades to `medium` for `past`/`not_sure`; disappears for `not_relevant` |
 | Area weighting | Marking overgrazing `ongoing` in a landscape with < 10% grassland area produces `medium` (not `high`) confidence challenges |
 | Practice scoring | Practices with higher Block 4/5/6 overlap score higher; score displayed on each card |
-| Protocol assignment | TEST-03 (Types C + D, budget tier 3) should assign Level 2–3 protocols; TEST-02 (Types A + B, budget tier 1) should assign Level 1 |
+| Protocol assignment | TEST-03 (Types C + D, budget tier 3) should assign Level 2 protocols; TEST-02 (Types A + B, budget tier 1) should assign Level 1 |
 | Calendar windows | TEST-02 constrained months (April–June) should not appear as suggested monitoring windows |
 | Capacity trimming | Low-capacity profiles (few days, low budget) should produce a trimmed group list in "Enhancement recommendations" |
 
@@ -354,7 +355,9 @@ https://daimpad.github.io/LAHMP?fixture=TEST-03&step=4
 ```bash
 cd export/
 python3 extract_indicators.py --validate-only
-# Expected: TEST-01 ~29 indicators, TEST-02 ~23, TEST-03 ~30
+# Validates indicator selection logic against all three test fixtures.
+# Expected counts will vary as B2/B1 linkages in indicators.json are updated;
+# re-run after any data change to confirm the algorithm still produces non-empty output.
 ```
 
 <!-- TODO: Formalise this into a standalone test script with assertions -->

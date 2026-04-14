@@ -901,10 +901,15 @@ All three Excel workbooks are the canonical source of truth. Always edit the Exc
 | Session persistence | `localStorage` for UX convenience (resume wizard after page reload) | Acceptable — not a data store |
 | Indicator profiles populated | All 41 profiles in `indicators.json` are populated (exported from `_Populated.xlsx`). | Complete |
 | Scoring algorithm tie-breaking | Alphabetical by group name | Confirmed (per Step 4 spec) |
-| Equipment cross-reference | Equipment requirements per group/level are in indicator profiles — not yet extracted to `indicators.json`. Prototype skips equipment override. | Open — add when profile data available |
+| Equipment cross-reference | Equipment requirements extracted per group/level from indicator profiles via `equipmentTextToIds()`. `assignProtocol()` downgrades protocol level when required equipment is unavailable. | Complete |
 | Seasonal windows | Monitoring calendar uses Step 3 access calendar and indicator monitoring_stage (Fast/Medium/Slow) to build a 12-month grid with colour-coded monitoring windows and access constraints. | Complete |
 | Test fixtures | TEST-01 Skoura M'Daz (Morocco, T7.2), TEST-02 PK-17 (Mauritania, T7.5), TEST-03 Vietnam VSA (T7.1+F3.3) in `data/test_fixtures/`. Load via `?fixture=TEST-01` or `?fixture=TEST-01&step=4` | Complete |
 | Op 4 capacity fitting | Implemented: `priorityScore()` ranks by B2 linkage (3pts), challenge (2pts), service (1pt), Universal tier (+2), Fast stage (+1). Trims lowest-priority groups when days required exceed capacity. | Complete |
+| Form documentation | Complete reference for all user-facing input forms (Steps 1–3). See `FORM_DOCUMENTATION.md`. | Complete |
+| TEST-03 B2 gap (P06, P36) | P06 added as B2 to profiles 10, 11, 12, 13; as B1 to profiles 1, 6. P36 added as B2 to profiles 1, 2; as B1 to profile 6. | Complete |
+| document.title programme name | `updateDocTitle()` helper now sets title to `${landscape} — ${programme} — LAHMP Wizard` when both fields are populated. | Complete |
+| F3.3 EFG coverage gap | No indicator profile has `F3.3` (Rice paddies) in its `relevant_efgs`. TEST-03 (Vietnam VSA) is served via T7.1 overlap only — the flooded rice paddy and aquatic biodiversity dimension is not recognised. Fix: add `F3.3` to `relevant_efgs` of profiles where rice paddy applicability is scientifically justified (candidates: profiles 1 Soil bacteria, 6 Earthworms, 17 Aquatic macroinvertebrates, 18 Fish). | Open |
+| End-to-end browser testing | All three test fixtures (`?fixture=TEST-01/02/03&step=4`) should be loaded in a browser and Step 4 output verified for scientific sense: narrative accuracy, practice chain grouping, indicator count reasonableness, protocol level, calendar access compliance, and capacity trimming behaviour on TEST-02. | Open |
 
 
 

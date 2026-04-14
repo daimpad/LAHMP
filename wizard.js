@@ -191,7 +191,9 @@ async function loadData() {
 
 function saveState() {
   window.assessment.last_updated = new Date().toISOString();
-  localStorage.setItem('lahmp_assessment', JSON.stringify(window.assessment));
+  // Strip computed Step 4 outputs — they are re-derived on Step 4 load, not user input
+  const { step4_outputs, ...toSave } = window.assessment;
+  localStorage.setItem('lahmp_assessment', JSON.stringify(toSave));
   localStorage.setItem('lahmp_step', String(currentStep));
   const el = document.getElementById('autosave');
   if (el) { el.textContent = 'Saved'; el.classList.add('visible'); setTimeout(() => el.classList.remove('visible'), 2000); }
@@ -235,6 +237,74 @@ function pressureAreaFraction(pressureId, landUseComposition) {
   return relevant / total;
 }
 
+// ── Equipment keyword → category index (0-based, matches EQUIPMENT_CATEGORIES array) ──
+function equipmentTextToIds(text) {
+  if (!text) return [];
+  const t = text.toLowerCase();
+  const ids = [];
+  if (/auger|soil.*sampl|bulk.density|soil.cor/.test(t)) ids.push(1);
+  if (/water quality|ph meter|dissolved oxygen|conductivity/.test(t)) ids.push(2);
+  if (/sweep net|pitfall|malaise|insect.*sampl/.test(t)) ids.push(5);
+  if (/bat detector|bioacoustic|acoustic recorder|ultrasonic/.test(t)) ids.push(6);
+  if (/\bedna\b|dna.*filter|sterile.*field.*kit/.test(t)) ids.push(7);
+  if (/soil laborator|infrared.*co|toc analys|loss.on.ignition|walkley/.test(t)) ids.push(8);
+  if (/molecular lab|pcr|sequencing|plfa|nlfa|freeze.dr/.test(t)) ids.push(9);
+  if (/microscop/.test(t)) ids.push(10);
+  if (/spectrophotometer|colorimeter/.test(t)) ids.push(11);
+  if (/gc.ms|external.*analytic.*lab|contract.*lab|specialist.*lab/.test(t)) ids.push(12);
+  return ids;
+}
+
+// Hard prerequisite check — true if step1 context satisfies the indicator's prerequisite.
+// 'None...' always passes. Unknown text defaults to true (include by default).
+function hardPrerequisiteMet(text, step1, step2) {
+  if (!text || /^\s*none\b/i.test(text)) return true;
+  const t = text.toLowerCase();
+  const lu = (step1.land_uses || []).map(l => l.toLowerCase()).join(' ');
+  const efg = (step1.efg_codes || []).join(' ').toLowerCase();
+  const geo = ((step1.country || '') + ' ' + (step1.admin_region || '')).toLowerCase();
+  if (/water body|pond|stream|river|wetland|ditch|paddy|aquatic/.test(t))
+    return /water|wetland|paddy|rice|irrigat|aquatic|riparian|f3\.3/.test(lu + ' ' + efg);
+  if (/arable crop|annual.*crop|biennial crop/.test(t))
+    return /crop|arable|cereal|annual/.test(lu);
+  if (/grassland|pasture|sward|meadow/.test(t))
+    return /grass|pasture|meadow|rangeland|sward/.test(lu);
+  if (/hedgerow|woody boundary|tree line|shelter belt/.test(t)) {
+    const pcodes = (step2?.selected_practices || []).map(p => p.p_code);
+    return /agroforest|hedgerow|woodland|orchard|plantation/.test(lu)
+      || pcodes.some(p => ['P19','P20','P21','P22','P23'].includes(p));
+  }
+  if (/livestock.*dung|dung.*livestock|vertebrate.*dung/.test(t))
+    return (step1.livestock || []).length > 0 || /livestock|pasture|mixed.*livestock|grazing/.test(lu);
+  if (/at least one tree|individual woody plant >3m/.test(t))
+    return /agroforest|orchard|plantation|woodland|tree/.test(lu);
+  if (/termite presence/.test(t))
+    return /t7\.4|t7\.5|t4|t5|f3/.test(efg)
+      || /tropical|subtropical|sahel|africa|asia|vietnam|india/.test(geo);
+  if (/permanent crop.*inter.row|inter.row.*orchard/.test(t))
+    return /permanent crop|orchard|plantation/.test(lu);
+  return true; // unknown prerequisite: include by default
+}
+
+// Conditionality check — true if landscape context activates this conditional indicator.
+function conditionalityMet(text, step1) {
+  if (!text || !text.trim()) return true;
+  const t = text.toLowerCase();
+  const lu = (step1.land_uses || []).map(l => l.toLowerCase()).join(' ');
+  const efg = (step1.efg_codes || []).join(' ').toLowerCase();
+  const geo = ((step1.country || '') + ' ' + (step1.admin_region || '')).toLowerCase();
+  if (/dung beetle|livestock.*dung|vertebrate.*dung/.test(t))
+    return (step1.livestock || []).length > 0 || /livestock|pasture|mixed.*livestock/.test(lu);
+  if (/water body|breeding.*water|amphibian|no suitable breeding/.test(t))
+    return /water|wetland|paddy|rice|irrigat|aquatic/.test(lu + ' ' + efg);
+  if (/tropical.*subtropical|scarab|centipede/.test(t))
+    return /t7\.4|t7\.5|t4|t5|f3/.test(efg)
+      || /tropical|subtropical|sahel|africa|asia|vietnam/.test(geo);
+  if (/crop pest|economic.*pest|ipm/.test(t))
+    return /crop|arable|cereal|annual/.test(lu);
+  return true;
+}
+
 function prepopulateChallenges(pressures, landUseComposition) {
   const mapping = referenceData.pressure_to_challenge_mapping || {};
   const challengeMap = {};
@@ -276,20 +346,21 @@ function prepopulateServices(challenges) {
 }
 
 function scorePractice(practice, step1) {
-  let score = 0;
+  let pressurePts = 0, challengePts = 0, servicePts = 0;
   const pressureIds = (step1.pressures || []).filter(p => p.status !== 'not_relevant').map(p => p.id);
-  score += (practice.block4_pressures || []).filter(id => pressureIds.includes(id)).length;
+  pressurePts += (practice.block4_pressures || []).filter(id => pressureIds.includes(id)).length;
   for (const cid of (practice.block5_challenges || [])) {
     const uc = (step1.challenges || []).find(c => c.id === cid && c.confirmed);
     if (!uc) continue;
-    score += uc.confidence === 'high' ? 2 : uc.confidence === 'medium' ? 1 : 0;
+    challengePts += uc.confidence === 'high' ? 2 : uc.confidence === 'medium' ? 1 : 0;
   }
   for (const sid of (practice.block6_services || [])) {
     const us = (step1.services || []).find(s => s.id === sid && s.selected);
     if (!us || !us.priority_rank) continue;
-    score += us.priority_rank === 1 ? 3 : us.priority_rank === 2 ? 2 : 1;
+    servicePts += us.priority_rank === 1 ? 3 : us.priority_rank === 2 ? 2 : 1;
   }
-  return score;
+  const total = pressurePts + challengePts + servicePts;
+  return { total, pressurePts, challengePts, servicePts };
 }
 
 function getEligiblePractices() {
@@ -328,8 +399,8 @@ function getEligiblePractices() {
       if (answer === 'not_currently') return null;
       if (answer === 'open' || answer === 'open_conditionally') tier = 'transformative';
     }
-    const score = scorePractice(p, step1);
-    return { ...p, score, tier };
+    const scoreObj = scorePractice(p, step1);
+    return { ...p, score: scoreObj.total, scoreBreakdown: scoreObj, tier };
   }).filter(Boolean);
 }
 
@@ -375,6 +446,10 @@ function selectIndicatorGroups(step1, step2) {
         );
         if (!luPass) return null;
       }
+      // Hard prerequisite check
+      if (ind.hard_prerequisite && !hardPrerequisiteMet(ind.hard_prerequisite, step1, step2)) return null;
+      // Conditionality check (Conditional-tier indicators only)
+      if (ind.tier === 'Conditional' && !conditionalityMet(ind.conditionality_criteria, step1)) return null;
       const b2 = (ind.b2_practices_primarily_verified || []).some(p => selectedPCodes.includes(p));
       const b1 = (ind.b1_practices_that_benefit || []).some(p => selectedPCodes.includes(p));
       const ch = (ind.block5_challenges || []).some(id => confirmedChallengeIds.includes(id));
@@ -394,10 +469,24 @@ function assignProtocol(group, cap) {
   let level = Math.min(cap.max_protocol_level, maxAvail);
   if (level < minAvail) level = minAvail;  // upgrade to lowest available level
   if (level === 3 && cap.budget_tier === 0) level = Math.max(minAvail, 2);
+  // Equipment override: downgrade to highest level where required equipment is available
+  {
+    const availableEq = cap.equipment_ids || [];
+    let equipLevel = level;
+    while (equipLevel > minAvail) {
+      const reqIds = equipmentTextToIds(group[`level${equipLevel}_equipment`] || '');
+      if (!reqIds.length || reqIds.every(id => availableEq.includes(id))) break;
+      equipLevel--;
+    }
+    level = equipLevel;
+  }
   const proto = level === 3 ? group.level3_protocol_name : level === 2 ? group.level2_protocol_name : group.level1_protocol_name;
   const metric = level === 3 ? group.level3_output_metric : level === 2 ? group.level2_output_metric : group.level1_output_metric;
+  const ref          = group[`level${level}_reference`] || group.primary_reference || null;
+  const refLink      = group[`level${level}_reference_link`] || null;
+  const assignedEqIds = equipmentTextToIds(group[`level${level}_equipment`] || '');
   const requires_upgrade = level > cap.max_protocol_level;
-  return { ...group, assigned_level: level, assigned_protocol: proto, assigned_metric: metric, requires_upgrade };
+  return { ...group, assigned_level: level, assigned_protocol: proto, assigned_metric: metric, assigned_reference: ref, assigned_reference_link: refLink, assigned_equipment_ids: assignedEqIds, requires_upgrade };
 }
 
 // ── Operation 5 — Monitoring calendar ─────────────────────────────────────
@@ -543,7 +632,10 @@ function buildMonitoringCalendar(groups, accessCalendar) {
     // Use seasonal guidance from the assigned protocol level; fall back to level1 text
     const seasonalText = g[`level${g.assigned_level}_seasonal_primary`]
       || g.level1_seasonal_primary || '';
-    const parsed = parseSeasonalWindow(seasonalText);
+    const seasonalSecText = g[`level${g.assigned_level}_seasonal_secondary`]
+      || g.level1_seasonal_secondary || '';
+    const parsed    = parseSeasonalWindow(seasonalText);
+    const parsedSec = parseSeasonalWindow(seasonalSecText);
 
     let windows = [];
     let windowIndices = [];
@@ -553,7 +645,10 @@ function buildMonitoringCalendar(groups, accessCalendar) {
     } else if (parsed && parsed.length) {
       // Use indicator-specific windows, filtered to accessible months
       const w1 = pickWindow(parsed[0], accessibleIdx);
-      const w2 = parsed[1] ? pickWindow(parsed[1], []) : null;
+      // Use parsed[1] if primary text contained two windows; otherwise use secondary seasonal field
+      const w2 = parsed[1]
+        ? pickWindow(parsed[1], [])
+        : (parsedSec?.[0] ? pickWindow(parsedSec[0], []) : null);
       windowIndices = [...new Set([...w1, ...(w2 || [])])];
       const r1 = idxToRange(w1);
       const r2 = w2 && w2.length ? idxToRange(w2) : null;
@@ -643,9 +738,15 @@ function capacityFit(assigned, cap, step2, step1) {
       usedDays += g._days_required;
       kept.push(g);
     } else {
+      const daysShort = (g._days_required - (cap.available_days_total - usedDays)).toFixed(1);
+      const unlockParts = [`+${daysShort} monitoring days/year`];
+      if (!cap.willingness_profile.time)      unlockParts.push('or indicate willingness to increase monitoring time (Q2b)');
+      if (!cap.willingness_profile.recruit)   unlockParts.push('or recruit additional team capacity (Q1b)');
+      if (g.assigned_level < 3 && cap.max_protocol_level < 3) unlockParts.push('or upgrade to a Level 3 team (Type E/F)');
       trimmed.push({
         ...g,
-        trim_reason: `Exceeds capacity (needs ${g._days_required.toFixed(1)} days/cycle; ${(cap.available_days_total - usedDays).toFixed(1)} days remaining after higher-priority indicators).`,
+        trim_reason:   `Exceeds capacity (needs ${g._days_required.toFixed(1)} days/cycle; ${(cap.available_days_total - usedDays).toFixed(1)} remaining).`,
+        unlock_hint:   unlockParts.join(', '),
       });
     }
   }
@@ -671,9 +772,19 @@ function runStep4Algorithm() {
   const rawGroups = selectIndicatorGroups(step1, step2);
 
   const selectedPCodes = (step2.selected_practices || []).map(p => p.p_code);
-  const selected_abiotic = abioticData.filter(a =>
-    a.universal_baseline || (a.linked_practices || []).some(p => selectedPCodes.includes(p))
-  );
+  const availableEq = cap.equipment_ids || [];
+  const selected_abiotic = abioticData
+    .filter(a => a.universal_baseline || (a.linked_practices || []).some(p => selectedPCodes.includes(p)))
+    .map(a => {
+      const reqEq  = a.equipment_required || [];
+      const missing = reqEq.filter(id => !availableEq.includes(id));
+      if (!missing.length) return a;
+      return {
+        ...a,
+        equipment_gap: true,
+        missing_equipment: missing.map(id => EQUIPMENT_CATEGORIES[id] || `Cat. ${id}`),
+      };
+    });
 
   // Op 3 – Protocol assignment
   const withProtocols = rawGroups.map(g => assignProtocol(g, cap)).filter(Boolean);
@@ -861,6 +972,41 @@ function initTagPicker({ id, items, getSelected, onAdd, onRemove, showAllIfEmpty
 // ── Render helpers ────────────────────────────────────────────────────────
 
 const esc = s => String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+
+// Build major-approach → practice list map across all 43 practices
+function buildApproachMap() {
+  const map = {};
+  for (const p of practicesData) {
+    for (const code of (p.approach_origins || '').split(',').map(c => c.trim()).filter(Boolean)) {
+      const major = code.split('.')[0];
+      if (!map[major]) map[major] = [];
+      if (!map[major].find(x => x.p_code === p.p_code)) map[major].push({ p_code: p.p_code, name: p.name });
+    }
+  }
+  return map;
+}
+
+// Render approach_origins string as individual badges grouped by major approach.
+// Tooltip on each badge lists other practices sharing the same major approach group.
+function formatApproachCodes(approachStr, thisPCode, approachMap) {
+  if (!approachStr) return '';
+  const codes = approachStr.split(',').map(c => c.trim()).filter(Boolean);
+  const majorGroups = {};
+  for (const code of codes) {
+    const major = code.split('.')[0];
+    if (!majorGroups[major]) majorGroups[major] = [];
+    majorGroups[major].push(code);
+  }
+  return Object.entries(majorGroups).map(([major, subCodes]) => {
+    const peers = (approachMap[major] || []).filter(p => p.p_code !== thisPCode);
+    const tooltipPeers = peers.slice(0, 6).map(p => `${p.p_code} ${p.name}`).join(' · ');
+    const tooltip = `IUCN NBS Approach ${major}${tooltipPeers ? ' — also linked to: ' + tooltipPeers : ''}`;
+    const groupBadges = subCodes.map(code =>
+      `<span class="approach-badge" title="${esc(tooltip)}">${esc(code)}</span>`
+    ).join('');
+    return `<span class="approach-group">${groupBadges}</span>`;
+  }).join('');
+}
 
 function badge(text, cls) {
   return `<span class="badge badge-${esc(cls)}">${esc(text)}</span>`;
@@ -1135,10 +1281,16 @@ function renderBlock5() {
     </div>`
   ).join('');
 
+  const prepopCount  = saved.filter(c => c.pre_populated).length;
+  const confirmedCount = saved.filter(c => c.confirmed).length;
+  const subtitle5 = prepopCount
+    ? `${prepopCount} pre-filled from pressures · ${confirmedCount} confirmed`
+    : '35 challenges — confirm or add';
+
   return block('b5', 'Block 5 — Challenges', `
     <p class="block-desc">Challenges pre-populated from Block 4. Confirm the challenges that apply to your landscape. You can also add challenges manually.</p>
     <div class="challenge-list" id="challenge-list">${grouped}</div>`,
-    { subtitle: '35 challenges — confirm or add' });
+    { subtitle: subtitle5 });
 }
 
 function renderBlock6() {
@@ -1183,10 +1335,16 @@ function renderBlock6() {
     </div>`
   ).join('');
 
+  const prepopSvcs   = saved.filter(s => s.pre_populated).length;
+  const selectedSvcs = saved.filter(s => s.selected).length;
+  const subtitle6 = prepopSvcs
+    ? `${prepopSvcs} pre-filled from challenges · ${selectedSvcs} selected`
+    : '37 services — select and rank up to 3';
+
   return block('b6', 'Block 6 — Ecosystem Services', `
     <p class="block-desc">Services pre-populated from your confirmed challenges. Select the services to track and assign a priority rank (1 = highest) to up to three.</p>
     <div class="service-list" id="service-list">${grouped}</div>`,
-    { subtitle: '37 services — select and rank up to 3' });
+    { subtitle: subtitle6 });
 }
 
 function renderStep1() {
@@ -1202,13 +1360,27 @@ function renderStep1() {
   initBlock6Events();
   initCollapsibles(el);
   updateCompTotal();
-  // Update header with landscape name if already populated (e.g. from fixture or saved state)
+  // Update header and document title with landscape name if already populated (e.g. from fixture or saved state)
   const name = window.assessment.step1.landscape_name;
   const hm = document.getElementById('header-meta');
   if (hm && name) hm.textContent = name;
+  updateDocTitle();
 }
 
 // ── Step 1 event handlers ─────────────────────────────────────────────────
+
+function updateDocTitle() {
+  const s = window.assessment.step1;
+  const name = (s.landscape_name || '').trim();
+  const prog = (s.monitoring_programme_name || '').trim();
+  if (name && prog) {
+    document.title = `${name} — ${prog} — LAHMP Wizard`;
+  } else if (name) {
+    document.title = `${name} — LAHMP Wizard`;
+  } else {
+    document.title = 'LAHMP Wizard — Land Health Monitoring Platform';
+  }
+}
 
 function initBlock1Events() {
   ['landscape_name','country','admin_region','monitoring_programme_name'].forEach(field => {
@@ -1219,6 +1391,9 @@ function initBlock1Events() {
         window.assessment.landscape_name = el.value;
         const hm = document.getElementById('header-meta');
         if (hm) hm.textContent = el.value;
+      }
+      if (field === 'landscape_name' || field === 'monitoring_programme_name') {
+        updateDocTitle();
       }
       saveState();
     });
@@ -1331,8 +1506,18 @@ function updateCompTotal() {
   const el = document.getElementById('comp-total-val');
   if (el) {
     el.textContent = total.toFixed(0);
-    el.parentElement.classList.toggle('is-over', total > 100);
-    el.parentElement.classList.toggle('is-complete', total === 100);
+    const p = el.parentElement;
+    p.classList.toggle('is-over',     total > 100);
+    p.classList.toggle('is-complete', Math.round(total) === 100);
+    p.classList.toggle('is-under',    total > 0 && total < 100);
+    // Show hint only when under
+    let hint = p.querySelector('.comp-hint');
+    if (total > 0 && total < 100) {
+      if (!hint) { hint = document.createElement('span'); hint.className = 'comp-hint'; p.appendChild(hint); }
+      hint.textContent = ` — ${(100 - total).toFixed(0)}% unallocated`;
+    } else if (hint) {
+      hint.remove();
+    }
   }
 }
 
@@ -1397,11 +1582,21 @@ function rerenderBlock3() {
 function rerenderBlock5() {
   const b5 = document.getElementById('b5');
   if (!b5) return;
+  const wasExpanded = b5.querySelector('.block-header')?.getAttribute('aria-expanded') === 'true';
   const tmp = document.createElement('div');
   tmp.innerHTML = renderBlock5();
-  b5.replaceWith(tmp.firstElementChild);
+  const newB5 = tmp.firstElementChild;
+  if (wasExpanded) {
+    newB5.querySelector('.block-header')?.setAttribute('aria-expanded', 'true');
+    const body = newB5.querySelector('.block-body');
+    if (body) body.hidden = false;
+  }
+  b5.replaceWith(newB5);
   initBlock5Events();
   initCollapsibles(document.getElementById('b5'));
+  // Brief flash to signal the update
+  const header = document.getElementById('b5')?.querySelector('.block-header');
+  if (header) { header.classList.add('just-updated'); setTimeout(() => header.classList.remove('just-updated'), 900); }
 }
 
 function initBlock5Events() {
@@ -1438,11 +1633,21 @@ function initBlock5Events() {
 function rerenderBlock6() {
   const b6 = document.getElementById('b6');
   if (!b6) return;
+  const wasExpanded = b6.querySelector('.block-header')?.getAttribute('aria-expanded') === 'true';
   const tmp = document.createElement('div');
   tmp.innerHTML = renderBlock6();
-  b6.replaceWith(tmp.firstElementChild);
+  const newB6 = tmp.firstElementChild;
+  if (wasExpanded) {
+    newB6.querySelector('.block-header')?.setAttribute('aria-expanded', 'true');
+    const body = newB6.querySelector('.block-body');
+    if (body) body.hidden = false;
+  }
+  b6.replaceWith(newB6);
   initBlock6Events();
   initCollapsibles(document.getElementById('b6'));
+  // Brief flash to signal the update
+  const header = document.getElementById('b6')?.querySelector('.block-header');
+  if (header) { header.classList.add('just-updated'); setTimeout(() => header.classList.remove('just-updated'), 900); }
 }
 
 function initBlock6Events() {
@@ -1502,6 +1707,9 @@ function renderPracticeRecommendations() {
   const step2    = window.assessment.step2;
   const selectedPCodes = (step2.selected_practices || []).map(p => p.p_code);
 
+  // Approach code map — built once across all 43 practices
+  const approachMap = buildApproachMap();
+
   // Group by theme, sort by score desc
   const themes = {};
   for (const p of eligible) {
@@ -1519,6 +1727,18 @@ function renderPracticeRecommendations() {
     const chainLabel = THEME_TO_CHAIN[theme];
     const cards = practices.map(p => {
       const isSelected = selectedPCodes.includes(p.p_code);
+      const hasGuidance = p.field_observation_checklist || p.evidence_correct || p.evidence_non_implementation || p.implementation_constraints || p.tape_mapping || p.approach_origins;
+      const guidanceHtml = hasGuidance ? `<details class="practice-field-guidance">
+        <summary class="guidance-summary">Field guidance</summary>
+        <div class="guidance-body">
+          ${p.implementation_constraints ? `<div class="guidance-section"><h4>Implementation constraints</h4><p>${esc(p.implementation_constraints)}</p></div>` : ''}
+          ${p.field_observation_checklist ? `<div class="guidance-section"><h4>Field observation checklist</h4><p>${esc(p.field_observation_checklist)}</p></div>` : ''}
+          ${p.evidence_correct        ? `<div class="guidance-section guidance-correct"><h4>Evidence of correct implementation</h4><p>${esc(p.evidence_correct)}</p></div>` : ''}
+          ${p.evidence_non_implementation ? `<div class="guidance-section guidance-incorrect"><h4>Evidence of non-implementation</h4><p>${esc(p.evidence_non_implementation)}</p></div>` : ''}
+          ${p.tape_mapping ? `<div class="guidance-section guidance-tape"><h4>TAPE framework alignment</h4><p>${esc(p.tape_mapping)}</p></div>` : ''}
+          ${p.approach_origins ? `<div class="guidance-section guidance-approach"><h4>IUCN NBS approach codes</h4><div class="approach-badges-wrap">${formatApproachCodes(p.approach_origins, p.p_code, approachMap)}</div></div>` : ''}
+        </div>
+      </details>` : '';
       return `<div class="practice-card${isSelected ? ' is-selected' : ''}" id="pcard-${esc(p.p_code)}">
         <label class="practice-check">
           <input type="checkbox" class="practice-select" data-pcode="${esc(p.p_code)}" ${isSelected ? 'checked' : ''}>
@@ -1528,12 +1748,14 @@ function renderPracticeRecommendations() {
               <span class="practice-name">${esc(p.name)}</span>
               <div class="practice-badges">
                 ${badge(p.tier === 'transformative' ? 'Transformative' : 'Standard', p.tier === 'transformative' ? 'transformative' : 'standard')}
-                ${p.score > 0 ? `<span class="practice-score">Score: ${p.score}</span>` : ''}
+                ${p.applicable_scale ? `<span class="badge badge-scale">${esc(p.applicable_scale)}</span>` : ''}
+                ${p.score > 0 ? `<span class="practice-score" title="Relevance score: ${p.score} pt${p.score !== 1 ? 's' : ''} — Pressures: ${p.scoreBreakdown?.pressurePts ?? 0} · Challenges: ${p.scoreBreakdown?.challengePts ?? 0} · Services: ${p.scoreBreakdown?.servicePts ?? 0}">▲ ${p.score}</span>` : ''}
               </div>
             </div>
             <p class="practice-rationale">${esc(p.rationale || '')}</p>
           </div>
         </label>
+        ${guidanceHtml}
       </div>`;
     }).join('');
     return `<div class="theme-group">
@@ -1583,14 +1805,14 @@ function initPracticeSelectEvents() {
       const practice = practicesData.find(p => p.p_code === pcode);
       if (!practice) return;
       const step2 = window.assessment.step2;
-      const score = scorePractice(practice, window.assessment.step1);
+      const scoreObj = scorePractice(practice, window.assessment.step1);
       const tier  = practice.prescreen_question
         ? (['open','open_conditionally'].includes(step2.prescreen[`q${practice.prescreen_question.slice(1)}_${['','trees','livestock','set_aside','inputs'][parseInt(practice.prescreen_question.slice(1))]}`])
           ? 'transformative' : 'standard')
         : 'standard';
       if (cb.checked) {
         if (!step2.selected_practices.find(p => p.p_code === pcode)) {
-          step2.selected_practices.push({ p_code: pcode, name: practice.name, theme: practice.theme, tier, score });
+          step2.selected_practices.push({ p_code: pcode, name: practice.name, theme: practice.theme, tier, score: scoreObj.total });
         }
       } else {
         step2.selected_practices = step2.selected_practices.filter(p => p.p_code !== pcode);
@@ -1850,9 +2072,42 @@ function renderStep4() {
 function buildStep4HTML() {
   const out   = window.assessment.step4_outputs;
   const step1 = window.assessment.step1;
+  const step2 = window.assessment.step2;
   const step3 = window.assessment.step3;
   const n     = out.narrative;
   const cap   = step3.capacity_profile || {};
+
+  // ── Pre-flight: fully empty state ────────────────────────────────────
+  const hasLandscape  = !!(step1.landscape_name && step1.efg_codes?.length);
+  const hasPractices  = (step2.selected_practices || []).length > 0;
+  const hasCapacity   = (step3.team_types || []).length > 0;
+
+  if (!hasLandscape && !hasPractices && !hasCapacity) {
+    return `<div class="output-section empty-plan-state">
+      <h2>Your monitoring plan will appear here</h2>
+      <p>Complete Steps 1, 2, and 3 to generate your personalised land health monitoring programme.</p>
+      <ul class="empty-plan-checklist">
+        <li class="${step1.landscape_name ? 'done' : ''}">Step 1 — Landscape Profile: describe your landscape, pressures, and ecosystem services</li>
+        <li class="${hasPractices ? 'done' : ''}">Step 2 — Practice Selection: confirm the practices you are implementing</li>
+        <li class="${hasCapacity ? 'done' : ''}">Step 3 — Capacity Assessment: describe your monitoring team, time, and budget</li>
+      </ul>
+      <button class="btn btn-primary" onclick="showStep(1)">Start with Step 1 →</button>
+    </div>`;
+  }
+
+  // ── Inline warnings for partial states ───────────────────────────────
+  const warnStep1 = !hasLandscape
+    ? `<div class="inline-warning">⚠ Step 1 incomplete — EFG and landscape profile not set. Indicator recommendations may be broad. <button class="btn-link" onclick="showStep(1)">Go to Step 1</button></div>`
+    : '';
+  const warnStep2 = !hasPractices
+    ? `<div class="inline-warning">⚠ No practices selected in Step 2 — indicator selection is driven by challenges only. <button class="btn-link" onclick="showStep(2)">Go to Step 2</button></div>`
+    : '';
+  const warnZeroDays = hasCapacity && !cap.available_days_total
+    ? `<div class="inline-warning">⚠ No monitoring days entered in Step 3 (Q2) — capacity fitting is disabled and all indicators are shown. <button class="btn-link" onclick="showStep(3)">Go to Step 3</button></div>`
+    : '';
+  // Build abiotic ID → name lookup for precursor links
+  const abioticNameMap = {};
+  abioticData.forEach(a => { abioticNameMap[a.indicator_id] = a.indicator_name; });
 
   // Summary panel
   const efgNames  = (step1.efg_codes || []).map(c => {
@@ -1869,10 +2124,11 @@ function buildStep4HTML() {
     <div class="summary-stat"><span class="stat-num">${out.practice_chains.reduce((s,c)=>s+c.practices.length,0)}</span><span class="stat-label">Practices</span></div>
     <div class="summary-stat"><span class="stat-num">${out.trimmed_groups.length}</span><span class="stat-label">Deferred indicators</span></div>
     <div class="summary-meta">
-      <span>${esc(step1.landscape_name || '—')}${step1.country ? ', ' + esc(step1.country) : ''}</span>
+      <span>${esc(step1.landscape_name || '—')}${step1.country ? ', ' + esc(step1.country) : ''}${step1.admin_region ? ' — ' + esc(step1.admin_region) : ''}</span>
       <span>${esc(efgNames || '—')}</span>
       <span>${esc(levelLabel)}</span>
       <span>${cap.available_days_total || 0} monitoring days available</span>
+      ${step1.area_ha ? `<span>${step1.area_ha.toLocaleString()} ha</span>` : ''}
     </div>
   </div>`;
 
@@ -1880,8 +2136,9 @@ function buildStep4HTML() {
   const narrativeHtml = `<div class="output-section narrative-section">
     <div class="narrative-header">
       <h2>Your Land Health Monitoring Programme</h2>
-      <p class="narrative-for">Prepared for: <strong>${esc(step1.landscape_name || 'Your Landscape')}</strong>${step1.country ? ', ' + esc(step1.country) : ''}</p>
+      <p class="narrative-for">Prepared for: <strong>${esc(step1.landscape_name || 'Your Landscape')}</strong>${step1.country ? ', ' + esc(step1.country) : ''}${step1.monitoring_programme_name ? ` — <em>${esc(step1.monitoring_programme_name)}</em>` : ''}</p>
     </div>
+    ${step1.description ? `<blockquote class="landscape-desc">${esc(step1.description)}</blockquote>` : ''}
     <div class="narrative-paras">
       <p>${esc(n.paragraph1)}</p>
       <p>${esc(n.paragraph2)}</p>
@@ -1907,46 +2164,77 @@ function buildStep4HTML() {
   </div>`;
 
   // Biological monitoring table
+  // Build profile_number → name lookup for connected group links
+  const profileNameMap = {};
+  indicatorsData.forEach(ind => { profileNameMap[ind.profile_number] = ind.profile_name; });
+
   const bioHtml = `<div class="output-section">
     <h2 class="section-title">Biological Monitoring Programme</h2>
+    <div class="advisory-notice">⚠ <strong>Draft protocols</strong> — All indicator profiles are currently DRAFT and unvalidated. Review with your biodiversity expert before finalising your monitoring programme.</div>
     ${out.protocol_assignments.length ? `
-    <table class="output-table">
+    <div class="table-scroll"><table class="output-table">
       <thead><tr>
-        <th>Indicator Group</th><th>Category</th><th>Stage</th><th>Level</th><th>Protocol</th><th>Output Metric</th><th>Rationale</th>
+        <th>Indicator Group</th><th>Category</th><th>Stage</th><th>Level</th><th>Protocol</th><th>Output Metric</th><th>Expected signal</th><th>Rationale</th>
       </tr></thead>
       <tbody>
-        ${out.protocol_assignments.map(g => `<tr>
-          <td><strong>${esc(g.profile_name)}</strong></td>
-          <td>${esc(g.category)}</td>
-          <td class="stage-cell">${esc((g.monitoring_stage||'').split(' ')[0])}</td>
-          <td><span class="level-badge level-${g.assigned_level}">L${g.assigned_level}</span>${g.requires_upgrade ? ' <span class="badge badge-warn" title="Requires higher team capacity than currently available">↑ Upgrade</span>' : ''}</td>
-          <td>${esc(g.assigned_protocol || 'TBC')}</td>
-          <td class="metric-cell">${esc(g.assigned_metric || '—')}</td>
-          <td><span class="badge badge-inclusion">${esc(g.inclusion_reason)}</span></td>
-        </tr>`).join('')}
+        ${out.protocol_assignments.map(g => {
+          const precursorNames = (g.abiotic_precursor_linkages || []).map(id => abioticNameMap[id] || id);
+          const precursorHtml  = precursorNames.length
+            ? `<div class="abiotic-precursors">Abiotic context: ${precursorNames.map(n => `<span class="precursor-tag">${esc(n)}</span>`).join('')}</div>`
+            : '';
+          const connectedNames = (g.linkage_c_connected_groups || [])
+            .map(num => profileNameMap[num]).filter(Boolean);
+          const connectedHtml = connectedNames.length
+            ? `<div class="connected-groups">Connected with: ${connectedNames.map(cn => `<span class="connected-tag">${esc(cn)}</span>`).join('')}</div>`
+            : '';
+          const eqLabels = (g.assigned_equipment_ids || []).map(id => EQUIPMENT_CATEGORIES[id] || `Cat. ${id}`);
+          const eqHtml   = eqLabels.length
+            ? `<details class="eq-details"><summary>Equipment (${eqLabels.length})</summary><ul class="eq-list">${eqLabels.map(e => `<li>${esc(e)}</li>`).join('')}</ul></details>`
+            : '';
+          return `<tr>
+            <td>
+              <strong>${esc(g.profile_name)}</strong>
+              ${g.primary_monitoring_role ? `<div class="monitoring-role">${esc(g.primary_monitoring_role)}</div>` : ''}
+              ${precursorHtml}${connectedHtml}
+            </td>
+            <td>${esc(g.category)}</td>
+            <td class="stage-cell" title="${esc(g.response_timescale || '')}">${esc((g.monitoring_stage||'').split(' ')[0])}</td>
+            <td><span class="level-badge level-${g.assigned_level}">L${g.assigned_level}</span>${g.requires_upgrade ? ' <span class="badge badge-warn" title="Requires higher team capacity than currently available">↑ Upgrade</span>' : ''}</td>
+            <td>${esc(g.assigned_protocol || 'TBC')}${g.assigned_reference_link ? ` <a class="ref-link" href="${esc(g.assigned_reference_link)}" target="_blank" rel="noopener" title="${esc(g.assigned_reference || '')}">[ref]</a>` : g.assigned_reference ? ` <span class="ref-plain" title="${esc(g.assigned_reference)}">[ref]</span>` : ''}${eqHtml}</td>
+            <td class="metric-cell">${esc(g.assigned_metric || '—')}</td>
+            <td class="expected-cell">${esc(g.b2_expected_direction_of_change || '—')}</td>
+            <td><span class="badge badge-inclusion">${esc(g.inclusion_reason)}</span></td>
+          </tr>`;
+        }).join('')}
       </tbody>
-    </table>` : '<p class="empty-state">No biological indicators selected. Complete Steps 1–3 to generate recommendations.</p>'}
+    </table></div>` : '<p class="empty-state">No biological indicators selected. Complete Steps 1–3 to generate recommendations.</p>'}
   </div>`;
 
   // Abiotic table
   const abioHtml = `<div class="output-section">
     <h2 class="section-title">Abiotic Monitoring Programme</h2>
+    <p class="block-desc">Abiotic indicators marked <strong>Year 1</strong> form your universal baseline package and should be established before biological monitoring begins. Year 1+ indicators are added once the baseline is in place.</p>
     ${out.selected_abiotic.length ? `
-    <table class="output-table">
-      <thead><tr><th>Indicator</th><th>Domain</th><th>Protocol</th><th>Frequency</th><th></th></tr></thead>
+    <div class="table-scroll"><table class="output-table">
+      <thead><tr><th>Indicator</th><th>Phase</th><th>Domain</th><th>Protocol</th><th>Frequency</th><th></th></tr></thead>
       <tbody>
         ${out.selected_abiotic.map(a => `<tr>
           <td>
             <span class="practice-code">${esc(a.indicator_id)}</span>
             <strong>${esc(a.indicator_name)}</strong>
+            ${a.what_it_measures ? `<div class="abiotic-measures">${esc(a.what_it_measures)}</div>` : ''}
           </td>
+          <td><span class="phase-badge${a.universal_baseline ? ' phase-y1' : ' phase-ongoing'}">${a.universal_baseline ? 'Year 1' : 'Year 1+'}</span></td>
           <td>${esc(a.domain || '—')}</td>
-          <td>${esc(a.protocol_name || '—')}</td>
+          <td>${esc(a.protocol_name || '—')}${a.interpretation_notes ? `<details class="eq-details"><summary>Interpretation</summary><p class="interp-note">${esc(a.interpretation_notes)}</p></details>` : ''}</td>
           <td>${esc(a.monitoring_frequency || '—')}</td>
-          <td>${a.universal_baseline ? '<span class="badge badge-baseline">Baseline</span>' : ''}</td>
+          <td>
+            ${a.universal_baseline ? '<span class="badge badge-baseline">Baseline</span>' : ''}
+            ${a.equipment_gap ? `<span class="badge badge-warn" title="Missing equipment: ${esc((a.missing_equipment||[]).join(', '))}">⚠ Equipment</span>` : ''}
+          </td>
         </tr>`).join('')}
       </tbody>
-    </table>` : '<p class="empty-state">No abiotic indicators selected.</p>'}
+    </table></div>` : '<p class="empty-state">No abiotic indicators selected.</p>'}
   </div>`;
 
   // Calendar — 12-month grid
@@ -2009,17 +2297,18 @@ function buildStep4HTML() {
   const enhHtml = out.trimmed_groups.length ? `<div class="output-section">
     <h2 class="section-title">Enhancement Recommendations</h2>
     <p class="block-desc">The following indicator groups were identified as relevant to your landscape but were deferred due to current team capacity. They are listed in priority order — add them as your monitoring programme matures.</p>
-    <table class="output-table">
-      <thead><tr><th>Indicator Group</th><th>Category</th><th>Protocol Level</th><th>Why deferred</th></tr></thead>
+    <div class="table-scroll"><table class="output-table">
+      <thead><tr><th>Indicator Group</th><th>Category</th><th>Level</th><th>Why deferred</th><th>What would unlock this</th></tr></thead>
       <tbody>
         ${out.trimmed_groups.map(g => `<tr>
           <td><strong>${esc(g.profile_name)}</strong></td>
           <td>${esc(g.category)}</td>
           <td><span class="level-badge level-${g.assigned_level}">L${g.assigned_level}</span></td>
           <td class="trim-reason">${esc(g.trim_reason || '—')}</td>
+          <td class="unlock-hint">${esc(g.unlock_hint || '—')}</td>
         </tr>`).join('')}
       </tbody>
-    </table>
+    </table></div>
   </div>` : '';
 
   // Print / actions
@@ -2028,7 +2317,20 @@ function buildStep4HTML() {
     <button class="btn btn-ghost" id="btn-restart">Start New Assessment</button>
   </div>`;
 
-  return actionsHtml + summaryHtml + narrativeHtml + chainsHtml + bioHtml + abioHtml + calHtml + enhHtml;
+  // Print-only cover header (hidden on screen)
+  const printDate = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+  const printHeaderHtml = `<div class="print-header screen-hide">
+    <div class="print-header-brand">IUCN · LAHMP Wizard · NBS Hub</div>
+    <div class="print-header-title">${esc(step1.landscape_name || 'Land Health Monitoring Programme')}</div>
+    ${step1.monitoring_programme_name ? `<div class="print-header-sub">${esc(step1.monitoring_programme_name)}</div>` : ''}
+    <div class="print-header-meta">${step1.country ? esc(step1.country) + (step1.admin_region ? ', ' + esc(step1.admin_region) : '') + ' · ' : ''}Generated ${printDate}</div>
+  </div>`;
+
+  const warningsHtml = (warnStep1 + warnStep2 + warnZeroDays)
+    ? `<div class="warnings-block">${warnStep1}${warnStep2}${warnZeroDays}</div>`
+    : '';
+
+  return actionsHtml + printHeaderHtml + summaryHtml + warningsHtml + narrativeHtml + chainsHtml + bioHtml + abioHtml + calHtml + enhHtml;
 }
 
 // ── Collapsible blocks ────────────────────────────────────────────────────
@@ -2081,12 +2383,18 @@ function validateStep(n) {
     if (!Object.values(pre).every(v => v !== null)) {
       showToast('Please answer all four pre-screen questions.'); return false;
     }
+    if (!(window.assessment.step2.selected_practices || []).length) {
+      showToast('No practices selected. The monitoring plan will use only challenge-driven indicators — consider selecting at least one practice.');
+      // soft warning only — allow proceeding
+    }
   }
   if (n === 3) {
     const s3 = window.assessment.step3;
-    if (!s3.team_types.length)         { showToast('Please add at least one team member type.'); return false; }
-    if (s3.budget_tier === null)        { showToast('Please select a budget tier (Q4).'); return false; }
-    if (!s3.site_count_category)       { showToast('Please select the number of monitoring sites (Q5a).'); return false; }
+    if (!s3.team_types.length)   { showToast('Please add at least one team member type.'); return false; }
+    const totalDays = Object.values(s3.days_by_type || {}).reduce((a, b) => a + (Number(b) || 0), 0);
+    if (!totalDays)              { showToast('Please enter monitoring days available per year for your team (Q2).'); return false; }
+    if (s3.budget_tier === null) { showToast('Please select a budget tier (Q4).'); return false; }
+    if (!s3.site_count_category) { showToast('Please select the number of monitoring sites (Q5a).'); return false; }
   }
   return true;
 }
