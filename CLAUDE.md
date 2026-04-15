@@ -908,8 +908,8 @@ All three Excel workbooks are the canonical source of truth. Always edit the Exc
 | Form documentation | Complete reference for all user-facing input forms (Steps 1–3). See `FORM_DOCUMENTATION.md`. | Complete |
 | TEST-03 B2 gap (P06, P36) | P06 added as B2 to profiles 10, 11, 12, 13; as B1 to profiles 1, 6. P36 added as B2 to profiles 1, 2; as B1 to profile 6. | Complete |
 | document.title programme name | `updateDocTitle()` helper now sets title to `${landscape} — ${programme} — LAHMP Wizard` when both fields are populated. | Complete |
-| F3.3 EFG coverage gap | No indicator profile has `F3.3` (Rice paddies) in its `relevant_efgs`. TEST-03 (Vietnam VSA) is served via T7.1 overlap only — the flooded rice paddy and aquatic biodiversity dimension is not recognised. Fix: add `F3.3` to `relevant_efgs` of profiles where rice paddy applicability is scientifically justified (candidates: profiles 1 Soil bacteria, 6 Earthworms, 17 Aquatic macroinvertebrates, 18 Fish). | Open |
-| End-to-end browser testing | All three test fixtures (`?fixture=TEST-01/02/03&step=4`) should be loaded in a browser and Step 4 output verified for scientific sense: narrative accuracy, practice chain grouping, indicator count reasonableness, protocol level, calendar access compliance, and capacity trimming behaviour on TEST-02. | Open |
+| F3.3 EFG coverage gap | Added `F3.3` to `relevant_efgs` of profiles 1 (Soil bacteria), 6 (Earthworms), 17 (Aquatic macroinvertebrates), 18 (Fish). TEST-03 now recognises the rice paddy dimension — aquatic indicators pass EFG filter and appear in Enhancement Recommendations (deferred by capacity, not excluded). | Complete |
+| End-to-end browser testing | All three fixtures verified at `?fixture=TEST-0X&step=4`. TEST-01: 15 bio + 13 abiotic, Level 1, T7.2, Moroccan summer access constraints correct. TEST-02: severe capacity trim (16 days vs 150 required → 2 bio groups retained), capacity fitting confirmed. TEST-03: Level 2, T7.1+F3.3 dual EFG shown in header, aquatic indicators selected by Op 2 then deferred by Op 4. All narrative, practice chains, calendar, and trimming behaviour scientifically sound. | Complete |
 
 
 
