@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LAHMP — EFG Map Explorer</title>
+
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- Google Fonts (IUCN brand) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;600&family=IBM+Plex+Serif:wght@400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── IUCN brand tokens ───────────────────────────── */
+    :root {
+      --navy:   #003478;
+      --yellow: #FDC82F;
+      --green:  #1A7A52;
+      --light:  #f4f6f8;
+      --border: #d0d7de;
+      --text:   #1a1a2e;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'IBM Plex Sans', sans-serif;
+      background: var(--light);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* ── Header ─────────────────────────────────────── */
+    header {
+      background: var(--navy);
+      color: #fff;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-shrink: 0;
+      z-index: 1000;
+    }
+    header h1 {
+      font-family: 'IBM Plex Serif', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+    header span.sub {
+      font-size: 0.8rem;
+      opacity: 0.7;
+      margin-left: 4px;
+    }
+    .badge-iucn {
+      background: var(--yellow);
+      color: var(--navy);
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 3px;
+      letter-spacing: 0.04em;
+      margin-left: auto;
+      white-space: nowrap;
+    }
+
+    /* ── Layout ──────────────────────────────────────── */
+    .layout {
+      display: flex;
+      flex: 1;
+      overflow: hidden;
+    }
+
+    /* ── Map ─────────────────────────────────────────── */
+    #map {
+      flex: 1;
+      cursor: crosshair;
+    }
+
+    /* ── Sidebar ─────────────────────────────────────── */
+    #sidebar {
+      width: 340px;
+      flex-shrink: 0;
+      background: #fff;
+      border-left: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .sidebar-header {
+      background: var(--navy);
+      color: #fff;
+      padding: 14px 16px;
+      font-family: 'IBM Plex Serif', serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+    .sidebar-header .coords {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--yellow);
+      margin-top: 3px;
+    }
+
+    .sidebar-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 12px;
+    }
+
+    /* ── Placeholder ─────────────────────────────────── */
+    .placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      color: #888;
+      text-align: center;
+      padding: 24px;
+      gap: 10px;
+    }
+    .placeholder svg {
+      opacity: 0.3;
+    }
+    .placeholder p {
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+
+    /* ── Loading ─────────────────────────────────────── */
+    #loading-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,52,120,0.92);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      gap: 16px;
+      font-family: 'IBM Plex Sans', sans-serif;
+    }
+    #loading-overlay p { font-size: 1rem; opacity: 0.85; }
+    .spinner {
+      width: 40px; height: 40px;
+      border: 4px solid rgba(255,255,255,0.3);
+      border-top-color: var(--yellow);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── EFG cards ───────────────────────────────────── */
+    .efg-count {
+      font-size: 0.78rem;
+      color: #555;
+      margin-bottom: 10px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+    .efg-count strong { color: var(--navy); }
+
+    .efg-group { margin-bottom: 14px; }
+    .efg-group-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #888;
+      margin-bottom: 5px;
+      padding-left: 2px;
+    }
+
+    .efg-card {
+      background: var(--light);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--navy);
+      border-radius: 4px;
+      padding: 8px 10px;
+      margin-bottom: 5px;
+    }
+    .efg-card .code {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--navy);
+    }
+    .efg-card .name {
+      font-size: 0.82rem;
+      color: #333;
+      margin-top: 1px;
+    }
+
+    /* Colour by realm */
+    .efg-card.realm-T  { border-left-color: var(--green); }
+    .efg-card.realm-F  { border-left-color: #2980b9; }
+    .efg-card.realm-M  { border-left-color: #1a5276; }
+    .efg-card.realm-MF { border-left-color: #148f77; }
+    .efg-card.realm-TF { border-left-color: #7d6608; }
+    .efg-card.realm-MT { border-left-color: #6c3483; }
+    .efg-card.realm-FM { border-left-color: #1a5276; }
+    .efg-card.realm-S  { border-left-color: #784212; }
+    .efg-card.realm-SF { border-left-color: #4a235a; }
+    .efg-card.realm-SM { border-left-color: #1b4f72; }
+
+    /* ── Cell highlight ──────────────────────────────── */
+    .cell-info {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.72rem;
+      color: #666;
+      margin-top: 10px;
+      padding-top: 8px;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── Responsive: stack on narrow screens ─────────── */
+    @media (max-width: 600px) {
+      .layout { flex-direction: column; }
+      #sidebar { width: 100%; height: 40vh; border-left: none; border-top: 1px solid var(--border); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Loading overlay -->
+<div id="loading-overlay">
+  <div class="spinner"></div>
+  <p>Loading EFG grid data…</p>
+</div>
+
+<header>
+  <h1>LAHMP EFG Map Explorer <span class="sub">— IUCN Global Ecosystem Typology</span></h1>
+  <span class="badge-iucn">IUCN NBS Hub</span>
+</header>
+
+<div class="layout">
+  <div id="map"></div>
+
+  <div id="sidebar">
+    <div class="sidebar-header">
+      Ecosystem Functional Groups
+      <div class="coords" id="coords-display">Click on the map to explore</div>
+    </div>
+    <div class="sidebar-body" id="sidebar-body">
+      <div class="placeholder">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+          <circle cx="12" cy="9" r="2.5"/>
+        </svg>
+        <p>Click anywhere on the map to see which IUCN Ecosystem Functional Groups are mapped to that 0.5° grid cell.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── State ─────────────────────────────────────────────────────────────────
+let metadata = null;
+let gridIndex = null;
+let clickMarker = null;
+let clickRect = null;
+
+// ── Realm labels ──────────────────────────────────────────────────────────
+const REALM_LABELS = {
+  T:   'Terrestrial',
+  F:   'Freshwater',
+  M:   'Marine',
+  MFT: 'Marine-Freshwater-Terrestrial',
+  MT:  'Marine-Terrestrial',
+  FM:  'Freshwater-Marine',
+  TF:  'Terrestrial-Freshwater',
+  SF:  'Subterranean-Freshwater',
+  SM:  'Subterranean-Marine',
+  S:   'Subterranean',
+};
+
+function getRealm(code) {
+  // Codes like F1.1, T7.2, MFT1.1, MT1.2, TF1.3 etc.
+  return code.match(/^([A-Z]+)/)[1];
+}
+
+function getRealmClass(realm) {
+  if (realm === 'MFT') return 'realm-MF';
+  return 'realm-' + realm;
+}
+
+// ── Grid key formula ──────────────────────────────────────────────────────
+// From metadata: lng_min=-180, lat_min=-90, grid_res=0.5, cols=720, rows=360
+// Rows go bottom-to-top (south to north)
+function lngLatToKey(lng, lat) {
+  const col = Math.floor((lng + 180) / 0.5);
+  const row = Math.floor((lat + 90) / 0.5);
+  return row * 720 + col;
+}
+
+// ── Map init ──────────────────────────────────────────────────────────────
+const map = L.map('map', {
+  center: [20, 10],
+  zoom: 3,
+  minZoom: 2,
+  maxBounds: [[-90, -180], [90, 180]],
+  maxBoundsViscosity: 1.0,
+});
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+  maxZoom: 18,
+}).addTo(map);
+
+// ── Click handler ─────────────────────────────────────────────────────────
+map.on('click', function (e) {
+  if (!gridIndex || !metadata) return;
+
+  const { lat, lng } = e.latlng;
+  const clampedLng = Math.max(-180, Math.min(179.99, lng));
+  const clampedLat = Math.max(-90,  Math.min(89.99,  lat));
+
+  const key = lngLatToKey(clampedLng, clampedLat);
+  const indices = gridIndex[String(key)] || [];
+  const efgCodes = indices.map(i => metadata.efg_list[i]);
+
+  // Update coords display
+  document.getElementById('coords-display').textContent =
+    `${clampedLat.toFixed(2)}°, ${clampedLng.toFixed(2)}°`;
+
+  // Draw cell rectangle
+  const cellLngMin = Math.floor(clampedLng / 0.5) * 0.5;
+  const cellLatMin = Math.floor(clampedLat / 0.5) * 0.5;
+  if (clickRect) map.removeLayer(clickRect);
+  clickRect = L.rectangle(
+    [[cellLatMin, cellLngMin], [cellLatMin + 0.5, cellLngMin + 0.5]],
+    { color: '#FDC82F', weight: 2, fillColor: '#FDC82F', fillOpacity: 0.15 }
+  ).addTo(map);
+
+  renderSidebar(efgCodes, key);
+});
+
+// ── Sidebar renderer ──────────────────────────────────────────────────────
+function renderSidebar(codes, key) {
+  const body = document.getElementById('sidebar-body');
+
+  if (codes.length === 0) {
+    body.innerHTML = `
+      <div class="placeholder">
+        <p>No EFGs mapped to this cell (key&nbsp;${key}).<br>
+           This may be open ocean or an unclassified area.</p>
+      </div>`;
+    return;
+  }
+
+  // Group by realm
+  const groups = {};
+  codes.forEach(code => {
+    const realm = getRealm(code);
+    if (!groups[realm]) groups[realm] = [];
+    groups[realm].push(code);
+  });
+
+  // Realm display order
+  const ORDER = ['T', 'TF', 'F', 'MFT', 'MT', 'FM', 'M', 'S', 'SF', 'SM'];
+  const sorted = ORDER.filter(r => groups[r]).concat(
+    Object.keys(groups).filter(r => !ORDER.includes(r)).sort()
+  );
+
+  let html = `<div class="efg-count"><strong>${codes.length}</strong> EFG${codes.length !== 1 ? 's' : ''} mapped to this cell</div>`;
+
+  sorted.forEach(realm => {
+    const label = REALM_LABELS[realm] || realm;
+    html += `<div class="efg-group">
+      <div class="efg-group-label">${label}</div>`;
+    groups[realm].sort().forEach(code => {
+      const efg = metadata.efgs[code];
+      const name = efg ? efg.name : code;
+      html += `<div class="efg-card ${getRealmClass(realm)}">
+        <div class="code">${code}</div>
+        <div class="name">${name}</div>
+      </div>`;
+    });
+    html += `</div>`;
+  });
+
+  html += `<div class="cell-info">Grid key: ${key}</div>`;
+  body.innerHTML = html;
+}
+
+// ── Data loading ──────────────────────────────────────────────────────────
+async function loadData() {
+  try {
+    const [metaRes, gridRes] = await Promise.all([
+      fetch('data/metadata.json'),
+      fetch('data/grid_index.json'),
+    ]);
+
+    if (!metaRes.ok) throw new Error(`metadata.json: ${metaRes.status}`);
+    if (!gridRes.ok) throw new Error(`grid_index.json: ${gridRes.status}`);
+
+    metadata = await metaRes.json();
+    gridIndex = await gridRes.json();
+
+    document.getElementById('loading-overlay').style.display = 'none';
+  } catch (err) {
+    document.getElementById('loading-overlay').innerHTML =
+      `<p style="color:#FDC82F;font-size:1.1rem;">Failed to load data</p>
+       <p style="opacity:0.8;font-size:0.85rem;">${err.message}</p>
+       <p style="opacity:0.6;font-size:0.8rem;">Serve this file via a local web server (e.g. <code>python -m http.server 8080</code>)</p>`;
+  }
+}
+
+loadData();
+</script>
+</body>
+</html>
