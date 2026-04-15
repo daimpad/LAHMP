@@ -1265,16 +1265,14 @@ function renderBlock12() {
     </details>`;
   }).join('');
 
+  const abcMapUrl = 'https://abc-map.fao.org/dashboard';
+
   return block('b12', 'Block 1.2 — Land System', `
     <div class="form-grid">
       <div class="form-field">
         <label for="area_ha">Total area (hectares)</label>
         <input type="number" id="area_ha" name="area_ha" value="${s.area_ha ?? ''}" min="0" placeholder="e.g. 450">
       </div>
-    </div>
-    <div class="form-field-full">
-      <label>IPCC Land Use Categories present <span class="req">*</span></label>
-      ${multiCheckList(referenceData.ipcc_land_use_categories || [], s.ipcc_land_use_categories, 'ipcc_land_use_cat')}
     </div>
     <div class="form-field-full">
       <label>Global Ecosystem Functional Groups (EFGs) <span class="req">*</span></label>
@@ -1293,8 +1291,35 @@ function renderBlock12() {
         </div>
       </details>
     </div>
+
+    <div class="abc-bridge">
+      <div class="abc-bridge-header">Next: Get your land use and soil data</div>
+      <div class="abc-bridge-body">
+        <p class="abc-bridge-desc">The ABC Map (FAO) can extract IPCC land use categories and soil types for your location automatically.</p>
+        <a class="btn btn-abc" href="${esc(abcMapUrl)}" target="_blank" rel="noopener noreferrer">
+          Open ABC Map for my location
+          <svg class="ext-icon" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M1 11L11 1M11 1H5M11 1V7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <p class="abc-bridge-note">ABC Map is an FAO tool — opens in a new tab. No data is shared automatically.</p>
+        <ol class="abc-bridge-steps">
+          <li>The map will open centred near your coordinates</li>
+          <li>Draw your landscape boundary on the ABC Map</li>
+          <li>Note the IPCC land use categories and soil types shown</li>
+          <li>Return here and enter them below</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="form-field-full">
+      <label>IPCC Land Use Categories present <span class="req">*</span></label>
+      <p class="field-hint">Select the land use categories present in your landscape (from ABC Map or your knowledge).</p>
+      ${multiCheckList(referenceData.ipcc_land_use_categories || [], s.ipcc_land_use_categories, 'ipcc_land_use_cat')}
+    </div>
     <div class="form-field-full">
       <label>Soil types present</label>
+      <p class="field-hint">Select the soil types present (from ABC Map or your knowledge).</p>
       ${multiCheckList(referenceData.ipcc_soil_types || [], s.soil_types, 'soil_type')}
     </div>`, { subtitle: 'Area, land use categories, EFGs, and soil types' });
 }
