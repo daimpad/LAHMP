@@ -753,7 +753,11 @@ function capacityFit(assigned, cap, step2, step1) {
       const unlockParts = [`+${daysShort} monitoring days/year`];
       if (!cap.willingness_profile.time)      unlockParts.push('or indicate willingness to increase monitoring time (Q2b)');
       if (!cap.willingness_profile.recruit)   unlockParts.push('or recruit additional team capacity (Q1b)');
-      if (g.assigned_level < 3 && cap.max_protocol_level < 3) unlockParts.push('or upgrade to a Level 3 team (Type E/F)');
+      const groupMaxLevel = g.level3_protocol_name ? 3 : g.level2_protocol_name ? 2 : 1;
+      if (groupMaxLevel > cap.max_protocol_level) {
+        if (groupMaxLevel >= 3) unlockParts.push('or upgrade to a Level 3 team (Type E/F)');
+        else unlockParts.push('or recruit a specialist technician (Team Type C or D)');
+      }
       trimmed.push({
         ...g,
         trim_reason:   `Exceeds capacity (needs ${g._days_required.toFixed(1)} days/cycle; ${(cap.available_days_total - usedDays).toFixed(1)} remaining).`,

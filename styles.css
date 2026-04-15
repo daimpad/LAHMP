@@ -1269,7 +1269,8 @@ textarea { resize: vertical; min-height: 80px; }
   .step-nav,
   .wizard-footer,
   .output-actions,
-  .warnings-block { display: none !important; }
+  .warnings-block,
+  .fixture-banner { display: none !important; }
 
   body { background: white; font-size: 10pt; }
 
