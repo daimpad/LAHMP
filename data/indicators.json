@@ -38,7 +38,8 @@
       "T7.1",
       "T7.2",
       "T7.3",
-      "T7.5"
+      "T7.5",
+      "F3.3"
     ],
     "relevant_ipcc_land_use": [
       "Cropland",
@@ -526,7 +527,8 @@
       "T7.1",
       "T7.2",
       "T7.3",
-      "T7.5"
+      "T7.5",
+      "F3.3"
     ],
     "relevant_ipcc_land_use": [
       "Cropland",
@@ -1488,7 +1490,8 @@
     ],
     "relevant_efgs": [
       "F2.x",
-      "TF1.x"
+      "TF1.x",
+      "F3.3"
     ],
     "relevant_ipcc_land_use": [
       "Cropland",
@@ -1571,8 +1574,8 @@
     ],
     "relevant_efgs": [
       "F2.x",
-      "F2.x",
-      "TF1.x"
+      "TF1.x",
+      "F3.3"
     ],
     "relevant_ipcc_land_use": [
       "Cropland",
