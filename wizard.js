@@ -108,6 +108,11 @@ let abioticData     = [];
 let referenceData   = {};
 let currentStep     = 1;
 
+// EFG map data (loaded once at init, stored globally)
+window.lahmpData = { metadata: null, gridIndex: null };
+let _efgMap     = null;  // Leaflet map instance for Block 1.2 EFG selector
+let _efgMapRect = null;  // Current 0.5° cell highlight rectangle
+
 // ── Assessment state ────────────────────────────────────────────────────────
 
 window.assessment = {
@@ -125,6 +130,8 @@ window.assessment = {
     ipcc_land_use_categories: [],
     soil_types: [],
     efg_codes: [],
+    map_click_lng: null,   // longitude of last confirmed map click (context, not polygon)
+    map_click_lat: null,   // latitude  of last confirmed map click
     description: '',
     land_uses: [],
     crops: [],
@@ -175,16 +182,20 @@ window.assessment = {
 // ── Data loading ──────────────────────────────────────────────────────────
 
 async function loadData() {
-  const [p, i, a, r] = await Promise.all([
+  const [p, i, a, r, meta, grid] = await Promise.all([
     fetch('data/practices.json').then(r => r.json()),
     fetch('data/indicators.json').then(r => r.json()),
     fetch('data/abiotic.json').then(r => r.json()),
     fetch('data/reference.json').then(r => r.json()),
+    fetch('data/metadata.json').then(r => r.json()),
+    fetch('data/grid_index.json').then(r => r.json()),
   ]);
   practicesData  = p;
   indicatorsData = i;
   abioticData    = a;
   referenceData  = r;
+  window.lahmpData.metadata  = meta;
+  window.lahmpData.gridIndex = grid;
 }
 
 // ── localStorage ──────────────────────────────────────────────────────────
@@ -1053,6 +1064,145 @@ function multiCheckList(items, selectedArr, nameAttr, valueAttr = 'value', label
   }).join('')}</div>`;
 }
 
+// ── EFG map helpers (Block 1.2) ───────────────────────────────────────────
+
+// Grid key formula: rows bottom-to-top (lat_min = -90), 0.5° resolution, 720 cols.
+function lngLatToGridKey(lng, lat) {
+  const col = Math.floor((lng + 180) / 0.5);
+  const row = Math.floor((lat  +  90) / 0.5);
+  return row * 720 + col;
+}
+
+// Render a pre-checked checklist of EFG codes from a map-click result.
+// codes = array of EFG code strings (may be empty).
+function renderEfgChecklistHtml(codes) {
+  if (!codes || !codes.length) {
+    return '<p class="efg-checklist-hint">Click on the map to find EFGs for your location.</p>';
+  }
+  const efgs  = window.lahmpData.metadata?.efgs || {};
+  const items = codes.map(code => {
+    const efg  = efgs[code];
+    const name = efg ? efg.name : code;
+    const desc = efg ? efg.description : '';
+    const tip  = desc ? desc.slice(0, 400) + (desc.length > 400 ? '…' : '') : '';
+    return `<label class="efg-checklist-item is-checked">
+      <input type="checkbox" class="efg-map-cb" value="${esc(code)}" checked>
+      <span class="efg-checklist-code">${esc(code)}</span>
+      <span class="efg-checklist-name">${esc(name)}</span>
+      ${tip ? `<span class="efg-info" tabindex="0" title="${esc(tip)}">ⓘ</span>` : ''}
+    </label>`;
+  }).join('');
+  return `<div class="efg-checklist">${items}</div>`;
+}
+
+// Initialise (or re-initialise) the Leaflet map embedded in Block 1.2.
+// Called from initBlock12Events() after the block HTML is in the DOM.
+function initEfgMapEvents() {
+  // Tear down any prior Leaflet instance (block may be re-rendered)
+  if (_efgMap) { _efgMap.remove(); _efgMap = null; _efgMapRect = null; }
+
+  const mapEl = document.getElementById('efg-map');
+  if (!mapEl) return;
+
+  const { metadata, gridIndex } = window.lahmpData;
+
+  // Guard: data still loading (shouldn't occur in normal flow — loadData() is awaited)
+  if (!metadata || !gridIndex) {
+    mapEl.innerHTML = '<div class="efg-map-loading"><div class="efg-spinner"></div><p>Loading EFG grid data…</p></div>';
+    return;
+  }
+
+  const s = window.assessment.step1;
+  const hasClick = s.map_click_lng != null && s.map_click_lat != null;
+
+  _efgMap = L.map(mapEl, {
+    center:               hasClick ? [s.map_click_lat, s.map_click_lng] : [20, 10],
+    zoom:                 hasClick ? 5 : 2,
+    minZoom:              1,
+    maxBounds:            [[-90, -180], [90, 180]],
+    maxBoundsViscosity:   1.0,
+  });
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    maxZoom: 18,
+  }).addTo(_efgMap);
+
+  // Restore previous cell rectangle (if session has a confirmed click)
+  if (hasClick) _efgHighlightCell(s.map_click_lng, s.map_click_lat);
+
+  // Map click → grid lookup → checklist update
+  _efgMap.on('click', e => {
+    const lng = Math.max(-180, Math.min(179.99, e.latlng.lng));
+    const lat = Math.max(-90,  Math.min( 89.99, e.latlng.lat));
+
+    _efgHighlightCell(lng, lat);
+
+    const key     = lngLatToGridKey(lng, lat);
+    const indices = gridIndex[String(key)] || [];
+    const codes   = indices.map(i => metadata.efg_list[i]);
+
+    const checklistEl = document.getElementById('efg-map-checklist');
+    if (checklistEl) {
+      checklistEl.innerHTML = renderEfgChecklistHtml(codes);
+      checklistEl.querySelectorAll('.efg-map-cb').forEach(cb => {
+        cb.addEventListener('change', () =>
+          cb.closest('.efg-checklist-item').classList.toggle('is-checked', cb.checked)
+        );
+      });
+    }
+
+    // Clear prior confirmation message
+    const statusEl = document.getElementById('efg-map-status');
+    if (statusEl) { statusEl.textContent = ''; statusEl.className = 'efg-map-status'; }
+
+    // Stash pending coords on the map instance (committed on Confirm click)
+    _efgMap._pendingLng = lng;
+    _efgMap._pendingLat = lat;
+  });
+
+  // Confirm button — write checked codes to assessment.step1.efg_codes
+  const confirmBtn = document.getElementById('btn-efg-confirm');
+  if (confirmBtn) {
+    confirmBtn.addEventListener('click', () => {
+      const checklistEl = document.getElementById('efg-map-checklist');
+      const boxes   = checklistEl ? [...checklistEl.querySelectorAll('.efg-map-cb')] : [];
+      const checked = boxes.filter(cb => cb.checked).map(cb => cb.value);
+
+      window.assessment.step1.efg_codes = checked;
+
+      const pendingLng = _efgMap?._pendingLng ?? null;
+      const pendingLat = _efgMap?._pendingLat ?? null;
+      if (pendingLng !== null) {
+        window.assessment.step1.map_click_lng = pendingLng;
+        window.assessment.step1.map_click_lat = pendingLat;
+      }
+
+      const statusEl = document.getElementById('efg-map-status');
+      if (statusEl) {
+        statusEl.textContent = checked.length
+          ? 'EFGs saved. You can refine your selection by clicking a different location.'
+          : 'No EFGs confirmed. Click the map or use manual selection below.';
+        statusEl.className = 'efg-map-status ' + (checked.length ? 'is-success' : 'is-warning');
+      }
+
+      saveState();
+    });
+  }
+}
+
+// Draw / update the 0.5° cell rectangle on the EFG map.
+function _efgHighlightCell(lng, lat) {
+  if (!_efgMap) return;
+  const cellLng = Math.floor(lng / 0.5) * 0.5;
+  const cellLat = Math.floor(lat / 0.5) * 0.5;
+  if (_efgMapRect) _efgMap.removeLayer(_efgMapRect);
+  _efgMapRect = L.rectangle(
+    [[cellLat, cellLng], [cellLat + 0.5, cellLng + 0.5]],
+    { color: '#FDC82F', weight: 2, fillColor: '#FDC82F', fillOpacity: 0.2 }
+  ).addTo(_efgMap);
+}
+
 // ── Step 1 render functions ───────────────────────────────────────────────
 
 function renderBlock1() {
@@ -1128,8 +1278,20 @@ function renderBlock12() {
     </div>
     <div class="form-field-full">
       <label>Global Ecosystem Functional Groups (EFGs) <span class="req">*</span></label>
-      <p class="field-hint">Select all EFGs present in your landscape. Terrestrial, Freshwater, and Terrestrial-Freshwater realms are shown expanded; others are collapsed.</p>
-      <div class="efg-selector">${efgGroupsHtml}</div>
+      <p class="field-hint">Click your landscape location on the map. EFGs mapped to that 0.5° grid cell will be pre-selected — uncheck any that do not apply to your specific landscape, then click <strong>Confirm EFG selection</strong>.</p>
+      <div id="efg-map"></div>
+      <div id="efg-map-checklist">${renderEfgChecklistHtml(s.efg_codes)}</div>
+      <div class="efg-confirm-wrap">
+        <button type="button" class="btn btn-primary btn-sm" id="btn-efg-confirm">Confirm EFG selection</button>
+        <span class="efg-map-status${s.efg_codes.length ? ' is-success' : ''}" id="efg-map-status">${s.efg_codes.length ? 'EFGs saved. You can refine your selection by clicking a different location.' : ''}</span>
+      </div>
+      <details class="efg-manual-fallback" id="efg-manual-details">
+        <summary class="efg-manual-summary">My location is not well represented — select manually</summary>
+        <div class="efg-manual-body">
+          <p class="field-hint">Select from all 109 EFGs. Changes here update your confirmed selection immediately.</p>
+          <div class="efg-selector">${efgGroupsHtml}</div>
+        </div>
+      </details>
     </div>
     <div class="form-field-full">
       <label>Soil types present</label>
@@ -1410,15 +1572,6 @@ function initBlock12Events() {
       saveState();
     });
   });
-  document.querySelectorAll('input[name="efg_code"]').forEach(cb => {
-    cb.addEventListener('change', () => {
-      const s = window.assessment.step1;
-      if (cb.checked) { if (!s.efg_codes.includes(cb.value)) s.efg_codes.push(cb.value); }
-      else { s.efg_codes = s.efg_codes.filter(v => v !== cb.value); }
-      cb.closest('label').classList.toggle('is-checked', cb.checked);
-      saveState();
-    });
-  });
   document.querySelectorAll('input[name="soil_type"]').forEach(cb => {
     cb.addEventListener('change', () => {
       const s = window.assessment.step1;
@@ -1433,6 +1586,28 @@ function initBlock12Events() {
     window.assessment.step1.area_ha = areaEl.value ? parseFloat(areaEl.value) : null;
     saveState();
   });
+
+  // Also update efg_codes when manual fallback checkboxes change
+  document.querySelectorAll('input[name="efg_code"]').forEach(cb => {
+    cb.addEventListener('change', () => {
+      const s = window.assessment.step1;
+      if (cb.checked) { if (!s.efg_codes.includes(cb.value)) s.efg_codes.push(cb.value); }
+      else { s.efg_codes = s.efg_codes.filter(v => v !== cb.value); }
+      cb.closest('label').classList.toggle('is-checked', cb.checked);
+      // Mirror confirmed selection in the map checklist status
+      const statusEl = document.getElementById('efg-map-status');
+      if (statusEl && !statusEl.textContent.includes('map')) {
+        statusEl.textContent = s.efg_codes.length
+          ? `${s.efg_codes.length} EFG${s.efg_codes.length !== 1 ? 's' : ''} selected manually.`
+          : '';
+        statusEl.className = 'efg-map-status' + (s.efg_codes.length ? ' is-success' : '');
+      }
+      saveState();
+    });
+  });
+
+  // Initialise the embedded Leaflet map
+  initEfgMapEvents();
 }
 
 function initBlock13Events() {

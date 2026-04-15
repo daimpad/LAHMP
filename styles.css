@@ -1367,3 +1367,159 @@ textarea { resize: vertical; min-height: 80px; }
     margin-top: 4px;
   }
 }
+
+/* ── EFG Map (Block 1.2) ─────────────────────────────────────────────── */
+
+#efg-map {
+  height: 380px;
+  border-radius: 6px;
+  border: 1.5px solid var(--grey-300);
+  overflow: hidden;
+  cursor: crosshair;
+  margin-bottom: 0;
+  z-index: 0; /* keep below wizard modals */
+}
+
+/* Leaflet controls sit above the tile layer */
+#efg-map .leaflet-control { z-index: 1; }
+
+/* Loading state shown if data not yet available */
+.efg-map-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 12px;
+  color: var(--grey-500);
+  font-size: .85rem;
+}
+
+@keyframes efg-spin { to { transform: rotate(360deg); } }
+.efg-spinner {
+  width: 32px; height: 32px;
+  border: 3px solid var(--grey-200);
+  border-top-color: var(--navy);
+  border-radius: 50%;
+  animation: efg-spin .7s linear infinite;
+}
+
+/* ── EFG checklist (below map) ───────────────────────────────────────── */
+
+#efg-map-checklist {
+  border: 1.5px solid var(--grey-200);
+  border-top: none;
+  border-radius: 0 0 6px 6px;
+  background: var(--grey-100);
+  padding: 10px 12px;
+  min-height: 44px;
+}
+
+.efg-checklist-hint {
+  font-size: .82rem;
+  color: var(--grey-500);
+  margin: 0;
+  padding: 2px 0;
+}
+
+.efg-checklist {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.efg-checklist-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 8px 3px 6px;
+  border: 1.5px solid var(--grey-300);
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  font-size: .8rem;
+  user-select: none;
+  transition: border-color .15s, background .15s;
+}
+
+.efg-checklist-item input[type="checkbox"] {
+  width: 14px; height: 14px;
+  accent-color: var(--navy);
+  flex-shrink: 0;
+}
+
+.efg-checklist-item.is-checked {
+  border-color: var(--navy);
+  background: #e8edf5;
+}
+
+.efg-checklist-code {
+  font-family: var(--font-mono);
+  font-size: .75rem;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.efg-checklist-name {
+  color: var(--grey-700);
+}
+
+.efg-info {
+  color: var(--grey-400);
+  cursor: help;
+  font-size: .8rem;
+  flex-shrink: 0;
+}
+.efg-info:hover { color: var(--navy); }
+
+/* ── Confirm button row ──────────────────────────────────────────────── */
+
+.efg-confirm-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.efg-map-status {
+  font-size: .82rem;
+  color: var(--grey-500);
+}
+.efg-map-status.is-success { color: var(--green); font-weight: 500; }
+.efg-map-status.is-warning { color: #c07800; }
+
+/* ── Manual fallback collapsible ─────────────────────────────────────── */
+
+.efg-manual-fallback {
+  margin-top: 14px;
+  border: 1px dashed var(--grey-300);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.efg-manual-summary {
+  padding: 9px 14px;
+  font-size: .82rem;
+  color: var(--grey-600);
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.efg-manual-summary::before {
+  content: '▶';
+  font-size: .6rem;
+  transition: transform .15s;
+  flex-shrink: 0;
+  color: var(--grey-400);
+}
+.efg-manual-fallback[open] > .efg-manual-summary::before { transform: rotate(90deg); }
+.efg-manual-summary::-webkit-details-marker { display: none; }
+.efg-manual-summary:hover { color: var(--navy); }
+
+.efg-manual-body {
+  padding: 10px 14px 14px;
+  border-top: 1px dashed var(--grey-300);
+}
