@@ -26,6 +26,72 @@ Test fixtures (load pre-filled assessment):
 
 ---
 
+## Current implementation status (as of April 2026)
+
+### What is fully complete and working
+
+**Algorithm (wizard.js)**
+- Step 1: All 6 blocks, pressure→challenge pre-population, challenge→service pre-population, score breakdown chips (amber/red/green, always visible with ellipsis overflow at narrow widths)
+- Step 2: 4-operation practice recommendation algorithm (eligibility filter, relevance scoring, tier assignment, theme grouping + sort). Pre-screen (4 questions) gates transformative practices.
+- Step 3: All 6 questions (team composition, days, equipment, budget, sites, seasonal access). Capacity profile computation. Budget mismatch warning for teams with E/F types and zero budget.
+- Step 4: All 5 operations (practice chains, indicator selection, protocol assignment, capacity fitting, calendar construction). Full narrative (4 paragraphs). Personalised output: bio table, abiotic table, monitoring calendar, enhancement recommendations.
+- `updateDocTitle()` sets browser tab title to `Landscape — Programme — LAHMP Wizard` when both fields are filled.
+
+**Data (data/)**
+- `indicators.json`: 41 profiles — 32 fully validated (`populated: true`), 6 draft/system-proposed (`populated: "draft"`, profiles 14, 19, 22, 23, 37, 38), 3 incomplete (`populated: false`, profiles 39, 40, 41).
+- F3.3 EFG added to `relevant_efgs` of profiles 1, 6, 17, 18 — TEST-03 rice paddy dimension now recognised.
+- P06 added as B2 to profiles 10–13, as B1 to profiles 1, 6. P36 added as B2 to profiles 1, 2, as B1 to profile 6.
+- `abiotic.json`: 16 indicators, all complete.
+- `practices.json`: 43 practices, all complete.
+
+**UX / styling (styles.css, index.html)**
+- IUCN logo in header: white PNG on transparent background, max-width 80px. File: `pics/iucn_white_transparentbackground1200px.png`.
+- Country autocomplete: `<datalist id="country-list">` with ~195 world countries in `index.html`; country input uses `list="country-list"`.
+- Bio indicator section uses scannable table (not cards), matching abiotic section format. Secondary info (precursor/connected groups) collapsed in `<details>` by default.
+- Step 3 team composition rows: type-code badge (letter A–F) + label on one line, compact 56px count input on the right. CSS specificity fix: `.team-row input[type="number"].team-count` overrides global `input[type="number"] { width: 100% }`.
+- Responsive at 375px, 768px, 1280px. Chip labels truncate with ellipsis on narrow viewports.
+
+**Testing**
+- All three fixtures verified end-to-end at `?fixture=TEST-0X&step=4`:
+  - TEST-01: 15 bio + 13 abiotic, Level 1, T7.2, Moroccan summer access constraints.
+  - TEST-02: severe capacity trim (16 days vs 150 required → 2 bio groups retained).
+  - TEST-03: Level 2, dual T7.1+F3.3 header, aquatic indicators deferred (not excluded).
+
+**Documentation**
+- `FORM_DOCUMENTATION.md`: complete reference for all user-facing inputs (Steps 1–3), including progress bar, tooltips, score breakdown chips, P28 free-text field.
+
+---
+
+## Pending work and future development
+
+### Blocked on expert content (not code tasks)
+
+| Item | Detail |
+|---|---|
+| Profiles 39–41 | `populated: false` — need full expert authoring (protocols, metrics, references, linkages). Author in Word template, add to Excel, re-export with `convert.py`. |
+| Profiles 14, 19, 22, 23, 37, 38 | `populated: "draft"` — system-proposed B1/B2 linkages need expert validation before setting `populated: true`. Currently shown in Step 4 with amber "Protocol proposed" badge. |
+
+### Code tasks ready to implement
+
+| Priority | Task | Detail |
+|---|---|---|
+| High | Print / PDF CSS | `window.print()` is wired up but print stylesheet needs full pass: hide wizard chrome (header, footer nav, step bar, fixture banner), ensure tables paginate cleanly, narrative fits on one page. |
+| Medium | TEST-04 fixture | Add a fourth test landscape to cover a different EFG (e.g. T7.3 Plantations or T7.5 semi-natural) and validate algorithm output. Follow same pattern as existing fixtures in `data/test_fixtures/`. |
+| Medium | Step 4 export button | "Download as JSON" button that serialises `window.assessment` to a `.json` file via `URL.createObjectURL`. Useful for handing data to the future Laravel backend. |
+| Low | Step 1 map preview | Read-only Leaflet map centred on the landscape name (geocoded client-side via Nominatim). No polygon drawing — display only. Helps users confirm they've entered the right location. |
+| Low | Autosave indicator | The autosave span (`#autosave`) exists in HTML but is currently unused. Wire it to localStorage writes with "Saved just now" / timestamp. |
+| Low | Progress bar click-through guard | Steps 3 and 4 in the progress bar are currently clickable even if incomplete. Add a guard that shows a toast ("Complete Step 2 first") rather than silently loading incomplete state. |
+
+### Known issues / tech debt
+
+| Issue | Detail |
+|---|---|
+| `data/indicators.json` edited directly | Profiles 14/19/22/23/37/38 B1/B2 linkages and EFG additions (profiles 1,6,17,18) were made directly in JSON, not in the Excel master. Before the next `convert.py` run, back-port all manual JSON edits to `raw/LAHMP_Indicator_Linkage_Matrix.xlsx` — otherwise they will be overwritten. |
+| No input validation on Step 1 numeric fields | `area_ha` accepts negative numbers. Add `min="0"` and a soft validation warning. |
+| Step 2 pre-screen defaults | Pre-screen answers default to `not_currently` for all four questions. For most landscapes this hides transformative practices. Consider defaulting to `open_conditionally`. Needs sign-off from Mercedes/Simon. |
+
+---
+
 ## Repository structure
 
 ```
@@ -910,6 +976,11 @@ All three Excel workbooks are the canonical source of truth. Always edit the Exc
 | document.title programme name | `updateDocTitle()` helper now sets title to `${landscape} — ${programme} — LAHMP Wizard` when both fields are populated. | Complete |
 | F3.3 EFG coverage gap | Added `F3.3` to `relevant_efgs` of profiles 1 (Soil bacteria), 6 (Earthworms), 17 (Aquatic macroinvertebrates), 18 (Fish). TEST-03 now recognises the rice paddy dimension — aquatic indicators pass EFG filter and appear in Enhancement Recommendations (deferred by capacity, not excluded). | Complete |
 | End-to-end browser testing | All three fixtures verified at `?fixture=TEST-0X&step=4`. TEST-01: 15 bio + 13 abiotic, Level 1, T7.2, Moroccan summer access constraints correct. TEST-02: severe capacity trim (16 days vs 150 required → 2 bio groups retained), capacity fitting confirmed. TEST-03: Level 2, T7.1+F3.3 dual EFG shown in header, aquatic indicators selected by Op 2 then deferred by Op 4. All narrative, practice chains, calendar, and trimming behaviour scientifically sound. | Complete |
+| IUCN header logo | Replaced yellow "IUCN" text box with `pics/iucn_white_transparentbackground1200px.png`. CSS: `.iucn-mark { max-width: 80px; width: auto; height: auto; }`. No yellow background — transparent PNG on navy header. | Complete |
+| Country autocomplete | `<datalist id="country-list">` with ~195 countries added to `index.html`. Country input in wizard.js uses `list="country-list" autocomplete="off"`. Native browser dropdown — no library needed. | Complete |
+| Bio section table layout | Bio indicator section replaced card layout with `<table class="output-table bio-table">` matching abiotic section. Column widths via `<colgroup>`: Name 19%, Category 13%, Level 6%, Protocol 26%, Metric 22%, Frequency 9%, Refs 5%. Secondary info (precursor/connected) in collapsed `<details>`. | Complete |
+| Step 3 team row layout | CSS specificity bug: global `input[type="number"] { width: 100% }` (specificity 011) overrode `.team-count { width: 56px }` (specificity 010). Fix: selector `.team-row input[type="number"].team-count` (specificity 022) wins. Also added `.team-type-label { white-space: nowrap }` to prevent label wrapping. | Complete |
+| Score breakdown chips | Chips now always visible below each practice score (amber=pressures, red=challenges, green=services). Long names truncate with ellipsis via `.chip-label { overflow: hidden; text-overflow: ellipsis; white-space: nowrap }` child span inside `display: inline-flex` chip. | Complete |
 
 
 
