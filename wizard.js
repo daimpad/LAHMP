@@ -1258,7 +1258,7 @@ function renderBlock1() {
       </div>
       <div class="form-field">
         <label for="country">Country <span class="req">*</span></label>
-        <input type="text" id="country" name="country" value="${esc(s.country)}" placeholder="e.g. Morocco">
+        <input type="text" id="country" name="country" value="${esc(s.country)}" placeholder="e.g. Morocco" list="country-list" autocomplete="off">
       </div>
       <div class="form-field">
         <label for="admin_region">Administrative region</label>
