@@ -1716,7 +1716,12 @@ function initBlock2Events() {
     showAllIfEmpty: true,
     getSelected:    () => window.assessment.step1.land_uses,
     onAdd:    v => { window.assessment.step1.land_uses.push(v); saveState(); rerenderBlock3(); },
-    onRemove: v => { window.assessment.step1.land_uses = window.assessment.step1.land_uses.filter(x => x !== v); saveState(); rerenderBlock3(); },
+    onRemove: v => {
+      window.assessment.step1.land_uses = window.assessment.step1.land_uses.filter(x => x !== v);
+      // Prune stale composition entry so area-weighting fractions stay accurate
+      window.assessment.step1.land_use_composition = window.assessment.step1.land_use_composition.filter(c => c.category !== v);
+      saveState(); rerenderBlock3();
+    },
   });
 }
 

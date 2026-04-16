@@ -87,7 +87,9 @@ Test fixtures (load pre-filled assessment):
 | Issue | Detail |
 |---|---|
 | `data/indicators.json` edited directly | Profiles 14/19/22/23/37/38 B1/B2 linkages and EFG additions (profiles 1,6,17,18) were made directly in JSON, not in the Excel master. Before the next `convert.py` run, back-port all manual JSON edits to `raw/LAHMP_Indicator_Linkage_Matrix.xlsx` — otherwise they will be overwritten. |
-| No input validation on Step 1 numeric fields | `area_ha` accepts negative numbers. Add `min="0"` and a soft validation warning. |
+| `area_ha` no soft validation warning | `min="0"` is on the HTML input, but Step 1 completion does not check for a valid area value. A user can proceed with `area_ha = null` or `0`. No toast/warning exists. Low priority — the field is optional context, not used in the algorithm. |
+| `land_use_composition` sum not enforced | Visual feedback (green/amber/red total) exists but the user can proceed with total ≠ 100%. Not blocked in Step 1 completion check. A sum > 100 produces inflated fractions in `pressureAreaFraction()` but does not crash. |
+| `land_use_composition` change does not re-trigger challenge pre-population | If the user enters Block 3.3 composition percentages after already confirming Block 4 pressures, the area-weighted confidence adjustments are not recomputed. Pre-population only re-runs when a pressure status changes. Fixing requires calling `prepopulateChallenges` on each composition `input` event — deferred pending UX review. |
 | Step 2 pre-screen defaults | Pre-screen answers default to `not_currently` for all four questions. For most landscapes this hides transformative practices. Consider defaulting to `open_conditionally`. Needs sign-off from Mercedes/Simon. |
 
 ---
@@ -198,7 +200,8 @@ window.assessment = {
     livestock: [],                 // FAO livestock categories from reference.json
 
     // Block 3.3 — Land use composition
-    land_use_composition: [],      // [{ category: 'T7.1', ipcc_category: '...', area_pct: 40 }, ...]
+    land_use_composition: [],      // [{ category: 'Intensive Annual Cropland', area_pct: 40 }, ...]
+    // Note: ipcc_category was in the original schema spec but is never written — composition stores only category + area_pct
 
     // Block 4 — Pressures (28 pressures)
     pressures: [],
