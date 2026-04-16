@@ -1305,15 +1305,15 @@
       "A18"
     ],
     "b1_practices_that_benefit": [
-      "P16",
-      "P19",
-      "P13"
+      "P23",
+      "P20",
+      "P11"
     ],
     "b2_practices_primarily_verified": [
       "P23",
       "P14"
     ],
-    "b2_expected_direction_of_change": "P23: Hoverfly adult abundance at flowers detectable and measurably higher than baseline in the first flowering season of wildflower strip establishment; Episyrphus balteatus and other aphidophagous species present in the first season; species richness increasing over 2–4 years as diverse larval habitats also develop adjacent to the strip. P14: Hoverfly adult abundance measurably higher in delayed-cut margins within the first season of practice change; comparison of cut vs uncut sections of the same margin provides the clearest in-season verification signal.",
+    "b2_expected_direction_of_change": "P23: Increase in hoverfly flower-visitor count at flowering strips within 1-2 seasons of establishment; guild shift toward aphidophagous species. P14: Increase in hoverfly abundance and morphotype richness at uncut field margin areas.",
     "linkage_c_connected_groups": [
       13,
       12,
@@ -1341,7 +1341,7 @@
     "level3_reference": null,
     "level3_reference_link": "https://doi.org/10.1111/j.1365-2664.2009.01742.x",
     "primary_reference": "Ecdysis 1000 Farms Protocol — pollinator transect module; Potts SG et al. (2010) Science 330:1061",
-    "validation_status": "DRAFT - Proposed by system, requires expert validation",
+    "validation_status": "DRAFT - Linkages proposed by system from analogous profiles, requires expert validation",
     "populated": "draft"
   },
   {
@@ -1761,15 +1761,16 @@
       "A18"
     ],
     "b1_practices_that_benefit": [
-      "P19",
-      "P10",
-      "P11"
+      "P08",
+      "P11",
+      "P16",
+      "P19"
     ],
     "b2_practices_primarily_verified": [
       "P11",
       "P19"
     ],
-    "b2_expected_direction_of_change": "P11: Bat activity-density (passes per minute at monitoring transect points) measurably increasing within 2–3 seasons of insecticide reduction; common pipistrelle activity increasing fastest; additional species (noctule, Daubenton's) appearing within 3–5 seasons as foraging habitat quality improves; specialist species (long-eared, horseshoe) appearing within 5–10 years where roost connectivity is adequate. P19: Bat activity increasing along restored hedgerow transect sections within 3–5 years of hedgerow establishment reaching >1.5m height; pipistrelle commuting calls detectable within 2–3 years; additional species using the hedgerow as foraging corridor within 5–7 years as hedgerow matures.",
+    "b2_expected_direction_of_change": "P11: Increase in bat activity passes per minute at hedgerow transects within 2-4 seasons of hedgerow restoration; pipistrelles show fastest response. P19: Increase in bat roost availability and emergence counts following mature tree establishment.",
     "linkage_c_connected_groups": [
       15,
       16,
@@ -1797,7 +1798,7 @@
     "level3_reference": null,
     "level3_reference_link": null,
     "primary_reference": "National Bat Monitoring Programme walked transect methodology (Bat Conservation Trust, 2021)",
-    "validation_status": "DRAFT - Proposed by system, requires expert validation",
+    "validation_status": "DRAFT - Linkages proposed by system from analogous profiles, requires expert validation",
     "populated": "draft"
   },
   {
@@ -2033,15 +2034,15 @@
       "A06"
     ],
     "b1_practices_that_benefit": [
+      "P11",
       "P14",
-      "P19",
-      "P04"
+      "P16"
     ],
     "b2_practices_primarily_verified": [
       "P14",
       "P11"
     ],
-    "b2_expected_direction_of_change": "P14: Shrew live trap index measurably higher in uncut vs cut margin sections within 1–2 seasons of cutting delay; hedgehog track tube detection rate increasing within 2–4 seasons as tussock structural complexity develops; mole activity density stable or increasing as soil invertebrate prey improves under reduced disturbance. P11: Hedgehog track tube detection rate improving within 2–4 seasons of rodenticide cessation in the monitoring area; shrew live trap index improving within 1–3 seasons of insecticide reduction as prey invertebrate communities recover; mole activity density increasing progressively as soil invertebrate biomass improves under reduced pesticide loading.",
+    "b2_expected_direction_of_change": "P14: Increase in hedgehog detection rate in track tubes along uncut field margins within 2-4 seasons; corridor colonisation detectable within 1 season. P11: Increase in hedgehog footprint density adjacent to restored hedgerows.",
     "linkage_c_connected_groups": [
       6,
       26,
@@ -2069,7 +2070,7 @@
     "level3_reference": "People's Trust for Endangered Species (PTES) hedgehog survey methodology (Roos et al. 2012) [geo]; Churchfield S (1990) — see References.",
     "level3_reference_link": "https://www.ptes.org/hedgehogs/",
     "primary_reference": "People's Trust for Endangered Species (PTES) hedgehog monitoring guide",
-    "validation_status": "DRAFT - Proposed by system, requires expert validation",
+    "validation_status": "DRAFT - Linkages proposed by system from analogous profiles, requires expert validation",
     "populated": "draft"
   },
   {
@@ -2124,13 +2125,13 @@
     ],
     "b1_practices_that_benefit": [
       "P14",
-      "P19",
-      "P13"
+      "P17",
+      "P19"
     ],
     "b2_practices_primarily_verified": [
       "P14"
     ],
-    "b2_expected_direction_of_change": "P14: Lizard and slow worm detections at refugia measurably higher in sections with delayed cutting within 2–3 seasons of practice change; species count increasing progressively over 3–5 seasons as population density builds under consistently improved management.",
+    "b2_expected_direction_of_change": "P14: Increase in lizard refugia occupancy rate at uncut field margin artificial refugia within 1-2 seasons; maximum count index increases detectable in Year 1.",
     "linkage_c_connected_groups": [
       16,
       24,
@@ -2158,7 +2159,7 @@
     "level3_reference": null,
     "level3_reference_link": "https://www.arguk.org/info-advice/arg-uk-best-practice-guidelines",
     "primary_reference": "ARG UK reptile survey methodology; Edgar P & Bird DR (2006) ARG UK Best Practice Guidelines",
-    "validation_status": "DRAFT - Proposed by system, requires expert validation",
+    "validation_status": "DRAFT - Linkages proposed by system from analogous profiles, requires expert validation",
     "populated": "draft"
   },
   {
@@ -3369,13 +3370,30 @@
     "monitoring_task_type": "Biological count-based",
     "monitoring_stage": "Medium",
     "response_timescale": "3–5 years",
-    "block4_pressures": null,
-    "block5_challenges": null,
+    "block4_pressures": [
+      1,
+      2,
+      4,
+      19,
+      20,
+      22
+    ],
+    "block5_challenges": [
+      1,
+      2,
+      4,
+      7,
+      21
+    ],
     "block6_services": [
       15,
       11
     ],
-    "relevant_efgs": null,
+    "relevant_efgs": [
+      "T7.1",
+      "T7.2",
+      "T7.5"
+    ],
     "relevant_ipcc_land_use": null,
     "soil_type_associations": null,
     "crop_livestock_associations": null,
@@ -3383,34 +3401,42 @@
       "A01",
       "A03"
     ],
-    "b1_practices_that_benefit": [],
-    "b2_practices_primarily_verified": [],
-    "b2_expected_direction_of_change": null,
+    "b1_practices_that_benefit": [
+      "P01",
+      "P08",
+      "P13",
+      "P19"
+    ],
+    "b2_practices_primarily_verified": [
+      "P08",
+      "P01"
+    ],
+    "b2_expected_direction_of_change": "P08: Increase in active mound density and colony activity following agroforestry canopy establishment and litter accumulation. P01: Recovery of termite colony density under no-till; mound restoration within 2-5 seasons of tillage cessation.",
     "linkage_c_connected_groups": null,
     "level1_protocol_name": "Termite mound count transect and activity assessment",
-    "level1_output_metric": "Active mound density (mounds per hectare per mound type); activity score per mound; proportion of mounds with active colonies.",
-    "level1_seasonal_primary": "Wet season peak or immediately post-rainy season — when colony activity is highest and foraging galleries are most visible.",
+    "level1_output_metric": "Active mound density (mounds per hectare per mound type); activity score per mound; proportion of mound types (fungus-grower, grass-harvester, wood-feeder where distinguishable)",
+    "level1_seasonal_primary": "Wet season peak or immediately post-rainy season - when colony activity is highest and foraging galleries are visible. Avoid mid-dry season when surface activity may be suppressed.",
     "level1_seasonal_secondary": null,
-    "level1_equipment": "Field datasheet; tape measure; camera; sturdy boot for gentle surface tap to confirm colony activity (colony responds to vibration with worker and soldier emergence).",
-    "level1_reference": "Eggleton P et al. (2002) — see References.",
+    "level1_equipment": "Field datasheet; tape measure; camera; sturdy boot for gentle surface tap to confirm colony activity (audio response). Regional mound type ID guide if available.",
+    "level1_reference": "Eggleton P et al. (2002) - see References.",
     "level1_reference_link": null,
     "level2_protocol_name": "Transect mound count with pitfall traps and soil core extraction for functional group assessment",
-    "level2_output_metric": "Termite species/morphospecies richness; functional group proportions; biomass estimate per group; colony density from core samples.",
-    "level2_seasonal_primary": null,
+    "level2_output_metric": "Termite species/morphospecies richness; functional group proportions (fungus-growers, grass-harvesters, wood-feeders, soil-feeders); biomass estimate per group; colony density index",
+    "level2_seasonal_primary": "Wet season peak - same as Level 1. Pitfall traps require deployment during active foraging period; minimum 48-hour deployment.",
     "level2_seasonal_secondary": null,
-    "level2_equipment": "Pitfall traps; soil coring equipment; regional termite identification key (soldier head morphology); dissecting microscope (10–20×).",
-    "level2_reference": null,
+    "level2_equipment": "Pitfall traps; soil coring equipment; regional termite identification key (soldier head morphology); 70% ethanol collection vials; white sorting tray; field datasheet.",
+    "level2_reference": "Eggleton P et al. (2002); Jouquet P et al. (2011) Soil Biol. Biochem. - see References.",
     "level2_reference_link": null,
     "level3_protocol_name": "Full termite community assessment with molecular species identification and service quantification",
-    "level3_output_metric": "Full species list; functional group ecosystem service rates (infiltration improvement factor; N-fixation rate kg/ha/year).",
-    "level3_seasonal_primary": null,
+    "level3_output_metric": "Full species list; functional group ecosystem service rates (infiltration improvement factor; N-fixation rate proxy; organic matter decomposition index); colony density by species",
+    "level3_seasonal_primary": "Wet season - as Levels 1 and 2. Multiple seasonal visits required for full functional group turnover capture.",
     "level3_seasonal_secondary": null,
-    "level3_equipment": null,
-    "level3_reference": null,
+    "level3_equipment": "As Level 2 plus: molecular laboratory access (DNA barcoding COI/16S); infiltration ring and water source for service quantification; balance for biomass estimation.",
+    "level3_reference": "Eggleton P et al. (2002); Jouquet P et al. (2011); Bignell DE et al. (2011) Biology of Termites - see References.",
     "level3_reference_link": null,
-    "primary_reference": "Eggleton P et al. (2002) — see References.",
-    "validation_status": "DRAFT — Unvalidated",
-    "populated": false
+    "primary_reference": "Eggleton P et al. (2002); Jouquet P et al. (2011) Soil Biol. Biochem.",
+    "validation_status": "DRAFT - Linkages proposed by system from analogous profiles, requires expert validation",
+    "populated": "draft"
   },
   {
     "profile_number": 38,
@@ -3423,13 +3449,30 @@
     "monitoring_task_type": "Biological count-based",
     "monitoring_stage": "Slow",
     "response_timescale": "3–7 years",
-    "block4_pressures": null,
-    "block5_challenges": null,
+    "block4_pressures": [
+      17,
+      16,
+      15,
+      18,
+      4,
+      21
+    ],
+    "block5_challenges": [
+      17,
+      13,
+      14,
+      16
+    ],
     "block6_services": [
       19,
       6
     ],
-    "relevant_efgs": null,
+    "relevant_efgs": [
+      "T7.1",
+      "T7.2",
+      "T7.5",
+      "F3.3"
+    ],
     "relevant_ipcc_land_use": null,
     "soil_type_associations": null,
     "crop_livestock_associations": null,
@@ -3437,34 +3480,42 @@
       "A18",
       "A16"
     ],
-    "b1_practices_that_benefit": [],
-    "b2_practices_primarily_verified": [],
-    "b2_expected_direction_of_change": null,
+    "b1_practices_that_benefit": [
+      "P13",
+      "P16",
+      "P17",
+      "P19"
+    ],
+    "b2_practices_primarily_verified": [
+      "P13",
+      "P16"
+    ],
+    "b2_expected_direction_of_change": "P13: Increase in basking population index and juvenile recruitment following riparian buffer strip establishment and reduced bank erosion. P16: Increase in CPUE and size-class diversity following wetland and water body management.",
     "linkage_c_connected_groups": null,
-    "level1_protocol_name": "Freshwater turtle basking count survey — community observer population index",
-    "level1_output_metric": "Maximum basking count per survey; size class proportions; species list; basking site occupancy ratio (turtles/available basking sites).",
-    "level1_seasonal_primary": "Warm season — when turtles are most active and basking most frequently. In tropical contexts: dry season mornings when water levels are lower and basking sites more exposed. In subtropical contexts: spring–autumn warm period.",
+    "level1_protocol_name": "Freshwater turtle basking count survey - community observer population index",
+    "level1_output_metric": "Maximum basking count per survey; size class proportions (juvenile/sub-adult/adult); species list; basking site occupancy ratio (sites occupied / total counted)",
+    "level1_seasonal_primary": "Warm season - when turtles are most active and basking most frequently. In tropical contexts: dry season when water bodies contract and turtles concentrate. In temperate contexts: late spring to early autumn (April-October).",
     "level1_seasonal_secondary": null,
-    "level1_equipment": "Binoculars (10×); field datasheet; camera with zoom lens; photographic turtle identification guide (regional).",
-    "level1_reference": null,
+    "level1_equipment": "Binoculars (10x); field datasheet; camera with zoom lens; photographic turtle identification guide (regional); GPS or sketch map of water body.",
+    "level1_reference": "IUCN Freshwater Turtle and Tortoise Specialist Group survey guidelines (regional editions); Platt SG et al. (2001) basking count methodology.",
     "level1_reference_link": null,
-    "level2_protocol_name": "Hoop trap survey — quantitative turtle abundance and population structure assessment",
-    "level2_output_metric": "Capture per unit effort (CPUE); size class proportions; male:female ratio; species composition.",
-    "level2_seasonal_primary": "Warm season when turtles are most active.",
+    "level2_protocol_name": "Hoop trap survey - quantitative turtle abundance and population structure assessment",
+    "level2_output_metric": "Capture per unit effort (CPUE); size class proportions; male:female ratio; species composition; mean mass by size class.",
+    "level2_seasonal_primary": "Warm season - when turtles are most active and trapping efficiency is highest. Morning trap checks essential for welfare (prevent drowning).",
     "level2_seasonal_secondary": null,
-    "level2_equipment": "Floating hoop traps with float collar (critical welfare requirement); sardine bait; measuring tape; field datasheet; camera; waterproof boots.",
-    "level2_reference": null,
+    "level2_equipment": "Floating hoop traps with float collar (critical welfare requirement); sardine bait; measuring tape; spring balance; callipers for carapace measurement; field datasheet; camera.",
+    "level2_reference": "Gibbons JW & Semlitsch RD (1982) hoop trap methodology; IUCN Freshwater Turtle survey guidelines.",
     "level2_reference_link": null,
     "level3_protocol_name": "Mark-recapture population estimation with PIT tagging and eDNA",
-    "level3_output_metric": "Population size estimate; survival probability; eDNA concentration (copies/L); nest site count and success rate.",
-    "level3_seasonal_primary": null,
+    "level3_output_metric": "Population size estimate (Jolly-Seber) with 95% CI; survival probability; eDNA concentration (copies/L); nest site count and success rate.",
+    "level3_seasonal_primary": "Warm season. Multiple trapping sessions across season for robust mark-recapture. eDNA sampling in early warm season for optimal detection.",
     "level3_seasonal_secondary": null,
-    "level3_equipment": null,
-    "level3_reference": null,
+    "level3_equipment": "As Level 2 plus: PIT tag applicator and tags; eDNA sampling kit (sterile 1L bottles, 0.45um filters, field preservation buffer); molecular laboratory access.",
+    "level3_reference": "Caswell H (2001) mark-recapture methodology; Thomsen PF et al. (2012) eDNA methodology - see References.",
     "level3_reference_link": null,
-    "primary_reference": null,
-    "validation_status": "DRAFT — Unvalidated",
-    "populated": false
+    "primary_reference": "IUCN Freshwater Turtle and Tortoise Specialist Group survey guidelines; Gibbons JW & Semlitsch RD (1982)",
+    "validation_status": "DRAFT - Linkages proposed by system from analogous profiles, requires expert validation",
+    "populated": "draft"
   },
   {
     "profile_number": 39,
