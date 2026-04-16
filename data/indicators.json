@@ -1342,7 +1342,7 @@
     "level3_reference_link": "https://doi.org/10.1111/j.1365-2664.2009.01742.x",
     "primary_reference": "HoverFly Recording Scheme (UK) photographic identification resources [geo]; Speight MCD (2017) species accounts; shared flower visitor count protocol with Profiles 12 and 13.",
     "validation_status": "DRAFT — Unvalidated",
-    "populated": false
+    "populated": "partial"
   },
   {
     "profile_number": 15,
@@ -1798,7 +1798,7 @@
     "level3_reference_link": null,
     "primary_reference": null,
     "validation_status": "DRAFT — Unvalidated",
-    "populated": false
+    "populated": "partial"
   },
   {
     "profile_number": 20,
@@ -2070,7 +2070,7 @@
     "level3_reference_link": "https://www.ptes.org/hedgehogs/",
     "primary_reference": "People's Trust for Endangered Species (PTES) hedgehog survey methodology (Roos et al. 2012) [geo]; Churchfield S (1990) — see References.",
     "validation_status": "DRAFT — Unvalidated",
-    "populated": false
+    "populated": "partial"
   },
   {
     "profile_number": 23,
@@ -2159,7 +2159,7 @@
     "level3_reference_link": "https://www.arguk.org/info-advice/arg-uk-best-practice-guidelines",
     "primary_reference": "Edgar P, Bird DR (2006) ARG UK methodology [geo]; Gent & Gibson (1998) — see References.",
     "validation_status": "DRAFT — Unvalidated",
-    "populated": false
+    "populated": "partial"
   },
   {
     "profile_number": 24,

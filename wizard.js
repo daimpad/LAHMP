@@ -443,7 +443,7 @@ function selectIndicatorGroups(step1, step2) {
   const confirmedChallengeIds = (step1.challenges || []).filter(c => c.confirmed).map(c => c.id);
 
   return indicatorsData
-    .filter(ind => ind.populated)
+    .filter(ind => ind.populated === true || ind.populated === 'partial')
     .map(ind => {
       // EFG filter
       if (ind.relevant_efgs?.length && userEFGs.length) {
@@ -477,7 +477,15 @@ function assignProtocol(group, cap) {
   const hasL3 = !!group.level3_protocol_name;
   const maxAvail = hasL3 ? 3 : hasL2 ? 2 : hasL1 ? 1 : 0;
   const minAvail = hasL1 ? 1 : hasL2 ? 2 : hasL3 ? 3 : 0;
-  if (maxAvail === 0) return null;  // no protocols at any level
+  if (maxAvail === 0) {
+    // Partial profile — linkages present but protocol content not yet authored
+    if (group.populated === 'partial') {
+      return { ...group, assigned_level: null, assigned_protocol: null, assigned_metric: null,
+               assigned_reference: null, assigned_reference_link: null, assigned_equipment_ids: [],
+               requires_upgrade: false, protocol_pending: true };
+    }
+    return null;  // fully empty — skip
+  }
   let level = Math.min(cap.max_protocol_level, maxAvail);
   if (level < minAvail) level = minAvail;  // upgrade to lowest available level
   if (level === 3 && cap.budget_tier === 0) level = Math.max(minAvail, 2);
@@ -613,6 +621,9 @@ function stageSpeed(monitoringStage) {
 }
 
 function buildMonitoringCalendar(groups, accessCalendar) {
+  // Pending-protocol groups have no seasonal window — exclude from calendar
+  groups = groups.filter(g => !g.protocol_pending);
+
   // Build accessible month index set
   const accessByIdx = {};
   MONTHS.forEach((m, i) => {
@@ -731,11 +742,15 @@ function priorityScore(group, step2, step1) {
 }
 
 function capacityFit(assigned, cap, step2, step1) {
-  if (!cap.available_days_total || !cap.per_site_days) return { kept: assigned, trimmed: [] };
+  // Pending-protocol groups are never counted against capacity — separate them out
+  const pendingGroups = assigned.filter(g => g.protocol_pending);
+  const activeGroups  = assigned.filter(g => !g.protocol_pending);
+
+  if (!cap.available_days_total || !cap.per_site_days) return { kept: [...activeGroups, ...pendingGroups], trimmed: [] };
   const siteCount = SITE_COUNT_MIDPOINT[window.assessment.step3.site_count_category] || 1;
 
-  // Score and sort
-  const scored = assigned.map(g => ({
+  // Score and sort active groups only
+  const scored = activeGroups.map(g => ({
     ...g,
     _priority: priorityScore(g, step2, step1),
     _days_required: (DAYS_PER_LEVEL[g.assigned_level] || 0.5) * siteCount,
@@ -766,7 +781,7 @@ function capacityFit(assigned, cap, step2, step1) {
       });
     }
   }
-  return { kept, trimmed };
+  return { kept: [...kept, ...pendingGroups], trimmed };
 }
 
 function runStep4Algorithm() {
@@ -855,7 +870,12 @@ function runStep4Algorithm() {
     narrative: {
       paragraph1: `Your monitoring programme has been designed specifically for ${step1.landscape_name || 'your landscape'}${step1.country ? ', ' + step1.country : ''}${efgContext}. In Step 1, you identified ${(step1.pressures||[]).filter(p=>p.status!=='not_relevant').length} pressures currently affecting your land${ongoingPressures.length ? ' — particularly ' + ongoingPressures.join(', ') : ''}. These pressures are contributing to ${(step1.challenges||[]).filter(c=>c.confirmed).length} confirmed land health challenges${topChallenges.length ? ', with ' + topChallenges.join(', ') + ' being the most significant' : ''}.`,
       paragraph2: `In Step 2, you selected ${(step2.selected_practices||[]).length} sustainable land management practice${(step2.selected_practices||[]).length!==1?'s':''} across ${practice_chains.length} theme${practice_chains.length!==1?'s':''}. The ecosystem services you most want to see recover are${topServices.length ? ': ' + topServices.join(', ') : ' as described in your profile'}.`,
-      paragraph3: `Your team capacity supports ${levelLabel} monitoring. ${totalDaysNeeded > cap.available_days_total ? `The full indicator set requires an estimated ${totalDaysNeeded.toFixed(0)} field days; your programme has been fitted to your ${cap.available_days_total} available days, retaining` : 'Your programme includes'} ${protocol_assignments.length} biological indicator group${protocol_assignments.length!==1?'s':''} and ${selected_abiotic.length} abiotic indicator${selected_abiotic.length!==1?'s':''}. ${selected_abiotic.filter(a=>a.universal_baseline).length} abiotic indicators form your universal baseline package, to be established in Year 1 before biological monitoring begins.`,
+      paragraph3: (function() {
+        const activeCount   = protocol_assignments.filter(g => !g.protocol_pending).length;
+        const pendingCount  = protocol_assignments.filter(g =>  g.protocol_pending).length;
+        const pendingNote   = pendingCount > 0 ? ` An additional ${pendingCount} group${pendingCount!==1?'s are':' is'} identified but awaiting protocol specification.` : '';
+        return `Your team capacity supports ${levelLabel} monitoring. ${totalDaysNeeded > cap.available_days_total ? `The full indicator set requires an estimated ${totalDaysNeeded.toFixed(0)} field days; your programme has been fitted to your ${cap.available_days_total} available days, retaining` : 'Your programme includes'} ${activeCount} biological indicator group${activeCount!==1?'s':''} and ${selected_abiotic.length} abiotic indicator${selected_abiotic.length!==1?'s':''}.${pendingNote} ${selected_abiotic.filter(a=>a.universal_baseline).length} abiotic indicators form your universal baseline package, to be established in Year 1 before biological monitoring begins.`;
+      })(),
       paragraph4: `With ${cap.available_days_total} monitoring days available across your team (${cap.per_site_days.toFixed(1)} days per site), ${trimmed_groups.length > 0 ? `${trimmed_groups.length} indicator group${trimmed_groups.length!==1?'s were':' was'} deferred to the Enhancement Recommendations section below — these could be added if your team or budget grows.` : 'your full indicator set fits within your current capacity.'}`,
     },
   };
@@ -2323,8 +2343,10 @@ function buildStep4HTML() {
     : cap.max_protocol_level === 2 ? 'Level 2 — Technician'
     : cap.max_protocol_level === 3 ? 'Level 3 — Research'
     : '—';
+  const activeAssignments  = out.protocol_assignments.filter(g => !g.protocol_pending);
+  const pendingAssignments = out.protocol_assignments.filter(g =>  g.protocol_pending);
   const summaryHtml = `<div class="output-summary-panel">
-    <div class="summary-stat"><span class="stat-num">${out.protocol_assignments.length}</span><span class="stat-label">Biological indicators</span></div>
+    <div class="summary-stat"><span class="stat-num">${activeAssignments.length}</span><span class="stat-label">Biological indicators</span></div>
     <div class="summary-stat"><span class="stat-num">${out.selected_abiotic.length}</span><span class="stat-label">Abiotic indicators</span></div>
     <div class="summary-stat"><span class="stat-num">${out.practice_chains.reduce((s,c)=>s+c.practices.length,0)}</span><span class="stat-label">Practices</span></div>
     <div class="summary-stat"><span class="stat-num">${out.trimmed_groups.length}</span><span class="stat-label">Deferred indicators</span></div>
@@ -2368,66 +2390,99 @@ function buildStep4HTML() {
       </div>`) .join('') : '<p class="empty-state">No practices selected in Step 2.</p>'}
   </div>`;
 
-  // Biological monitoring table
+  // Biological monitoring — sectioned A/B/C/D display
   // Build profile_number → name lookup for connected group links
   const profileNameMap = {};
   indicatorsData.forEach(ind => { profileNameMap[ind.profile_number] = ind.profile_name; });
+
+  // Helper: render one bio card
+  function buildBioCard(g) {
+    const precursorNames = (g.abiotic_precursor_linkages || []).map(id => abioticNameMap[id] || id);
+    const precursorHtml  = precursorNames.length
+      ? `<div class="abiotic-precursors">Abiotic context: ${precursorNames.map(n => `<span class="precursor-tag">${esc(n)}</span>`).join('')}</div>`
+      : '';
+    const connectedNames = (g.linkage_c_connected_groups || []).map(num => profileNameMap[num]).filter(Boolean);
+    const connectedHtml = connectedNames.length
+      ? `<div class="connected-groups">Connected with: ${connectedNames.map(cn => `<span class="connected-tag">${esc(cn)}</span>`).join('')}</div>`
+      : '';
+    const eqLabels = (g.assigned_equipment_ids || []).map(id => EQUIPMENT_CATEGORIES[id] || `Cat. ${id}`);
+    const eqHtml   = eqLabels.length
+      ? `<details class="eq-details"><summary>Equipment (${eqLabels.length})</summary><ul class="eq-list">${eqLabels.map(e => `<li>${esc(e)}</li>`).join('')}</ul></details>`
+      : '';
+    const refHtml = g.assigned_reference_link
+      ? ` <a class="ref-link" href="${esc(g.assigned_reference_link)}" target="_blank" rel="noopener" title="${esc(g.assigned_reference || '')}">[ref]</a>`
+      : g.assigned_reference ? ` <span class="ref-plain" title="${esc(g.assigned_reference)}">[ref]</span>` : '';
+    const isPending = !!g.protocol_pending;
+    return `<div class="bio-card${isPending ? ' bio-card-pending' : ''}">
+      <div class="bio-card-header">
+        <div class="bio-card-title-wrap">
+          <span class="bio-card-name">${esc(g.profile_name)}</span>
+          <span class="bio-card-category">${esc(g.category)}</span>
+        </div>
+        <div class="bio-card-badges">
+          ${isPending
+            ? `<span class="badge badge-pending">Protocol pending</span>`
+            : `<span class="level-badge level-${g.assigned_level}">L${g.assigned_level}</span>`}
+          ${!isPending && g.requires_upgrade ? `<span class="badge badge-warn" title="Requires higher team capacity than currently available">↑ Upgrade</span>` : ''}
+          <span class="badge badge-stage">${esc((g.monitoring_stage||'').split(' ')[0])}</span>
+          <span class="badge badge-inclusion">${esc(g.inclusion_reason)}</span>
+        </div>
+      </div>
+      <div class="bio-card-body">
+        ${g.primary_monitoring_role ? `<div class="monitoring-role">${esc(g.primary_monitoring_role)}</div>` : ''}
+        ${isPending ? `<div class="protocol-pending-notice">Protocol specification pending — group identified as relevant but field protocol not yet available.</div>` : `
+        <div class="bio-field-row">
+          <span class="bio-field-label">Protocol</span>
+          <span class="bio-field-value">${esc(g.assigned_protocol || 'TBC')}${refHtml}${eqHtml}</span>
+        </div>
+        <div class="bio-field-row">
+          <span class="bio-field-label">Output metric</span>
+          <span class="bio-field-value">${esc(g.assigned_metric || '—')}</span>
+        </div>
+        ${g.b2_expected_direction_of_change ? `
+        <details class="bio-signal-details">
+          <summary class="bio-signal-summary">Expected signal</summary>
+          <p class="bio-signal-text">${esc(g.b2_expected_direction_of_change)}</p>
+        </details>` : ''}`}
+        ${precursorHtml}${connectedHtml}
+      </div>
+    </div>`;
+  }
+
+  // Split kept groups into sections
+  const bioB2Groups      = activeAssignments.filter(g => g.inclusion_reason === 'B2 primary verifier');
+  const bioB1Groups      = activeAssignments.filter(g => g.inclusion_reason === 'B1 supporting');
+  const bioChGroups      = activeAssignments.filter(g => g.inclusion_reason === 'Challenge signal');
+
+  // Summary sentence
+  const bioCategories = new Set(activeAssignments.map(g => g.category)).size;
+  const bioSummarySentence = activeAssignments.length
+    ? `<div class="bio-summary-sentence">Your monitoring programme includes <strong>${activeAssignments.length} indicator group${activeAssignments.length!==1?'s':''}</strong> across <strong>${bioCategories} biological categor${bioCategories!==1?'ies':'y'}</strong>, plus <strong>${out.selected_abiotic.length} abiotic indicator${out.selected_abiotic.length!==1?'s':''}</strong>.${pendingAssignments.length ? ` <span class="bio-pending-note">${pendingAssignments.length} further group${pendingAssignments.length!==1?'s':''} identified — protocol specification pending.</span>` : ''}</div>`
+    : '';
+
+  function buildBioSection(label, desc, groups, openByDefault) {
+    if (!groups.length) return '';
+    return `<details class="bio-section"${openByDefault ? ' open' : ''}>
+      <summary class="bio-section-toggle">
+        <span class="bio-section-label">${esc(label)} <span class="bio-section-count">(${groups.length})</span></span>
+        <span class="bio-section-desc">${esc(desc)}</span>
+      </summary>
+      <div class="bio-section-body">
+        <div class="bio-cards">${groups.map(buildBioCard).join('')}</div>
+      </div>
+    </details>`;
+  }
 
   const bioHtml = `<div class="output-section">
     <h2 class="section-title">Biological Monitoring Programme</h2>
     <div class="advisory-notice">⚠ <strong>Draft protocols</strong> — All indicator profiles are currently DRAFT and unvalidated. Review with your biodiversity expert before finalising your monitoring programme.</div>
     ${out.protocol_assignments.length ? `
-    <div class="bio-cards">
-      ${out.protocol_assignments.map(g => {
-        const precursorNames = (g.abiotic_precursor_linkages || []).map(id => abioticNameMap[id] || id);
-        const precursorHtml  = precursorNames.length
-          ? `<div class="abiotic-precursors">Abiotic context: ${precursorNames.map(n => `<span class="precursor-tag">${esc(n)}</span>`).join('')}</div>`
-          : '';
-        const connectedNames = (g.linkage_c_connected_groups || [])
-          .map(num => profileNameMap[num]).filter(Boolean);
-        const connectedHtml = connectedNames.length
-          ? `<div class="connected-groups">Connected with: ${connectedNames.map(cn => `<span class="connected-tag">${esc(cn)}</span>`).join('')}</div>`
-          : '';
-        const eqLabels = (g.assigned_equipment_ids || []).map(id => EQUIPMENT_CATEGORIES[id] || `Cat. ${id}`);
-        const eqHtml   = eqLabels.length
-          ? `<details class="eq-details"><summary>Equipment (${eqLabels.length})</summary><ul class="eq-list">${eqLabels.map(e => `<li>${esc(e)}</li>`).join('')}</ul></details>`
-          : '';
-        const refHtml = g.assigned_reference_link
-          ? ` <a class="ref-link" href="${esc(g.assigned_reference_link)}" target="_blank" rel="noopener" title="${esc(g.assigned_reference || '')}">[ref]</a>`
-          : g.assigned_reference ? ` <span class="ref-plain" title="${esc(g.assigned_reference)}">[ref]</span>` : '';
-        return `<div class="bio-card">
-          <div class="bio-card-header">
-            <div class="bio-card-title-wrap">
-              <span class="bio-card-name">${esc(g.profile_name)}</span>
-              <span class="bio-card-category">${esc(g.category)}</span>
-            </div>
-            <div class="bio-card-badges">
-              <span class="level-badge level-${g.assigned_level}">L${g.assigned_level}</span>
-              ${g.requires_upgrade ? `<span class="badge badge-warn" title="Requires higher team capacity than currently available">↑ Upgrade</span>` : ''}
-              <span class="badge badge-stage">${esc((g.monitoring_stage||'').split(' ')[0])}</span>
-              <span class="badge badge-inclusion">${esc(g.inclusion_reason)}</span>
-            </div>
-          </div>
-          <div class="bio-card-body">
-            ${g.primary_monitoring_role ? `<div class="monitoring-role">${esc(g.primary_monitoring_role)}</div>` : ''}
-            <div class="bio-field-row">
-              <span class="bio-field-label">Protocol</span>
-              <span class="bio-field-value">${esc(g.assigned_protocol || 'TBC')}${refHtml}${eqHtml}</span>
-            </div>
-            <div class="bio-field-row">
-              <span class="bio-field-label">Output metric</span>
-              <span class="bio-field-value">${esc(g.assigned_metric || '—')}</span>
-            </div>
-            ${g.b2_expected_direction_of_change ? `
-            <details class="bio-signal-details">
-              <summary class="bio-signal-summary">Expected signal</summary>
-              <p class="bio-signal-text">${esc(g.b2_expected_direction_of_change)}</p>
-            </details>` : ''}
-            ${precursorHtml}${connectedHtml}
-          </div>
-        </div>`;
-      }).join('')}
-    </div>` : '<p class="empty-state">No biological indicators selected. Complete Steps 1–3 to generate recommendations.</p>'}
+    ${bioSummarySentence}
+    ${buildBioSection('A — Primary verifiers', 'Directly verify adoption and effectiveness of selected practices', bioB2Groups, true)}
+    ${buildBioSection('B — Supporting context', 'Benefit from practices but not primary verification targets', bioB1Groups, false)}
+    ${buildBioSection('C — Challenge signal indicators', 'Selected by landscape challenge linkage — broaden ecological evidence', bioChGroups, false)}
+    ${pendingAssignments.length ? buildBioSection('D — Protocol pending', 'Relevant groups identified — field protocols not yet authored', pendingAssignments, false) : ''}
+    ` : '<p class="empty-state">No biological indicators selected. Complete Steps 1–3 to generate recommendations.</p>'}
   </div>`;
 
   // Abiotic table

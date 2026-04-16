@@ -386,11 +386,20 @@ def parse_profile(filepath):
         p['validation_status'] = 'DRAFT - Unvalidated'
 
     # ── Populated flag ──────────────────────────────────────────────────
-    p['populated'] = bool(
+    # True    = linkages present AND protocol content present
+    # "partial" = linkages present BUT no protocol content yet
+    # False   = neither (profile not yet authored at all)
+    has_protocol = bool(
         p.get('level1_protocol_name')
         and not is_placeholder(p.get('level1_protocol_name'))
-        and p.get('block4_pressures')
     )
+    has_linkages = bool(p.get('block4_pressures'))
+    if has_protocol and has_linkages:
+        p['populated'] = True
+    elif has_linkages and not has_protocol:
+        p['populated'] = 'partial'
+    else:
+        p['populated'] = False
 
     return p
 
