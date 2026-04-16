@@ -1015,6 +1015,37 @@ textarea { resize: vertical; min-height: 80px; }
 }
 .fixture-clear:hover { opacity: .7; }
 
+/* ── Demo mode ───────────────────────────────────────────────────────── */
+.demo-loader {
+  margin-top: 18px;
+}
+.btn-demo {
+  font-size: .78rem;
+  font-family: var(--font-mono);
+  background: var(--white);
+  color: var(--grey-600);
+  border: 1px solid var(--grey-300);
+  border-radius: 6px;
+  padding: .4rem .85rem;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition), border-color var(--transition);
+  letter-spacing: .01em;
+}
+.btn-demo:hover {
+  background: var(--grey-100);
+  color: var(--grey-800);
+  border-color: var(--grey-400);
+}
+
+/* In demo mode, all step tabs are visually accessible and clickable */
+.step-nav.is-demo .step-item {
+  cursor: pointer;
+}
+.step-nav.is-demo .step-item:hover .step-bubble {
+  border-color: var(--navy);
+  color: var(--navy);
+}
+
 /* ── EFG Grouped Selector ────────────────────────────────────────────── */
 .efg-selector {
   border: 1px solid var(--grey-200);

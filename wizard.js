@@ -107,6 +107,7 @@ let indicatorsData  = [];
 let abioticData     = [];
 let referenceData   = {};
 let currentStep     = 1;
+window.demoMode     = false;  // true when a demo fixture is loaded via the demo button
 
 // EFG map data (loaded once at init, stored globally)
 window.lahmpData = { metadata: null, gridIndex: null };
@@ -2578,7 +2579,8 @@ function showStep(n) {
   document.querySelectorAll('.step-item').forEach(li => {
     const s = parseInt(li.dataset.step);
     li.classList.toggle('is-active', s === n);
-    li.classList.toggle('is-done', s < n);
+    // In demo mode all tabs look accessible; in normal mode only completed steps are "done"
+    li.classList.toggle('is-done', window.demoMode ? s !== n : s < n);
   });
 
   document.getElementById('btn-back').disabled = n === 1;
@@ -2684,6 +2686,58 @@ function showFixtureBanner(fixtureId) {
   document.body.insertBefore(banner, document.querySelector('.step-nav'));
 }
 
+function showDemoBanner() {
+  const existing = document.getElementById('demo-banner');
+  if (existing) existing.remove();
+  const banner = document.createElement('div');
+  banner.id = 'demo-banner';
+  banner.className = 'fixture-banner demo-banner';
+  banner.innerHTML = `<strong>Demo mode</strong> — showing pre-filled assessment for Skoura M\'Daz, Morocco. Click any step tab to explore the inputs.
+    &nbsp;<a href="?" class="fixture-clear">Exit demo →</a>`;
+  document.body.insertBefore(banner, document.querySelector('.step-nav'));
+}
+
+// Enable free tab navigation across all four steps in demo mode.
+function enableDemoNav() {
+  const nav = document.querySelector('.step-nav');
+  if (nav) nav.classList.add('is-demo');
+  document.querySelectorAll('.step-item').forEach(li => {
+    // Remove any previously attached handler before adding to avoid duplicates
+    li.removeEventListener('click', _demoStepClickHandler);
+    li.addEventListener('click', _demoStepClickHandler);
+  });
+}
+
+function _demoStepClickHandler(e) {
+  if (!window.demoMode) return;
+  const targetStep = parseInt(e.currentTarget.dataset.step);
+  if (!targetStep) return;
+  showStep(targetStep);
+}
+
+// Load the Skoura M'Daz demo fixture and jump straight to the Step 4 output view.
+async function loadDemoSkoura() {
+  try {
+    const data = await fetch('data/test_fixtures/skoura.json').then(r => r.json());
+    Object.keys(data).forEach(k => { window.assessment[k] = data[k]; });
+    if (!window.assessment.step3.access_calendar || window.assessment.step3.access_calendar.length !== 12) {
+      window.assessment.step3.access_calendar = MONTHS.map(m => ({ month: m, access: 'accessible', reason: '' }));
+    }
+  } catch(e) {
+    console.warn('Could not load Skoura demo fixture', e);
+    showToast('Could not load demo — serve the project via HTTP (not file://).');
+    return;
+  }
+  window.demoMode = true;
+  renderStep1();
+  renderStep2();
+  renderStep3();
+  renderStep4();
+  showDemoBanner();
+  enableDemoNav();
+  showStep(4);
+}
+
 // ── Init ──────────────────────────────────────────────────────────────────
 
 async function init() {
@@ -2705,10 +2759,24 @@ async function init() {
   const stepParam    = parseInt(urlParams.get('step')) || 1;
 
   if (fixtureParam) {
-    const loaded = await loadFixture(fixtureParam.toUpperCase());
-    if (loaded) {
-      currentStep = Math.min(Math.max(stepParam, 1), 4);
-      showFixtureBanner(fixtureParam.toUpperCase());
+    const fid = fixtureParam.toUpperCase();
+    if (fid === 'DEMO-SKOURA') {
+      // Demo fixture — loads skoura.json and enables free tab navigation
+      try {
+        const data = await fetch('data/test_fixtures/skoura.json').then(r => r.json());
+        Object.keys(data).forEach(k => { window.assessment[k] = data[k]; });
+        if (!window.assessment.step3.access_calendar || window.assessment.step3.access_calendar.length !== 12) {
+          window.assessment.step3.access_calendar = MONTHS.map(m => ({ month: m, access: 'accessible', reason: '' }));
+        }
+        window.demoMode = true;
+        currentStep = Math.min(Math.max(stepParam, 1), 4);
+      } catch(e) { console.warn('Could not load DEMO-SKOURA fixture', e); }
+    } else {
+      const loaded = await loadFixture(fid);
+      if (loaded) {
+        currentStep = Math.min(Math.max(stepParam, 1), 4);
+        showFixtureBanner(fid);
+      }
     }
   } else {
     const hasSaved = loadSavedState();
@@ -2729,6 +2797,12 @@ async function init() {
     showStep(currentStep);
   } else {
     showStep(1);
+  }
+
+  // Demo mode post-render: show banner and enable free tab navigation
+  if (window.demoMode) {
+    showDemoBanner();
+    enableDemoNav();
   }
 
   document.getElementById('btn-next').addEventListener('click', handleNext);

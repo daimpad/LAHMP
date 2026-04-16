@@ -1,0 +1,182 @@
+{
+  "assessment_id": "DEMO-SKOURA",
+  "landscape_name": "Skoura M'Daz Oasis Landscape",
+  "created_at": "2025-04-16T08:00:00.000Z",
+  "last_updated": "2025-04-16T09:00:00.000Z",
+
+  "step1": {
+    "landscape_name": "Skoura M'Daz Oasis Landscape",
+    "country": "Morocco",
+    "admin_region": "Drâa-Tafilalet Region",
+    "monitoring_programme_name": "IUCN LAHMP Pilot — Skoura M'Daz",
+
+    "area_ha": 2400,
+    "map_click_lng": -6.9,
+    "map_click_lat": 31.1,
+    "efg_codes": ["T7.2", "T7.5", "T4.2"],
+    "ipcc_land_use_categories": ["Grassland and Pasture", "Agroforestry", "Irrigated Cropland"],
+    "soil_types": [
+      "Mineral Soils — High Activity Clay (HAC)",
+      "Mineral Soils — Arid and Semi-Arid Soils"
+    ],
+
+    "description": "The Skoura M'Daz oasis landscape in the Drâa-Tafilalet Region is a pre-Saharan agropastoral system built around traditional palmerie cultivation and communal rangelands. The IUCN LAHMP pilot focuses on establishing a baseline monitoring programme across approximately 2,400 ha covering irrigated date palm groves, agroforestry plots, and semi-natural grassland.",
+
+    "land_uses": ["Grassland and Pasture", "Agroforestry", "Irrigated Cropland"],
+
+    "crops": [
+      "Dates (Phoenix dactylifera)",
+      "Wheat (Triticum aestivum)",
+      "Alfalfa (Medicago sativa)"
+    ],
+    "livestock": ["Cattle", "Sheep", "Goats"],
+
+    "land_use_composition": [
+      { "category": "Grassland and Pasture",  "area_pct": 50 },
+      { "category": "Agroforestry",           "area_pct": 30 },
+      { "category": "Irrigated Cropland",     "area_pct": 20 }
+    ],
+
+    "pressures": [
+      { "id": 1,  "name": "Intensive tillage",                                       "status": "ongoing",      "confidence": "high" },
+      { "id": 2,  "name": "Soil compaction by heavy machinery",                      "status": "ongoing",      "confidence": "high" },
+      { "id": 3,  "name": "Excessive synthetic fertilizer application",              "status": "ongoing",      "confidence": "high" },
+      { "id": 4,  "name": "Excessive pesticide application (insecticides)",          "status": "not_relevant", "confidence": "high" },
+      { "id": 5,  "name": "Excessive herbicide application",                         "status": "ongoing",      "confidence": "high" },
+      { "id": 6,  "name": "Excessive fungicide application",                         "status": "not_relevant", "confidence": "high" },
+      { "id": 7,  "name": "Excessive nematicide application",                        "status": "not_relevant", "confidence": "high" },
+      { "id": 8,  "name": "Excessive rodenticide application",                       "status": "ongoing",      "confidence": "high" },
+      { "id": 9,  "name": "Excessive molluscicide application",                      "status": "ongoing",      "confidence": "high" },
+      { "id": 10, "name": "Soil fumigation",                                         "status": "not_relevant", "confidence": "high" },
+      { "id": 11, "name": "Excessive application of manure or organic waste",        "status": "not_relevant", "confidence": "high" },
+      { "id": 12, "name": "Excessive irrigation",                                    "status": "not_relevant", "confidence": "high" },
+      { "id": 13, "name": "Monoculture / loss of crop diversity",                    "status": "not_relevant", "confidence": "high" },
+      { "id": 14, "name": "Removal of crop residues",                                "status": "not_relevant", "confidence": "high" },
+      { "id": 15, "name": "Unsustainable water abstraction",                         "status": "not_relevant", "confidence": "high" },
+      { "id": 16, "name": "Drainage or irrigation infrastructure modification",      "status": "not_relevant", "confidence": "high" },
+      { "id": 17, "name": "Water pollution from internal sources",                   "status": "not_relevant", "confidence": "high" },
+      { "id": 18, "name": "Overgrazing",                                             "status": "not_relevant", "confidence": "high" },
+      { "id": 19, "name": "Removal of non-crop vegetation",                          "status": "not_relevant", "confidence": "high" },
+      { "id": 20, "name": "Overextraction of wood / biomass",                        "status": "not_relevant", "confidence": "high" },
+      { "id": 21, "name": "Introduction or spread of invasive species",              "status": "not_relevant", "confidence": "high" },
+      { "id": 22, "name": "Land-use change",                                         "status": "ongoing",      "confidence": "high" },
+      { "id": 23, "name": "Landscape fragmentation",                                 "status": "ongoing",      "confidence": "high" },
+      { "id": 24, "name": "Fire",                                                    "status": "not_relevant", "confidence": "high" },
+      { "id": 25, "name": "Soil pollution by heavy metals or POPs",                  "status": "not_relevant", "confidence": "high" },
+      { "id": 26, "name": "External pollution from upstream/neighbouring",           "status": "not_relevant", "confidence": "high" },
+      { "id": 27, "name": "Abandonment of traditional land management",              "status": "not_relevant", "confidence": "high" },
+      { "id": 28, "name": "Other (free text)",                                       "status": "not_relevant", "confidence": "high" }
+    ],
+
+    "challenges": [
+      { "id": 1,  "name": "Soil fertility decline",                                      "confidence": "high", "pre_populated": true, "confirmed": true },
+      { "id": 2,  "name": "Soil organic matter depletion",                               "confidence": "high", "pre_populated": true, "confirmed": true },
+      { "id": 3,  "name": "Soil erosion",                                                "confidence": "high", "pre_populated": true, "confirmed": true },
+      { "id": 4,  "name": "Soil compaction",                                             "confidence": "high", "pre_populated": true, "confirmed": true },
+      { "id": 5,  "name": "Soil salinisation",                                           "confidence": "high", "pre_populated": true, "confirmed": true },
+      { "id": 6,  "name": "Soil pH imbalance",                                           "confidence": "high", "pre_populated": true, "confirmed": true },
+      { "id": 7,  "name": "Soil structure degradation",                                  "confidence": "high", "pre_populated": true, "confirmed": true },
+      { "id": 8,  "name": "Soil contamination by pollutants",                            "confidence": "high", "pre_populated": true, "confirmed": true },
+      { "id": 10, "name": "Reduced soil water retention",                                "confidence": "high", "pre_populated": true, "confirmed": true },
+      { "id": 13, "name": "Surface water pollution",                                     "confidence": "high", "pre_populated": true, "confirmed": true },
+      { "id": 14, "name": "Nutrient runoff and leaching",                                "confidence": "high", "pre_populated": true, "confirmed": true },
+      { "id": 15, "name": "Pathogen contamination of soil and water",                    "confidence": "high", "pre_populated": true, "confirmed": true },
+      { "id": 17, "name": "Aquatic biodiversity decline",                                "confidence": "high", "pre_populated": true, "confirmed": true },
+      { "id": 18, "name": "Eutrophication of water bodies and soils",                    "confidence": "high", "pre_populated": true, "confirmed": true },
+      { "id": 19, "name": "Overall biodiversity decline",                                "confidence": "high", "pre_populated": true, "confirmed": true },
+      { "id": 20, "name": "Habitat connectivity loss",                                   "confidence": "high", "pre_populated": true, "confirmed": true },
+      { "id": 21, "name": "Pollinator decline",                                          "confidence": "high", "pre_populated": true, "confirmed": true },
+      { "id": 22, "name": "Soil biodiversity decline",                                   "confidence": "high", "pre_populated": true, "confirmed": true },
+      { "id": 23, "name": "Vegetation diversity loss",                                   "confidence": "high", "pre_populated": true, "confirmed": true },
+      { "id": 24, "name": "Loss of agrobiodiversity",                                    "confidence": "high", "pre_populated": true, "confirmed": true },
+      { "id": 25, "name": "Decline in natural pest regulation capacity",                 "confidence": "high", "pre_populated": true, "confirmed": true },
+      { "id": 26, "name": "Pest outbreaks",                                              "confidence": "high", "pre_populated": true, "confirmed": true },
+      { "id": 28, "name": "Animal disease outbreaks",                                    "confidence": "high", "pre_populated": true, "confirmed": true },
+      { "id": 29, "name": "Weed pressure and herbicide resistance",                      "confidence": "high", "pre_populated": true, "confirmed": true },
+      { "id": 30, "name": "Invasive species establishment and spread",                   "confidence": "high", "pre_populated": true, "confirmed": true },
+      { "id": 32, "name": "Increased vulnerability to extreme weather events",           "confidence": "high", "pre_populated": true, "confirmed": true },
+      { "id": 33, "name": "Degradation of landscape mosaic and traditional habitats",    "confidence": "high", "pre_populated": true, "confirmed": true },
+      { "id": 34, "name": "Increasing dependence on external inputs",                    "confidence": "high", "pre_populated": true, "confirmed": true }
+    ],
+
+    "services": [
+      { "id": 1,  "name": "Crop provisioning services",            "selected": true, "priority_rank": 1, "pre_populated": true },
+      { "id": 2,  "name": "Grazed biomass provisioning services",  "selected": true, "priority_rank": 2, "pre_populated": true },
+      { "id": 11, "name": "Global climate regulation services",    "selected": true, "priority_rank": 3, "pre_populated": true },
+      { "id": 15, "name": "Soil quality regulation services",      "selected": true, "priority_rank": 4, "pre_populated": true },
+      { "id": 16, "name": "Soil erosion control services",         "selected": true, "priority_rank": 5, "pre_populated": true },
+      { "id": 20, "name": "Water purification — other pollutants", "selected": true, "priority_rank": 6, "pre_populated": true }
+    ]
+  },
+
+  "step2": {
+    "prescreen": {
+      "q1_trees":     "open",
+      "q2_livestock": "open",
+      "q3_set_aside": "open",
+      "q4_inputs":    "open"
+    },
+    "selected_practices": [
+      { "p_code": "P01", "name": "Reduce or eliminate tillage",                                               "theme": "Soil Management",                  "tier": "standard", "score": 0 },
+      { "p_code": "P02", "name": "Maintain permanent soil cover",                                             "theme": "Soil Management",                  "tier": "standard", "score": 0 },
+      { "p_code": "P07", "name": "Detoxify and restore degraded soils",                                       "theme": "Soil Management",                  "tier": "standard", "score": 0 },
+      { "p_code": "P08", "name": "Implement crop rotation",                                                   "theme": "Crop System Diversification",       "tier": "standard", "score": 0 },
+      { "p_code": "P21", "name": "Implement rotational and managed grazing",                                  "theme": "Livestock and Pasture Management",  "tier": "standard", "score": 0 },
+      { "p_code": "P22", "name": "Reduce stocking densities",                                                 "theme": "Livestock and Pasture Management",  "tier": "standard", "score": 0 },
+      { "p_code": "P30", "name": "Establish or restore field margins, flower strips, and herb edges",         "theme": "Habitat and Landscape Management",  "tier": "standard", "score": 0 },
+      { "p_code": "P35", "name": "Restore and maintain traditional farming landscapes and practices",         "theme": "Habitat and Landscape Management",  "tier": "standard", "score": 0 }
+    ],
+    "practice_count": 8,
+    "theme_counts": {
+      "Soil Management": 3,
+      "Crop System Diversification": 1,
+      "Livestock and Pasture Management": 2,
+      "Habitat and Landscape Management": 2
+    },
+    "standard_count": 8,
+    "transformative_count": 0
+  },
+
+  "step3": {
+    "team_types": [
+      { "type": "C", "count": 2 },
+      { "type": "B", "count": 3 }
+    ],
+    "willingness_recruit": "yes_any",
+    "willingness_recruit_roles": "",
+    "days_by_type": { "C": 30, "B": 20 },
+    "willingness_time": "yes_modestly",
+    "equipment_capabilities": [1, 2, 4, 8],
+    "willingness_equipment": "yes_specific",
+    "willingness_equipment_categories": [],
+    "budget_tier": 2,
+    "site_count_category": "2-5",
+    "site_count": 3,
+    "site_distribution": "single_landscape",
+    "access_calendar": [
+      { "month": "January",   "access": "accessible",  "reason": "" },
+      { "month": "February",  "access": "accessible",  "reason": "" },
+      { "month": "March",     "access": "accessible",  "reason": "" },
+      { "month": "April",     "access": "accessible",  "reason": "" },
+      { "month": "May",       "access": "accessible",  "reason": "" },
+      { "month": "June",      "access": "constrained", "reason": "Summer heat — restricted field access" },
+      { "month": "July",      "access": "constrained", "reason": "Summer heat — restricted field access" },
+      { "month": "August",    "access": "accessible",  "reason": "" },
+      { "month": "September", "access": "accessible",  "reason": "" },
+      { "month": "October",   "access": "accessible",  "reason": "" },
+      { "month": "November",  "access": "accessible",  "reason": "" },
+      { "month": "December",  "access": "accessible",  "reason": "" }
+    ],
+    "capacity_profile": null
+  },
+
+  "step4_outputs": {
+    "practice_chains": [],
+    "selected_indicator_groups": [],
+    "selected_abiotic": [],
+    "protocol_assignments": [],
+    "trimmed_groups": [],
+    "calendar": [],
+    "narrative": { "paragraph1": "", "paragraph2": "", "paragraph3": "", "paragraph4": "" }
+  }
+}
