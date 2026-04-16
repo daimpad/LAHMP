@@ -1700,24 +1700,13 @@ textarea { resize: vertical; min-height: 80px; }
   .wizard-main { padding: 0 !important; }
   .blocks-container { gap: 0; }
 
-  /* ── Running header/footer — fixed, repeats on every printed page ─────── */
-  .print-running-head {
-    display: flex !important;
-    position: fixed; top: 0; left: 0; right: 0; height: 9mm;
-    align-items: center; justify-content: space-between;
-    padding: 0 3mm;
-    font-size: 7pt; font-family: var(--font-mono), monospace; color: #003478;
-    border-bottom: 1.5px solid #003478; background: white;
-    z-index: 9999;
-  }
-  .print-running-foot {
-    display: flex !important;
-    position: fixed; bottom: 0; left: 0; right: 0; height: 8mm;
-    align-items: center; justify-content: space-between;
-    padding: 0 3mm;
-    font-size: 7pt; color: #666;
-    border-top: 1px solid #ccc; background: white;
-  }
+  /* ── Running header/footer — hidden in print ────────────────────────────
+     position:fixed in Chromium print sits at the top of the content area,
+     not inside the @page margin, so it overlaps content on every page.
+     Page 1 cover header already carries landscape name + date. The browser's
+     own print header/footer (URL, page number) handles the rest.          */
+  .print-running-head,
+  .print-running-foot { display: none !important; }
 
   /* ── Cover header (page 1 only) ──────────────────────────────────────── */
   .print-header {
