@@ -4,169 +4,169 @@
       "id": 1,
       "name": "Intensive tillage",
       "group": "Soil management",
-      "tooltip": ""
+      "tooltip": "Repeated mechanical inversion or disruption of soil layers. Breaks up soil aggregates, destroys fungal networks, and accelerates organic matter decomposition — a primary driver of soil biodiversity loss and erosion."
     },
     {
       "id": 2,
       "name": "Soil compaction by heavy machinery",
       "group": "Soil management",
-      "tooltip": ""
+      "tooltip": "Weight of farm vehicles and equipment compresses soil pores, reducing water infiltration and root penetration. Directly reduces earthworm and soil fauna activity and increases surface runoff."
     },
     {
       "id": 3,
       "name": "Excessive synthetic fertilizer application",
       "group": "Soil management",
-      "tooltip": ""
+      "tooltip": "Application of mineral nitrogen, phosphorus, or potassium at rates exceeding crop uptake. Accelerates soil acidification, disrupts microbial communities, and drives nitrate leaching and eutrophication of water bodies."
     },
     {
       "id": 4,
       "name": "Excessive pesticide application (insecticides)",
       "group": "Soil management",
-      "tooltip": ""
+      "tooltip": "Use of broad-spectrum insecticides beyond target pest populations. Causes collateral mortality in beneficial insects — pollinators, natural pest predators, and soil-dwelling invertebrates."
     },
     {
       "id": 5,
       "name": "Excessive herbicide application",
       "group": "Soil management",
-      "tooltip": ""
+      "tooltip": "Use of herbicides at rates or frequencies that suppress non-target vegetation. Reduces plant diversity in field margins and hedgerows, diminishing habitat for invertebrates and farmland birds."
     },
     {
       "id": 6,
       "name": "Excessive fungicide application",
       "group": "Soil management",
-      "tooltip": ""
+      "tooltip": "Fungicide use beyond disease management thresholds. Can suppress mycorrhizal fungi essential for plant nutrient uptake and reduce soil fungal community diversity."
     },
     {
       "id": 7,
       "name": "Excessive nematicide application",
       "group": "Soil management",
-      "tooltip": ""
+      "tooltip": "Application of nematicides to control plant-parasitic nematodes. Also kills beneficial free-living nematodes that regulate soil food webs and serve as sensitive indicators of soil health."
     },
     {
       "id": 8,
       "name": "Excessive rodenticide application",
       "group": "Soil management",
-      "tooltip": ""
+      "tooltip": "Use of rodent-control chemicals at landscape scale. Can cause secondary poisoning in raptors, owls, and small carnivores, and disrupt small mammal communities."
     },
     {
       "id": 9,
       "name": "Excessive molluscicide application",
       "group": "Soil management",
-      "tooltip": ""
+      "tooltip": "Use of slug and snail control products beyond threshold levels. Can kill non-target invertebrates including ground beetles, which are natural slug predators."
     },
     {
       "id": 10,
       "name": "Soil fumigation",
       "group": "Soil management",
-      "tooltip": ""
+      "tooltip": "Injection of volatile biocides into soil to control soil-borne pathogens and pests. Effectively sterilises the soil biota; broad-spectrum soil microbial and invertebrate communities can take years to recover."
     },
     {
       "id": 11,
       "name": "Excessive application of manure or organic waste",
       "group": "Soil management",
-      "tooltip": ""
+      "tooltip": "Application of organic matter at rates exceeding soil absorption capacity. Can cause nutrient runoff, ammonia volatilisation, and localised soil chemistry imbalance despite beneficial effects at optimal rates."
     },
     {
       "id": 12,
       "name": "Excessive irrigation",
       "group": "Water and infrastructure",
-      "tooltip": ""
+      "tooltip": "Water application beyond evapotranspiration demand. Leads to waterlogging, secondary salinisation in arid contexts, and leaching of nutrients and agrochemicals to groundwater."
     },
     {
       "id": 13,
       "name": "Monoculture / loss of crop diversity",
       "group": "Soil management",
-      "tooltip": ""
+      "tooltip": "Continuous cultivation of a single crop species or variety over large areas. Reduces plant diversity, simplifies soil food webs, and increases vulnerability to specialist pests and diseases."
     },
     {
       "id": 14,
       "name": "Removal of crop residues",
       "group": "Soil management",
-      "tooltip": ""
+      "tooltip": "Harvesting or burning above-ground plant material after the main crop. Reduces organic matter inputs to soil, exposes surface to erosion, and removes overwintering habitat for invertebrates."
     },
     {
       "id": 15,
       "name": "Unsustainable water abstraction",
       "group": "Water and infrastructure",
-      "tooltip": ""
+      "tooltip": "Extraction of surface or groundwater at rates exceeding natural recharge. Lowers water tables, reduces stream baseflows, and can permanently alter wetland and riparian habitats."
     },
     {
       "id": 16,
       "name": "Drainage or irrigation infrastructure modification",
       "group": "Water and infrastructure",
-      "tooltip": ""
+      "tooltip": "Installation, removal, or alteration of ditches, canals, pipes, or water control structures. Can permanently change hydrological connectivity, wetland extent, and habitat for aquatic species."
     },
     {
       "id": 17,
       "name": "Water pollution from internal sources",
       "group": "Water and infrastructure",
-      "tooltip": ""
+      "tooltip": "Contamination of surface or groundwater originating within the landscape — e.g. agrochemical runoff, effluent from livestock facilities, or silage leachate. Directly degrades aquatic biodiversity."
     },
     {
       "id": 18,
       "name": "Overgrazing",
       "group": "Vegetation and habitat",
-      "tooltip": ""
+      "tooltip": "Livestock density exceeding pasture productivity. Removes vegetation cover, compacts soil, reduces plant diversity, and can cause erosion and desertification in vulnerable dryland contexts."
     },
     {
       "id": 19,
       "name": "Removal of non-crop vegetation",
       "group": "Vegetation and habitat",
-      "tooltip": ""
+      "tooltip": "Clearing of hedgerows, field margins, scrub, riparian strips, or other semi-natural vegetation. Directly reduces habitat area and connectivity for farmland wildlife."
     },
     {
       "id": 20,
       "name": "Overextraction of wood / biomass",
       "group": "Vegetation and habitat",
-      "tooltip": ""
+      "tooltip": "Harvesting of woody biomass, deadwood, or non-timber forest products at rates exceeding natural renewal. Removes habitat structure for cavity-nesting species and deadwood-dependent invertebrates."
     },
     {
       "id": 21,
       "name": "Introduction or spread of invasive species",
       "group": "Vegetation and habitat",
-      "tooltip": ""
+      "tooltip": "Establishment of non-native plant, animal, or pathogen species that outcompete native biodiversity. Can fundamentally alter vegetation structure, soil chemistry, or food web dynamics."
     },
     {
       "id": 22,
       "name": "Land-use change",
       "group": "Landscape",
-      "tooltip": ""
+      "tooltip": "Conversion between major land use types — e.g. grassland to cropland, forest to pasture. Typically the most severe pressure, causing rapid and often irreversible biodiversity loss."
     },
     {
       "id": 23,
       "name": "Landscape fragmentation",
       "group": "Landscape",
-      "tooltip": ""
+      "tooltip": "Division of formerly continuous habitat by roads, field enlargement, or built development. Isolates wildlife populations, restricts dispersal, and reduces genetic connectivity."
     },
     {
       "id": 24,
       "name": "Fire",
       "group": "Landscape",
-      "tooltip": ""
+      "tooltip": "Uncontrolled or poorly timed burning. Effects vary by system: in fire-adapted landscapes, fire exclusion can itself be a pressure; in non-fire-adapted systems, burning causes direct habitat loss."
     },
     {
       "id": 25,
       "name": "Soil pollution by heavy metals or POPs",
       "group": "Pollution",
-      "tooltip": ""
+      "tooltip": "Contamination by persistent organic pollutants (PCBs, dioxins) or heavy metals (cadmium, lead) from historic industrial activity, sewage sludge application, or atmospheric deposition."
     },
     {
       "id": 26,
       "name": "External pollution from upstream/neighbouring",
       "group": "Pollution",
-      "tooltip": ""
+      "tooltip": "Pollution originating outside the landscape boundary — pesticide drift, river contamination from upstream agriculture, or atmospheric nitrogen deposition. Difficult to manage locally."
     },
     {
       "id": 27,
       "name": "Abandonment of traditional land management",
       "group": "Socio-ecological",
-      "tooltip": ""
+      "tooltip": "Cessation of low-intensity traditional practices — hay cutting, transhumance, coppicing — that maintained semi-natural habitats. Can lead to scrub encroachment and loss of open-habitat specialists."
     },
     {
       "id": 28,
       "name": "Other (free text)",
       "group": "Other",
-      "tooltip": ""
+      "tooltip": "Any significant pressure not covered by the categories above. Describe it briefly — it will be noted in your assessment but will not contribute to automated indicator recommendations."
     }
   ],
   "block5_challenges": [
@@ -174,211 +174,211 @@
       "id": 1,
       "name": "Soil fertility decline",
       "group": "Soil-related",
-      "tooltip": ""
+      "tooltip": "Reduction in the soil's capacity to supply nutrients to crops and support biological productivity. Indicated by declining organic matter, reduced earthworm activity, and falling yields without increased inputs."
     },
     {
       "id": 2,
       "name": "Soil organic matter depletion",
       "group": "Soil-related",
-      "tooltip": ""
+      "tooltip": "Loss of the organic fraction of soil — plant residues, microbial biomass, humus. Reduces water-holding capacity, aggregate stability, nutrient cycling, and overall biological activity."
     },
     {
       "id": 3,
       "name": "Soil erosion",
       "group": "Soil-related",
-      "tooltip": ""
+      "tooltip": "Physical removal of topsoil by wind or water. Removes the most biologically active soil layer, reducing fertility and increasing downstream sedimentation in water bodies."
     },
     {
       "id": 4,
       "name": "Soil compaction",
       "group": "Soil-related",
-      "tooltip": ""
+      "tooltip": "Increased bulk density and reduced pore space in soil, limiting root penetration, water infiltration, and gas exchange. Directly reduces the habitat available to soil fauna."
     },
     {
       "id": 5,
       "name": "Soil salinisation",
       "group": "Soil-related",
-      "tooltip": ""
+      "tooltip": "Accumulation of soluble salts in the root zone, reducing plant-available water and causing toxicity to sensitive crops. Most common in irrigated landscapes in arid and semi-arid regions."
     },
     {
       "id": 6,
       "name": "Soil pH imbalance",
       "group": "Soil-related",
-      "tooltip": ""
+      "tooltip": "Acidification (from nitrogen fertilisers or acid rain) or alkalinisation (from irrigation water or overliming) outside the optimal range for plant growth and soil biological activity."
     },
     {
       "id": 7,
       "name": "Soil structure degradation",
       "group": "Soil-related",
-      "tooltip": ""
+      "tooltip": "Breakdown of the aggregated, porous structure of healthy soil into a dense, structureless mass. Reduces infiltration, aeration, and the three-dimensional complexity on which soil biodiversity depends."
     },
     {
       "id": 8,
       "name": "Soil contamination by pollutants",
       "group": "Soil-related",
-      "tooltip": ""
+      "tooltip": "Presence of chemicals at concentrations harmful to plants, soil organisms, or human health — including pesticide residues, industrial contaminants, heavy metals, and excess nutrients."
     },
     {
       "id": 9,
       "name": "Water scarcity and drought stress",
       "group": "Water-related",
-      "tooltip": ""
+      "tooltip": "Insufficient plant-available water during critical growth periods. Can be climate-driven or accelerated by loss of soil water retention capacity, reduced catchment interception, or overabstraction."
     },
     {
       "id": 10,
       "name": "Reduced soil water retention",
       "group": "Water-related",
-      "tooltip": ""
+      "tooltip": "Decline in the soil's ability to hold and slowly release water, linked to organic matter loss and structural degradation. Amplifies drought stress in dry periods and surface runoff in wet periods."
     },
     {
       "id": 11,
       "name": "Flooding and waterlogging",
       "group": "Water-related",
-      "tooltip": ""
+      "tooltip": "Prolonged inundation or soil saturation creating anaerobic conditions that damage roots and kill most soil organisms. Can follow drainage modification, extreme rainfall, or impeded infiltration."
     },
     {
       "id": 12,
       "name": "Groundwater depletion",
       "group": "Water-related",
-      "tooltip": ""
+      "tooltip": "Decline in water table level below the root zone and below the recharge threshold. Indicates long-term unsustainable extraction, with consequences for dependent vegetation and wetland habitats."
     },
     {
       "id": 13,
       "name": "Surface water pollution",
       "group": "Water-related",
-      "tooltip": ""
+      "tooltip": "Degradation of water quality in streams, rivers, ponds, and ditches by nutrients, pesticides, sediment, or pathogen contamination originating from the landscape or adjacent land uses."
     },
     {
       "id": 14,
       "name": "Nutrient runoff and leaching",
       "group": "Water-related",
-      "tooltip": ""
+      "tooltip": "Loss of nitrogen and phosphorus from the landscape via surface runoff or subsurface drainage. Contributes to eutrophication of receiving waters and indirect greenhouse gas emissions."
     },
     {
       "id": 15,
       "name": "Pathogen contamination of soil and water",
       "group": "Water-related",
-      "tooltip": ""
+      "tooltip": "Presence of harmful bacteria, viruses, or parasites — typically from livestock manure — in soil, irrigation water, or harvested produce. Both an ecological and food safety concern."
     },
     {
       "id": 16,
       "name": "Wetland loss or degradation",
       "group": "Water-related",
-      "tooltip": ""
+      "tooltip": "Reduction in area, permanence, or ecological condition of ponds, ditches, marshes, or seasonal water bodies. Directly reduces aquatic biodiversity and connected terrestrial species that depend on water."
     },
     {
       "id": 17,
       "name": "Aquatic biodiversity decline",
       "group": "Water-related",
-      "tooltip": ""
+      "tooltip": "Reduction in the diversity or abundance of species living in or dependent on water bodies — invertebrates, fish, amphibians, waterbirds. Often a downstream indicator of multiple terrestrial pressures."
     },
     {
       "id": 18,
       "name": "Eutrophication of water bodies and soils",
       "group": "Water-related",
-      "tooltip": ""
+      "tooltip": "Nutrient enrichment leading to excessive algal or plant growth in water and competitive exclusion of stress-tolerant plant communities in terrestrial habitats. Reduces ecological diversity in both realms."
     },
     {
       "id": 19,
       "name": "Overall biodiversity decline",
       "group": "Biodiversity-related",
-      "tooltip": ""
+      "tooltip": "Reduction in the variety and abundance of species — plants, animals, microorganisms — across the landscape as a whole. Often a cumulative symptom of multiple other individual challenges."
     },
     {
       "id": 20,
       "name": "Habitat connectivity loss",
       "group": "Biodiversity-related",
-      "tooltip": ""
+      "tooltip": "Reduction in physical linkages between habitat patches — hedgerows, field margins, riparian strips — that allow species to disperse, recolonise after local extinction, and maintain viable populations."
     },
     {
       "id": 21,
       "name": "Pollinator decline",
       "group": "Biodiversity-related",
-      "tooltip": ""
+      "tooltip": "Reduction in the diversity and abundance of wild bees, hoverflies, butterflies, and other pollinating insects. Directly reduces pollination services and signals poor invertebrate habitat quality."
     },
     {
       "id": 22,
       "name": "Soil biodiversity decline",
       "group": "Biodiversity-related",
-      "tooltip": ""
+      "tooltip": "Reduction in the diversity and abundance of soil organisms — bacteria, fungi, nematodes, earthworms, arthropods — that drive nutrient cycling, decomposition, and soil structure formation."
     },
     {
       "id": 23,
       "name": "Vegetation diversity loss",
       "group": "Biodiversity-related",
-      "tooltip": ""
+      "tooltip": "Reduction in plant species richness in farmed habitats — field margins, grasslands, arable weed communities, hedgerow understories. Simplifies food web structure and reduces specialist invertebrate habitat."
     },
     {
       "id": 24,
       "name": "Loss of agrobiodiversity",
       "group": "Biodiversity-related",
-      "tooltip": ""
+      "tooltip": "Reduction in the diversity of cultivated plant varieties and livestock breeds. Increases vulnerability to disease, pests, and climate variability, and erodes agricultural cultural heritage."
     },
     {
       "id": 25,
       "name": "Decline in natural pest regulation capacity",
       "group": "Biodiversity-related",
-      "tooltip": ""
+      "tooltip": "Reduction in populations of natural predators and parasitoids — ground beetles, parasitic wasps, spiders, predatory birds — that suppress pest populations. Increases reliance on pesticide inputs."
     },
     {
       "id": 26,
       "name": "Pest outbreaks",
       "group": "Biotic pressures",
-      "tooltip": ""
+      "tooltip": "Episodes of exceptionally high pest population density causing significant crop damage. Often a consequence of disrupted natural regulation and loss of predator habitat or genetic diversity."
     },
     {
       "id": 27,
       "name": "Plant disease outbreaks",
       "group": "Biotic pressures",
-      "tooltip": ""
+      "tooltip": "Recurrent or severe outbreaks of crop pathogens — fungi, bacteria, viruses. Often linked to reduced genetic diversity in crop varieties, weakened plant immunity, or pathogen evolution under pesticide pressure."
     },
     {
       "id": 28,
       "name": "Animal disease outbreaks",
       "group": "Biotic pressures",
-      "tooltip": ""
+      "tooltip": "Episodes of disease in livestock or wildlife populations associated with landscape management factors — stress from habitat quality, veterinary chemical residues, or immunological compromise."
     },
     {
       "id": 29,
       "name": "Weed pressure and herbicide resistance",
       "group": "Biotic pressures",
-      "tooltip": ""
+      "tooltip": "Persistent weed populations competing with crops or degrading pasture quality, including biotypes with evolved herbicide resistance. Typically indicates simplified rotations and inadequate diversified weed management."
     },
     {
       "id": 30,
       "name": "Invasive species establishment and spread",
       "group": "Biotic pressures",
-      "tooltip": ""
+      "tooltip": "Successful colonisation and expansion of non-native species — plants, animals, pathogens — beyond their original introduction point. Can displace native communities, alter water regimes, or introduce novel disease."
     },
     {
       "id": 31,
       "name": "Reduced resilience to climate variability",
       "group": "Climate and resilience",
-      "tooltip": ""
+      "tooltip": "Declining ability of the landscape to buffer or recover from variable weather — drought, flooding, late frost, heat stress. Often linked to reduced biodiversity, degraded soils, and structural simplification."
     },
     {
       "id": 32,
       "name": "Increased vulnerability to extreme weather events",
       "group": "Climate and resilience",
-      "tooltip": ""
+      "tooltip": "Greater susceptibility to damage from extreme events — storms, heatwaves, flash floods. Structural indicators include bare soil, sparse vegetation cover, and absence of shelterbelts or riparian buffers."
     },
     {
       "id": 33,
       "name": "Degradation of landscape mosaic and traditional habitats",
       "group": "Landscape and socio-ecological",
-      "tooltip": ""
+      "tooltip": "Loss or simplification of the diverse mosaic of habitats — orchards, flower-rich meadows, copses, wet corners — that characterise traditionally managed cultural landscapes. Reduces overall landscape beta-diversity."
     },
     {
       "id": 34,
       "name": "Increasing dependence on external inputs",
       "group": "Landscape and socio-ecological",
-      "tooltip": ""
+      "tooltip": "Rising reliance on purchased fertilisers, pesticides, feed, and water to maintain productivity. Indicates declining ecosystem function and reduced self-regulation capacity — a measure of system brittleness."
     },
     {
       "id": 35,
       "name": "Declining stability of yields and productivity",
       "group": "Landscape and socio-ecological",
-      "tooltip": ""
+      "tooltip": "Increasing year-to-year variation in crop yields or livestock productivity, often alongside a declining trend. An early indicator of underlying soil degradation, ecological simplification, or climate sensitivity."
     }
   ],
   "block6_services": [
@@ -386,223 +386,223 @@
       "id": 1,
       "name": "Crop provisioning services",
       "group": "Provisioning",
-      "tooltip": ""
+      "tooltip": "The capacity of the landscape to produce food crops for human consumption or animal feed — including yield quantity, nutritional quality, and year-to-year stability."
     },
     {
       "id": 2,
       "name": "Grazed biomass provisioning services",
       "group": "Provisioning",
-      "tooltip": ""
+      "tooltip": "The capacity of pastures and grasslands to produce sufficient forage through direct grazing. Includes sward quality, palatability, nutritional value, and seasonal availability."
     },
     {
       "id": 3,
       "name": "Livestock provisioning services",
       "group": "Provisioning",
-      "tooltip": ""
+      "tooltip": "The capacity of the landscape to support livestock production — meat, milk, eggs, fibre — as a downstream product of forage supply and animal husbandry practices."
     },
     {
       "id": 4,
       "name": "Aquaculture provisioning services",
       "group": "Provisioning",
-      "tooltip": ""
+      "tooltip": "The capacity of water bodies within or adjacent to the landscape to support farmed aquatic species — fish, shellfish, crustaceans — as a food and livelihood resource."
     },
     {
       "id": 5,
       "name": "Wood provisioning services",
       "group": "Provisioning",
-      "tooltip": ""
+      "tooltip": "The capacity of woody vegetation on the landscape to supply timber, fuelwood, poles, or other wood products sustainably alongside agricultural production."
     },
     {
       "id": 6,
       "name": "Wild fish and aquatic biomass provisioning",
       "group": "Provisioning",
-      "tooltip": ""
+      "tooltip": "The capacity of natural water bodies to support harvestable wild fish and other aquatic organisms as a direct food, protein, or livelihood resource for local communities."
     },
     {
       "id": 7,
       "name": "Wild animals, plants and biomass provisioning",
       "group": "Provisioning",
-      "tooltip": ""
+      "tooltip": "The capacity of the landscape to provide wild-harvested non-timber forest products, game, wild fruits, mushrooms, and other biomass for subsistence or commercial use."
     },
     {
       "id": 8,
       "name": "Genetic material services",
       "group": "Provisioning",
-      "tooltip": ""
+      "tooltip": "The contribution of landscape biodiversity — wild relatives of crops, traditional varieties, native microbes — to genetic resources available for plant and animal breeding and biotechnology."
     },
     {
       "id": 9,
       "name": "Water supply",
       "group": "Provisioning",
-      "tooltip": ""
+      "tooltip": "The capacity of the landscape to capture, store, and deliver fresh water through vegetation interception, soil infiltration, and groundwater recharge for agricultural and domestic use."
     },
     {
       "id": 10,
       "name": "Other provisioning services",
       "group": "Provisioning",
-      "tooltip": ""
+      "tooltip": "Any provisioning service — direct production of food, water, energy, or raw materials — not captured by the categories above."
     },
     {
       "id": 11,
       "name": "Global climate regulation services",
       "group": "Regulating & maintenance",
-      "tooltip": ""
+      "tooltip": "The capacity of vegetation and soils to capture and store atmospheric carbon, contributing to climate change mitigation. Includes soil organic carbon accumulation and woody biomass storage."
     },
     {
       "id": 12,
       "name": "Rainfall pattern regulation services",
       "group": "Regulating & maintenance",
-      "tooltip": ""
+      "tooltip": "The influence of vegetation cover and evapotranspiration on regional and local precipitation patterns. In some dryland contexts, loss of tree cover measurably reduces local rainfall."
     },
     {
       "id": 13,
       "name": "Local climate regulation services",
       "group": "Regulating & maintenance",
-      "tooltip": ""
+      "tooltip": "The moderating effect of trees, hedgerows, and water bodies on local air temperature and humidity — providing cooling through transpiration, shading, and wind buffering that reduces crop thermal stress."
     },
     {
       "id": 14,
       "name": "Air filtration services",
       "group": "Regulating & maintenance",
-      "tooltip": ""
+      "tooltip": "The capacity of vegetation, soils, and water surfaces to intercept and absorb airborne pollutants, dust, ammonia, and particulates generated by agricultural operations or adjacent sources."
     },
     {
       "id": 15,
       "name": "Soil quality regulation services",
       "group": "Regulating & maintenance",
-      "tooltip": ""
+      "tooltip": "The self-maintaining capacity of the soil biological community to sustain fertility through nutrient cycling, organic matter decomposition, and aggregate formation — reducing dependence on external inputs."
     },
     {
       "id": 16,
       "name": "Soil erosion control services",
       "group": "Regulating & maintenance",
-      "tooltip": ""
+      "tooltip": "The capacity of plant cover, root systems, and biological soil crusts to retain topsoil and prevent its detachment and transport by rainfall, runoff, or wind."
     },
     {
       "id": 17,
       "name": "Landslide mitigation services",
       "group": "Regulating & maintenance",
-      "tooltip": ""
+      "tooltip": "The capacity of vegetation root systems and soil biological structure to stabilise slopes and reduce mass movement risk. Relevant in hilly, montane, and terraced agricultural landscapes."
     },
     {
       "id": 18,
       "name": "Solid waste remediation services",
       "group": "Regulating & maintenance",
-      "tooltip": ""
+      "tooltip": "The capacity of soil microbial communities and plant uptake to degrade, bind, or immobilise organic wastes, contaminants, and excess nutrients applied to or deposited on the landscape."
     },
     {
       "id": 19,
       "name": "Water purification — nutrients",
       "group": "Regulating & maintenance",
-      "tooltip": ""
+      "tooltip": "The capacity of soils, riparian vegetation, and wetlands to capture, transform, or retain nitrogen and phosphorus before they enter rivers, lakes, or groundwater."
     },
     {
       "id": 20,
       "name": "Water purification — other pollutants",
       "group": "Regulating & maintenance",
-      "tooltip": ""
+      "tooltip": "The capacity of soils and vegetation to intercept and degrade or sequester pesticides, heavy metals, pathogens, and other non-nutrient chemical pollutants in water."
     },
     {
       "id": 21,
       "name": "Baseline flow maintenance services",
       "group": "Regulating & maintenance",
-      "tooltip": ""
+      "tooltip": "The capacity of the landscape to release stored water gradually, maintaining stream baseflows and groundwater levels during dry seasons. Depends on soil infiltration and vegetation water uptake."
     },
     {
       "id": 22,
       "name": "Peak flow mitigation services",
       "group": "Regulating & maintenance",
-      "tooltip": ""
+      "tooltip": "The capacity of soils, vegetation, and wetlands to absorb and delay surface runoff during intense rainfall events, reducing peak flows and downstream flood risk."
     },
     {
       "id": 23,
       "name": "Coastal protection services",
       "group": "Regulating & maintenance",
-      "tooltip": ""
+      "tooltip": "The capacity of coastal vegetation and geomorphological features to reduce wave energy, shoreline erosion, and storm surge impacts. Relevant for coastal and estuarine agricultural landscapes."
     },
     {
       "id": 24,
       "name": "River flood mitigation services",
       "group": "Regulating & maintenance",
-      "tooltip": ""
+      "tooltip": "The capacity of floodplain habitats, wetlands, and riparian vegetation to store and attenuate floodwaters, reducing peak inundation levels and the economic cost of river flooding."
     },
     {
       "id": 25,
       "name": "Storm mitigation services",
       "group": "Regulating & maintenance",
-      "tooltip": ""
+      "tooltip": "The capacity of hedgerows, shelterbelts, and woodland to reduce wind speed and protect crops, livestock, and soils from physical storm damage and desiccation."
     },
     {
       "id": 26,
       "name": "Noise attenuation services",
       "group": "Regulating & maintenance",
-      "tooltip": ""
+      "tooltip": "The capacity of hedges, tree belts, and topographic features to attenuate noise propagation from roads, farm machinery, or livestock operations. Contributes to rural amenity."
     },
     {
       "id": 27,
       "name": "Pollination services",
       "group": "Regulating & maintenance",
-      "tooltip": ""
+      "tooltip": "The capacity of wild pollinators — bees, hoverflies, butterflies — and wind to transfer pollen between flowers, enabling crop fruit set and seed production. Essential for many fruiting crops and wild plant reproduction."
     },
     {
       "id": 28,
       "name": "Pest control services",
       "group": "Regulating & maintenance",
-      "tooltip": ""
+      "tooltip": "The capacity of natural predators, parasitoids, and microbial pathogens — ground beetles, spiders, parasitic wasps, predatory birds — to suppress agricultural pest populations below economic damage thresholds."
     },
     {
       "id": 29,
       "name": "Disease control services",
       "group": "Regulating & maintenance",
-      "tooltip": ""
+      "tooltip": "The capacity of biodiversity and landscape structure to reduce the prevalence of plant or animal diseases — including dilution effects, host diversity, and competition with pathogens."
     },
     {
       "id": 30,
       "name": "Nursery population and habitat maintenance",
       "group": "Regulating & maintenance",
-      "tooltip": ""
+      "tooltip": "The capacity of habitats within the landscape to support the early life stages of species that use other habitats as adults — including fish spawning areas, insect pupation sites, and overwintering habitat."
     },
     {
       "id": 31,
       "name": "Other regulating and maintenance services",
       "group": "Regulating & maintenance",
-      "tooltip": ""
+      "tooltip": "Any regulating or maintenance ecosystem service — self-sustaining processes that maintain ecological conditions — not covered by the specific categories above."
     },
     {
       "id": 32,
       "name": "Recreation-related services",
       "group": "Cultural",
-      "tooltip": ""
+      "tooltip": "The capacity of the landscape to provide opportunities for walking, cycling, birdwatching, angling, and other outdoor recreation that contribute to human health and rural economies."
     },
     {
       "id": 33,
       "name": "Visual amenity services",
       "group": "Cultural",
-      "tooltip": ""
+      "tooltip": "The aesthetic and scenic quality of the landscape as experienced by residents, visitors, and the wider public. Contributes to quality of life and sense of place."
     },
     {
       "id": 34,
       "name": "Education, scientific and research services",
       "group": "Cultural",
-      "tooltip": ""
+      "tooltip": "The capacity of the landscape and its biodiversity to support environmental education programmes, citizen science monitoring, and formal ecological research."
     },
     {
       "id": 35,
       "name": "Spiritual, artistic and symbolic services",
       "group": "Cultural",
-      "tooltip": ""
+      "tooltip": "The cultural, spiritual, and artistic significance of the landscape and its biodiversity for local communities, indigenous peoples, and creative practitioners."
     },
     {
       "id": 36,
       "name": "Other cultural services",
       "group": "Cultural",
-      "tooltip": ""
+      "tooltip": "Any cultural service — non-material benefits that people derive from ecosystems through enrichment, recreation, or spiritual experience — not covered by the specific categories above."
     },
     {
       "id": 37,
       "name": "Ecosystem and species appreciation",
       "group": "Non-use values",
-      "tooltip": ""
+      "tooltip": "The existence value placed on the landscape's biodiversity and ecological processes by people who may never directly use it — a primary motivation for conservation funding and public support."
     }
   ],
   "ipcc_land_use_categories": [
@@ -635,116 +635,666 @@
     "Lithosols/Shallow Soils"
   ],
   "efg_options": [
-    { "code": "F1.1",   "name": "Permanent upland streams",                              "biome": "F1 Rivers and streams",                    "realm": "Freshwater" },
-    { "code": "F1.2",   "name": "Permanent lowland rivers",                              "biome": "F1 Rivers and streams",                    "realm": "Freshwater" },
-    { "code": "F1.3",   "name": "Freeze-thaw rivers and streams",                        "biome": "F1 Rivers and streams",                    "realm": "Freshwater" },
-    { "code": "F1.4",   "name": "Seasonal upland streams",                               "biome": "F1 Rivers and streams",                    "realm": "Freshwater" },
-    { "code": "F1.5",   "name": "Seasonal lowland rivers",                               "biome": "F1 Rivers and streams",                    "realm": "Freshwater" },
-    { "code": "F1.6",   "name": "Episodic arid rivers",                                  "biome": "F1 Rivers and streams",                    "realm": "Freshwater" },
-    { "code": "F1.7",   "name": "Large lowland rivers",                                  "biome": "F1 Rivers and streams",                    "realm": "Freshwater" },
-    { "code": "F2.1",   "name": "Large permanent freshwater lakes",                      "biome": "F2 Lakes",                                 "realm": "Freshwater" },
-    { "code": "F2.2",   "name": "Small permanent freshwater lakes",                      "biome": "F2 Lakes",                                 "realm": "Freshwater" },
-    { "code": "F2.3",   "name": "Seasonal freshwater lakes",                             "biome": "F2 Lakes",                                 "realm": "Freshwater" },
-    { "code": "F2.4",   "name": "Freeze-thaw freshwater lakes",                          "biome": "F2 Lakes",                                 "realm": "Freshwater" },
-    { "code": "F2.5",   "name": "Ephemeral freshwater lakes",                            "biome": "F2 Lakes",                                 "realm": "Freshwater" },
-    { "code": "F2.6",   "name": "Permanent salt and soda lakes",                         "biome": "F2 Lakes",                                 "realm": "Freshwater" },
-    { "code": "F2.7",   "name": "Ephemeral salt lakes",                                  "biome": "F2 Lakes",                                 "realm": "Freshwater" },
-    { "code": "F2.8",   "name": "Artesian springs and oases",                            "biome": "F2 Lakes",                                 "realm": "Freshwater" },
-    { "code": "F2.9",   "name": "Geothermal pools and wetlands",                         "biome": "F2 Lakes",                                 "realm": "Freshwater" },
-    { "code": "F2.10",  "name": "Subglacial lakes",                                      "biome": "F2 Lakes",                                 "realm": "Freshwater" },
-    { "code": "F3.1",   "name": "Large reservoirs",                                      "biome": "F3 Artificial wetlands",                   "realm": "Freshwater" },
-    { "code": "F3.2",   "name": "Constructed lacustrine wetlands",                       "biome": "F3 Artificial wetlands",                   "realm": "Freshwater" },
-    { "code": "F3.3",   "name": "Rice paddies",                                          "biome": "F3 Artificial wetlands",                   "realm": "Freshwater" },
-    { "code": "F3.4",   "name": "Freshwater aquafarms",                                  "biome": "F3 Artificial wetlands",                   "realm": "Freshwater" },
-    { "code": "F3.5",   "name": "Canals, ditches and drains",                            "biome": "F3 Artificial wetlands",                   "realm": "Freshwater" },
-    { "code": "FM1.1",  "name": "Deepwater coastal inlets",                              "biome": "FM1 Semi-confined transitional waters",    "realm": "Freshwater-Marine" },
-    { "code": "FM1.2",  "name": "Permanently open riverine estuaries and bays",          "biome": "FM1 Semi-confined transitional waters",    "realm": "Freshwater-Marine" },
-    { "code": "FM1.3",  "name": "Intermittently closed and open lakes and lagoons",      "biome": "FM1 Semi-confined transitional waters",    "realm": "Freshwater-Marine" },
-    { "code": "M1.1",   "name": "Seagrass meadows",                                      "biome": "M1 Marine shelf",                          "realm": "Marine" },
-    { "code": "M1.2",   "name": "Kelp forests",                                          "biome": "M1 Marine shelf",                          "realm": "Marine" },
-    { "code": "M1.3",   "name": "Photic coral reefs",                                    "biome": "M1 Marine shelf",                          "realm": "Marine" },
-    { "code": "M1.4",   "name": "Shellfish beds and reefs",                              "biome": "M1 Marine shelf",                          "realm": "Marine" },
-    { "code": "M1.5",   "name": "Photo-limited marine animal forests",                   "biome": "M1 Marine shelf",                          "realm": "Marine" },
-    { "code": "M1.6",   "name": "Subtidal rocky reefs",                                  "biome": "M1 Marine shelf",                          "realm": "Marine" },
-    { "code": "M1.7",   "name": "Subtidal sand beds",                                    "biome": "M1 Marine shelf",                          "realm": "Marine" },
-    { "code": "M1.8",   "name": "Subtidal mud plains",                                   "biome": "M1 Marine shelf",                          "realm": "Marine" },
-    { "code": "M1.9",   "name": "Upwelling zones",                                       "biome": "M1 Marine shelf",                          "realm": "Marine" },
-    { "code": "M1.10",  "name": "Rhodolith/Maërl beds",                                  "biome": "M1 Marine shelf",                          "realm": "Marine" },
-    { "code": "M2.1",   "name": "Epipelagic ocean waters",                               "biome": "M2 Pelagic ocean waters",                  "realm": "Marine" },
-    { "code": "M2.2",   "name": "Mesopelagic ocean water",                               "biome": "M2 Pelagic ocean waters",                  "realm": "Marine" },
-    { "code": "M2.3",   "name": "Bathypelagic ocean waters",                             "biome": "M2 Pelagic ocean waters",                  "realm": "Marine" },
-    { "code": "M2.4",   "name": "Abyssopelagic ocean waters",                            "biome": "M2 Pelagic ocean waters",                  "realm": "Marine" },
-    { "code": "M2.5",   "name": "Sea ice",                                               "biome": "M2 Pelagic ocean waters",                  "realm": "Marine" },
-    { "code": "M3.1",   "name": "Continental and island slopes",                         "biome": "M3 Deep sea floors",                       "realm": "Marine" },
-    { "code": "M3.2",   "name": "Submarine canyons",                                     "biome": "M3 Deep sea floors",                       "realm": "Marine" },
-    { "code": "M3.3",   "name": "Abyssal plains",                                        "biome": "M3 Deep sea floors",                       "realm": "Marine" },
-    { "code": "M3.4",   "name": "Seamounts, ridges and plateaus",                        "biome": "M3 Deep sea floors",                       "realm": "Marine" },
-    { "code": "M3.5",   "name": "Deepwater biogenic beds",                               "biome": "M3 Deep sea floors",                       "realm": "Marine" },
-    { "code": "M3.6",   "name": "Hadal trenches and troughs",                            "biome": "M3 Deep sea floors",                       "realm": "Marine" },
-    { "code": "M3.7",   "name": "Chemosynthetic-based-ecosystems (CBE)",                 "biome": "M3 Deep sea floors",                       "realm": "Marine" },
-    { "code": "M4.1",   "name": "Submerged artificial structures",                       "biome": "M4 Anthropogenic marine",                  "realm": "Marine" },
-    { "code": "M4.2",   "name": "Marine aquafarms",                                      "biome": "M4 Anthropogenic marine",                  "realm": "Marine" },
-    { "code": "MFT1.1", "name": "Coastal river deltas",                                  "biome": "MFT1 Brackish tidal",                      "realm": "Marine-Freshwater-Terrestrial" },
-    { "code": "MFT1.2", "name": "Intertidal forests and shrublands",                     "biome": "MFT1 Brackish tidal",                      "realm": "Marine-Freshwater-Terrestrial" },
-    { "code": "MFT1.3", "name": "Coastal saltmarshes and reedbeds",                      "biome": "MFT1 Brackish tidal",                      "realm": "Marine-Freshwater-Terrestrial" },
-    { "code": "MT1.1",  "name": "Rocky Shorelines",                                      "biome": "MT1 Shorelines",                           "realm": "Marine-Terrestrial" },
-    { "code": "MT1.2",  "name": "Muddy Shorelines",                                      "biome": "MT1 Shorelines",                           "realm": "Marine-Terrestrial" },
-    { "code": "MT1.3",  "name": "Sandy Shorelines",                                      "biome": "MT1 Shorelines",                           "realm": "Marine-Terrestrial" },
-    { "code": "MT1.4",  "name": "Boulder and cobble shores",                             "biome": "MT1 Shorelines",                           "realm": "Marine-Terrestrial" },
-    { "code": "MT2.1",  "name": "Coastal shrublands and grasslands",                     "biome": "MT2 Supralittoral coastal",                "realm": "Marine-Terrestrial" },
-    { "code": "MT2.2",  "name": "Large seabird and pinniped colonies",                   "biome": "MT2 Supralittoral coastal",                "realm": "Marine-Terrestrial" },
-    { "code": "MT3.1",  "name": "Artificial shorelines",                                 "biome": "MT3 Anthropogenic shorelines",             "realm": "Marine-Terrestrial" },
-    { "code": "S1.1",   "name": "Aerobic caves",                                         "biome": "S1 Subterranean lithic",                   "realm": "Subterranean" },
-    { "code": "S1.2",   "name": "Endolithic systems",                                    "biome": "S1 Subterranean lithic",                   "realm": "Subterranean" },
-    { "code": "S2.1",   "name": "Anthropogenic subterranean voids",                      "biome": "S2 Anthropogenic subterranean voids",      "realm": "Subterranean" },
-    { "code": "SF1.1",  "name": "Underground streams and pools",                         "biome": "SF1 Subterranean freshwaters",             "realm": "Subterranean-Freshwater" },
-    { "code": "SF1.2",  "name": "Groundwater ecosystems",                                "biome": "SF1 Subterranean freshwaters",             "realm": "Subterranean-Freshwater" },
-    { "code": "SF2.1",  "name": "Water pipes and subterranean canals",                   "biome": "SF2 Anthropogenic subterranean freshwaters","realm": "Subterranean-Freshwater" },
-    { "code": "SF2.2",  "name": "Flooded mines and other voids",                         "biome": "SF2 Anthropogenic subterranean freshwaters","realm": "Subterranean-Freshwater" },
-    { "code": "SM1.1",  "name": "Anchialine caves",                                      "biome": "SM1 Subterranean tidal",                   "realm": "Subterranean-Marine" },
-    { "code": "SM1.2",  "name": "Anchialine pools",                                      "biome": "SM1 Subterranean tidal",                   "realm": "Subterranean-Marine" },
-    { "code": "SM1.3",  "name": "Sea caves",                                             "biome": "SM1 Subterranean tidal",                   "realm": "Subterranean-Marine" },
-    { "code": "T1.1",   "name": "Tropical/Subtropical lowland rainforests",              "biome": "T1 Tropical-subtropical forests",          "realm": "Terrestrial" },
-    { "code": "T1.2",   "name": "Tropical/Subtropical dry forests and thickets",         "biome": "T1 Tropical-subtropical forests",          "realm": "Terrestrial" },
-    { "code": "T1.3",   "name": "Tropical/Subtropical montane rainforests",              "biome": "T1 Tropical-subtropical forests",          "realm": "Terrestrial" },
-    { "code": "T1.4",   "name": "Tropical heath forests",                                "biome": "T1 Tropical-subtropical forests",          "realm": "Terrestrial" },
-    { "code": "T2.1",   "name": "Boreal and temperate high montane forests and woodlands","biome": "T2 Temperate-boreal forests and woodlands","realm": "Terrestrial" },
-    { "code": "T2.2",   "name": "Deciduous temperate forests",                           "biome": "T2 Temperate-boreal forests and woodlands","realm": "Terrestrial" },
-    { "code": "T2.3",   "name": "Oceanic cool temperate rainforests",                    "biome": "T2 Temperate-boreal forests and woodlands","realm": "Terrestrial" },
-    { "code": "T2.4",   "name": "Warm temperate laurophyll forests",                     "biome": "T2 Temperate-boreal forests and woodlands","realm": "Terrestrial" },
-    { "code": "T2.5",   "name": "Temperate pyric humid forests",                         "biome": "T2 Temperate-boreal forests and woodlands","realm": "Terrestrial" },
-    { "code": "T2.6",   "name": "Temperate pyric sclerophyll forests and woodlands",     "biome": "T2 Temperate-boreal forests and woodlands","realm": "Terrestrial" },
-    { "code": "T3.1",   "name": "Seasonally dry tropical shrublands",                    "biome": "T3 Shrublands and shrubby woodlands",      "realm": "Terrestrial" },
-    { "code": "T3.2",   "name": "Seasonally dry temperate heath and shrublands",         "biome": "T3 Shrublands and shrubby woodlands",      "realm": "Terrestrial" },
-    { "code": "T3.3",   "name": "Cool temperate heathlands",                             "biome": "T3 Shrublands and shrubby woodlands",      "realm": "Terrestrial" },
-    { "code": "T3.4",   "name": "Young rocky pavements, lava flows and screes",          "biome": "T3 Shrublands and shrubby woodlands",      "realm": "Terrestrial" },
-    { "code": "T4.1",   "name": "Trophic savannas",                                      "biome": "T4 Savannas and grasslands",               "realm": "Terrestrial" },
-    { "code": "T4.2",   "name": "Pyric tussock savannas",                                "biome": "T4 Savannas and grasslands",               "realm": "Terrestrial" },
-    { "code": "T4.3",   "name": "Hummock savannas",                                      "biome": "T4 Savannas and grasslands",               "realm": "Terrestrial" },
-    { "code": "T4.4",   "name": "Temperate woodlands",                                   "biome": "T4 Savannas and grasslands",               "realm": "Terrestrial" },
-    { "code": "T4.5",   "name": "Temperate subhumid grasslands",                         "biome": "T4 Savannas and grasslands",               "realm": "Terrestrial" },
-    { "code": "T5.1",   "name": "Semi-desert steppe",                                    "biome": "T5 Deserts and semi-deserts",              "realm": "Terrestrial" },
-    { "code": "T5.2",   "name": "Succulent or Thorny deserts and semi-deserts",          "biome": "T5 Deserts and semi-deserts",              "realm": "Terrestrial" },
-    { "code": "T5.3",   "name": "Sclerophyll hot deserts and semi-deserts",              "biome": "T5 Deserts and semi-deserts",              "realm": "Terrestrial" },
-    { "code": "T5.4",   "name": "Cool deserts and semi-deserts",                         "biome": "T5 Deserts and semi-deserts",              "realm": "Terrestrial" },
-    { "code": "T5.5",   "name": "Hyper-arid deserts",                                    "biome": "T5 Deserts and semi-deserts",              "realm": "Terrestrial" },
-    { "code": "T6.1",   "name": "Ice sheets, glaciers and perennial snowfields",         "biome": "T6 Polar/alpine (cryogenic)",              "realm": "Terrestrial" },
-    { "code": "T6.2",   "name": "Polar/alpine cliffs, screes, outcrops and lava flows",  "biome": "T6 Polar/alpine (cryogenic)",              "realm": "Terrestrial" },
-    { "code": "T6.3",   "name": "Polar tundra and deserts",                              "biome": "T6 Polar/alpine (cryogenic)",              "realm": "Terrestrial" },
-    { "code": "T6.4",   "name": "Temperate alpine grasslands and shrublands",            "biome": "T6 Polar/alpine (cryogenic)",              "realm": "Terrestrial" },
-    { "code": "T6.5",   "name": "Tropical alpine grasslands and herbfields",             "biome": "T6 Polar/alpine (cryogenic)",              "realm": "Terrestrial" },
-    { "code": "T7.1",   "name": "Annual croplands",                                      "biome": "T7 Intensive land-use",                    "realm": "Terrestrial" },
-    { "code": "T7.2",   "name": "Sown pastures and fields",                              "biome": "T7 Intensive land-use",                    "realm": "Terrestrial" },
-    { "code": "T7.3",   "name": "Plantations",                                           "biome": "T7 Intensive land-use",                    "realm": "Terrestrial" },
-    { "code": "T7.4",   "name": "Urban and industrial ecosystems",                       "biome": "T7 Intensive land-use",                    "realm": "Terrestrial" },
-    { "code": "T7.5",   "name": "Derived semi-natural pastures and old fields",          "biome": "T7 Intensive land-use",                    "realm": "Terrestrial" },
-    { "code": "TF1.1",  "name": "Tropical flooded forests and peat forests",             "biome": "TF1 Palustrine wetlands",                  "realm": "Terrestrial-Freshwater" },
-    { "code": "TF1.2",  "name": "Subtropical/temperate forested wetlands",               "biome": "TF1 Palustrine wetlands",                  "realm": "Terrestrial-Freshwater" },
-    { "code": "TF1.3",  "name": "Permanent marshes",                                     "biome": "TF1 Palustrine wetlands",                  "realm": "Terrestrial-Freshwater" },
-    { "code": "TF1.4",  "name": "Seasonal floodplain marshes",                           "biome": "TF1 Palustrine wetlands",                  "realm": "Terrestrial-Freshwater" },
-    { "code": "TF1.5",  "name": "Episodic arid floodplains",                             "biome": "TF1 Palustrine wetlands",                  "realm": "Terrestrial-Freshwater" },
-    { "code": "TF1.6",  "name": "Boreal, temperate and montane peat bogs",               "biome": "TF1 Palustrine wetlands",                  "realm": "Terrestrial-Freshwater" },
-    { "code": "TF1.7",  "name": "Boreal and temperate fens",                             "biome": "TF1 Palustrine wetlands",                  "realm": "Terrestrial-Freshwater" }
+    {
+      "code": "F1.1",
+      "name": "Permanent upland streams",
+      "biome": "F1 Rivers and streams",
+      "realm": "Freshwater"
+    },
+    {
+      "code": "F1.2",
+      "name": "Permanent lowland rivers",
+      "biome": "F1 Rivers and streams",
+      "realm": "Freshwater"
+    },
+    {
+      "code": "F1.3",
+      "name": "Freeze-thaw rivers and streams",
+      "biome": "F1 Rivers and streams",
+      "realm": "Freshwater"
+    },
+    {
+      "code": "F1.4",
+      "name": "Seasonal upland streams",
+      "biome": "F1 Rivers and streams",
+      "realm": "Freshwater"
+    },
+    {
+      "code": "F1.5",
+      "name": "Seasonal lowland rivers",
+      "biome": "F1 Rivers and streams",
+      "realm": "Freshwater"
+    },
+    {
+      "code": "F1.6",
+      "name": "Episodic arid rivers",
+      "biome": "F1 Rivers and streams",
+      "realm": "Freshwater"
+    },
+    {
+      "code": "F1.7",
+      "name": "Large lowland rivers",
+      "biome": "F1 Rivers and streams",
+      "realm": "Freshwater"
+    },
+    {
+      "code": "F2.1",
+      "name": "Large permanent freshwater lakes",
+      "biome": "F2 Lakes",
+      "realm": "Freshwater"
+    },
+    {
+      "code": "F2.2",
+      "name": "Small permanent freshwater lakes",
+      "biome": "F2 Lakes",
+      "realm": "Freshwater"
+    },
+    {
+      "code": "F2.3",
+      "name": "Seasonal freshwater lakes",
+      "biome": "F2 Lakes",
+      "realm": "Freshwater"
+    },
+    {
+      "code": "F2.4",
+      "name": "Freeze-thaw freshwater lakes",
+      "biome": "F2 Lakes",
+      "realm": "Freshwater"
+    },
+    {
+      "code": "F2.5",
+      "name": "Ephemeral freshwater lakes",
+      "biome": "F2 Lakes",
+      "realm": "Freshwater"
+    },
+    {
+      "code": "F2.6",
+      "name": "Permanent salt and soda lakes",
+      "biome": "F2 Lakes",
+      "realm": "Freshwater"
+    },
+    {
+      "code": "F2.7",
+      "name": "Ephemeral salt lakes",
+      "biome": "F2 Lakes",
+      "realm": "Freshwater"
+    },
+    {
+      "code": "F2.8",
+      "name": "Artesian springs and oases",
+      "biome": "F2 Lakes",
+      "realm": "Freshwater"
+    },
+    {
+      "code": "F2.9",
+      "name": "Geothermal pools and wetlands",
+      "biome": "F2 Lakes",
+      "realm": "Freshwater"
+    },
+    {
+      "code": "F2.10",
+      "name": "Subglacial lakes",
+      "biome": "F2 Lakes",
+      "realm": "Freshwater"
+    },
+    {
+      "code": "F3.1",
+      "name": "Large reservoirs",
+      "biome": "F3 Artificial wetlands",
+      "realm": "Freshwater"
+    },
+    {
+      "code": "F3.2",
+      "name": "Constructed lacustrine wetlands",
+      "biome": "F3 Artificial wetlands",
+      "realm": "Freshwater"
+    },
+    {
+      "code": "F3.3",
+      "name": "Rice paddies",
+      "biome": "F3 Artificial wetlands",
+      "realm": "Freshwater"
+    },
+    {
+      "code": "F3.4",
+      "name": "Freshwater aquafarms",
+      "biome": "F3 Artificial wetlands",
+      "realm": "Freshwater"
+    },
+    {
+      "code": "F3.5",
+      "name": "Canals, ditches and drains",
+      "biome": "F3 Artificial wetlands",
+      "realm": "Freshwater"
+    },
+    {
+      "code": "FM1.1",
+      "name": "Deepwater coastal inlets",
+      "biome": "FM1 Semi-confined transitional waters",
+      "realm": "Freshwater-Marine"
+    },
+    {
+      "code": "FM1.2",
+      "name": "Permanently open riverine estuaries and bays",
+      "biome": "FM1 Semi-confined transitional waters",
+      "realm": "Freshwater-Marine"
+    },
+    {
+      "code": "FM1.3",
+      "name": "Intermittently closed and open lakes and lagoons",
+      "biome": "FM1 Semi-confined transitional waters",
+      "realm": "Freshwater-Marine"
+    },
+    {
+      "code": "M1.1",
+      "name": "Seagrass meadows",
+      "biome": "M1 Marine shelf",
+      "realm": "Marine"
+    },
+    {
+      "code": "M1.2",
+      "name": "Kelp forests",
+      "biome": "M1 Marine shelf",
+      "realm": "Marine"
+    },
+    {
+      "code": "M1.3",
+      "name": "Photic coral reefs",
+      "biome": "M1 Marine shelf",
+      "realm": "Marine"
+    },
+    {
+      "code": "M1.4",
+      "name": "Shellfish beds and reefs",
+      "biome": "M1 Marine shelf",
+      "realm": "Marine"
+    },
+    {
+      "code": "M1.5",
+      "name": "Photo-limited marine animal forests",
+      "biome": "M1 Marine shelf",
+      "realm": "Marine"
+    },
+    {
+      "code": "M1.6",
+      "name": "Subtidal rocky reefs",
+      "biome": "M1 Marine shelf",
+      "realm": "Marine"
+    },
+    {
+      "code": "M1.7",
+      "name": "Subtidal sand beds",
+      "biome": "M1 Marine shelf",
+      "realm": "Marine"
+    },
+    {
+      "code": "M1.8",
+      "name": "Subtidal mud plains",
+      "biome": "M1 Marine shelf",
+      "realm": "Marine"
+    },
+    {
+      "code": "M1.9",
+      "name": "Upwelling zones",
+      "biome": "M1 Marine shelf",
+      "realm": "Marine"
+    },
+    {
+      "code": "M1.10",
+      "name": "Rhodolith/Maërl beds",
+      "biome": "M1 Marine shelf",
+      "realm": "Marine"
+    },
+    {
+      "code": "M2.1",
+      "name": "Epipelagic ocean waters",
+      "biome": "M2 Pelagic ocean waters",
+      "realm": "Marine"
+    },
+    {
+      "code": "M2.2",
+      "name": "Mesopelagic ocean water",
+      "biome": "M2 Pelagic ocean waters",
+      "realm": "Marine"
+    },
+    {
+      "code": "M2.3",
+      "name": "Bathypelagic ocean waters",
+      "biome": "M2 Pelagic ocean waters",
+      "realm": "Marine"
+    },
+    {
+      "code": "M2.4",
+      "name": "Abyssopelagic ocean waters",
+      "biome": "M2 Pelagic ocean waters",
+      "realm": "Marine"
+    },
+    {
+      "code": "M2.5",
+      "name": "Sea ice",
+      "biome": "M2 Pelagic ocean waters",
+      "realm": "Marine"
+    },
+    {
+      "code": "M3.1",
+      "name": "Continental and island slopes",
+      "biome": "M3 Deep sea floors",
+      "realm": "Marine"
+    },
+    {
+      "code": "M3.2",
+      "name": "Submarine canyons",
+      "biome": "M3 Deep sea floors",
+      "realm": "Marine"
+    },
+    {
+      "code": "M3.3",
+      "name": "Abyssal plains",
+      "biome": "M3 Deep sea floors",
+      "realm": "Marine"
+    },
+    {
+      "code": "M3.4",
+      "name": "Seamounts, ridges and plateaus",
+      "biome": "M3 Deep sea floors",
+      "realm": "Marine"
+    },
+    {
+      "code": "M3.5",
+      "name": "Deepwater biogenic beds",
+      "biome": "M3 Deep sea floors",
+      "realm": "Marine"
+    },
+    {
+      "code": "M3.6",
+      "name": "Hadal trenches and troughs",
+      "biome": "M3 Deep sea floors",
+      "realm": "Marine"
+    },
+    {
+      "code": "M3.7",
+      "name": "Chemosynthetic-based-ecosystems (CBE)",
+      "biome": "M3 Deep sea floors",
+      "realm": "Marine"
+    },
+    {
+      "code": "M4.1",
+      "name": "Submerged artificial structures",
+      "biome": "M4 Anthropogenic marine",
+      "realm": "Marine"
+    },
+    {
+      "code": "M4.2",
+      "name": "Marine aquafarms",
+      "biome": "M4 Anthropogenic marine",
+      "realm": "Marine"
+    },
+    {
+      "code": "MFT1.1",
+      "name": "Coastal river deltas",
+      "biome": "MFT1 Brackish tidal",
+      "realm": "Marine-Freshwater-Terrestrial"
+    },
+    {
+      "code": "MFT1.2",
+      "name": "Intertidal forests and shrublands",
+      "biome": "MFT1 Brackish tidal",
+      "realm": "Marine-Freshwater-Terrestrial"
+    },
+    {
+      "code": "MFT1.3",
+      "name": "Coastal saltmarshes and reedbeds",
+      "biome": "MFT1 Brackish tidal",
+      "realm": "Marine-Freshwater-Terrestrial"
+    },
+    {
+      "code": "MT1.1",
+      "name": "Rocky Shorelines",
+      "biome": "MT1 Shorelines",
+      "realm": "Marine-Terrestrial"
+    },
+    {
+      "code": "MT1.2",
+      "name": "Muddy Shorelines",
+      "biome": "MT1 Shorelines",
+      "realm": "Marine-Terrestrial"
+    },
+    {
+      "code": "MT1.3",
+      "name": "Sandy Shorelines",
+      "biome": "MT1 Shorelines",
+      "realm": "Marine-Terrestrial"
+    },
+    {
+      "code": "MT1.4",
+      "name": "Boulder and cobble shores",
+      "biome": "MT1 Shorelines",
+      "realm": "Marine-Terrestrial"
+    },
+    {
+      "code": "MT2.1",
+      "name": "Coastal shrublands and grasslands",
+      "biome": "MT2 Supralittoral coastal",
+      "realm": "Marine-Terrestrial"
+    },
+    {
+      "code": "MT2.2",
+      "name": "Large seabird and pinniped colonies",
+      "biome": "MT2 Supralittoral coastal",
+      "realm": "Marine-Terrestrial"
+    },
+    {
+      "code": "MT3.1",
+      "name": "Artificial shorelines",
+      "biome": "MT3 Anthropogenic shorelines",
+      "realm": "Marine-Terrestrial"
+    },
+    {
+      "code": "S1.1",
+      "name": "Aerobic caves",
+      "biome": "S1 Subterranean lithic",
+      "realm": "Subterranean"
+    },
+    {
+      "code": "S1.2",
+      "name": "Endolithic systems",
+      "biome": "S1 Subterranean lithic",
+      "realm": "Subterranean"
+    },
+    {
+      "code": "S2.1",
+      "name": "Anthropogenic subterranean voids",
+      "biome": "S2 Anthropogenic subterranean voids",
+      "realm": "Subterranean"
+    },
+    {
+      "code": "SF1.1",
+      "name": "Underground streams and pools",
+      "biome": "SF1 Subterranean freshwaters",
+      "realm": "Subterranean-Freshwater"
+    },
+    {
+      "code": "SF1.2",
+      "name": "Groundwater ecosystems",
+      "biome": "SF1 Subterranean freshwaters",
+      "realm": "Subterranean-Freshwater"
+    },
+    {
+      "code": "SF2.1",
+      "name": "Water pipes and subterranean canals",
+      "biome": "SF2 Anthropogenic subterranean freshwaters",
+      "realm": "Subterranean-Freshwater"
+    },
+    {
+      "code": "SF2.2",
+      "name": "Flooded mines and other voids",
+      "biome": "SF2 Anthropogenic subterranean freshwaters",
+      "realm": "Subterranean-Freshwater"
+    },
+    {
+      "code": "SM1.1",
+      "name": "Anchialine caves",
+      "biome": "SM1 Subterranean tidal",
+      "realm": "Subterranean-Marine"
+    },
+    {
+      "code": "SM1.2",
+      "name": "Anchialine pools",
+      "biome": "SM1 Subterranean tidal",
+      "realm": "Subterranean-Marine"
+    },
+    {
+      "code": "SM1.3",
+      "name": "Sea caves",
+      "biome": "SM1 Subterranean tidal",
+      "realm": "Subterranean-Marine"
+    },
+    {
+      "code": "T1.1",
+      "name": "Tropical/Subtropical lowland rainforests",
+      "biome": "T1 Tropical-subtropical forests",
+      "realm": "Terrestrial"
+    },
+    {
+      "code": "T1.2",
+      "name": "Tropical/Subtropical dry forests and thickets",
+      "biome": "T1 Tropical-subtropical forests",
+      "realm": "Terrestrial"
+    },
+    {
+      "code": "T1.3",
+      "name": "Tropical/Subtropical montane rainforests",
+      "biome": "T1 Tropical-subtropical forests",
+      "realm": "Terrestrial"
+    },
+    {
+      "code": "T1.4",
+      "name": "Tropical heath forests",
+      "biome": "T1 Tropical-subtropical forests",
+      "realm": "Terrestrial"
+    },
+    {
+      "code": "T2.1",
+      "name": "Boreal and temperate high montane forests and woodlands",
+      "biome": "T2 Temperate-boreal forests and woodlands",
+      "realm": "Terrestrial"
+    },
+    {
+      "code": "T2.2",
+      "name": "Deciduous temperate forests",
+      "biome": "T2 Temperate-boreal forests and woodlands",
+      "realm": "Terrestrial"
+    },
+    {
+      "code": "T2.3",
+      "name": "Oceanic cool temperate rainforests",
+      "biome": "T2 Temperate-boreal forests and woodlands",
+      "realm": "Terrestrial"
+    },
+    {
+      "code": "T2.4",
+      "name": "Warm temperate laurophyll forests",
+      "biome": "T2 Temperate-boreal forests and woodlands",
+      "realm": "Terrestrial"
+    },
+    {
+      "code": "T2.5",
+      "name": "Temperate pyric humid forests",
+      "biome": "T2 Temperate-boreal forests and woodlands",
+      "realm": "Terrestrial"
+    },
+    {
+      "code": "T2.6",
+      "name": "Temperate pyric sclerophyll forests and woodlands",
+      "biome": "T2 Temperate-boreal forests and woodlands",
+      "realm": "Terrestrial"
+    },
+    {
+      "code": "T3.1",
+      "name": "Seasonally dry tropical shrublands",
+      "biome": "T3 Shrublands and shrubby woodlands",
+      "realm": "Terrestrial"
+    },
+    {
+      "code": "T3.2",
+      "name": "Seasonally dry temperate heath and shrublands",
+      "biome": "T3 Shrublands and shrubby woodlands",
+      "realm": "Terrestrial"
+    },
+    {
+      "code": "T3.3",
+      "name": "Cool temperate heathlands",
+      "biome": "T3 Shrublands and shrubby woodlands",
+      "realm": "Terrestrial"
+    },
+    {
+      "code": "T3.4",
+      "name": "Young rocky pavements, lava flows and screes",
+      "biome": "T3 Shrublands and shrubby woodlands",
+      "realm": "Terrestrial"
+    },
+    {
+      "code": "T4.1",
+      "name": "Trophic savannas",
+      "biome": "T4 Savannas and grasslands",
+      "realm": "Terrestrial"
+    },
+    {
+      "code": "T4.2",
+      "name": "Pyric tussock savannas",
+      "biome": "T4 Savannas and grasslands",
+      "realm": "Terrestrial"
+    },
+    {
+      "code": "T4.3",
+      "name": "Hummock savannas",
+      "biome": "T4 Savannas and grasslands",
+      "realm": "Terrestrial"
+    },
+    {
+      "code": "T4.4",
+      "name": "Temperate woodlands",
+      "biome": "T4 Savannas and grasslands",
+      "realm": "Terrestrial"
+    },
+    {
+      "code": "T4.5",
+      "name": "Temperate subhumid grasslands",
+      "biome": "T4 Savannas and grasslands",
+      "realm": "Terrestrial"
+    },
+    {
+      "code": "T5.1",
+      "name": "Semi-desert steppe",
+      "biome": "T5 Deserts and semi-deserts",
+      "realm": "Terrestrial"
+    },
+    {
+      "code": "T5.2",
+      "name": "Succulent or Thorny deserts and semi-deserts",
+      "biome": "T5 Deserts and semi-deserts",
+      "realm": "Terrestrial"
+    },
+    {
+      "code": "T5.3",
+      "name": "Sclerophyll hot deserts and semi-deserts",
+      "biome": "T5 Deserts and semi-deserts",
+      "realm": "Terrestrial"
+    },
+    {
+      "code": "T5.4",
+      "name": "Cool deserts and semi-deserts",
+      "biome": "T5 Deserts and semi-deserts",
+      "realm": "Terrestrial"
+    },
+    {
+      "code": "T5.5",
+      "name": "Hyper-arid deserts",
+      "biome": "T5 Deserts and semi-deserts",
+      "realm": "Terrestrial"
+    },
+    {
+      "code": "T6.1",
+      "name": "Ice sheets, glaciers and perennial snowfields",
+      "biome": "T6 Polar/alpine (cryogenic)",
+      "realm": "Terrestrial"
+    },
+    {
+      "code": "T6.2",
+      "name": "Polar/alpine cliffs, screes, outcrops and lava flows",
+      "biome": "T6 Polar/alpine (cryogenic)",
+      "realm": "Terrestrial"
+    },
+    {
+      "code": "T6.3",
+      "name": "Polar tundra and deserts",
+      "biome": "T6 Polar/alpine (cryogenic)",
+      "realm": "Terrestrial"
+    },
+    {
+      "code": "T6.4",
+      "name": "Temperate alpine grasslands and shrublands",
+      "biome": "T6 Polar/alpine (cryogenic)",
+      "realm": "Terrestrial"
+    },
+    {
+      "code": "T6.5",
+      "name": "Tropical alpine grasslands and herbfields",
+      "biome": "T6 Polar/alpine (cryogenic)",
+      "realm": "Terrestrial"
+    },
+    {
+      "code": "T7.1",
+      "name": "Annual croplands",
+      "biome": "T7 Intensive land-use",
+      "realm": "Terrestrial"
+    },
+    {
+      "code": "T7.2",
+      "name": "Sown pastures and fields",
+      "biome": "T7 Intensive land-use",
+      "realm": "Terrestrial"
+    },
+    {
+      "code": "T7.3",
+      "name": "Plantations",
+      "biome": "T7 Intensive land-use",
+      "realm": "Terrestrial"
+    },
+    {
+      "code": "T7.4",
+      "name": "Urban and industrial ecosystems",
+      "biome": "T7 Intensive land-use",
+      "realm": "Terrestrial"
+    },
+    {
+      "code": "T7.5",
+      "name": "Derived semi-natural pastures and old fields",
+      "biome": "T7 Intensive land-use",
+      "realm": "Terrestrial"
+    },
+    {
+      "code": "TF1.1",
+      "name": "Tropical flooded forests and peat forests",
+      "biome": "TF1 Palustrine wetlands",
+      "realm": "Terrestrial-Freshwater"
+    },
+    {
+      "code": "TF1.2",
+      "name": "Subtropical/temperate forested wetlands",
+      "biome": "TF1 Palustrine wetlands",
+      "realm": "Terrestrial-Freshwater"
+    },
+    {
+      "code": "TF1.3",
+      "name": "Permanent marshes",
+      "biome": "TF1 Palustrine wetlands",
+      "realm": "Terrestrial-Freshwater"
+    },
+    {
+      "code": "TF1.4",
+      "name": "Seasonal floodplain marshes",
+      "biome": "TF1 Palustrine wetlands",
+      "realm": "Terrestrial-Freshwater"
+    },
+    {
+      "code": "TF1.5",
+      "name": "Episodic arid floodplains",
+      "biome": "TF1 Palustrine wetlands",
+      "realm": "Terrestrial-Freshwater"
+    },
+    {
+      "code": "TF1.6",
+      "name": "Boreal, temperate and montane peat bogs",
+      "biome": "TF1 Palustrine wetlands",
+      "realm": "Terrestrial-Freshwater"
+    },
+    {
+      "code": "TF1.7",
+      "name": "Boreal and temperate fens",
+      "biome": "TF1 Palustrine wetlands",
+      "realm": "Terrestrial-Freshwater"
+    }
   ],
   "pressure_to_challenge_mapping": {
     "1": [
@@ -1796,11 +2346,26 @@
       }
     ],
     "21": [
-      { "challenge_id": 19, "confidence": "high"   },
-      { "challenge_id": 20, "confidence": "high"   },
-      { "challenge_id": 23, "confidence": "high"   },
-      { "challenge_id": 30, "confidence": "high"   },
-      { "challenge_id": 31, "confidence": "medium" }
+      {
+        "challenge_id": 19,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 20,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 23,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 30,
+        "confidence": "high"
+      },
+      {
+        "challenge_id": 31,
+        "confidence": "medium"
+      }
     ]
   },
   "challenge_to_service_mapping": {
@@ -3503,243 +4068,1147 @@
       }
     ],
     "35": [
-      { "service_id": 1,  "confidence": "high"   },
-      { "service_id": 2,  "confidence": "high"   },
-      { "service_id": 3,  "confidence": "medium" },
-      { "service_id": 15, "confidence": "medium" },
-      { "service_id": 35, "confidence": "high"   }
+      {
+        "service_id": 1,
+        "confidence": "high"
+      },
+      {
+        "service_id": 2,
+        "confidence": "high"
+      },
+      {
+        "service_id": 3,
+        "confidence": "medium"
+      },
+      {
+        "service_id": 15,
+        "confidence": "medium"
+      },
+      {
+        "service_id": 35,
+        "confidence": "high"
+      }
     ]
   },
   "block2_land_uses": [
-    { "category": "Crop-based land uses",             "subcategory": "Annual cropland",                                          "description": "Fields mainly used for crops sown and harvested yearly" },
-    { "category": "Crop-based land uses",             "subcategory": "Perennial / tree crops",                                   "description": "Areas with long-lived crops remaining in place for years" },
-    { "category": "Livestock and grassland systems",  "subcategory": "Permanent grassland / pasture / rangeland",                "description": "Areas used mainly for grazing animals on grasses" },
-    { "category": "Livestock and grassland systems",  "subcategory": "Mixed crop–livestock systems",                             "description": "Landscapes managing crops and livestock in integrated ways" },
-    { "category": "Tree-based production systems",    "subcategory": "Agroforestry or silvopastoral systems",                    "description": "Areas where trees integrate deliberately with crops/livestock" },
-    { "category": "Tree-based production systems",    "subcategory": "Plantation forestry",                                      "description": "Tree plantations managed primarily for wood or fiber" },
-    { "category": "Water-related production systems", "subcategory": "Rice paddies and other flooded cropland",                  "description": "Cropland depending on managed flooding for production" },
-    { "category": "Water-related production systems", "subcategory": "Aquaculture and fishponds",                                "description": "Managed waterbodies for fish or aquatic organism production" },
-    { "category": "Natural and semi-natural areas",   "subcategory": "Natural or semi-natural forest, shrubland or woodland",   "description": "Forest patches retaining natural vegetation characteristics" },
-    { "category": "Natural and semi-natural areas",   "subcategory": "Natural or semi-natural grassland, savanna or shrub-steppe","description": "Open vegetation areas with natural characteristics" },
-    { "category": "Natural and semi-natural areas",   "subcategory": "Wetlands and natural waterbodies",                        "description": "Natural aquatic features like rivers, marshes, riparian zones" },
-    { "category": "Other land uses",                  "subcategory": "Other land use or production system",                     "description": "Any land use not fitting above categories" }
+    {
+      "category": "Crop-based land uses",
+      "subcategory": "Annual cropland",
+      "description": "Fields mainly used for crops sown and harvested yearly"
+    },
+    {
+      "category": "Crop-based land uses",
+      "subcategory": "Perennial / tree crops",
+      "description": "Areas with long-lived crops remaining in place for years"
+    },
+    {
+      "category": "Livestock and grassland systems",
+      "subcategory": "Permanent grassland / pasture / rangeland",
+      "description": "Areas used mainly for grazing animals on grasses"
+    },
+    {
+      "category": "Livestock and grassland systems",
+      "subcategory": "Mixed crop–livestock systems",
+      "description": "Landscapes managing crops and livestock in integrated ways"
+    },
+    {
+      "category": "Tree-based production systems",
+      "subcategory": "Agroforestry or silvopastoral systems",
+      "description": "Areas where trees integrate deliberately with crops/livestock"
+    },
+    {
+      "category": "Tree-based production systems",
+      "subcategory": "Plantation forestry",
+      "description": "Tree plantations managed primarily for wood or fiber"
+    },
+    {
+      "category": "Water-related production systems",
+      "subcategory": "Rice paddies and other flooded cropland",
+      "description": "Cropland depending on managed flooding for production"
+    },
+    {
+      "category": "Water-related production systems",
+      "subcategory": "Aquaculture and fishponds",
+      "description": "Managed waterbodies for fish or aquatic organism production"
+    },
+    {
+      "category": "Natural and semi-natural areas",
+      "subcategory": "Natural or semi-natural forest, shrubland or woodland",
+      "description": "Forest patches retaining natural vegetation characteristics"
+    },
+    {
+      "category": "Natural and semi-natural areas",
+      "subcategory": "Natural or semi-natural grassland, savanna or shrub-steppe",
+      "description": "Open vegetation areas with natural characteristics"
+    },
+    {
+      "category": "Natural and semi-natural areas",
+      "subcategory": "Wetlands and natural waterbodies",
+      "description": "Natural aquatic features like rivers, marshes, riparian zones"
+    },
+    {
+      "category": "Other land uses",
+      "subcategory": "Other land use or production system",
+      "description": "Any land use not fitting above categories"
+    }
   ],
   "block31_crop_categories": [
-    { "id": 1,  "name": "Cereals",                              "examples": "wheat, rice, maize, barley, sorghum, millet" },
-    { "id": 2,  "name": "Pulses (grain legumes)",              "examples": "beans, peas, lentils, chickpea, cowpea" },
-    { "id": 3,  "name": "Roots and tubers",                    "examples": "potato, cassava, yam, sweet potato, taro" },
-    { "id": 4,  "name": "Oilseed crops",                       "examples": "soybean, sunflower, rapeseed, groundnut, sesame" },
-    { "id": 5,  "name": "Sugar crops",                         "examples": "sugarcane, sugar beet" },
-    { "id": 6,  "name": "Vegetables and melons",               "examples": "tomato, onion, cabbage, cucumber, pumpkin" },
-    { "id": 7,  "name": "Fruits and nuts (orchards & tree crops)", "examples": "apple, mango, citrus, banana, grape, almond, walnut" },
-    { "id": 8,  "name": "Forage and fodder crops",             "examples": "alfalfa, clover, fodder maize, fodder beet, grasses" },
-    { "id": 9,  "name": "Fibre crops",                         "examples": "cotton, jute, flax, hemp, sisal" },
-    { "id": 10, "name": "Beverage and stimulant crops",        "examples": "coffee, tea, cocoa, yerba mate" },
-    { "id": 11, "name": "Spices, aromatic and medicinal plants","examples": "pepper, cardamom, ginger, vanilla, medicinal herbs" },
-    { "id": 12, "name": "Other crops",                         "examples": "" }
+    {
+      "id": 1,
+      "name": "Cereals",
+      "examples": "wheat, rice, maize, barley, sorghum, millet"
+    },
+    {
+      "id": 2,
+      "name": "Pulses (grain legumes)",
+      "examples": "beans, peas, lentils, chickpea, cowpea"
+    },
+    {
+      "id": 3,
+      "name": "Roots and tubers",
+      "examples": "potato, cassava, yam, sweet potato, taro"
+    },
+    {
+      "id": 4,
+      "name": "Oilseed crops",
+      "examples": "soybean, sunflower, rapeseed, groundnut, sesame"
+    },
+    {
+      "id": 5,
+      "name": "Sugar crops",
+      "examples": "sugarcane, sugar beet"
+    },
+    {
+      "id": 6,
+      "name": "Vegetables and melons",
+      "examples": "tomato, onion, cabbage, cucumber, pumpkin"
+    },
+    {
+      "id": 7,
+      "name": "Fruits and nuts (orchards & tree crops)",
+      "examples": "apple, mango, citrus, banana, grape, almond, walnut"
+    },
+    {
+      "id": 8,
+      "name": "Forage and fodder crops",
+      "examples": "alfalfa, clover, fodder maize, fodder beet, grasses"
+    },
+    {
+      "id": 9,
+      "name": "Fibre crops",
+      "examples": "cotton, jute, flax, hemp, sisal"
+    },
+    {
+      "id": 10,
+      "name": "Beverage and stimulant crops",
+      "examples": "coffee, tea, cocoa, yerba mate"
+    },
+    {
+      "id": 11,
+      "name": "Spices, aromatic and medicinal plants",
+      "examples": "pepper, cardamom, ginger, vanilla, medicinal herbs"
+    },
+    {
+      "id": 12,
+      "name": "Other crops",
+      "examples": ""
+    }
   ],
   "block31_crops": [
-    { "name": "Abaca (Manila hemp)",                    "botanical_name": "Musa textilis",                                       "icc_code": "9213" },
-    { "name": "Alfalfa for fodder",                     "botanical_name": "Medicago sativa",                                     "icc_code": "911"  },
-    { "name": "Alfalfa for seed",                       "botanical_name": "Medicago sativa",                                     "icc_code": "911"  },
-    { "name": "Almond",                                 "botanical_name": "Prunus dulcis",                                       "icc_code": "361"  },
-    { "name": "Anise seeds",                            "botanical_name": "Pimpinella anisum",                                   "icc_code": "6212" },
-    { "name": "Apple",                                  "botanical_name": "Malus sylvestris",                                    "icc_code": "351"  },
-    { "name": "Apricot",                                "botanical_name": "Prunus armeniaca",                                    "icc_code": "352"  },
-    { "name": "Areca (betel nut)",                      "botanical_name": "Areca catechu",                                       "icc_code": "992"  },
-    { "name": "Arracha",                                "botanical_name": "Arracacia xanthorrhiza",                              "icc_code": "59"   },
-    { "name": "Arrowroot",                              "botanical_name": "Maranta arundinacea",                                 "icc_code": "59"   },
-    { "name": "Artichoke",                              "botanical_name": "Cynara scolymus",                                     "icc_code": "211"  },
-    { "name": "Asparagus",                              "botanical_name": "Asparagus officinalis",                               "icc_code": "212"  },
-    { "name": "Avocado",                                "botanical_name": "Persea americana",                                    "icc_code": "311"  },
-    { "name": "Bajra (Pearl millet)",                   "botanical_name": "Pennisetum americanum",                               "icc_code": "18"   },
-    { "name": "Bambara groundnut",                      "botanical_name": "Vigna subterranea",                                   "icc_code": "79"   },
-    { "name": "Banana",                                 "botanical_name": "Musa paradisiaca",                                    "icc_code": "312"  },
-    { "name": "Barley",                                 "botanical_name": "Hordeum vulgare",                                     "icc_code": "15"   },
-    { "name": "Beans, dry, edible, for grains",         "botanical_name": "Phaseolus vulgaris",                                  "icc_code": "71"   },
-    { "name": "Beans, harvested green",                 "botanical_name": "Phaseolus and Vigna spp.",                            "icc_code": "71"   },
-    { "name": "Beet, fodder (mangel)",                  "botanical_name": "Beta vulgaris",                                       "icc_code": "81"   },
-    { "name": "Beet, red",                              "botanical_name": "Beta vulgaris",                                       "icc_code": "81"   },
-    { "name": "Beet, sugar",                            "botanical_name": "Beta vulgaris",                                       "icc_code": "81"   },
-    { "name": "Beet, sugar for fodder",                 "botanical_name": "Beta vulgaris",                                       "icc_code": "81"   },
-    { "name": "Beet, sugar for seeds",                  "botanical_name": "Beta vulgaris",                                       "icc_code": "81"   },
-    { "name": "Bergamot",                               "botanical_name": "Citrus bergamia",                                     "icc_code": "329"  },
-    { "name": "Betel nut",                              "botanical_name": "Areca catechu",                                       "icc_code": "992"  },
-    { "name": "Black pepper",                           "botanical_name": "Piper nigrum",                                        "icc_code": "6221" },
-    { "name": "Black wattle",                           "botanical_name": "Acacia mearnsii",                                     "icc_code": "992"  },
-    { "name": "Blackberries",                           "botanical_name": "Rubus spp.",                                          "icc_code": "349"  },
-    { "name": "Blueberry",                              "botanical_name": "Vaccinium spp.",                                      "icc_code": "346"  },
-    { "name": "Brazil nut",                             "botanical_name": "Bertholletia excelsa",                                "icc_code": "369"  },
-    { "name": "Breadfruit",                             "botanical_name": "Artocarpus altilis",                                  "icc_code": "319"  },
-    { "name": "Broad bean, dry",                        "botanical_name": "Vicia faba",                                          "icc_code": "72"   },
-    { "name": "Broad bean, harvested green",            "botanical_name": "Vicia faba",                                          "icc_code": "72"   },
-    { "name": "Broccoli",                               "botanical_name": "Brassica oleracea var. botrytis",                     "icc_code": "214"  },
-    { "name": "Brussels sprouts",                       "botanical_name": "Brassica oleracea var. gemmifera",                    "icc_code": "219"  },
-    { "name": "Buckwheat",                              "botanical_name": "Fagopyrum esculentum",                                "icc_code": "192"  },
-    { "name": "Cabbage",                                "botanical_name": "Brassica oleracea var. capitata",                     "icc_code": "213"  },
-    { "name": "Cabbage, Chinese",                       "botanical_name": "Brassica chinensis",                                  "icc_code": "213"  },
-    { "name": "Cacao (cocoa)",                          "botanical_name": "Theobroma cacao",                                     "icc_code": "614"  },
-    { "name": "Cantaloupe",                             "botanical_name": "Cucumis melo",                                        "icc_code": "225"  },
-    { "name": "Caraway seeds",                          "botanical_name": "Carum carvi",                                         "icc_code": "6219" },
-    { "name": "Cardamom",                               "botanical_name": "Elettaria cardamomum",                                "icc_code": "6222" },
-    { "name": "Carob",                                  "botanical_name": "Ceratonia siliqua",                                   "icc_code": "39"   },
-    { "name": "Carrot",                                 "botanical_name": "Daucus carota ssp. sativa",                           "icc_code": "231"  },
-    { "name": "Cashew nuts",                            "botanical_name": "Anacardium occidentale",                              "icc_code": "362"  },
-    { "name": "Cassava (manioc)",                       "botanical_name": "Manihot esculenta",                                   "icc_code": "53"   },
-    { "name": "Castor bean",                            "botanical_name": "Ricinus communis",                                    "icc_code": "431"  },
-    { "name": "Cauliflower",                            "botanical_name": "Brassica oleracea var. botrytis",                     "icc_code": "214"  },
-    { "name": "Celeriac",                               "botanical_name": "Apium graveolens var. rapaceum",                      "icc_code": "239"  },
-    { "name": "Celery",                                 "botanical_name": "Apium graveolens",                                    "icc_code": "219"  },
-    { "name": "Chayote",                                "botanical_name": "Sechium edule",                                       "icc_code": "229"  },
-    { "name": "Cherry",                                 "botanical_name": "Prunus spp.",                                         "icc_code": "353"  },
-    { "name": "Chestnut",                               "botanical_name": "Castanea sativa",                                     "icc_code": "363"  },
-    { "name": "Chickpea (gram pea)",                    "botanical_name": "Cicer arietinum",                                     "icc_code": "73"   },
-    { "name": "Chicory",                                "botanical_name": "Cichorium intybus",                                   "icc_code": "217"  },
-    { "name": "Chili, dry",                             "botanical_name": "Capsicum spp. (annuum)",                              "icc_code": "6211" },
-    { "name": "Chili, fresh",                           "botanical_name": "Capsicum spp. (annuum)",                              "icc_code": "6211" },
-    { "name": "Cinnamon",                               "botanical_name": "Cinnamomum verum",                                    "icc_code": "6223" },
-    { "name": "Clementine",                             "botanical_name": "Citrus reticulata",                                   "icc_code": "324"  },
-    { "name": "Clove",                                  "botanical_name": "Syzygium aromaticum",                                 "icc_code": "6224" },
-    { "name": "Clover for fodder",                      "botanical_name": "Trifolium spp.",                                      "icc_code": "911"  },
-    { "name": "Clover for seed",                        "botanical_name": "Trifolium spp.",                                      "icc_code": "911"  },
-    { "name": "Coconut",                                "botanical_name": "Cocos nucifera",                                      "icc_code": "441"  },
-    { "name": "Coffee",                                 "botanical_name": "Coffea spp.",                                         "icc_code": "611"  },
-    { "name": "Colza (rapeseed)",                       "botanical_name": "Brassica napus",                                      "icc_code": "435"  },
-    { "name": "Maize (corn)",                           "botanical_name": "Zea mays",                                            "icc_code": "12"   },
-    { "name": "Cotton",                                 "botanical_name": "Gossypium spp.",                                      "icc_code": "9211" },
-    { "name": "Cowpea",                                 "botanical_name": "Vigna unguiculata",                                   "icc_code": "74"   },
-    { "name": "Cranberry",                              "botanical_name": "Vaccinium spp.",                                      "icc_code": "349"  },
-    { "name": "Cucumber",                               "botanical_name": "Cucumis sativus",                                     "icc_code": "221"  },
-    { "name": "Currants",                               "botanical_name": "Ribes spp.",                                          "icc_code": "341"  },
-    { "name": "Custard apple",                          "botanical_name": "Annona reticulate",                                   "icc_code": "319"  },
-    { "name": "Dates",                                  "botanical_name": "Phoenix dactylifera",                                 "icc_code": "313"  },
-    { "name": "Drumstick tree (Moringa)",               "botanical_name": "Moringa oleifera",                                    "icc_code": "6229" },
-    { "name": "Durum wheat",                            "botanical_name": "Triticum durum",                                      "icc_code": "11"   },
-    { "name": "Eggplant (aubergine)",                   "botanical_name": "Solanum melongena",                                   "icc_code": "222"  },
-    { "name": "Endive",                                 "botanical_name": "Cichorium endivia",                                   "icc_code": "219"  },
-    { "name": "Fennel",                                 "botanical_name": "Foeniculum vulgare",                                  "icc_code": "219"  },
-    { "name": "Fenugreek",                              "botanical_name": "Trigonella foenum-graecum",                           "icc_code": "79"   },
-    { "name": "Fig",                                    "botanical_name": "Ficus carica",                                        "icc_code": "314"  },
-    { "name": "Flax for fibre",                         "botanical_name": "Linum usitatissimum",                                 "icc_code": "9213" },
-    { "name": "Flax for oil seed (linseed)",            "botanical_name": "Linum usitatissimum",                                 "icc_code": "432"  },
-    { "name": "Garlic",                                 "botanical_name": "Allium sativum",                                      "icc_code": "233"  },
-    { "name": "Ginger",                                 "botanical_name": "Zingiber officinale",                                 "icc_code": "6225" },
-    { "name": "Gooseberry",                             "botanical_name": "Ribes spp.",                                          "icc_code": "342"  },
-    { "name": "Gourd",                                  "botanical_name": "Lagenaria spp.",                                      "icc_code": "226"  },
-    { "name": "Grape",                                  "botanical_name": "Vitis vinifera",                                      "icc_code": "33"   },
-    { "name": "Grapefruit",                             "botanical_name": "Citrus paradisi",                                     "icc_code": "321"  },
-    { "name": "Groundnut (peanut)",                     "botanical_name": "Arachis hypogaea",                                    "icc_code": "42"   },
-    { "name": "Guava",                                  "botanical_name": "Psidium guajava",                                     "icc_code": "319"  },
-    { "name": "Hazelnut (filbert)",                     "botanical_name": "Corylus avellana",                                    "icc_code": "364"  },
-    { "name": "Hemp fibre",                             "botanical_name": "Cannabis sativa ssp. indica",                         "icc_code": "9213" },
-    { "name": "Hempseed",                               "botanical_name": "Cannabis sativa",                                     "icc_code": "439"  },
-    { "name": "Hop",                                    "botanical_name": "Humulus lupulus",                                     "icc_code": "619"  },
-    { "name": "Horseradish",                            "botanical_name": "Armoracia rusticana",                                 "icc_code": "239"  },
-    { "name": "Jasmine",                                "botanical_name": "Jasminum spp.",                                       "icc_code": "952"  },
-    { "name": "Jerusalem artichoke",                    "botanical_name": "Helianthus tuberosus",                                "icc_code": "211"  },
-    { "name": "Jute",                                   "botanical_name": "Corchorus spp.",                                      "icc_code": "9212" },
-    { "name": "Kale",                                   "botanical_name": "Brassica oleracea var. acephala",                     "icc_code": "219"  },
-    { "name": "Kapok",                                  "botanical_name": "Ceiba pentandra",                                     "icc_code": "922"  },
-    { "name": "Kenaf",                                  "botanical_name": "Hibiscus cannabinus",                                 "icc_code": "9212" },
-    { "name": "Kiwi fruit",                             "botanical_name": "Actinidia deliciosa",                                 "icc_code": "343"  },
-    { "name": "Kohlrabi",                               "botanical_name": "Brassica oleracea var. gongylodes",                   "icc_code": "239"  },
-    { "name": "Lavender",                               "botanical_name": "Lavandula spp.",                                      "icc_code": "931"  },
-    { "name": "Leek",                                   "botanical_name": "Allium ampeloprasum",                                 "icc_code": "235"  },
-    { "name": "Lemon",                                  "botanical_name": "Citrus limon",                                        "icc_code": "322"  },
-    { "name": "Lemon grass",                            "botanical_name": "Cymbopogon citratus",                                 "icc_code": "922"  },
-    { "name": "Lentil",                                 "botanical_name": "Lens culinaris",                                      "icc_code": "75"   },
-    { "name": "Lettuce",                                "botanical_name": "Lactuca sativa",                                      "icc_code": "215"  },
-    { "name": "Lime",                                   "botanical_name": "Citrus aurantifolia",                                 "icc_code": "322"  },
-    { "name": "Linseed",                                "botanical_name": "Linum usitatissimum",                                 "icc_code": "432"  },
-    { "name": "Litchi",                                 "botanical_name": "Litchi chinensis",                                    "icc_code": "319"  },
-    { "name": "Lupine",                                 "botanical_name": "Lupinus spp.",                                        "icc_code": "76"   },
-    { "name": "Macadamia nut",                          "botanical_name": "Macadamia spp.",                                      "icc_code": "369"  },
-    { "name": "Mandarin",                               "botanical_name": "Citrus reticulata",                                   "icc_code": "324"  },
-    { "name": "Mango",                                  "botanical_name": "Mangifera indica",                                    "icc_code": "315"  },
-    { "name": "Melon",                                  "botanical_name": "Cucumis melo",                                        "icc_code": "225"  },
-    { "name": "Millets",                                "botanical_name": "Pennisetum / Setaria / Panicum spp.",                 "icc_code": "18"   },
-    { "name": "Mint",                                   "botanical_name": "Mentha spp.",                                         "icc_code": "6219" },
-    { "name": "Mushrooms",                              "botanical_name": "Agaricus / Pleurotus spp.",                           "icc_code": "24"   },
-    { "name": "Mustard",                                "botanical_name": "Brassica nigra; Sinapis alba",                        "icc_code": "433"  },
-    { "name": "Nectarine",                              "botanical_name": "Prunus persica var. nectarina",                       "icc_code": "354"  },
-    { "name": "Niger seed",                             "botanical_name": "Guizotia abyssinica",                                 "icc_code": "434"  },
-    { "name": "Nutmeg",                                 "botanical_name": "Myristica fragrans",                                  "icc_code": "6222" },
-    { "name": "Oats",                                   "botanical_name": "Avena spp.",                                          "icc_code": "17"   },
-    { "name": "Oil palm",                               "botanical_name": "Elaeis guineensis",                                   "icc_code": "443"  },
-    { "name": "Okra",                                   "botanical_name": "Abelmoschus esculentus",                              "icc_code": "229"  },
-    { "name": "Olive",                                  "botanical_name": "Olea europaea",                                       "icc_code": "442"  },
-    { "name": "Onion",                                  "botanical_name": "Allium cepa",                                         "icc_code": "234"  },
-    { "name": "Orange",                                 "botanical_name": "Citrus sinensis",                                     "icc_code": "323"  },
-    { "name": "Papaya (pawpaw)",                        "botanical_name": "Carica papaya",                                       "icc_code": "316"  },
-    { "name": "Parsnip",                                "botanical_name": "Pastinaca sativa",                                    "icc_code": "239"  },
-    { "name": "Peach",                                  "botanical_name": "Prunus persica",                                      "icc_code": "354"  },
-    { "name": "Pear",                                   "botanical_name": "Pyrus communis",                                      "icc_code": "355"  },
-    { "name": "Pea, dry",                               "botanical_name": "Pisum sativum",                                       "icc_code": "77"   },
-    { "name": "Pea, harvested green",                   "botanical_name": "Pisum sativum",                                       "icc_code": "77"   },
-    { "name": "Pecan nut",                              "botanical_name": "Carya illinoensis",                                   "icc_code": "369"  },
-    { "name": "Pepper (black)",                         "botanical_name": "Piper nigrum",                                        "icc_code": "6221" },
-    { "name": "Pepper, dry (chilli)",                   "botanical_name": "Capsicum spp.",                                       "icc_code": "6211" },
-    { "name": "Persimmon",                              "botanical_name": "Diospyros kaki",                                      "icc_code": "319"  },
-    { "name": "Pigeon pea",                             "botanical_name": "Cajanus cajan",                                       "icc_code": "78"   },
-    { "name": "Pineapple",                              "botanical_name": "Ananas comosus",                                      "icc_code": "317"  },
-    { "name": "Pistachio nut",                          "botanical_name": "Pistacia vera",                                       "icc_code": "365"  },
-    { "name": "Plantain",                               "botanical_name": "Musa sapientum",                                      "icc_code": "312"  },
-    { "name": "Plum",                                   "botanical_name": "Prunus domestica",                                    "icc_code": "356"  },
-    { "name": "Pomegranate",                            "botanical_name": "Punica granatum",                                     "icc_code": "39"   },
-    { "name": "Pomelo",                                 "botanical_name": "Citrus grandis",                                      "icc_code": "321"  },
-    { "name": "Poppy seed",                             "botanical_name": "Papaver somniferum",                                  "icc_code": "439"  },
-    { "name": "Potato",                                 "botanical_name": "Solanum tuberosum",                                   "icc_code": "51"   },
-    { "name": "Pumpkin",                                "botanical_name": "Cucurbita spp.",                                      "icc_code": "226"  },
-    { "name": "Quinoa",                                 "botanical_name": "Chenopodium quinoa",                                  "icc_code": "192"  },
-    { "name": "Radish",                                 "botanical_name": "Raphanus sativus",                                    "icc_code": "239"  },
-    { "name": "Ramie",                                  "botanical_name": "Boehmeria nivea",                                     "icc_code": "922"  },
-    { "name": "Rapeseed",                               "botanical_name": "Brassica napus",                                      "icc_code": "435"  },
-    { "name": "Raspberry",                              "botanical_name": "Rubus spp.",                                          "icc_code": "344"  },
-    { "name": "Rhubarb",                                "botanical_name": "Rheum spp.",                                          "icc_code": "219"  },
-    { "name": "Rice",                                   "botanical_name": "Oryza sativa",                                        "icc_code": "13"   },
-    { "name": "Rose",                                   "botanical_name": "Rosa spp.",                                           "icc_code": "952"  },
-    { "name": "Rubber",                                 "botanical_name": "Hevea brasiliensis",                                  "icc_code": "94"   },
-    { "name": "Rye",                                    "botanical_name": "Secale cereale",                                      "icc_code": "16"   },
-    { "name": "Safflower",                              "botanical_name": "Carthamus tinctorius",                                "icc_code": "436"  },
-    { "name": "Sesame",                                 "botanical_name": "Sesamum indicum",                                     "icc_code": "437"  },
-    { "name": "Shea butter (nut)",                      "botanical_name": "Vitellaria paradoxa",                                 "icc_code": "449"  },
-    { "name": "Sisal",                                  "botanical_name": "Agave sisalana",                                      "icc_code": "922"  },
-    { "name": "Sorghum",                                "botanical_name": "Sorghum bicolor",                                     "icc_code": "14"   },
-    { "name": "Soybean",                                "botanical_name": "Glycine max",                                         "icc_code": "41"   },
-    { "name": "Spelt wheat",                            "botanical_name": "Triticum spelta",                                     "icc_code": "192"  },
-    { "name": "Spinach",                                "botanical_name": "Spinacia oleracea",                                   "icc_code": "216"  },
-    { "name": "Squash",                                 "botanical_name": "Cucurbita spp.",                                      "icc_code": "226"  },
-    { "name": "Strawberry",                             "botanical_name": "Fragaria spp.",                                       "icc_code": "345"  },
-    { "name": "Sugar beet",                             "botanical_name": "Beta vulgaris",                                       "icc_code": "81"   },
-    { "name": "Sugarcane",                              "botanical_name": "Saccharum officinarum",                               "icc_code": "82"   },
-    { "name": "Sunflower",                              "botanical_name": "Helianthus annuus",                                   "icc_code": "438"  },
-    { "name": "Sweet corn",                             "botanical_name": "Zea mays",                                            "icc_code": "12"   },
-    { "name": "Sweet pepper",                           "botanical_name": "Capsicum annuum",                                     "icc_code": "6211" },
-    { "name": "Sweet potato",                           "botanical_name": "Ipomoea batatas",                                     "icc_code": "52"   },
-    { "name": "Sweet sorghum",                          "botanical_name": "Sorghum bicolor",                                     "icc_code": "183"  },
-    { "name": "Tangerine",                              "botanical_name": "Citrus reticulata",                                   "icc_code": "324"  },
-    { "name": "Taro",                                   "botanical_name": "Colocasia esculenta",                                 "icc_code": "59"   },
-    { "name": "Tea",                                    "botanical_name": "Camellia sinensis",                                   "icc_code": "612"  },
-    { "name": "Teff",                                   "botanical_name": "Eragrostis abyssinica",                               "icc_code": "192"  },
-    { "name": "Tobacco",                                "botanical_name": "Nicotiana tabacum",                                   "icc_code": "96"   },
-    { "name": "Tomato",                                 "botanical_name": "Lycopersicon esculentum",                             "icc_code": "223"  },
-    { "name": "Tung tree",                              "botanical_name": "Aleurites spp.",                                      "icc_code": "449"  },
-    { "name": "Turnip",                                 "botanical_name": "Brassica rapa",                                       "icc_code": "232"  },
-    { "name": "Vanilla",                                "botanical_name": "Vanilla planifolia",                                  "icc_code": "6226" },
-    { "name": "Vetch for grain",                        "botanical_name": "Vicia sativa",                                        "icc_code": "79"   },
-    { "name": "Walnut",                                 "botanical_name": "Juglans spp.",                                        "icc_code": "366"  },
-    { "name": "Watermelon",                             "botanical_name": "Citrullus lanatus",                                   "icc_code": "224"  },
-    { "name": "Wheat",                                  "botanical_name": "Triticum aestivum",                                   "icc_code": "11"   },
-    { "name": "Yam",                                    "botanical_name": "Dioscorea spp.",                                      "icc_code": "54"   },
-    { "name": "Yerba mate",                             "botanical_name": "Ilex paraguariensis",                                 "icc_code": "613"  }
+    {
+      "name": "Abaca (Manila hemp)",
+      "botanical_name": "Musa textilis",
+      "icc_code": "9213"
+    },
+    {
+      "name": "Alfalfa for fodder",
+      "botanical_name": "Medicago sativa",
+      "icc_code": "911"
+    },
+    {
+      "name": "Alfalfa for seed",
+      "botanical_name": "Medicago sativa",
+      "icc_code": "911"
+    },
+    {
+      "name": "Almond",
+      "botanical_name": "Prunus dulcis",
+      "icc_code": "361"
+    },
+    {
+      "name": "Anise seeds",
+      "botanical_name": "Pimpinella anisum",
+      "icc_code": "6212"
+    },
+    {
+      "name": "Apple",
+      "botanical_name": "Malus sylvestris",
+      "icc_code": "351"
+    },
+    {
+      "name": "Apricot",
+      "botanical_name": "Prunus armeniaca",
+      "icc_code": "352"
+    },
+    {
+      "name": "Areca (betel nut)",
+      "botanical_name": "Areca catechu",
+      "icc_code": "992"
+    },
+    {
+      "name": "Arracha",
+      "botanical_name": "Arracacia xanthorrhiza",
+      "icc_code": "59"
+    },
+    {
+      "name": "Arrowroot",
+      "botanical_name": "Maranta arundinacea",
+      "icc_code": "59"
+    },
+    {
+      "name": "Artichoke",
+      "botanical_name": "Cynara scolymus",
+      "icc_code": "211"
+    },
+    {
+      "name": "Asparagus",
+      "botanical_name": "Asparagus officinalis",
+      "icc_code": "212"
+    },
+    {
+      "name": "Avocado",
+      "botanical_name": "Persea americana",
+      "icc_code": "311"
+    },
+    {
+      "name": "Bajra (Pearl millet)",
+      "botanical_name": "Pennisetum americanum",
+      "icc_code": "18"
+    },
+    {
+      "name": "Bambara groundnut",
+      "botanical_name": "Vigna subterranea",
+      "icc_code": "79"
+    },
+    {
+      "name": "Banana",
+      "botanical_name": "Musa paradisiaca",
+      "icc_code": "312"
+    },
+    {
+      "name": "Barley",
+      "botanical_name": "Hordeum vulgare",
+      "icc_code": "15"
+    },
+    {
+      "name": "Beans, dry, edible, for grains",
+      "botanical_name": "Phaseolus vulgaris",
+      "icc_code": "71"
+    },
+    {
+      "name": "Beans, harvested green",
+      "botanical_name": "Phaseolus and Vigna spp.",
+      "icc_code": "71"
+    },
+    {
+      "name": "Beet, fodder (mangel)",
+      "botanical_name": "Beta vulgaris",
+      "icc_code": "81"
+    },
+    {
+      "name": "Beet, red",
+      "botanical_name": "Beta vulgaris",
+      "icc_code": "81"
+    },
+    {
+      "name": "Beet, sugar",
+      "botanical_name": "Beta vulgaris",
+      "icc_code": "81"
+    },
+    {
+      "name": "Beet, sugar for fodder",
+      "botanical_name": "Beta vulgaris",
+      "icc_code": "81"
+    },
+    {
+      "name": "Beet, sugar for seeds",
+      "botanical_name": "Beta vulgaris",
+      "icc_code": "81"
+    },
+    {
+      "name": "Bergamot",
+      "botanical_name": "Citrus bergamia",
+      "icc_code": "329"
+    },
+    {
+      "name": "Betel nut",
+      "botanical_name": "Areca catechu",
+      "icc_code": "992"
+    },
+    {
+      "name": "Black pepper",
+      "botanical_name": "Piper nigrum",
+      "icc_code": "6221"
+    },
+    {
+      "name": "Black wattle",
+      "botanical_name": "Acacia mearnsii",
+      "icc_code": "992"
+    },
+    {
+      "name": "Blackberries",
+      "botanical_name": "Rubus spp.",
+      "icc_code": "349"
+    },
+    {
+      "name": "Blueberry",
+      "botanical_name": "Vaccinium spp.",
+      "icc_code": "346"
+    },
+    {
+      "name": "Brazil nut",
+      "botanical_name": "Bertholletia excelsa",
+      "icc_code": "369"
+    },
+    {
+      "name": "Breadfruit",
+      "botanical_name": "Artocarpus altilis",
+      "icc_code": "319"
+    },
+    {
+      "name": "Broad bean, dry",
+      "botanical_name": "Vicia faba",
+      "icc_code": "72"
+    },
+    {
+      "name": "Broad bean, harvested green",
+      "botanical_name": "Vicia faba",
+      "icc_code": "72"
+    },
+    {
+      "name": "Broccoli",
+      "botanical_name": "Brassica oleracea var. botrytis",
+      "icc_code": "214"
+    },
+    {
+      "name": "Brussels sprouts",
+      "botanical_name": "Brassica oleracea var. gemmifera",
+      "icc_code": "219"
+    },
+    {
+      "name": "Buckwheat",
+      "botanical_name": "Fagopyrum esculentum",
+      "icc_code": "192"
+    },
+    {
+      "name": "Cabbage",
+      "botanical_name": "Brassica oleracea var. capitata",
+      "icc_code": "213"
+    },
+    {
+      "name": "Cabbage, Chinese",
+      "botanical_name": "Brassica chinensis",
+      "icc_code": "213"
+    },
+    {
+      "name": "Cacao (cocoa)",
+      "botanical_name": "Theobroma cacao",
+      "icc_code": "614"
+    },
+    {
+      "name": "Cantaloupe",
+      "botanical_name": "Cucumis melo",
+      "icc_code": "225"
+    },
+    {
+      "name": "Caraway seeds",
+      "botanical_name": "Carum carvi",
+      "icc_code": "6219"
+    },
+    {
+      "name": "Cardamom",
+      "botanical_name": "Elettaria cardamomum",
+      "icc_code": "6222"
+    },
+    {
+      "name": "Carob",
+      "botanical_name": "Ceratonia siliqua",
+      "icc_code": "39"
+    },
+    {
+      "name": "Carrot",
+      "botanical_name": "Daucus carota ssp. sativa",
+      "icc_code": "231"
+    },
+    {
+      "name": "Cashew nuts",
+      "botanical_name": "Anacardium occidentale",
+      "icc_code": "362"
+    },
+    {
+      "name": "Cassava (manioc)",
+      "botanical_name": "Manihot esculenta",
+      "icc_code": "53"
+    },
+    {
+      "name": "Castor bean",
+      "botanical_name": "Ricinus communis",
+      "icc_code": "431"
+    },
+    {
+      "name": "Cauliflower",
+      "botanical_name": "Brassica oleracea var. botrytis",
+      "icc_code": "214"
+    },
+    {
+      "name": "Celeriac",
+      "botanical_name": "Apium graveolens var. rapaceum",
+      "icc_code": "239"
+    },
+    {
+      "name": "Celery",
+      "botanical_name": "Apium graveolens",
+      "icc_code": "219"
+    },
+    {
+      "name": "Chayote",
+      "botanical_name": "Sechium edule",
+      "icc_code": "229"
+    },
+    {
+      "name": "Cherry",
+      "botanical_name": "Prunus spp.",
+      "icc_code": "353"
+    },
+    {
+      "name": "Chestnut",
+      "botanical_name": "Castanea sativa",
+      "icc_code": "363"
+    },
+    {
+      "name": "Chickpea (gram pea)",
+      "botanical_name": "Cicer arietinum",
+      "icc_code": "73"
+    },
+    {
+      "name": "Chicory",
+      "botanical_name": "Cichorium intybus",
+      "icc_code": "217"
+    },
+    {
+      "name": "Chili, dry",
+      "botanical_name": "Capsicum spp. (annuum)",
+      "icc_code": "6211"
+    },
+    {
+      "name": "Chili, fresh",
+      "botanical_name": "Capsicum spp. (annuum)",
+      "icc_code": "6211"
+    },
+    {
+      "name": "Cinnamon",
+      "botanical_name": "Cinnamomum verum",
+      "icc_code": "6223"
+    },
+    {
+      "name": "Clementine",
+      "botanical_name": "Citrus reticulata",
+      "icc_code": "324"
+    },
+    {
+      "name": "Clove",
+      "botanical_name": "Syzygium aromaticum",
+      "icc_code": "6224"
+    },
+    {
+      "name": "Clover for fodder",
+      "botanical_name": "Trifolium spp.",
+      "icc_code": "911"
+    },
+    {
+      "name": "Clover for seed",
+      "botanical_name": "Trifolium spp.",
+      "icc_code": "911"
+    },
+    {
+      "name": "Coconut",
+      "botanical_name": "Cocos nucifera",
+      "icc_code": "441"
+    },
+    {
+      "name": "Coffee",
+      "botanical_name": "Coffea spp.",
+      "icc_code": "611"
+    },
+    {
+      "name": "Colza (rapeseed)",
+      "botanical_name": "Brassica napus",
+      "icc_code": "435"
+    },
+    {
+      "name": "Maize (corn)",
+      "botanical_name": "Zea mays",
+      "icc_code": "12"
+    },
+    {
+      "name": "Cotton",
+      "botanical_name": "Gossypium spp.",
+      "icc_code": "9211"
+    },
+    {
+      "name": "Cowpea",
+      "botanical_name": "Vigna unguiculata",
+      "icc_code": "74"
+    },
+    {
+      "name": "Cranberry",
+      "botanical_name": "Vaccinium spp.",
+      "icc_code": "349"
+    },
+    {
+      "name": "Cucumber",
+      "botanical_name": "Cucumis sativus",
+      "icc_code": "221"
+    },
+    {
+      "name": "Currants",
+      "botanical_name": "Ribes spp.",
+      "icc_code": "341"
+    },
+    {
+      "name": "Custard apple",
+      "botanical_name": "Annona reticulate",
+      "icc_code": "319"
+    },
+    {
+      "name": "Dates",
+      "botanical_name": "Phoenix dactylifera",
+      "icc_code": "313"
+    },
+    {
+      "name": "Drumstick tree (Moringa)",
+      "botanical_name": "Moringa oleifera",
+      "icc_code": "6229"
+    },
+    {
+      "name": "Durum wheat",
+      "botanical_name": "Triticum durum",
+      "icc_code": "11"
+    },
+    {
+      "name": "Eggplant (aubergine)",
+      "botanical_name": "Solanum melongena",
+      "icc_code": "222"
+    },
+    {
+      "name": "Endive",
+      "botanical_name": "Cichorium endivia",
+      "icc_code": "219"
+    },
+    {
+      "name": "Fennel",
+      "botanical_name": "Foeniculum vulgare",
+      "icc_code": "219"
+    },
+    {
+      "name": "Fenugreek",
+      "botanical_name": "Trigonella foenum-graecum",
+      "icc_code": "79"
+    },
+    {
+      "name": "Fig",
+      "botanical_name": "Ficus carica",
+      "icc_code": "314"
+    },
+    {
+      "name": "Flax for fibre",
+      "botanical_name": "Linum usitatissimum",
+      "icc_code": "9213"
+    },
+    {
+      "name": "Flax for oil seed (linseed)",
+      "botanical_name": "Linum usitatissimum",
+      "icc_code": "432"
+    },
+    {
+      "name": "Garlic",
+      "botanical_name": "Allium sativum",
+      "icc_code": "233"
+    },
+    {
+      "name": "Ginger",
+      "botanical_name": "Zingiber officinale",
+      "icc_code": "6225"
+    },
+    {
+      "name": "Gooseberry",
+      "botanical_name": "Ribes spp.",
+      "icc_code": "342"
+    },
+    {
+      "name": "Gourd",
+      "botanical_name": "Lagenaria spp.",
+      "icc_code": "226"
+    },
+    {
+      "name": "Grape",
+      "botanical_name": "Vitis vinifera",
+      "icc_code": "33"
+    },
+    {
+      "name": "Grapefruit",
+      "botanical_name": "Citrus paradisi",
+      "icc_code": "321"
+    },
+    {
+      "name": "Groundnut (peanut)",
+      "botanical_name": "Arachis hypogaea",
+      "icc_code": "42"
+    },
+    {
+      "name": "Guava",
+      "botanical_name": "Psidium guajava",
+      "icc_code": "319"
+    },
+    {
+      "name": "Hazelnut (filbert)",
+      "botanical_name": "Corylus avellana",
+      "icc_code": "364"
+    },
+    {
+      "name": "Hemp fibre",
+      "botanical_name": "Cannabis sativa ssp. indica",
+      "icc_code": "9213"
+    },
+    {
+      "name": "Hempseed",
+      "botanical_name": "Cannabis sativa",
+      "icc_code": "439"
+    },
+    {
+      "name": "Hop",
+      "botanical_name": "Humulus lupulus",
+      "icc_code": "619"
+    },
+    {
+      "name": "Horseradish",
+      "botanical_name": "Armoracia rusticana",
+      "icc_code": "239"
+    },
+    {
+      "name": "Jasmine",
+      "botanical_name": "Jasminum spp.",
+      "icc_code": "952"
+    },
+    {
+      "name": "Jerusalem artichoke",
+      "botanical_name": "Helianthus tuberosus",
+      "icc_code": "211"
+    },
+    {
+      "name": "Jute",
+      "botanical_name": "Corchorus spp.",
+      "icc_code": "9212"
+    },
+    {
+      "name": "Kale",
+      "botanical_name": "Brassica oleracea var. acephala",
+      "icc_code": "219"
+    },
+    {
+      "name": "Kapok",
+      "botanical_name": "Ceiba pentandra",
+      "icc_code": "922"
+    },
+    {
+      "name": "Kenaf",
+      "botanical_name": "Hibiscus cannabinus",
+      "icc_code": "9212"
+    },
+    {
+      "name": "Kiwi fruit",
+      "botanical_name": "Actinidia deliciosa",
+      "icc_code": "343"
+    },
+    {
+      "name": "Kohlrabi",
+      "botanical_name": "Brassica oleracea var. gongylodes",
+      "icc_code": "239"
+    },
+    {
+      "name": "Lavender",
+      "botanical_name": "Lavandula spp.",
+      "icc_code": "931"
+    },
+    {
+      "name": "Leek",
+      "botanical_name": "Allium ampeloprasum",
+      "icc_code": "235"
+    },
+    {
+      "name": "Lemon",
+      "botanical_name": "Citrus limon",
+      "icc_code": "322"
+    },
+    {
+      "name": "Lemon grass",
+      "botanical_name": "Cymbopogon citratus",
+      "icc_code": "922"
+    },
+    {
+      "name": "Lentil",
+      "botanical_name": "Lens culinaris",
+      "icc_code": "75"
+    },
+    {
+      "name": "Lettuce",
+      "botanical_name": "Lactuca sativa",
+      "icc_code": "215"
+    },
+    {
+      "name": "Lime",
+      "botanical_name": "Citrus aurantifolia",
+      "icc_code": "322"
+    },
+    {
+      "name": "Linseed",
+      "botanical_name": "Linum usitatissimum",
+      "icc_code": "432"
+    },
+    {
+      "name": "Litchi",
+      "botanical_name": "Litchi chinensis",
+      "icc_code": "319"
+    },
+    {
+      "name": "Lupine",
+      "botanical_name": "Lupinus spp.",
+      "icc_code": "76"
+    },
+    {
+      "name": "Macadamia nut",
+      "botanical_name": "Macadamia spp.",
+      "icc_code": "369"
+    },
+    {
+      "name": "Mandarin",
+      "botanical_name": "Citrus reticulata",
+      "icc_code": "324"
+    },
+    {
+      "name": "Mango",
+      "botanical_name": "Mangifera indica",
+      "icc_code": "315"
+    },
+    {
+      "name": "Melon",
+      "botanical_name": "Cucumis melo",
+      "icc_code": "225"
+    },
+    {
+      "name": "Millets",
+      "botanical_name": "Pennisetum / Setaria / Panicum spp.",
+      "icc_code": "18"
+    },
+    {
+      "name": "Mint",
+      "botanical_name": "Mentha spp.",
+      "icc_code": "6219"
+    },
+    {
+      "name": "Mushrooms",
+      "botanical_name": "Agaricus / Pleurotus spp.",
+      "icc_code": "24"
+    },
+    {
+      "name": "Mustard",
+      "botanical_name": "Brassica nigra; Sinapis alba",
+      "icc_code": "433"
+    },
+    {
+      "name": "Nectarine",
+      "botanical_name": "Prunus persica var. nectarina",
+      "icc_code": "354"
+    },
+    {
+      "name": "Niger seed",
+      "botanical_name": "Guizotia abyssinica",
+      "icc_code": "434"
+    },
+    {
+      "name": "Nutmeg",
+      "botanical_name": "Myristica fragrans",
+      "icc_code": "6222"
+    },
+    {
+      "name": "Oats",
+      "botanical_name": "Avena spp.",
+      "icc_code": "17"
+    },
+    {
+      "name": "Oil palm",
+      "botanical_name": "Elaeis guineensis",
+      "icc_code": "443"
+    },
+    {
+      "name": "Okra",
+      "botanical_name": "Abelmoschus esculentus",
+      "icc_code": "229"
+    },
+    {
+      "name": "Olive",
+      "botanical_name": "Olea europaea",
+      "icc_code": "442"
+    },
+    {
+      "name": "Onion",
+      "botanical_name": "Allium cepa",
+      "icc_code": "234"
+    },
+    {
+      "name": "Orange",
+      "botanical_name": "Citrus sinensis",
+      "icc_code": "323"
+    },
+    {
+      "name": "Papaya (pawpaw)",
+      "botanical_name": "Carica papaya",
+      "icc_code": "316"
+    },
+    {
+      "name": "Parsnip",
+      "botanical_name": "Pastinaca sativa",
+      "icc_code": "239"
+    },
+    {
+      "name": "Peach",
+      "botanical_name": "Prunus persica",
+      "icc_code": "354"
+    },
+    {
+      "name": "Pear",
+      "botanical_name": "Pyrus communis",
+      "icc_code": "355"
+    },
+    {
+      "name": "Pea, dry",
+      "botanical_name": "Pisum sativum",
+      "icc_code": "77"
+    },
+    {
+      "name": "Pea, harvested green",
+      "botanical_name": "Pisum sativum",
+      "icc_code": "77"
+    },
+    {
+      "name": "Pecan nut",
+      "botanical_name": "Carya illinoensis",
+      "icc_code": "369"
+    },
+    {
+      "name": "Pepper (black)",
+      "botanical_name": "Piper nigrum",
+      "icc_code": "6221"
+    },
+    {
+      "name": "Pepper, dry (chilli)",
+      "botanical_name": "Capsicum spp.",
+      "icc_code": "6211"
+    },
+    {
+      "name": "Persimmon",
+      "botanical_name": "Diospyros kaki",
+      "icc_code": "319"
+    },
+    {
+      "name": "Pigeon pea",
+      "botanical_name": "Cajanus cajan",
+      "icc_code": "78"
+    },
+    {
+      "name": "Pineapple",
+      "botanical_name": "Ananas comosus",
+      "icc_code": "317"
+    },
+    {
+      "name": "Pistachio nut",
+      "botanical_name": "Pistacia vera",
+      "icc_code": "365"
+    },
+    {
+      "name": "Plantain",
+      "botanical_name": "Musa sapientum",
+      "icc_code": "312"
+    },
+    {
+      "name": "Plum",
+      "botanical_name": "Prunus domestica",
+      "icc_code": "356"
+    },
+    {
+      "name": "Pomegranate",
+      "botanical_name": "Punica granatum",
+      "icc_code": "39"
+    },
+    {
+      "name": "Pomelo",
+      "botanical_name": "Citrus grandis",
+      "icc_code": "321"
+    },
+    {
+      "name": "Poppy seed",
+      "botanical_name": "Papaver somniferum",
+      "icc_code": "439"
+    },
+    {
+      "name": "Potato",
+      "botanical_name": "Solanum tuberosum",
+      "icc_code": "51"
+    },
+    {
+      "name": "Pumpkin",
+      "botanical_name": "Cucurbita spp.",
+      "icc_code": "226"
+    },
+    {
+      "name": "Quinoa",
+      "botanical_name": "Chenopodium quinoa",
+      "icc_code": "192"
+    },
+    {
+      "name": "Radish",
+      "botanical_name": "Raphanus sativus",
+      "icc_code": "239"
+    },
+    {
+      "name": "Ramie",
+      "botanical_name": "Boehmeria nivea",
+      "icc_code": "922"
+    },
+    {
+      "name": "Rapeseed",
+      "botanical_name": "Brassica napus",
+      "icc_code": "435"
+    },
+    {
+      "name": "Raspberry",
+      "botanical_name": "Rubus spp.",
+      "icc_code": "344"
+    },
+    {
+      "name": "Rhubarb",
+      "botanical_name": "Rheum spp.",
+      "icc_code": "219"
+    },
+    {
+      "name": "Rice",
+      "botanical_name": "Oryza sativa",
+      "icc_code": "13"
+    },
+    {
+      "name": "Rose",
+      "botanical_name": "Rosa spp.",
+      "icc_code": "952"
+    },
+    {
+      "name": "Rubber",
+      "botanical_name": "Hevea brasiliensis",
+      "icc_code": "94"
+    },
+    {
+      "name": "Rye",
+      "botanical_name": "Secale cereale",
+      "icc_code": "16"
+    },
+    {
+      "name": "Safflower",
+      "botanical_name": "Carthamus tinctorius",
+      "icc_code": "436"
+    },
+    {
+      "name": "Sesame",
+      "botanical_name": "Sesamum indicum",
+      "icc_code": "437"
+    },
+    {
+      "name": "Shea butter (nut)",
+      "botanical_name": "Vitellaria paradoxa",
+      "icc_code": "449"
+    },
+    {
+      "name": "Sisal",
+      "botanical_name": "Agave sisalana",
+      "icc_code": "922"
+    },
+    {
+      "name": "Sorghum",
+      "botanical_name": "Sorghum bicolor",
+      "icc_code": "14"
+    },
+    {
+      "name": "Soybean",
+      "botanical_name": "Glycine max",
+      "icc_code": "41"
+    },
+    {
+      "name": "Spelt wheat",
+      "botanical_name": "Triticum spelta",
+      "icc_code": "192"
+    },
+    {
+      "name": "Spinach",
+      "botanical_name": "Spinacia oleracea",
+      "icc_code": "216"
+    },
+    {
+      "name": "Squash",
+      "botanical_name": "Cucurbita spp.",
+      "icc_code": "226"
+    },
+    {
+      "name": "Strawberry",
+      "botanical_name": "Fragaria spp.",
+      "icc_code": "345"
+    },
+    {
+      "name": "Sugar beet",
+      "botanical_name": "Beta vulgaris",
+      "icc_code": "81"
+    },
+    {
+      "name": "Sugarcane",
+      "botanical_name": "Saccharum officinarum",
+      "icc_code": "82"
+    },
+    {
+      "name": "Sunflower",
+      "botanical_name": "Helianthus annuus",
+      "icc_code": "438"
+    },
+    {
+      "name": "Sweet corn",
+      "botanical_name": "Zea mays",
+      "icc_code": "12"
+    },
+    {
+      "name": "Sweet pepper",
+      "botanical_name": "Capsicum annuum",
+      "icc_code": "6211"
+    },
+    {
+      "name": "Sweet potato",
+      "botanical_name": "Ipomoea batatas",
+      "icc_code": "52"
+    },
+    {
+      "name": "Sweet sorghum",
+      "botanical_name": "Sorghum bicolor",
+      "icc_code": "183"
+    },
+    {
+      "name": "Tangerine",
+      "botanical_name": "Citrus reticulata",
+      "icc_code": "324"
+    },
+    {
+      "name": "Taro",
+      "botanical_name": "Colocasia esculenta",
+      "icc_code": "59"
+    },
+    {
+      "name": "Tea",
+      "botanical_name": "Camellia sinensis",
+      "icc_code": "612"
+    },
+    {
+      "name": "Teff",
+      "botanical_name": "Eragrostis abyssinica",
+      "icc_code": "192"
+    },
+    {
+      "name": "Tobacco",
+      "botanical_name": "Nicotiana tabacum",
+      "icc_code": "96"
+    },
+    {
+      "name": "Tomato",
+      "botanical_name": "Lycopersicon esculentum",
+      "icc_code": "223"
+    },
+    {
+      "name": "Tung tree",
+      "botanical_name": "Aleurites spp.",
+      "icc_code": "449"
+    },
+    {
+      "name": "Turnip",
+      "botanical_name": "Brassica rapa",
+      "icc_code": "232"
+    },
+    {
+      "name": "Vanilla",
+      "botanical_name": "Vanilla planifolia",
+      "icc_code": "6226"
+    },
+    {
+      "name": "Vetch for grain",
+      "botanical_name": "Vicia sativa",
+      "icc_code": "79"
+    },
+    {
+      "name": "Walnut",
+      "botanical_name": "Juglans spp.",
+      "icc_code": "366"
+    },
+    {
+      "name": "Watermelon",
+      "botanical_name": "Citrullus lanatus",
+      "icc_code": "224"
+    },
+    {
+      "name": "Wheat",
+      "botanical_name": "Triticum aestivum",
+      "icc_code": "11"
+    },
+    {
+      "name": "Yam",
+      "botanical_name": "Dioscorea spp.",
+      "icc_code": "54"
+    },
+    {
+      "name": "Yerba mate",
+      "botanical_name": "Ilex paraguariensis",
+      "icc_code": "613"
+    }
   ],
   "block32_livestock": [
-    { "id": 1, "name": "Large ruminants (cattle, buffalo)" },
-    { "id": 2, "name": "Small ruminants (sheep, goats)" },
-    { "id": 3, "name": "Pigs" },
-    { "id": 4, "name": "Poultry (chickens, ducks, turkeys, etc.)" },
-    { "id": 5, "name": "Equines (horses, donkeys, mules)" },
-    { "id": 6, "name": "Camelids (camels, llamas, alpacas)" },
-    { "id": 7, "name": "Other livestock" }
+    {
+      "id": 1,
+      "name": "Large ruminants (cattle, buffalo)"
+    },
+    {
+      "id": 2,
+      "name": "Small ruminants (sheep, goats)"
+    },
+    {
+      "id": 3,
+      "name": "Pigs"
+    },
+    {
+      "id": 4,
+      "name": "Poultry (chickens, ducks, turkeys, etc.)"
+    },
+    {
+      "id": 5,
+      "name": "Equines (horses, donkeys, mules)"
+    },
+    {
+      "id": 6,
+      "name": "Camelids (camels, llamas, alpacas)"
+    },
+    {
+      "id": 7,
+      "name": "Other livestock"
+    }
   ]
 }
