@@ -1677,13 +1677,13 @@ textarea { resize: vertical; min-height: 80px; }
 
 /* ── Print ───────────────────────────────────────────────────────────── */
 @media print {
-  /* Page setup — A4, room for running head/foot */
-  @page { size: A4; margin: 22mm 14mm 18mm; }
+  /* ── Page setup ──────────────────────────────────────────────────────── */
+  @page { size: A4; margin: 16mm 15mm 14mm; }
 
   /* Preserve all colours — badges, calendar cells, level indicators */
   * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
 
-  /* Hide screen-only chrome */
+  /* ── Hide screen-only chrome ─────────────────────────────────────────── */
   .print-hide,
   .site-header,
   .step-nav,
@@ -1695,116 +1695,31 @@ textarea { resize: vertical; min-height: 80px; }
   .demo-loader,
   #demo-banner { display: none !important; }
 
-  body { background: white; font-size: 10pt; }
-
-  /* Full-width layout */
+  body { background: white; font-size: 9.5pt; color: #111; }
   .container { max-width: 100% !important; padding: 0 !important; }
   .wizard-main { padding: 0 !important; }
-  .blocks-container { gap: 8px; }
+  .blocks-container { gap: 0; }
 
-  /* Running header — repeats on every page */
+  /* ── Running header/footer — fixed, repeats on every printed page ─────── */
   .print-running-head {
     display: flex !important;
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    height: 10mm;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 2mm;
-    font-size: 7.5pt;
-    font-family: var(--font-mono), monospace;
-    color: #003478;
-    border-bottom: 1.5px solid #003478;
-    background: white;
+    position: fixed; top: 0; left: 0; right: 0; height: 9mm;
+    align-items: center; justify-content: space-between;
+    padding: 0 3mm;
+    font-size: 7pt; font-family: var(--font-mono), monospace; color: #003478;
+    border-bottom: 1.5px solid #003478; background: white;
+    z-index: 9999;
   }
-
-  /* Running footer — repeats on every page */
   .print-running-foot {
     display: flex !important;
-    position: fixed;
-    bottom: 0; left: 0; right: 0;
-    height: 8mm;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 2mm;
-    font-size: 7pt;
-    color: #666;
-    border-top: 1px solid #ccc;
-    background: white;
+    position: fixed; bottom: 0; left: 0; right: 0; height: 8mm;
+    align-items: center; justify-content: space-between;
+    padding: 0 3mm;
+    font-size: 7pt; color: #666;
+    border-top: 1px solid #ccc; background: white;
   }
 
-  /* Sections — shadow off, compact, navy headings */
-  .output-section {
-    box-shadow: none !important;
-    border: 1px solid #ddd !important;
-    padding: 10px 12px !important;
-    margin-bottom: 10px !important;
-    break-inside: auto;
-    page-break-inside: auto;
-  }
-
-  /* Section heading in navy */
-  .section-title {
-    color: #003478 !important;
-    font-size: 11pt;
-    padding-bottom: 6px;
-    margin-bottom: 8px;
-    border-bottom-color: #003478 !important;
-  }
-
-  /* Narrative section stays together */
-  .narrative-section { break-inside: avoid; page-break-inside: avoid; }
-
-  /* Summary panel */
-  .output-summary-panel { gap: 10px; }
-
-  /* Sections with >3 groups force a new page */
-  .section-force-break {
-    break-before: page;
-    page-break-before: always;
-  }
-
-  /* Bio cards — avoid splitting */
-  .bio-card { break-inside: avoid; page-break-inside: avoid; }
-
-  /* Tables — unclip scroll containers, shrink font */
-  .table-scroll { overflow: visible !important; }
-  .cal-output-wrap { overflow: visible !important; }
-  .output-table { font-size: 8pt; width: 100%; }
-  .cal-output-table { font-size: 8pt; width: 100%; }
-
-  /* Prevent table rows from splitting across pages */
-  .output-table tbody tr,
-  .cal-output-table tbody tr { break-inside: avoid; page-break-inside: avoid; }
-
-  /* Repeat table headers on each page */
-  .output-table thead,
-  .cal-output-table thead { display: table-header-group; }
-
-  /* Narrative text */
-  .narrative-paras p { font-size: 10pt; line-height: 1.55; margin-bottom: 8px; }
-  .landscape-desc { font-size: 9.5pt; margin: 8px 0; }
-
-  /* Advisory notice */
-  .advisory-notice { font-size: 8pt; padding: 6px 10px; margin-bottom: 8px; }
-
-  /* Force all <details> open when printing */
-  details { display: block !important; }
-  details > summary { display: none !important; }
-  details > *:not(summary) { display: block !important; }
-  .bio-section-body, .eq-list, .guidance-body, .interp-note { display: block !important; }
-
-  /* Smaller badge text */
-  .badge, .level-badge, .phase-badge { font-size: 7pt; padding: 1px 4px; }
-
-  /* Calendar legend — single line */
-  .cal-legend { flex-wrap: nowrap; font-size: 8pt; }
-
-  /* Tooltips hidden in print */
-  .tooltip-wrap .tooltip-box { display: none !important; }
-  .tooltip-icon { display: none !important; }
-
-  /* Print-only cover header */
+  /* ── Cover header (page 1 only) ──────────────────────────────────────── */
   .print-header {
     display: block !important;
     border-bottom: 3px solid #003478;
@@ -1812,31 +1727,161 @@ textarea { resize: vertical; min-height: 80px; }
     margin-bottom: 14px;
   }
   .print-header-brand {
-    font-family: var(--font-mono), monospace;
-    font-size: 8pt;
-    color: #003478;
-    letter-spacing: .04em;
-    text-transform: uppercase;
-    margin-bottom: 4px;
+    font-family: var(--font-mono), monospace; font-size: 7.5pt;
+    color: #003478; letter-spacing: .05em; text-transform: uppercase; margin-bottom: 4px;
   }
   .print-header-title {
-    font-family: var(--font-serif), Georgia, serif;
-    font-size: 18pt;
-    font-weight: 600;
-    color: #003478;
-    line-height: 1.2;
+    font-family: var(--font-serif), Georgia, serif; font-size: 22pt;
+    font-weight: 600; color: #003478; line-height: 1.15;
   }
-  .print-header-sub {
-    font-size: 10pt;
-    color: #444;
-    margin-top: 2px;
-    font-style: italic;
+  .print-header-sub  { font-size: 10.5pt; color: #333; margin-top: 3px; font-style: italic; }
+  .print-header-meta { font-size: 8pt; color: #666; margin-top: 5px; }
+
+  /* ── Summary panel ───────────────────────────────────────────────────── */
+  .output-summary-panel {
+    display: flex !important; flex-wrap: nowrap !important; gap: 0 !important;
+    border: 1.5px solid #003478 !important; border-radius: 5px !important;
+    padding: 0 !important; margin-bottom: 14px !important;
+    background: #f0f5ff !important; overflow: hidden !important;
+    break-inside: avoid;
   }
-  .print-header-meta {
-    font-size: 8pt;
-    color: #666;
-    margin-top: 4px;
+  .summary-stat {
+    flex: 1; text-align: center; padding: 6px 4px;
+    border-right: 1px solid #b8cce4;
   }
+  .summary-stat:last-child { border-right: none; }
+  .stat-num   { font-size: 15pt !important; display: block; line-height: 1.1; }
+  .stat-label { font-size: 6.5pt !important; color: #444; display: block; }
+  .summary-meta {
+    font-size: 7.5pt; padding: 4px 10px;
+    border-top: 1px solid #b8cce4; flex-basis: 100%;
+    display: flex; flex-wrap: wrap; gap: 0 16px;
+  }
+
+  /* ── Output sections — clean, no card shadow ─────────────────────────── */
+  .output-section {
+    box-shadow: none !important; border: none !important;
+    padding: 12px 0 4px !important; margin-bottom: 0 !important;
+    border-top: 1.5px solid #d0dcea !important;
+  }
+  .narrative-section.output-section { border-top: none !important; padding-top: 0 !important; }
+
+  .section-title {
+    color: #003478 !important; font-size: 11pt; font-weight: 700;
+    padding-bottom: 5px; margin-bottom: 8px;
+    border-bottom: 1.5px solid #003478 !important;
+    break-after: avoid; page-break-after: avoid;
+  }
+
+  /* ── Narrative ───────────────────────────────────────────────────────── */
+  .narrative-header h2 { font-size: 14pt; margin-bottom: 3px; }
+  .narrative-paras p   { font-size: 9.5pt; line-height: 1.55; margin-bottom: 8px; }
+  .landscape-desc      { font-size: 9pt; margin: 6px 0; }
+  .advisory-notice     { font-size: 8.5pt; padding: 5px 9px; margin-bottom: 8px; }
+  .block-desc          { font-size: 9pt; margin-bottom: 6px; }
+  .bio-summary-sentence { font-size: 9pt; margin-bottom: 8px; }
+
+  /* ── Page-break control ──────────────────────────────────────────────── */
+  /* Practice chains: new page after narrative */
+  .output-section-chains { break-before: page; page-break-before: always; }
+  .chain-group    { break-inside: avoid; margin-bottom: 7px; }
+  .chain-practice { font-size: 9pt; padding: 2px 0; }
+
+  /* Biological monitoring: always starts on a fresh page */
+  .output-section-bio { break-before: page; page-break-before: always; }
+
+  /* Disable per-subsection forced breaks — bio tables now flow naturally */
+  .bio-section.section-force-break {
+    break-before: auto !important;
+    page-break-before: auto !important;
+  }
+  /* Bio sub-sections: break between them if needed, not in the middle of table */
+  .bio-section { margin-bottom: 10px; }
+  .bio-section-body { display: block !important; }
+  .bio-section-body .table-scroll { overflow: visible !important; }
+
+  /* Abiotic: new page */
+  .output-section-abiotic { break-before: page; page-break-before: always; }
+
+  /* Calendar: new page — it's wide and visually distinct */
+  .output-section-cal { break-before: page; page-break-before: always; }
+
+  /* Enhancement recs: continue on same or next page naturally */
+  .output-section-enh { }
+
+  /* ── Details/summary handling ────────────────────────────────────────── */
+  /* Open all details by default */
+  details { display: block !important; }
+  details > summary { display: none !important; }
+  details > *:not(summary) { display: block !important; }
+
+  /* Bio sub-section summaries: restore as visible sub-headings */
+  .bio-section > summary {
+    display: block !important;
+    font-size: 9.5pt; font-weight: 700; color: #003478;
+    padding: 6px 0 5px; margin-bottom: 6px;
+    border-bottom: 1px solid #c0cfe8;
+    break-after: avoid; page-break-after: avoid;
+  }
+  .bio-section-toggle { display: flex !important; justify-content: space-between; align-items: baseline; }
+  .bio-section-label  { font-size: 9.5pt; }
+  .bio-section-desc   { font-size: 8pt; font-weight: 400; color: #555; }
+  .bio-section-count  { font-size: 9pt; }
+
+  /* Hide expandable secondary details inside table cells — keeps bio rows compact */
+  .eq-details { display: none !important; }
+
+  .eq-list, .guidance-body, .interp-note { display: block !important; }
+
+  /* ── Tables ──────────────────────────────────────────────────────────── */
+  .table-scroll   { overflow: visible !important; }
+  .cal-output-wrap { overflow: visible !important; }
+
+  .output-table thead,
+  .cal-output-table thead { display: table-header-group; }
+
+  .output-table tbody tr,
+  .cal-output-table tbody tr { break-inside: avoid; page-break-inside: avoid; }
+
+  .output-table { font-size: 8pt; width: 100%; }
+
+  /* ── Bio table ───────────────────────────────────────────────────────── */
+  .bio-table { font-size: 8pt; width: 100%; table-layout: fixed; }
+  .bio-table th, .bio-table td { padding: 5px 6px !important; overflow-wrap: break-word; }
+
+  /* Hide last column (draft / upgrade badges) — not needed on paper */
+  .bio-table th:nth-child(7), .bio-table td:nth-child(7) { display: none !important; }
+
+  /* Redistribute col widths across 6 effective columns (override inline styles) */
+  .bio-table col:nth-child(1) { width: 21% !important; }  /* Indicator */
+  .bio-table col:nth-child(2) { width: 14% !important; }  /* Category  */
+  .bio-table col:nth-child(3) { width:  7% !important; }  /* Level     */
+  .bio-table col:nth-child(4) { width: 33% !important; }  /* Protocol  */
+  .bio-table col:nth-child(5) { width: 18% !important; }  /* Metric    */
+  .bio-table col:nth-child(6) { width:  7% !important; }  /* Frequency */
+  .bio-table col:nth-child(7) { width:  0  !important; }  /* Hidden    */
+
+  /* Hide secondary sub-content inside bio rows */
+  .bio-table .abiotic-measures { display: none !important; }
+
+  /* ── Calendar table ──────────────────────────────────────────────────── */
+  .cal-output-table { font-size: 7.5pt; width: 100%; table-layout: fixed; }
+  .cal-group-col { width: 28% !important; }
+  .cal-freq-col  { width: 10% !important; }
+  /* 12 month columns share the remaining 62% → ~5.2% each */
+  .cal-month-th  { width: 5.2% !important; font-size: 6.5pt !important; padding: 3px 1px !important; text-align: center; }
+  .cal-cell      { padding: 3px 0 !important; text-align: center !important; font-size: 8pt !important; }
+  .cal-legend    { flex-wrap: nowrap; font-size: 7.5pt; margin-top: 6px; }
+
+  /* ── Badges ──────────────────────────────────────────────────────────── */
+  .badge, .level-badge, .phase-badge { font-size: 7pt !important; padding: 1px 4px !important; }
+
+  /* ── Tooltips: hide ──────────────────────────────────────────────────── */
+  .tooltip-wrap .tooltip-box { display: none !important; }
+  .tooltip-icon { display: none !important; }
+
+  /* ── Score breakdown chips: hide ─────────────────────────────────────── */
+  .score-breakdown { display: none !important; }
 }
 
 /* ── EFG Map (Block 1.2) ─────────────────────────────────────────────── */

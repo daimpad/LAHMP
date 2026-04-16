@@ -2464,7 +2464,7 @@ function buildStep4HTML() {
   </div>`;
 
   // Practice chains
-  const chainsHtml = `<div class="output-section">
+  const chainsHtml = `<div class="output-section output-section-chains">
     <h2 class="section-title">Practice Verification Chains</h2>
     ${out.practice_chains.length ? out.practice_chains.map(ch => `
       <div class="chain-group">
@@ -2579,7 +2579,7 @@ function buildStep4HTML() {
     ? `<div class="advisory-notice">⚠ <strong>Protocol proposed</strong> — ${draftGroups.length} of the ${activeAssignments.length} indicator group${activeAssignments.length !== 1 ? 's' : ''} in this plan (${draftGroups.map(g => g.profile_name).join(', ')}) carr${draftGroups.length !== 1 ? 'y' : 'ies'} system-proposed protocols awaiting expert validation. Do not use these groups in a formal monitoring programme without review by a qualified biodiversity expert.</div>`
     : '';
 
-  const bioHtml = `<div class="output-section">
+  const bioHtml = `<div class="output-section output-section-bio">
     <h2 class="section-title">Biological Monitoring Programme</h2>
     ${draftNoticeHtml}
     ${out.protocol_assignments.length ? `
@@ -2592,7 +2592,7 @@ function buildStep4HTML() {
   </div>`;
 
   // Abiotic table
-  const abioHtml = `<div class="output-section">
+  const abioHtml = `<div class="output-section output-section-abiotic">
     <h2 class="section-title">Abiotic Monitoring Programme</h2>
     <p class="block-desc">Abiotic indicators marked <strong>Year 1</strong> form your universal baseline package and should be established before biological monitoring begins. Year 1+ indicators are added once the baseline is in place.</p>
     ${out.selected_abiotic.length ? `
@@ -2626,7 +2626,7 @@ function buildStep4HTML() {
   });
   const MONTH_SHORT = MONTHS.map(m => m.slice(0, 3));
 
-  const calHtml = `<div class="output-section">
+  const calHtml = `<div class="output-section output-section-cal">
     <h2 class="section-title">Monitoring Calendar</h2>
     <p class="block-desc">Suggested monitoring windows based on indicator response timescales and your Step 3 seasonal access calendar. Adjust to match local phenology.</p>
     ${out.calendar.length ? `
@@ -2675,7 +2675,7 @@ function buildStep4HTML() {
   </div>`;
 
   // Enhancement recommendations (trimmed groups)
-  const enhHtml = out.trimmed_groups.length ? `<div class="output-section">
+  const enhHtml = out.trimmed_groups.length ? `<div class="output-section output-section-enh">
     <h2 class="section-title">Enhancement Recommendations</h2>
     <p class="block-desc">The following indicator groups were identified as relevant to your landscape but were deferred due to current team capacity. They are listed in priority order — add them as your monitoring programme matures.</p>
     <div class="table-scroll"><table class="output-table">
