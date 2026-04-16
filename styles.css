@@ -101,61 +101,119 @@ button { cursor: pointer; border: none; background: none; }
 .brand-sub { font-size: .72rem; color: rgba(255,255,255,.65); }
 .header-meta { font-size: .82rem; color: rgba(255,255,255,.8); max-width: 240px; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; }
 
-/* ── Step progress ───────────────────────────────────────────────────── */
+/* ── Step progress bar ───────────────────────────────────────────────── */
 .step-nav {
   background: var(--white);
   border-bottom: 1px solid var(--grey-200);
   padding: 0;
+  box-shadow: 0 1px 3px rgba(0,0,0,.06);
 }
 .step-nav .container { padding-top: 0; padding-bottom: 0; }
-.step-list {
+
+.progress-bar-wrap {
   display: flex;
-  list-style: none;
-  align-items: stretch;
+  align-items: flex-start;
+  padding: 14px 0 12px;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
-.step-item {
-  flex: 1;
+
+/* Step node */
+.pb-step {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 10px;
-  padding: 14px 16px;
-  font-size: .82rem;
-  color: var(--grey-500);
-  position: relative;
-  white-space: nowrap;
-  transition: color var(--transition);
+  gap: 5px;
+  min-width: 72px;
+  flex: 0 0 auto;
+  text-align: center;
+  user-select: none;
+  padding: 4px 6px;
+  cursor: default;
+  border-radius: var(--radius);
+  outline: none;
 }
-.step-item + .step-item::before {
-  content: '';
-  position: absolute;
-  left: 0; top: 50%;
-  transform: translateY(-50%);
-  width: 1px; height: 24px;
-  background: var(--grey-200);
+.pb-step.is-clickable { cursor: pointer; }
+.pb-step.is-clickable:hover .pb-node,
+.pb-step.is-clickable:focus-visible .pb-node {
+  box-shadow: 0 0 0 4px rgba(0,52,120,.12);
 }
-.step-bubble {
-  width: 28px; height: 28px;
+.pb-step:focus-visible {
+  outline: 2px solid var(--navy);
+  outline-offset: 2px;
+}
+
+.pb-node {
+  width: 32px; height: 32px;
   border-radius: 50%;
   border: 2px solid var(--grey-300);
+  background: var(--white);
   display: flex; align-items: center; justify-content: center;
-  font-size: .78rem; font-weight: 600;
   flex-shrink: 0;
-  transition: all var(--transition);
+  position: relative;
+  transition: background var(--transition), border-color var(--transition), box-shadow var(--transition);
 }
-.step-item.is-active .step-bubble {
+.pb-num {
+  font-size: .78rem;
+  font-weight: 700;
+  color: var(--grey-400);
+  line-height: 1;
+}
+
+.pb-label {
+  font-size: .75rem;
+  font-weight: 600;
+  color: var(--grey-500);
+  line-height: 1.3;
+  white-space: nowrap;
+}
+.pb-sublabel {
+  font-size: .67rem;
+  color: var(--grey-400);
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+/* Connector */
+.pb-connector {
+  flex: 1;
+  height: 0;
+  border-top: 2px dashed var(--grey-300);
+  margin-top: 21px; /* aligns with centre of 32px node + 4px step padding */
+  min-width: 12px;
+  transition: border-color var(--transition), border-style var(--transition);
+}
+.pb-connector.is-done {
+  border-top: 2px solid var(--navy);
+}
+
+/* Active (current) step */
+.pb-step.is-active .pb-node {
+  background: var(--yellow);
+  border-color: var(--yellow);
+  box-shadow: 0 0 0 3px rgba(253,200,47,.28);
+}
+.pb-step.is-active .pb-num   { color: var(--navy-dark); }
+.pb-step.is-active .pb-label { color: var(--navy); font-weight: 700; }
+.pb-step.is-active .pb-sublabel { color: var(--navy); }
+
+/* Done (completed) step */
+.pb-step.is-done .pb-num { display: none; }
+.pb-step.is-done .pb-node {
   background: var(--navy);
   border-color: var(--navy);
-  color: var(--white);
 }
-.step-item.is-done .step-bubble {
-  background: var(--green);
-  border-color: var(--green);
+.pb-step.is-done .pb-node::after {
+  content: '✓';
+  font-size: .78rem;
+  font-weight: 700;
   color: var(--white);
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
 }
-.step-item.is-active .step-label,
-.step-item.is-done  .step-label { color: var(--grey-900); }
-.step-label { line-height: 1.3; }
+.pb-step.is-done .pb-label   { color: var(--navy); }
+.pb-step.is-done .pb-sublabel { color: var(--grey-500); }
 
 /* ── Main ────────────────────────────────────────────────────────────── */
 .wizard-main { flex: 1; padding: 32px 0 120px; }
@@ -1137,8 +1195,9 @@ textarea { resize: vertical; min-height: 80px; }
   .check-grid { grid-template-columns: 1fr; }
   .pressure-row { flex-direction: column; }
   .pressure-radios { justify-content: flex-start; }
-  .step-label { display: none; }
-  .step-item { justify-content: center; }
+  .pb-sublabel { display: none; }
+  .pb-step { min-width: 52px; }
+  .pb-label { font-size: .68rem; }
 }
 
 /* ── Fixture banner ──────────────────────────────────────────────────── */
@@ -1181,14 +1240,7 @@ textarea { resize: vertical; min-height: 80px; }
   border-color: var(--grey-400);
 }
 
-/* In demo mode, all step tabs are visually accessible and clickable */
-.step-nav.is-demo .step-item {
-  cursor: pointer;
-}
-.step-nav.is-demo .step-item:hover .step-bubble {
-  border-color: var(--navy);
-  color: var(--navy);
-}
+/* Demo mode — .pb-step.is-clickable handles cursor via JS */
 
 /* ── EFG Grouped Selector ────────────────────────────────────────────── */
 .efg-selector {

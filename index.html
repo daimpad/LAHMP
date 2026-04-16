@@ -29,24 +29,31 @@
   <!-- ── STEP PROGRESS ──────────────────────────────────────────────── -->
   <nav class="step-nav" aria-label="Wizard steps">
     <div class="container">
-      <ol class="step-list" id="step-list">
-        <li class="step-item is-active" data-step="1">
-          <div class="step-bubble"><span>1</span></div>
-          <div class="step-label">Landscape<br>Profile</div>
-        </li>
-        <li class="step-item" data-step="2">
-          <div class="step-bubble"><span>2</span></div>
-          <div class="step-label">Practice<br>Selection</div>
-        </li>
-        <li class="step-item" data-step="3">
-          <div class="step-bubble"><span>3</span></div>
-          <div class="step-label">Capacity<br>Assessment</div>
-        </li>
-        <li class="step-item" data-step="4">
-          <div class="step-bubble"><span>4</span></div>
-          <div class="step-label">Monitoring<br>Plan</div>
-        </li>
-      </ol>
+      <div class="progress-bar-wrap" id="step-list">
+        <div class="pb-step is-active is-clickable" data-step="1" role="button" tabindex="0" aria-current="step">
+          <div class="pb-node"><span class="pb-num">1</span></div>
+          <span class="pb-label">Landscape</span>
+          <span class="pb-sublabel">Define your landscape</span>
+        </div>
+        <div class="pb-connector" data-after="1"></div>
+        <div class="pb-step" data-step="2" role="button" tabindex="-1">
+          <div class="pb-node"><span class="pb-num">2</span></div>
+          <span class="pb-label">Practices</span>
+          <span class="pb-sublabel">Select practices</span>
+        </div>
+        <div class="pb-connector" data-after="2"></div>
+        <div class="pb-step" data-step="3" role="button" tabindex="-1">
+          <div class="pb-node"><span class="pb-num">3</span></div>
+          <span class="pb-label">Capacity</span>
+          <span class="pb-sublabel">Assess capacity</span>
+        </div>
+        <div class="pb-connector" data-after="3"></div>
+        <div class="pb-step" data-step="4" role="button" tabindex="-1">
+          <div class="pb-node"><span class="pb-num">4</span></div>
+          <span class="pb-label">Plan</span>
+          <span class="pb-sublabel">Your monitoring plan</span>
+        </div>
+      </div>
     </div>
   </nav>
 

@@ -2637,11 +2637,23 @@ function showStep(n) {
   document.querySelectorAll('.wizard-step').forEach(s => s.classList.add('is-hidden'));
   document.getElementById('step-' + n)?.classList.remove('is-hidden');
 
-  document.querySelectorAll('.step-item').forEach(li => {
-    const s = parseInt(li.dataset.step);
-    li.classList.toggle('is-active', s === n);
-    // In demo mode all tabs look accessible; in normal mode only completed steps are "done"
-    li.classList.toggle('is-done', window.demoMode ? s !== n : s < n);
+  document.querySelectorAll('.pb-step').forEach(el => {
+    const s = parseInt(el.dataset.step);
+    const isActive    = s === n;
+    const isDone      = window.demoMode ? s !== n : s < n;
+    const isClickable = window.demoMode || s <= n;
+    el.classList.toggle('is-active',    isActive);
+    el.classList.toggle('is-done',      isDone);
+    el.classList.toggle('is-clickable', isClickable);
+    el.setAttribute('tabindex', isClickable ? '0' : '-1');
+    if (isActive) el.setAttribute('aria-current', 'step');
+    else el.removeAttribute('aria-current');
+  });
+
+  // Update connector lines: navy solid when the step before it is done
+  document.querySelectorAll('.pb-connector').forEach(el => {
+    const afterStep = parseInt(el.dataset.after);
+    el.classList.toggle('is-done', window.demoMode ? true : afterStep < n);
   });
 
   document.getElementById('btn-back').disabled = n === 1;
@@ -2758,22 +2770,28 @@ function showDemoBanner() {
   document.body.insertBefore(banner, document.querySelector('.step-nav'));
 }
 
-// Enable free tab navigation across all four steps in demo mode.
-function enableDemoNav() {
-  const nav = document.querySelector('.step-nav');
-  if (nav) nav.classList.add('is-demo');
-  document.querySelectorAll('.step-item').forEach(li => {
-    // Remove any previously attached handler before adding to avoid duplicates
-    li.removeEventListener('click', _demoStepClickHandler);
-    li.addEventListener('click', _demoStepClickHandler);
-  });
+// Progress bar step click/keyboard handlers — work in both demo and normal mode.
+function _pbStepClickHandler(e) {
+  const el = e.currentTarget;
+  if (!el.classList.contains('is-clickable')) return;
+  const targetStep = parseInt(el.dataset.step);
+  if (!targetStep || targetStep === currentStep) return;
+  // In normal mode prevent skipping ahead (only done steps + current are clickable)
+  if (!window.demoMode && targetStep > currentStep) return;
+  showStep(targetStep);
 }
 
-function _demoStepClickHandler(e) {
-  if (!window.demoMode) return;
-  const targetStep = parseInt(e.currentTarget.dataset.step);
-  if (!targetStep) return;
-  showStep(targetStep);
+function _pbStepKeyHandler(e) {
+  if (e.key === 'Enter' || e.key === ' ') {
+    e.preventDefault();
+    _pbStepClickHandler({ currentTarget: e.currentTarget });
+  }
+}
+
+// Enable free tab navigation across all four steps in demo mode.
+// Click handlers are attached once in init(); this just triggers a visual refresh.
+function enableDemoNav() {
+  showStep(currentStep); // re-run to mark all steps is-clickable with demoMode=true
 }
 
 // Load the Skoura M'Daz demo fixture and jump straight to the Step 4 output view.
@@ -2868,6 +2886,12 @@ async function init() {
 
   document.getElementById('btn-next').addEventListener('click', handleNext);
   document.getElementById('btn-back').addEventListener('click', handleBack);
+
+  // Progress bar step navigation — works in both normal and demo mode
+  document.querySelectorAll('.pb-step').forEach(el => {
+    el.addEventListener('click',   _pbStepClickHandler);
+    el.addEventListener('keydown', _pbStepKeyHandler);
+  });
 
   document.addEventListener('click', e => {
     if (e.target.id === 'btn-restart') {
