@@ -468,6 +468,78 @@ textarea { resize: vertical; min-height: 80px; }
 .priority-label.is-hidden { display: none; }
 .priority-select { padding: 2px 6px; font-size: .78rem; width: 60px; }
 
+/* ── Tooltips ────────────────────────────────────────────────────────── */
+.tooltip-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+}
+.tooltip-icon {
+  width: 15px; height: 15px;
+  border-radius: 50%;
+  background: var(--navy-light);
+  color: var(--navy);
+  font-style: normal;
+  font-size: .62rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: help;
+  margin-left: 4px;
+  flex-shrink: 0;
+  user-select: none;
+  line-height: 1;
+  transition: background var(--transition);
+}
+.tooltip-wrap:hover .tooltip-icon,
+.tooltip-wrap:focus-visible .tooltip-icon,
+.tooltip-wrap.is-open .tooltip-icon { background: var(--navy); color: var(--white); }
+
+.tooltip-box {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--white);
+  border: 1px solid var(--navy);
+  border-radius: var(--radius);
+  padding: 8px 12px;
+  max-width: 280px;
+  min-width: 160px;
+  font-size: .78rem;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.5;
+  color: var(--grey-900);
+  z-index: 500;
+  white-space: normal;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .15s ease;
+  box-shadow: var(--shadow);
+  text-align: left;
+  font-family: var(--font-sans);
+}
+/* downward-pointing triangle */
+.tooltip-box::after {
+  content: '';
+  position: absolute;
+  top: 100%; left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: var(--navy);
+}
+
+.tooltip-wrap:hover .tooltip-box,
+.tooltip-wrap:focus-visible .tooltip-box,
+.tooltip-wrap.is-open .tooltip-box { opacity: 1; }
+
+/* Ensure badges containing tooltips display correctly */
+.badge .tooltip-wrap { vertical-align: middle; }
+.badge .tooltip-icon { margin-left: 3px; }
+
 /* ── Badges ──────────────────────────────────────────────────────────── */
 .badge {
   display: inline-block;

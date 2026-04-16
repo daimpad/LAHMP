@@ -1050,6 +1050,22 @@ function badge(text, cls) {
   return `<span class="badge badge-${esc(cls)}">${esc(text)}</span>`;
 }
 
+// ── Tooltip helpers ───────────────────────────────────────────────────────
+
+// Returns an HTML string for inline use inside template literals.
+function tooltipHtml(text) {
+  return `<span class="tooltip-wrap" tabindex="0"><span class="tooltip-icon" aria-hidden="true">ⓘ</span><span class="tooltip-box" role="tooltip">${esc(text)}</span></span>`;
+}
+
+// Returns a DOM element — for imperative use (spec requirement).
+function createTooltip(text) {
+  const wrap = document.createElement('span');
+  wrap.className = 'tooltip-wrap';
+  wrap.setAttribute('tabindex', '0');
+  wrap.innerHTML = `<span class="tooltip-icon" aria-hidden="true">ⓘ</span><span class="tooltip-box" role="tooltip">${esc(text)}</span>`;
+  return wrap;
+}
+
 function confBadge(confidence) {
   const map = { high: ['high','High'], medium: ['medium','Medium'], low: ['low','Low'] };
   const [cls, label] = map[confidence] || ['low', confidence];
@@ -1302,7 +1318,7 @@ function renderBlock12() {
       </div>
     </div>
     <div class="form-field-full">
-      <label>Global Ecosystem Functional Groups (EFGs) <span class="req">*</span></label>
+      <label>Global Ecosystem Functional Groups (EFGs) ${tooltipHtml('A global classification of ecosystem types defined by their ecological processes and biological characteristics. Used by IUCN to describe where different biodiversity communities live.')} <span class="req">*</span></label>
       <p class="field-hint">Click your landscape location on the map. EFGs mapped to that 0.5° grid cell will be pre-selected — uncheck any that do not apply to your specific landscape, then click <strong>Confirm EFG selection</strong>.</p>
       <div id="efg-map"></div>
       <div id="efg-map-checklist">${renderEfgChecklistHtml(s.efg_codes)}</div>
@@ -1340,7 +1356,7 @@ function renderBlock12() {
     </div>
 
     <div class="form-field-full">
-      <label>IPCC Land Use Categories present <span class="req">*</span></label>
+      <label>IPCC Land Use Categories present ${tooltipHtml('A standardised land use classification used in climate reporting. Helps identify which agricultural practices and monitoring approaches are relevant for your landscape.')} <span class="req">*</span></label>
       <p class="field-hint">Select the land use categories present in your landscape (from ABC Map or your knowledge).</p>
       ${multiCheckList(referenceData.ipcc_land_use_categories || [], s.ipcc_land_use_categories, 'ipcc_land_use_cat')}
     </div>
@@ -1426,7 +1442,7 @@ function renderBlock4() {
     return `<div class="pressure-row${val !== 'not_relevant' ? ' is-flagged' : ''}" id="pressure-row-${p.id}">
       <div class="pressure-name">
         <span class="pressure-id">${esc('P' + String(p.id).padStart(2,'0'))}</span>
-        ${esc(p.name)}
+        ${esc(p.name)}${p.tooltip ? tooltipHtml(p.tooltip) : ''}
       </div>
       <div class="pressure-radios">${radios}</div>
     </div>`;
@@ -1466,14 +1482,14 @@ function renderBlock5() {
       return `<div class="challenge-row is-inactive" id="challenge-row-${c.id}">
         <label class="challenge-check">
           <input type="checkbox" class="challenge-manual" data-challenge-id="${c.id}" ${confirmed ? 'checked' : ''}>
-          <span class="challenge-name">${esc(c.name)}</span>
+          <span class="challenge-name">${esc(c.name)}${c.tooltip ? tooltipHtml(c.tooltip) : ''}</span>
         </label>
       </div>`;
     }
     return `<div class="challenge-row is-prepopulated${confirmed ? ' is-confirmed' : ''}" id="challenge-row-${c.id}">
       <label class="challenge-check">
         <input type="checkbox" class="challenge-confirm" data-challenge-id="${c.id}" ${confirmed ? 'checked' : ''}>
-        <span class="challenge-name">${esc(c.name)}</span>
+        <span class="challenge-name">${esc(c.name)}${c.tooltip ? tooltipHtml(c.tooltip) : ''}</span>
       </label>
       <div class="challenge-meta">
         ${confidence ? confBadge(confidence) : ''}
@@ -1522,7 +1538,7 @@ function renderBlock6() {
     return `<div class="service-row${selected ? ' is-selected' : ''}" id="service-row-${s.id}">
       <label class="service-check">
         <input type="checkbox" class="service-select" data-service-id="${s.id}" ${selected ? 'checked' : ''}>
-        <span class="service-name">${esc(s.name)}</span>
+        <span class="service-name">${esc(s.name)}${s.tooltip ? tooltipHtml(s.tooltip) : ''}</span>
       </label>
       <div class="service-meta">
         ${pre_pop ? '<span class="badge badge-prepop">Pre-filled</span>' : ''}
@@ -1974,9 +1990,9 @@ function renderPracticeRecommendations() {
               <span class="practice-code">${esc(p.p_code)}</span>
               <span class="practice-name">${esc(p.name)}</span>
               <div class="practice-badges">
-                ${badge(p.tier === 'transformative' ? 'Transformative' : 'Standard', p.tier === 'transformative' ? 'transformative' : 'standard')}
+                <span class="badge badge-${p.tier === 'transformative' ? 'transformative' : 'standard'}">${p.tier === 'transformative' ? 'Transformative' : 'Standard'}${p.tier === 'transformative' ? tooltipHtml('Practices that require a shift in your farming system. Higher impact but greater implementation effort.') : tooltipHtml('Practices that fit within your existing farming system — no fundamental system change required.')}</span>
                 ${p.applicable_scale ? `<span class="badge badge-scale">${esc(p.applicable_scale)}</span>` : ''}
-                ${p.score > 0 ? `<span class="practice-score" title="Relevance score: ${p.score} pt${p.score !== 1 ? 's' : ''} — Pressures: ${p.scoreBreakdown?.pressurePts ?? 0} · Challenges: ${p.scoreBreakdown?.challengePts ?? 0} · Services: ${p.scoreBreakdown?.servicePts ?? 0}">▲ ${p.score}</span>` : ''}
+                ${p.score > 0 ? `<span class="practice-score">▲ ${p.score}${tooltipHtml('Calculated from how closely this practice addresses the pressures, challenges, and ecosystem services you identified in Step 1. Higher = stronger match.')}</span>` : ''}
               </div>
             </div>
             <p class="practice-rationale">${esc(p.rationale || '')}</p>
@@ -2426,11 +2442,11 @@ function buildStep4HTML() {
         <div class="bio-card-badges">
           ${isPending
             ? `<span class="badge badge-pending">Protocol pending</span>`
-            : `<span class="level-badge level-${g.assigned_level}">L${g.assigned_level}</span>`}
+            : `<span class="level-badge level-${g.assigned_level}">L${g.assigned_level}${tooltipHtml('Level 1: community observer — basic training, simple tools. Level 2: field technician — species identification skills, standard equipment. Level 3: specialist — laboratory analysis or advanced identification.')}</span>`}
           ${isDraft ? `<span class="badge badge-draft" title="${esc(g.validation_status || '')}">Protocol proposed</span>` : ''}
           ${!isPending && g.requires_upgrade ? `<span class="badge badge-warn" title="Requires higher team capacity than currently available">↑ Upgrade</span>` : ''}
           <span class="badge badge-stage">${esc((g.monitoring_stage||'').split(' ')[0])}</span>
-          <span class="badge badge-inclusion">${esc(g.inclusion_reason)}</span>
+          <span class="badge badge-inclusion">${esc(g.inclusion_reason)}${g.inclusion_reason === 'B2 primary verifier' ? tooltipHtml('This indicator group directly measures whether your selected practices are working as intended.') : g.inclusion_reason === 'B1 supporting' ? tooltipHtml('This indicator group provides useful ecological context but is not the primary measure for your practices.') : ''}</span>
         </div>
       </div>
       <div class="bio-card-body">
@@ -2901,6 +2917,20 @@ async function init() {
         location.reload();
       }
     }
+  });
+
+  // Tooltip tap-toggle (mobile) and global close
+  document.addEventListener('click', e => {
+    const icon = e.target.closest('.tooltip-icon');
+    if (icon) {
+      e.stopPropagation();
+      const wrap = icon.closest('.tooltip-wrap');
+      const wasOpen = wrap?.classList.contains('is-open');
+      document.querySelectorAll('.tooltip-wrap.is-open').forEach(el => el.classList.remove('is-open'));
+      if (wrap && !wasOpen) wrap.classList.add('is-open');
+      return;
+    }
+    document.querySelectorAll('.tooltip-wrap.is-open').forEach(el => el.classList.remove('is-open'));
   });
 }
 
