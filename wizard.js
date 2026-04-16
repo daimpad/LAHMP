@@ -209,6 +209,8 @@ function saveState() {
   localStorage.setItem('lahmp_step', String(currentStep));
   const el = document.getElementById('autosave');
   if (el) { el.textContent = 'Saved'; el.classList.add('visible'); setTimeout(() => el.classList.remove('visible'), 2000); }
+  // Live checklist + button update
+  updateStepUI(currentStep);
 }
 
 function loadSavedState() {
@@ -1595,6 +1597,7 @@ function renderStep1() {
   const hm = document.getElementById('header-meta');
   if (hm && name) hm.textContent = name;
   updateDocTitle();
+  updateStepUI(1);
 }
 
 // ── Step 1 event handlers ─────────────────────────────────────────────────
@@ -1929,6 +1932,7 @@ function renderStep2() {
   el.innerHTML = renderPrescreen() + renderPracticeRecommendations();
   initStep2Events();
   initCollapsibles(el);
+  updateStepUI(2);
 }
 
 function renderPrescreen() {
@@ -2076,6 +2080,7 @@ function renderStep3() {
   el.innerHTML = renderCapacityQuestions();
   initStep3Events();
   initCollapsibles(el);
+  updateStepUI(3);
 }
 
 function renderCapacityQuestions() {
@@ -2673,11 +2678,98 @@ function showStep(n) {
   });
 
   document.getElementById('btn-back').disabled = n === 1;
-  document.getElementById('btn-next').textContent = n === 4 ? 'Finish' : 'Continue →';
+  const btnNext = document.getElementById('btn-next');
+  if (btnNext) btnNext.textContent = n === 4 ? 'Finish' : 'Continue →';
 
   window.scrollTo({ top: 0, behavior: 'smooth' });
   currentStep = n;
-  saveState();
+  saveState(); // also calls updateStepUI
+}
+
+// ── Step completion checklist ──────────────────────────────────────────────
+
+function getStepRequirements(step) {
+  const s1 = window.assessment.step1;
+  const s2 = window.assessment.step2;
+  const s3 = window.assessment.step3;
+
+  if (step === 1) {
+    const hasPressures  = s1.pressures.some(p => p.status === 'ongoing' || p.status === 'past');
+    const hasChallenges = s1.challenges.some(c => c.confirmed);
+    const hasServices   = s1.services.some(s => s.selected);
+    return [
+      { label: 'Landscape name',                 done: !!s1.landscape_name.trim() },
+      { label: `EFGs selected${s1.efg_codes.length ? ' (' + s1.efg_codes.length + ')' : ''}`,
+                                                  done: s1.efg_codes.length > 0 },
+      { label: 'Land uses selected',             done: s1.land_uses.length > 0 },
+      { label: 'At least one pressure confirmed', done: hasPressures },
+      { label: 'At least one challenge confirmed',done: hasChallenges },
+      { label: 'At least one service selected',  done: hasServices },
+    ];
+  }
+  if (step === 2) {
+    const allPrescreen = Object.values(s2.prescreen || {}).every(v => v !== null);
+    return [
+      { label: 'Pre-screen questions answered (4)',   done: allPrescreen },
+      { label: 'At least one practice confirmed',    done: (s2.selected_practices || []).length > 0 },
+    ];
+  }
+  if (step === 3) {
+    const teamOk     = s3.team_types.length > 0;
+    const daysOk     = teamOk && s3.team_types.every(t => (s3.days_by_type[t.type] || 0) > 0);
+    const budgetOk   = s3.budget_tier !== null;
+    const sitesOk    = !!s3.site_count_category;
+    const calendarOk = (s3.access_calendar || []).length === 12 &&
+                       (s3.access_calendar || []).every(m => !!m.access);
+    return [
+      { label: 'Team type selected',                       done: teamOk },
+      { label: 'Days per year entered for all team types', done: daysOk },
+      { label: 'Budget tier selected',                     done: budgetOk },
+      { label: 'Number of monitoring sites selected',      done: sitesOk },
+      { label: 'Seasonal access calendar complete (12 months)', done: calendarOk },
+    ];
+  }
+  return [];
+}
+
+function isStepComplete(step) {
+  return getStepRequirements(step).every(r => r.done);
+}
+
+function buildCompletionChecklistHtml(step) {
+  const reqs   = getStepRequirements(step);
+  if (!reqs.length) return '';
+  const allDone = reqs.every(r => r.done);
+  const items   = reqs.map(r => `<div class="cl-item ${r.done ? 'cl-done' : 'cl-missing'}">
+    <span class="cl-icon">${r.done ? '✓' : '✗'}</span>
+    <span class="cl-label">${esc(r.label)}</span>
+  </div>`).join('');
+  return `<div class="completion-checklist" id="completion-checklist-${step}">
+    <div class="cl-items">${items}</div>
+    ${!allDone ? `<p class="cl-hint">Complete the items above to continue.</p>` : ''}
+  </div>`;
+}
+
+function updateStepUI(step) {
+  if (step === undefined) step = currentStep;
+
+  const btn = document.getElementById('btn-next');
+
+  if (step === 4) {
+    // On step 4 the button says "Finish" and is always active
+    if (btn) { btn.disabled = false; btn.classList.remove('btn-continue-blocked'); }
+    return;
+  }
+
+  // Re-render checklist
+  const container = document.getElementById(`step${step}-checklist`);
+  if (container) container.innerHTML = buildCompletionChecklistHtml(step);
+
+  // Gate the Continue button
+  if (!btn) return;
+  const complete = isStepComplete(step);
+  btn.disabled = !complete;
+  btn.classList.toggle('btn-continue-blocked', !complete);
 }
 
 function validateStep(n) {

@@ -1229,6 +1229,70 @@ textarea { resize: vertical; min-height: 80px; }
 .btn-secondary:hover { background: var(--grey-200); }
 .btn-sm { padding: 5px 12px; font-size: .8rem; }
 
+/* Blocked Continue button */
+.btn-primary.btn-continue-blocked,
+.btn-primary:disabled {
+  background: var(--grey-300);
+  border-color: var(--grey-300);
+  color: var(--grey-500);
+  cursor: not-allowed;
+  opacity: 1;
+}
+.btn-primary.btn-continue-blocked:hover,
+.btn-primary:disabled:hover {
+  background: var(--grey-300);
+  border-color: var(--grey-300);
+}
+
+/* ── Step completion checklist ───────────────────────────────────────── */
+.step-checklist-wrap {
+  margin-top: 20px;
+  margin-bottom: 8px;
+}
+.completion-checklist {
+  background: var(--white);
+  border: 1px solid var(--grey-200);
+  border-radius: var(--radius-lg);
+  padding: 16px 20px;
+  box-shadow: var(--shadow-sm);
+}
+.cl-items {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 2px;
+}
+.cl-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: .83rem;
+}
+.cl-icon {
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .68rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.cl-done .cl-icon {
+  background: var(--green-light);
+  color: var(--green);
+}
+.cl-missing .cl-icon {
+  background: var(--amber-light);
+  color: var(--amber);
+}
+.cl-done .cl-label { color: var(--grey-700); }
+.cl-missing .cl-label { color: var(--amber); font-weight: 500; }
+.cl-hint {
+  margin-top: 10px;
+  font-size: .8rem;
+  color: var(--grey-500);
+  font-style: italic;
+}
+
 /* ── Toast ───────────────────────────────────────────────────────────── */
 .toast {
   position: fixed;
