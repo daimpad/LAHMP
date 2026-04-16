@@ -1433,15 +1433,35 @@ function renderBlock4() {
   ];
 
   function pressureRow(p) {
-    const saved = statuses.find(s => s.id === p.id);
-    const val   = saved?.status || 'not_relevant';
+    const saved     = statuses.find(s => s.id === p.id);
+    const val       = saved?.status || 'not_relevant';
+    const isFlagged = val !== 'not_relevant';
     const radios = STATUS_OPTS.map(o =>
       `<label class="pressure-radio${val === o.value ? ' is-active' : ''}">
         <input type="radio" name="pressure_${p.id}" value="${esc(o.value)}" data-pressure-id="${p.id}" ${val === o.value ? 'checked' : ''}>
         ${esc(o.label)}
       </label>`
     ).join('');
-    return `<div class="pressure-row${val !== 'not_relevant' ? ' is-flagged' : ''}" id="pressure-row-${p.id}">
+
+    if (p.id === 28) {
+      const otherText = saved?.other_text || '';
+      return `<div class="pressure-row pressure-row--other${isFlagged ? ' is-flagged' : ''}" id="pressure-row-28">
+        <div class="pressure-row-main">
+          <div class="pressure-name">
+            <span class="pressure-id">P28</span>
+            ${esc(p.name)}${p.tooltip ? tooltipHtml(p.tooltip) : ''}
+          </div>
+          <div class="pressure-radios">${radios}</div>
+        </div>
+        <input type="text" class="pressure-other-text${isFlagged ? '' : ' is-hidden'}"
+               id="pressure-28-text"
+               data-pressure-id="28"
+               placeholder="Describe the pressure briefly…"
+               value="${esc(otherText)}">
+      </div>`;
+    }
+
+    return `<div class="pressure-row${isFlagged ? ' is-flagged' : ''}" id="pressure-row-${p.id}">
       <div class="pressure-name">
         <span class="pressure-id">${esc('P' + String(p.id).padStart(2,'0'))}</span>
         ${esc(p.name)}${p.tooltip ? tooltipHtml(p.tooltip) : ''}
@@ -1786,6 +1806,12 @@ function initBlock4Events() {
           lbl.classList.toggle('is-active', lbl.querySelector('input').value === val);
         });
       }
+      // Show/hide P28 text field when its status changes
+      if (id === 28) {
+        const textEl = document.getElementById('pressure-28-text');
+        if (textEl) textEl.classList.toggle('is-hidden', val === 'not_relevant');
+      }
+
       // Re-compute Block 5
       const newChallenges = prepopulateChallenges(window.assessment.step1.pressures, window.assessment.step1.land_use_composition);
       // Merge: keep manually confirmed, update pre-populated
@@ -1804,6 +1830,17 @@ function initBlock4Events() {
       saveState();
     });
   });
+
+  // P28 free-text save
+  const p28text = document.getElementById('pressure-28-text');
+  if (p28text) {
+    p28text.addEventListener('input', () => {
+      const pressures = window.assessment.step1.pressures;
+      const idx = pressures.findIndex(p => p.id === 28);
+      if (idx > -1) pressures[idx].other_text = p28text.value;
+      saveState();
+    });
+  }
 }
 
 function rerenderBlock3() {

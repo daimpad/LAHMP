@@ -423,6 +423,22 @@ textarea { resize: vertical; min-height: 80px; }
 .pressure-radio:hover   { border-color: var(--navy); }
 .pressure-radio.is-active { background: var(--navy); color: var(--white); border-color: var(--navy); }
 .pressure-row.is-flagged .pressure-radio.is-active { background: var(--amber); border-color: var(--amber); }
+.pressure-row--other { flex-direction: column; gap: 6px; }
+.pressure-row-main { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; width: 100%; }
+.pressure-other-text {
+  width: 100%;
+  padding: 6px 10px;
+  border: 1px solid var(--grey-300);
+  border-radius: var(--radius);
+  font-family: var(--font-sans);
+  font-size: .85rem;
+  color: var(--navy);
+  background: var(--white);
+  transition: border-color var(--transition);
+  box-sizing: border-box;
+}
+.pressure-other-text:focus { outline: none; border-color: var(--navy); }
+.pressure-other-text.is-hidden { display: none; }
 
 /* ── Challenge list ──────────────────────────────────────────────────── */
 .challenge-list { display: flex; flex-direction: column; gap: 3px; }
