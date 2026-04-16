@@ -2042,9 +2042,9 @@ function renderPracticeRecommendations() {
       const mServices   = (p.block6_services   || []).filter(id => userServiceIds.includes(id)).map(id => refP6.find(r => r.id === id)).filter(Boolean);
       const breakdownHtml = (mPressures.length || mChallenges.length || mServices.length) ? `
         <div class="score-breakdown">
-          ${mPressures.map(r  => `<span class="breakdown-chip chip-pressure">${esc(r.name)}${r.tooltip ? tooltipHtml(r.tooltip) : ''}</span>`).join('')}
-          ${mChallenges.map(r => `<span class="breakdown-chip chip-challenge">${esc(r.name)}${r.tooltip ? tooltipHtml(r.tooltip) : ''}</span>`).join('')}
-          ${mServices.map(r   => `<span class="breakdown-chip chip-service">${esc(r.name)}${r.tooltip ? tooltipHtml(r.tooltip) : ''}</span>`).join('')}
+          ${mPressures.map(r  => `<span class="breakdown-chip chip-pressure"><span class="chip-label">${esc(r.name)}</span>${r.tooltip ? tooltipHtml(r.tooltip) : ''}</span>`).join('')}
+          ${mChallenges.map(r => `<span class="breakdown-chip chip-challenge"><span class="chip-label">${esc(r.name)}</span>${r.tooltip ? tooltipHtml(r.tooltip) : ''}</span>`).join('')}
+          ${mServices.map(r   => `<span class="breakdown-chip chip-service"><span class="chip-label">${esc(r.name)}</span>${r.tooltip ? tooltipHtml(r.tooltip) : ''}</span>`).join('')}
         </div>` : '';
 
       return `<div class="practice-card${isSelected ? ' is-selected' : ''}" id="pcard-${esc(p.p_code)}">

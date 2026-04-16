@@ -81,14 +81,12 @@ button { cursor: pointer; border: none; background: none; }
 }
 .header-brand { display: flex; align-items: center; gap: 14px; }
 .iucn-mark {
-  font-family: var(--font-mono);
-  font-size: .75rem;
-  font-weight: 500;
-  letter-spacing: .12em;
   background: var(--yellow);
-  color: var(--navy-dark);
-  padding: 4px 8px;
+  padding: 5px 8px;
   border-radius: var(--radius-sm);
+  height: 32px;
+  width: auto;
+  display: block;
 }
 .brand-text { display: flex; flex-direction: column; gap: 1px; }
 .brand-name {
@@ -439,8 +437,16 @@ textarea { resize: vertical; min-height: 80px; }
   border-radius: 10px;
   font-size: .72rem;
   font-weight: 500;
-  white-space: nowrap;
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
   cursor: default;
+}
+.breakdown-chip .chip-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
 }
 .chip-pressure  { background: #FEF3C7; color: #92400E; border: 1px solid #FDE68A; }
 .chip-challenge { background: #FEE2E2; color: #7F1D1D; border: 1px solid #FECACA; }
