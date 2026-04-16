@@ -405,6 +405,23 @@ def parse_profile(filepath):
 
 
 # ── Main ────────────────────────────────────────────────────────────────────
+
+# Load existing indicators.json to identify manually curated "draft" entries.
+# Profiles marked populated:"draft" contain system-proposed or manually authored
+# protocol content that is NOT present in the source Word documents — do not overwrite.
+existing_drafts = {}
+if os.path.exists(OUT_FILE):
+    try:
+        with open(OUT_FILE, encoding='utf-8') as f:
+            for ind in json.load(f):
+                if ind.get('populated') == 'draft':
+                    existing_drafts[ind['profile_number']] = ind
+        if existing_drafts:
+            print(f'Preserving {len(existing_drafts)} draft entries (profiles '
+                  f'{sorted(existing_drafts.keys())}) — not overwriting with Word doc extraction.')
+    except Exception:
+        pass
+
 docx_files = sorted([
     f for f in os.listdir(DOCX_DIR)
     if f.startswith('LAHMP_Profile_') and f.endswith('.docx')
@@ -416,24 +433,34 @@ for fname in docx_files:
     path = os.path.join(DOCX_DIR, fname)
     try:
         pr = parse_profile(path)
+        num = pr.get('profile_number', 0)
+        if num in existing_drafts:
+            pr = existing_drafts[num]
+            print(f'[~] #{num:02d} {pr.get("profile_name","?")[:40]:40s} [preserved draft]')
+        else:
+            pop = '\u2713' if pr.get('populated') else '\u2717'
+            b2 = pr.get('b2_practices_primarily_verified', [])
+            print(f'[{pop}] #{num:02d} {pr.get("profile_name","?")[:40]:40s} '
+                  f'b4={len(pr.get("block4_pressures") or [])} '
+                  f'b2={b2}')
         profiles.append(pr)
-        pop = '\u2713' if pr.get('populated') else '\u2717'
-        b2 = pr.get('b2_practices_primarily_verified', [])
-        print(f'[{pop}] #{pr.get("profile_number",0):02d} {pr.get("profile_name","?")[:40]:40s} '
-              f'b4={len(pr.get("block4_pressures") or [])} '
-              f'b2={b2}')
     except Exception as e:
-        import traceback
         errors.append((fname, str(e)))
         print(f'[E] {fname}: {e}')
 
 # Sort by profile number
 profiles.sort(key=lambda x: x.get('profile_number', 0))
 
+pop_true    = sum(1 for p in profiles if p.get('populated') is True)
+pop_draft   = sum(1 for p in profiles if p.get('populated') == 'draft')
+pop_partial = sum(1 for p in profiles if p.get('populated') == 'partial')
+pop_false   = sum(1 for p in profiles if not p.get('populated'))
 print(f'\n--- Summary ---')
 print(f'Total: {len(profiles)}')
-print(f'Populated: {sum(1 for p in profiles if p.get("populated"))}')
-print(f'Not populated: {sum(1 for p in profiles if not p.get("populated"))}')
+print(f'populated: true    = {pop_true}')
+print(f'populated: "draft" = {pop_draft}')
+print(f'populated: "partial" = {pop_partial}')
+print(f'populated: false   = {pop_false}')
 if errors:
     print(f'Errors: {len(errors)}')
     for fname, err in errors:

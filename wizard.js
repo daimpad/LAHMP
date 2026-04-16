@@ -443,7 +443,7 @@ function selectIndicatorGroups(step1, step2) {
   const confirmedChallengeIds = (step1.challenges || []).filter(c => c.confirmed).map(c => c.id);
 
   return indicatorsData
-    .filter(ind => ind.populated === true || ind.populated === 'partial')
+    .filter(ind => ind.populated === true || ind.populated === 'draft' || ind.populated === 'partial')
     .map(ind => {
       // EFG filter
       if (ind.relevant_efgs?.length && userEFGs.length) {
@@ -506,7 +506,9 @@ function assignProtocol(group, cap) {
   const refLink      = group[`level${level}_reference_link`] || null;
   const assignedEqIds = equipmentTextToIds(group[`level${level}_equipment`] || '');
   const requires_upgrade = level > cap.max_protocol_level;
-  return { ...group, assigned_level: level, assigned_protocol: proto, assigned_metric: metric, assigned_reference: ref, assigned_reference_link: refLink, assigned_equipment_ids: assignedEqIds, requires_upgrade };
+  // Draft profiles have system-proposed protocols awaiting expert validation
+  const protocol_draft = (group.populated === 'draft');
+  return { ...group, assigned_level: level, assigned_protocol: proto, assigned_metric: metric, assigned_reference: ref, assigned_reference_link: refLink, assigned_equipment_ids: assignedEqIds, requires_upgrade, protocol_draft };
 }
 
 // ── Operation 5 — Monitoring calendar ─────────────────────────────────────
@@ -2413,7 +2415,9 @@ function buildStep4HTML() {
       ? ` <a class="ref-link" href="${esc(g.assigned_reference_link)}" target="_blank" rel="noopener" title="${esc(g.assigned_reference || '')}">[ref]</a>`
       : g.assigned_reference ? ` <span class="ref-plain" title="${esc(g.assigned_reference)}">[ref]</span>` : '';
     const isPending = !!g.protocol_pending;
-    return `<div class="bio-card${isPending ? ' bio-card-pending' : ''}">
+    const isDraft   = !!g.protocol_draft && !isPending;
+    const cardClass = isPending ? ' bio-card-pending' : isDraft ? ' bio-card-draft' : '';
+    return `<div class="bio-card${cardClass}">
       <div class="bio-card-header">
         <div class="bio-card-title-wrap">
           <span class="bio-card-name">${esc(g.profile_name)}</span>
@@ -2423,6 +2427,7 @@ function buildStep4HTML() {
           ${isPending
             ? `<span class="badge badge-pending">Protocol pending</span>`
             : `<span class="level-badge level-${g.assigned_level}">L${g.assigned_level}</span>`}
+          ${isDraft ? `<span class="badge badge-draft" title="${esc(g.validation_status || '')}">Protocol proposed</span>` : ''}
           ${!isPending && g.requires_upgrade ? `<span class="badge badge-warn" title="Requires higher team capacity than currently available">↑ Upgrade</span>` : ''}
           <span class="badge badge-stage">${esc((g.monitoring_stage||'').split(' ')[0])}</span>
           <span class="badge badge-inclusion">${esc(g.inclusion_reason)}</span>
@@ -2430,6 +2435,7 @@ function buildStep4HTML() {
       </div>
       <div class="bio-card-body">
         ${g.primary_monitoring_role ? `<div class="monitoring-role">${esc(g.primary_monitoring_role)}</div>` : ''}
+        ${isDraft ? `<div class="protocol-draft-notice">Protocol proposed — awaiting expert validation. Do not use in a formal monitoring programme without review by a qualified biodiversity expert.</div>` : ''}
         ${isPending ? `<div class="protocol-pending-notice">Protocol specification pending — group identified as relevant but field protocol not yet available.</div>` : `
         <div class="bio-field-row">
           <span class="bio-field-label">Protocol</span>

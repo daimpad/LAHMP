@@ -1013,6 +1013,37 @@ textarea { resize: vertical; min-height: 80px; }
   line-height: 1.5;
 }
 
+/* ── Draft bio cards (amber — protocol proposed, awaiting validation) ─── */
+.bio-card-draft {
+  border-color: #f0c04a;
+}
+.bio-card-draft .bio-card-header {
+  background: #fffbee;
+  border-bottom-color: #f0c04a;
+}
+
+.badge-draft {
+  background: #fff3cd;
+  color: #856404;
+  border: 1px solid #f0c04a;
+  font-size: .68rem;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
+.protocol-draft-notice {
+  font-size: .78rem;
+  color: #856404;
+  font-style: italic;
+  padding: 7px 10px;
+  background: #fffbee;
+  border-left: 3px solid #f0c04a;
+  border-radius: 0 4px 4px 0;
+  line-height: 1.5;
+  margin-bottom: 4px;
+}
+
 @media print {
   .bio-card { break-inside: avoid; }
   .bio-section { break-inside: avoid; }
