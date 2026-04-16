@@ -1,4 +1,4 @@
-# LAHMP — Land Health Monitoring Platform
+# LAHMP | Land Health Monitoring Platform
 
 **A browser-based self-assessment wizard that generates personalised biodiversity monitoring plans for agricultural and semi-natural landscapes.**
 
