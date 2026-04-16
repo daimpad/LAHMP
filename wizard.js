@@ -834,7 +834,10 @@ function runStep4Algorithm() {
   const ongoingPressures = (step1.pressures || [])
     .filter(p => p.status === 'ongoing')
     .slice(0, 3)
-    .map(p => (referenceData.block4_pressures || []).find(r => r.id === p.id)?.name)
+    .map(p => {
+      if (p.id === 28) return p.other_text?.trim() || null;
+      return (referenceData.block4_pressures || []).find(r => r.id === p.id)?.name;
+    })
     .filter(Boolean);
   const topChallenges = (step1.challenges || []).filter(c => c.confirmed)
     .sort((a, b) => confidenceRank(b.confidence) - confidenceRank(a.confidence))
@@ -1989,10 +1992,26 @@ function renderPrescreen() {
 function renderPracticeRecommendations() {
   const eligible = getEligiblePractices();
   const step2    = window.assessment.step2;
+  const step1    = window.assessment.step1;
   const selectedPCodes = (step2.selected_practices || []).map(p => p.p_code);
 
   // Approach code map — built once across all 43 practices
   const approachMap = buildApproachMap();
+
+  // Score breakdown: matched items from Step 1 profile
+  const userPressureIds  = (step1.pressures  || []).filter(p => p.status !== 'not_relevant').map(p => p.id);
+  const userChallengeIds = (step1.challenges || []).filter(c => c.confirmed).map(c => c.id);
+  const userServiceIds   = (step1.services   || []).filter(s => s.selected && s.priority_rank).map(s => s.id);
+  const refP4 = referenceData.block4_pressures  || [];
+  const refP5 = referenceData.block5_challenges || [];
+  const refP6 = referenceData.block6_services   || [];
+
+  const SCALE_TIPS = {
+    'Field':          'Applies at the individual field level — management decisions for specific field units.',
+    'Farm':           'Applies at the whole-farm level — system-wide decisions across all fields.',
+    'Landscape':      'Applies across the broader landscape — typically requires coordination beyond individual farm boundaries.',
+    'Farm / Landscape': 'Can be implemented at farm level; greater impact when coordinated across the landscape.',
+  };
 
   // Group by theme, sort by score desc
   const themes = {};
@@ -2023,6 +2042,16 @@ function renderPracticeRecommendations() {
           ${p.approach_origins ? `<div class="guidance-section guidance-approach"><h4>IUCN NBS approach codes</h4><div class="approach-badges-wrap">${formatApproachCodes(p.approach_origins, p.p_code, approachMap)}</div></div>` : ''}
         </div>
       </details>` : '';
+      const mPressures  = (p.block4_pressures  || []).filter(id => userPressureIds.includes(id)).map(id => refP4.find(r => r.id === id)).filter(Boolean);
+      const mChallenges = (p.block5_challenges || []).filter(id => userChallengeIds.includes(id)).map(id => refP5.find(r => r.id === id)).filter(Boolean);
+      const mServices   = (p.block6_services   || []).filter(id => userServiceIds.includes(id)).map(id => refP6.find(r => r.id === id)).filter(Boolean);
+      const breakdownHtml = (mPressures.length || mChallenges.length || mServices.length) ? `
+        <div class="score-breakdown">
+          ${mPressures.map(r  => `<span class="breakdown-chip chip-pressure">${esc(r.name)}${r.tooltip ? tooltipHtml(r.tooltip) : ''}</span>`).join('')}
+          ${mChallenges.map(r => `<span class="breakdown-chip chip-challenge">${esc(r.name)}${r.tooltip ? tooltipHtml(r.tooltip) : ''}</span>`).join('')}
+          ${mServices.map(r   => `<span class="breakdown-chip chip-service">${esc(r.name)}${r.tooltip ? tooltipHtml(r.tooltip) : ''}</span>`).join('')}
+        </div>` : '';
+
       return `<div class="practice-card${isSelected ? ' is-selected' : ''}" id="pcard-${esc(p.p_code)}">
         <label class="practice-check">
           <input type="checkbox" class="practice-select" data-pcode="${esc(p.p_code)}" ${isSelected ? 'checked' : ''}>
@@ -2032,13 +2061,14 @@ function renderPracticeRecommendations() {
               <span class="practice-name">${esc(p.name)}</span>
               <div class="practice-badges">
                 <span class="badge badge-${p.tier === 'transformative' ? 'transformative' : 'standard'}">${p.tier === 'transformative' ? 'Transformative' : 'Standard'}${p.tier === 'transformative' ? tooltipHtml('Practices that require a shift in your farming system. Higher impact but greater implementation effort.') : tooltipHtml('Practices that fit within your existing farming system — no fundamental system change required.')}</span>
-                ${p.applicable_scale ? `<span class="badge badge-scale">${esc(p.applicable_scale)}</span>` : ''}
+                ${p.applicable_scale ? `<span class="badge badge-scale">${esc(p.applicable_scale)}${SCALE_TIPS[p.applicable_scale] ? tooltipHtml(SCALE_TIPS[p.applicable_scale]) : ''}</span>` : ''}
                 ${p.score > 0 ? `<span class="practice-score">▲ ${p.score}${tooltipHtml('Calculated from how closely this practice addresses the pressures, challenges, and ecosystem services you identified in Step 1. Higher = stronger match.')}</span>` : ''}
               </div>
             </div>
             <p class="practice-rationale">${esc(p.rationale || '')}</p>
           </div>
         </label>
+        ${breakdownHtml}
         ${guidanceHtml}
       </div>`;
     }).join('');
@@ -2390,6 +2420,10 @@ function buildStep4HTML() {
   const warnZeroDays = hasCapacity && !cap.available_days_total
     ? `<div class="inline-warning">⚠ No monitoring days entered in Step 3 (Q2) — capacity fitting is disabled and all indicators are shown. <button class="btn-link" onclick="showStep(3)">Go to Step 3</button></div>`
     : '';
+  const p28flagged = (step1.pressures || []).find(p => p.id === 28 && p.status !== 'not_relevant');
+  const warnP28 = p28flagged && !p28flagged.other_text?.trim()
+    ? `<div class="inline-warning">⚠ Pressure P28 "Other" is flagged but no description was entered. <button class="btn-link" onclick="showStep(1)">Add description →</button></div>`
+    : '';
   // Build abiotic ID → name lookup for precursor links
   const abioticNameMap = {};
   abioticData.forEach(a => { abioticNameMap[a.indicator_id] = a.indicator_name; });
@@ -2683,8 +2717,8 @@ function buildStep4HTML() {
       <span>For field use only — not a legally binding document</span>
     </div>`;
 
-  const warningsHtml = (warnStep1 + warnStep2 + warnZeroDays)
-    ? `<div class="warnings-block">${warnStep1}${warnStep2}${warnZeroDays}</div>`
+  const warningsHtml = (warnStep1 + warnStep2 + warnZeroDays + warnP28)
+    ? `<div class="warnings-block">${warnStep1}${warnStep2}${warnZeroDays}${warnP28}</div>`
     : '';
 
   return printRunningHtml + actionsHtml + printHeaderHtml + summaryHtml + warningsHtml + narrativeHtml + chainsHtml + bioHtml + abioHtml + calHtml + enhHtml;

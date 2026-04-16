@@ -423,6 +423,29 @@ textarea { resize: vertical; min-height: 80px; }
 .pressure-radio:hover   { border-color: var(--navy); }
 .pressure-radio.is-active { background: var(--navy); color: var(--white); border-color: var(--navy); }
 .pressure-row.is-flagged .pressure-radio.is-active { background: var(--amber); border-color: var(--amber); }
+/* ── Practice score breakdown ────────────────────────────────────────── */
+.score-breakdown {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 6px 12px 8px;
+  border-top: 1px solid var(--grey-200);
+}
+.breakdown-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: .72rem;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: default;
+}
+.chip-pressure  { background: #FEF3C7; color: #92400E; border: 1px solid #FDE68A; }
+.chip-challenge { background: #FEE2E2; color: #7F1D1D; border: 1px solid #FECACA; }
+.chip-service   { background: #D1FAE5; color: #065F46; border: 1px solid #A7F3D0; }
+
 .pressure-row--other { flex-direction: column; gap: 6px; }
 .pressure-row-main { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; width: 100%; }
 .pressure-other-text {
