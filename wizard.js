@@ -2501,9 +2501,14 @@ function buildStep4HTML() {
     </details>`;
   }
 
+  const draftGroups = activeAssignments.filter(g => g.populated === 'draft');
+  const draftNoticeHtml = draftGroups.length
+    ? `<div class="advisory-notice">⚠ <strong>Protocol proposed</strong> — ${draftGroups.length} of the ${activeAssignments.length} indicator group${activeAssignments.length !== 1 ? 's' : ''} in this plan (${draftGroups.map(g => g.profile_name).join(', ')}) carr${draftGroups.length !== 1 ? 'y' : 'ies'} system-proposed protocols awaiting expert validation. Do not use these groups in a formal monitoring programme without review by a qualified biodiversity expert.</div>`
+    : '';
+
   const bioHtml = `<div class="output-section">
     <h2 class="section-title">Biological Monitoring Programme</h2>
-    <div class="advisory-notice">⚠ <strong>Draft protocols</strong> — All indicator profiles are currently DRAFT and unvalidated. Review with your biodiversity expert before finalising your monitoring programme.</div>
+    ${draftNoticeHtml}
     ${out.protocol_assignments.length ? `
     ${bioSummarySentence}
     ${buildBioSection('A — Primary verifiers', 'Directly verify adoption and effectiveness of selected practices', bioB2Groups, true)}

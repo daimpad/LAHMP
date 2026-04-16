@@ -899,7 +899,7 @@ All three Excel workbooks are the canonical source of truth. Always edit the Exc
 | IPCC land use in prototype | Manual multi-select — no ABC Map API | Confirmed for prototype |
 | PDF output | `window.print()` with print CSS — no Puppeteer | Confirmed for prototype |
 | Session persistence | `localStorage` for UX convenience (resume wizard after page reload) | Acceptable — not a data store |
-| Indicator profiles populated | All 41 profiles in `indicators.json` are populated (exported from `_Populated.xlsx`). | Complete |
+| Indicator profiles populated | 41 profiles in `indicators.json` with three states: `true` (32 fully validated), `"draft"` (6 system-proposed — profiles 14, 19, 22, 23, 37, 38), `false` (3 incomplete — profiles 39, 40, 41). Draft profiles appear in Step 4 output with amber "Protocol proposed" badge. False profiles are excluded from Step 4. See `docs/profiles_pending.md` for authoring priorities. | Ongoing — profiles 39–41 pending expert authoring |
 | Scoring algorithm tie-breaking | Alphabetical by group name | Confirmed (per Step 4 spec) |
 | Equipment cross-reference | Equipment requirements extracted per group/level from indicator profiles via `equipmentTextToIds()`. `assignProtocol()` downgrades protocol level when required equipment is unavailable. | Complete |
 | Seasonal windows | Monitoring calendar uses Step 3 access calendar and indicator monitoring_stage (Fast/Medium/Slow) to build a 12-month grid with colour-coded monitoring windows and access constraints. | Complete |

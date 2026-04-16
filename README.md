@@ -53,7 +53,7 @@ LAHMP is a **single-page application** with zero build tooling. All logic runs i
 │  ├── practices.json    ← 43 sustainable land management         │
 │  │                       practices with scoring metadata        │
 │  ├── indicators.json   ← 41 biological indicator profiles       │
-│  │                       with 3-level protocol assignments      │
+│  │                       (32 validated, 6 draft, 3 pending)    │
 │  └── abiotic.json      ← 16 abiotic baseline indicators         │
 │                                                                 │
 │  localStorage ─────────── session persistence (resume on        │
@@ -201,7 +201,7 @@ All content is loaded at runtime from `data/`. These files are the canonical sou
 |---|---|---|
 | `data/reference.json` | 28 pressures, 35 challenges, 37 services, 15 IPCC land use categories, 10 soil types, ~120 EFG options | Block 4/5/6 lists and pre-population mapping tables |
 | `data/practices.json` | 43 practices across 11 themes | Practice Matrix: scoring metadata, eligibility rules, pre-screen linkages |
-| `data/indicators.json` | 41 profiles (36 Universal, 5 Conditional) | Indicator Linkage Matrix: 3-level protocol assignments, seasonal windows, EFG/IPCC linkages |
+| `data/indicators.json` | 41 profiles (32 validated, 6 draft, 3 pending) | Indicator Linkage Matrix: 3-level protocol assignments, seasonal windows, EFG/IPCC linkages. Draft profiles (14, 19, 22, 23, 37, 38) appear in Step 4 output with "Protocol proposed" badge; pending profiles (39–41) are excluded pending expert authoring. See `docs/profiles_pending.md`. |
 | `data/abiotic.json` | 16 indicators | Abiotic Reference Table: baseline measurement protocols and universal baseline flags |
 
 ### Assessment state object
@@ -430,7 +430,7 @@ Before contributing, note what is **deliberately out of scope** for this prototy
 2. Add the row to `raw/LAHMP_Indicator_Linkage_Matrix_Populated.xlsx` (canonical source)
 3. Run `python3 export/extract_indicators.py` to regenerate `data/indicators.json`
 4. Load `?fixture=TEST-01&step=4` and verify the new profile appears when its P-code linkages match the test landscape's selected practices
-5. Confirm `"populated": true` is set in the generated JSON entry
+5. Set `"populated": "draft"` while the profile awaits expert validation; upgrade to `"populated": true` once validated
 
 ### Branching strategy
 
