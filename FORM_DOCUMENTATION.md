@@ -3,6 +3,12 @@
 Complete reference for every user-facing input form in the wizard. Each entry follows the structure:
 **Purpose** · **How to fill it out** · **What happens next**
 
+**Progress indicator**
+A step progress bar is shown at the top of every page. Steps 1–4 are shown as numbered circles connected by lines. A completed step shows a ✓ checkmark. The current step is highlighted in yellow. Clicking a completed step number navigates back to that step without losing entered data.
+
+**Autosave**
+All input is saved automatically to the browser session as you type or change selections. There is no Save button. Data persists if you navigate between steps or reload the page (within the same browser session).
+
 ---
 
 ## Step 1 — Landscape Profile
@@ -176,6 +182,10 @@ For each of the 28 pressures, select the status that best describes its current 
 
 Pressures are grouped by category (e.g. Tillage and Soil Disturbance, Grazing and Biomass Removal, Landscape and Land-Use Change). Review all groups even if most pressures in a group are not relevant. "Not relevant" is the default; you are confirming absence as much as presence.
 
+Each pressure label has an **ⓘ information icon**. Hovering over it shows a full description of what the pressure means in an agricultural landscape context.
+
+**P28 — Other pressure (free-text):** Pressure 28 is a catch-all for significant pressures not captured by P1–P27. If you select any status other than "Not relevant" for P28, a text input field appears below the radio buttons. Enter a brief description of the pressure (e.g. "Recurrent wildfire on eastern slopes" or "Illegal sand extraction from riverbed"). This description is used in the Step 4 narrative and in the monitoring plan record. If P28 is flagged but no description is entered, a warning appears in Step 4 prompting you to add one.
+
 **What happens next**
 As soon as a pressure is changed from "Not relevant" to any other status, the platform immediately recalculates the challenge pre-population in Block 5 and updates the subtitle to show the number of pre-filled challenges. Block 5 will flash green to indicate it has been updated.
 
@@ -192,7 +202,7 @@ The confidence weight applied to each linked challenge depends on pressure statu
 Identifies which land health challenges apply to the landscape and at what confidence level. The challenge list bridges the diagnostic (Block 4 pressures) to the prescriptive (Step 2 practices and Step 4 indicators): practices and indicators are linked to specific challenge IDs, so the confirmed challenge set directly shapes what is recommended.
 
 **How to fill it out**
-Block 5 shows up to 35 land health challenges, organised by category (Soil Health, Water, Biodiversity, etc.). Challenges pre-filled from Block 4 are highlighted with a "Pre-filled" badge and a confidence level badge (High / Medium / Low).
+Block 5 shows up to 35 land health challenges, organised by category (Soil Health, Water, Biodiversity, etc.). Challenges pre-filled from Block 4 are highlighted with a "Pre-filled" badge and a confidence level badge (High / Medium / Low). Each challenge label has an **ⓘ information icon** with a full description of what the challenge means and how it manifests in agricultural landscapes.
 
 **For pre-filled challenges:** Check the box to confirm that the challenge applies to your landscape. Uncheck to reject it. The confidence level shown reflects the platform's inferred assessment based on your pressure responses — you can confirm it even if you would characterise the severity differently.
 
@@ -211,7 +221,7 @@ Confirmed challenges (checked boxes) trigger service pre-population in Block 6. 
 Records which ecosystem services the monitoring programme should track and prioritises the three services that matter most. Priority ranking directly increases the relevance scores of practices (and therefore the visibility of those practices in Step 2 recommendations) linked to those services.
 
 **How to fill it out**
-Block 6 shows up to 37 ecosystem services, pre-filtered based on confirmed challenges from Block 5. Services pre-filled from challenges are highlighted with a "Pre-filled" badge.
+Block 6 shows up to 37 ecosystem services, pre-filtered based on confirmed challenges from Block 5. Services pre-filled from challenges are highlighted with a "Pre-filled" badge. Each service label has an **ⓘ information icon** with a description of what the service covers and how it is measured or affected in an agricultural landscape.
 
 **Selecting services:** Check the box next to each service you want to monitor or that is important to the landscape. You may select as many as relevant. Unchecked services are excluded from practice scoring and narrative output.
 
@@ -266,8 +276,9 @@ Presents the full set of eligible practices — filtered by your landscape conte
 Each practice card shows:
 - **Practice code** (P01–P43) and **name**
 - **Tier badge**: *Standard* (broadly applicable, lower implementation barrier) or *Transformative* (higher impact but more change required)
-- **Scale badge**: Field, Farm, or Landscape — the primary scale at which monitoring occurs
-- **Relevance score** (▲ N): total relevance points calculated from your Step 1 data. Hover over the score to see the breakdown (Pressure points + Challenge points + Service points). Practices with score 0 are still eligible but have no direct linkage to your identified pressures, challenges, or services.
+- **Scale badge**: Field, Farm, or Landscape — the primary scale at which monitoring occurs. Hover the badge to see a tooltip explaining what that scale means in practice.
+- **Relevance score** (▲ N): total relevance points calculated from your Step 1 data. Hover the score icon for a full explanation of the scoring formula. Practices with score 0 are still eligible but have no direct linkage to your confirmed pressures, challenges, or priority services.
+- **Score breakdown chips**: Shown below the rationale text, a row of colour-coded chips identifies exactly which of your Step 1 entries contributed to the score — **amber chips** for matched pressures, **red chips** for matched challenges, **green chips** for matched services. Each chip has an ⓘ icon with the full description of that item. If no chips are shown, the practice scored 0 against your landscape data.
 - **Rationale**: A brief statement explaining why this practice is recommended.
 - **Field guidance** (expandable): Additional guidance including implementation constraints, field observation checklist, evidence of correct implementation, evidence of non-implementation, TAPE framework alignment, and IUCN NBS approach code badges.
 
