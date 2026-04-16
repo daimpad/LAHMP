@@ -2484,15 +2484,20 @@ function buildStep4HTML() {
   const profileNameMap = {};
   indicatorsData.forEach(ind => { profileNameMap[ind.profile_number] = ind.profile_name; });
 
-  // Helper: render one bio card
-  function buildBioCard(g) {
+  // Build calendar lookup by profile_name for frequency display
+  const calendarMap = {};
+  (out.calendar || []).forEach(c => { calendarMap[c.profile_name] = c; });
+
+  // Helper: render one bio table row
+  function buildBioRow(g) {
+    const calEntry = calendarMap[g.profile_name];
     const precursorNames = (g.abiotic_precursor_linkages || []).map(id => abioticNameMap[id] || id);
     const precursorHtml  = precursorNames.length
-      ? `<div class="abiotic-precursors">Abiotic context: ${precursorNames.map(n => `<span class="precursor-tag">${esc(n)}</span>`).join('')}</div>`
+      ? `<details class="eq-details"><summary>Abiotic context (${precursorNames.length})</summary><div class="bio-row-tags">${precursorNames.map(n => `<span class="precursor-tag">${esc(n)}</span>`).join('')}</div></details>`
       : '';
     const connectedNames = (g.linkage_c_connected_groups || []).map(num => profileNameMap[num]).filter(Boolean);
     const connectedHtml = connectedNames.length
-      ? `<div class="connected-groups">Connected with: ${connectedNames.map(cn => `<span class="connected-tag">${esc(cn)}</span>`).join('')}</div>`
+      ? `<details class="eq-details"><summary>Connected (${connectedNames.length})</summary><div class="bio-row-tags">${connectedNames.map(cn => `<span class="connected-tag">${esc(cn)}</span>`).join('')}</div></details>`
       : '';
     const eqLabels = (g.assigned_equipment_ids || []).map(id => EQUIPMENT_CATEGORIES[id] || `Cat. ${id}`);
     const eqHtml   = eqLabels.length
@@ -2503,44 +2508,43 @@ function buildStep4HTML() {
       : g.assigned_reference ? ` <span class="ref-plain" title="${esc(g.assigned_reference)}">[ref]</span>` : '';
     const isPending = !!g.protocol_pending;
     const isDraft   = !!g.protocol_draft && !isPending;
-    const cardClass = isPending ? ' bio-card-pending' : isDraft ? ' bio-card-draft' : '';
-    return `<div class="bio-card${cardClass}">
-      <div class="bio-card-header">
-        <div class="bio-card-title-wrap">
-          <span class="bio-card-name">${esc(g.profile_name)}</span>
-          <span class="bio-card-category">${esc(g.category)}</span>
-        </div>
-        <div class="bio-card-badges">
-          ${isPending
-            ? `<span class="badge badge-pending">Protocol pending</span>`
-            : `<span class="level-badge level-${g.assigned_level}">L${g.assigned_level}${tooltipHtml('Level 1: community observer — basic training, simple tools. Level 2: field technician — species identification skills, standard equipment. Level 3: specialist — laboratory analysis or advanced identification.')}</span>`}
-          ${isDraft ? `<span class="badge badge-draft" title="${esc(g.validation_status || '')}">Protocol proposed</span>` : ''}
-          ${!isPending && g.requires_upgrade ? `<span class="badge badge-warn" title="Requires higher team capacity than currently available">↑ Upgrade</span>` : ''}
-          <span class="badge badge-stage">${esc((g.monitoring_stage||'').split(' ')[0])}</span>
-          <span class="badge badge-inclusion">${esc(g.inclusion_reason)}${g.inclusion_reason === 'B2 primary verifier' ? tooltipHtml('This indicator group directly measures whether your selected practices are working as intended.') : g.inclusion_reason === 'B1 supporting' ? tooltipHtml('This indicator group provides useful ecological context but is not the primary measure for your practices.') : ''}</span>
-        </div>
-      </div>
-      <div class="bio-card-body">
-        ${g.primary_monitoring_role ? `<div class="monitoring-role">${esc(g.primary_monitoring_role)}</div>` : ''}
-        ${isDraft ? `<div class="protocol-draft-notice">Protocol proposed — awaiting expert validation. Do not use in a formal monitoring programme without review by a qualified biodiversity expert.</div>` : ''}
-        ${isPending ? `<div class="protocol-pending-notice">Protocol specification pending — group identified as relevant but field protocol not yet available.</div>` : `
-        <div class="bio-field-row">
-          <span class="bio-field-label">Protocol</span>
-          <span class="bio-field-value">${esc(g.assigned_protocol || 'TBC')}${refHtml}${eqHtml}</span>
-        </div>
-        <div class="bio-field-row">
-          <span class="bio-field-label">Output metric</span>
-          <span class="bio-field-value">${esc(g.assigned_metric || '—')}</span>
-        </div>
-        ${g.b2_expected_direction_of_change ? `
-        <details class="bio-signal-details">
-          <summary class="bio-signal-summary">Expected signal</summary>
-          <p class="bio-signal-text">${esc(g.b2_expected_direction_of_change)}</p>
-        </details>` : ''}`}
+    const rowClass  = isPending ? ' class="bio-row-pending"' : isDraft ? ' class="bio-row-draft"' : '';
+    const levelTip  = tooltipHtml('Level 1: community observer — basic training, simple tools. Level 2: field technician — species identification skills, standard equipment. Level 3: specialist — laboratory analysis or advanced identification.');
+    const freq      = calEntry ? calEntry.frequency : (g.monitoring_stage || '').split(' ')[0];
+    return `<tr${rowClass}>
+      <td>
+        <strong>${esc(g.profile_name)}</strong>
+        ${g.primary_monitoring_role ? `<div class="abiotic-measures">${esc(g.primary_monitoring_role)}</div>` : ''}
         ${precursorHtml}${connectedHtml}
-      </div>
-    </div>`;
+      </td>
+      <td>${esc(g.category)}</td>
+      <td>${isPending
+        ? `<span class="badge badge-pending">Pending</span>`
+        : `<span class="level-badge level-${g.assigned_level}">L${g.assigned_level}${levelTip}</span>`}
+      </td>
+      <td>${isPending
+        ? `<span class="protocol-pending-inline">Protocol specification pending</span>`
+        : `${esc(g.assigned_protocol || 'TBC')}${refHtml}${eqHtml}${g.b2_expected_direction_of_change
+            ? `<details class="eq-details"><summary>Expected signal</summary><p class="interp-note">${esc(g.b2_expected_direction_of_change)}</p></details>`
+            : ''}`}
+      </td>
+      <td>${isPending ? '—' : esc(g.assigned_metric || '—')}</td>
+      <td>${esc(freq)}</td>
+      <td>
+        ${isDraft ? `<span class="badge badge-draft">Protocol proposed</span>` : ''}
+        ${!isPending && g.requires_upgrade ? `<span class="badge badge-warn" title="Requires higher team capacity than currently available">↑ Upgrade</span>` : ''}
+      </td>
+    </tr>`;
   }
+
+  const BIO_TABLE_COLS = `<colgroup>
+    <col style="width:19%"><col style="width:13%"><col style="width:6%">
+    <col style="width:26%"><col style="width:22%"><col style="width:9%"><col style="width:5%">
+  </colgroup>`;
+  const BIO_TABLE_HEAD = `<thead><tr>
+    <th>Indicator group</th><th>Category</th><th>Level</th>
+    <th>Protocol</th><th>Output metric</th><th>Frequency</th><th></th>
+  </tr></thead>`;
 
   // Split kept groups into sections
   const bioB2Groups      = activeAssignments.filter(g => g.inclusion_reason === 'B2 primary verifier');
@@ -2562,7 +2566,10 @@ function buildStep4HTML() {
         <span class="bio-section-desc">${esc(desc)}</span>
       </summary>
       <div class="bio-section-body">
-        <div class="bio-cards">${groups.map(buildBioCard).join('')}</div>
+        <div class="table-scroll"><table class="output-table bio-table">
+          ${BIO_TABLE_COLS}${BIO_TABLE_HEAD}
+          <tbody>${groups.map(buildBioRow).join('')}</tbody>
+        </table></div>
       </div>
     </details>`;
   }

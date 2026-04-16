@@ -1153,6 +1153,17 @@ textarea { resize: vertical; min-height: 80px; }
   font-style: italic;
 }
 
+/* ── Bio table (fixed layout for predictable column widths) ──────────── */
+.bio-table { table-layout: fixed; }
+.bio-table td { overflow-wrap: break-word; }
+
+/* ── Bio table row states ─────────────────────────────────────────────── */
+.bio-row-pending { opacity: 0.65; }
+.bio-row-draft td { background: #fffdf0; }
+.bio-row-draft td:first-child { border-left: 3px solid #f0c04a; }
+.protocol-pending-inline { font-size: .82rem; color: var(--grey-600); font-style: italic; }
+.bio-row-tags { margin-top: 4px; font-size: .75rem; color: var(--grey-600); }
+
 /* ── Pending bio cards ────────────────────────────────────────────────── */
 .bio-card-pending {
   opacity: 0.65;
