@@ -1175,9 +1175,7 @@ textarea { resize: vertical; min-height: 80px; }
 }
 
 @media print {
-  .bio-card { break-inside: avoid; }
-  .bio-section { break-inside: avoid; }
-  .bio-section-body { display: block !important; }
+  /* bio-card and bio-section print rules are consolidated in the main @media print block below */
   .bio-signal-details[open] .bio-signal-text,
   .bio-signal-details .bio-signal-text { display: block !important; }
 }
@@ -1618,48 +1616,101 @@ textarea { resize: vertical; min-height: 80px; }
   display: none; /* shown only in print via @media print below */
 }
 
+/* ── Print running header/footer (screen-hide base) ─────────────────── */
+.print-running-head,
+.print-running-foot { display: none; }
+
 /* ── Print ───────────────────────────────────────────────────────────── */
 @media print {
-  /* Page setup */
-  @page { size: A4; margin: 14mm 12mm 16mm; }
+  /* Page setup — A4, room for running head/foot */
+  @page { size: A4; margin: 22mm 14mm 18mm; }
 
   /* Preserve all colours — badges, calendar cells, level indicators */
   * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
 
-  /* Hide chrome */
+  /* Hide screen-only chrome */
   .print-hide,
   .site-header,
   .step-nav,
   .wizard-footer,
   .output-actions,
   .warnings-block,
-  .fixture-banner { display: none !important; }
+  .fixture-banner,
+  .step-checklist-wrap,
+  .demo-loader,
+  #demo-banner { display: none !important; }
 
   body { background: white; font-size: 10pt; }
 
-  /* Full-width layout — remove screen gutters */
+  /* Full-width layout */
   .container { max-width: 100% !important; padding: 0 !important; }
   .wizard-main { padding: 0 !important; }
   .blocks-container { gap: 8px; }
 
-  /* Sections — shadow off, compact spacing, let content break naturally */
+  /* Running header — repeats on every page */
+  .print-running-head {
+    display: flex !important;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 10mm;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2mm;
+    font-size: 7.5pt;
+    font-family: var(--font-mono), monospace;
+    color: #003478;
+    border-bottom: 1.5px solid #003478;
+    background: white;
+  }
+
+  /* Running footer — repeats on every page */
+  .print-running-foot {
+    display: flex !important;
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    height: 8mm;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2mm;
+    font-size: 7pt;
+    color: #666;
+    border-top: 1px solid #ccc;
+    background: white;
+  }
+
+  /* Sections — shadow off, compact, navy headings */
   .output-section {
     box-shadow: none !important;
-    border: 1px solid #ccc !important;
-    padding: 12px 14px !important;
+    border: 1px solid #ddd !important;
+    padding: 10px 12px !important;
     margin-bottom: 10px !important;
     break-inside: auto;
     page-break-inside: auto;
   }
 
-  /* Narrative stays together */
+  /* Section heading in navy */
+  .section-title {
+    color: #003478 !important;
+    font-size: 11pt;
+    padding-bottom: 6px;
+    margin-bottom: 8px;
+    border-bottom-color: #003478 !important;
+  }
+
+  /* Narrative section stays together */
   .narrative-section { break-inside: avoid; page-break-inside: avoid; }
 
-  /* Summary panel — force wrap to two rows on narrow print */
+  /* Summary panel */
   .output-summary-panel { gap: 10px; }
 
-  /* Section headings */
-  .section-title { font-size: 11pt; padding-bottom: 6px; margin-bottom: 8px; }
+  /* Sections with >3 groups force a new page */
+  .section-force-break {
+    break-before: page;
+    page-break-before: always;
+  }
+
+  /* Bio cards — avoid splitting */
+  .bio-card { break-inside: avoid; page-break-inside: avoid; }
 
   /* Tables — unclip scroll containers, shrink font */
   .table-scroll { overflow: visible !important; }
@@ -1667,11 +1718,11 @@ textarea { resize: vertical; min-height: 80px; }
   .output-table { font-size: 8pt; width: 100%; }
   .cal-output-table { font-size: 8pt; width: 100%; }
 
-  /* Prevent a row from splitting across pages */
+  /* Prevent table rows from splitting across pages */
   .output-table tbody tr,
   .cal-output-table tbody tr { break-inside: avoid; page-break-inside: avoid; }
 
-  /* Keep table headers visible on each page */
+  /* Repeat table headers on each page */
   .output-table thead,
   .cal-output-table thead { display: table-header-group; }
 
@@ -1679,14 +1730,14 @@ textarea { resize: vertical; min-height: 80px; }
   .narrative-paras p { font-size: 10pt; line-height: 1.55; margin-bottom: 8px; }
   .landscape-desc { font-size: 9.5pt; margin: 8px 0; }
 
-  /* Advisory notice — keep but compact */
+  /* Advisory notice */
   .advisory-notice { font-size: 8pt; padding: 6px 10px; margin-bottom: 8px; }
 
   /* Force all <details> open when printing */
   details { display: block !important; }
   details > summary { display: none !important; }
   details > *:not(summary) { display: block !important; }
-  .eq-list, .guidance-body, .interp-note { display: block !important; }
+  .bio-section-body, .eq-list, .guidance-body, .interp-note { display: block !important; }
 
   /* Smaller badge text */
   .badge, .level-badge, .phase-badge { font-size: 7pt; padding: 1px 4px; }
@@ -1694,8 +1745,9 @@ textarea { resize: vertical; min-height: 80px; }
   /* Calendar legend — single line */
   .cal-legend { flex-wrap: nowrap; font-size: 8pt; }
 
-  /* Step 4 intro is hidden via print-hide class already */
-  .step-intro { margin-bottom: 8px; }
+  /* Tooltips hidden in print */
+  .tooltip-wrap .tooltip-box { display: none !important; }
+  .tooltip-icon { display: none !important; }
 
   /* Print-only cover header */
   .print-header {
@@ -1705,7 +1757,7 @@ textarea { resize: vertical; min-height: 80px; }
     margin-bottom: 14px;
   }
   .print-header-brand {
-    font-family: var(--font-mono);
+    font-family: var(--font-mono), monospace;
     font-size: 8pt;
     color: #003478;
     letter-spacing: .04em;
@@ -1713,7 +1765,7 @@ textarea { resize: vertical; min-height: 80px; }
     margin-bottom: 4px;
   }
   .print-header-title {
-    font-family: var(--font-serif);
+    font-family: var(--font-serif), Georgia, serif;
     font-size: 18pt;
     font-weight: 600;
     color: #003478;
